@@ -5,7 +5,11 @@
       "Bash(cp \"C:/Users/Andrzej/Desktop/Loach/src/assets/loach-icon.png\" \"C:/Users/Andrzej/Desktop/Mój Folder/ZTCS/Software/loach-docs/assets/img/loach-icon.png\")",
       "Bash(cp \"C:/Users/Andrzej/Desktop/Loach/src/assets/loach-logo.png\" \"C:/Users/Andrzej/Desktop/Mój Folder/ZTCS/Software/loach-docs/assets/img/loach-logo.png\")",
       "Bash(sed -i 's|<script src=\"assets/js/search\\\\.js\"></script>|<script src=\"assets/js/search-index.js\"></script>\\\\n<script src=\"assets/js/search.js\"></script>|' index.html)",
-      "Bash(sed -i 's|<script src=\"\\\\.\\\\./assets/js/search\\\\.js\"></script>|<script src=\"../assets/js/search-index.js\"></script>\\\\n<script src=\"../assets/js/search.js\"></script>|' pages/*.html)"
+      "Bash(sed -i 's|<script src=\"\\\\.\\\\./assets/js/search\\\\.js\"></script>|<script src=\"../assets/js/search-index.js\"></script>\\\\n<script src=\"../assets/js/search.js\"></script>|' pages/*.html)",
+      "Bash(python -)",
+      "Bash(gh api *)",
+      "Bash(gh raw *)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
