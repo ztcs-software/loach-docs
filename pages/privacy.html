@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Storage &amp; privacy — Loach Docs</title>
+  <meta name="description" content="Where Loach stores its data, what stays local, and what (if anything) goes over the network." />
+  <link rel="icon" type="image/png" href="../assets/img/loach-icon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Loach Docs</span>
+    </a>
+
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Search the docs…" aria-label="Search documentation" />
+      <span class="search-shortcut">Ctrl K</span>
+      <div class="search-results" role="listbox"></div>
+    </div>
+
+    <div class="topbar-spacer"></div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener" aria-label="GitHub repository">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting started</div>
+      <a class="sidebar-link" href="../index.html">Introduction</a>
+      <a class="sidebar-link" href="installation.html">Installation</a>
+      <a class="sidebar-link" href="getting-started.html">Quick start</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Core concepts</div>
+      <a class="sidebar-link" href="concepts.html">Overview</a>
+      <a class="sidebar-link" href="providers.html">Providers</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Reference</div>
+      <a class="sidebar-link" href="features.html">Features</a>
+      <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Help</div>
+      <a class="sidebar-link" href="faq.html">FAQ</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Storage &amp; privacy</h1>
+    <p class="lead">Loach is local-first. Your content lives on your machine, and only requests to <em>remote</em> providers ever leave it. Here's exactly what is stored, where, and what (if anything) goes over the network.</p>
+
+    <h2 id="where">Where things live</h2>
+    <table>
+      <thead><tr><th>What</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Chats, messages, spaces, snippets, MCP servers, app settings</td><td>SQLite at <code>&lt;app-data-dir&gt;/loach.db</code></td></tr>
+        <tr><td>OpenAI API key</td><td>OS credential manager (Windows Credential Manager / Linux Secret Service)</td></tr>
+        <tr><td>App-lock hash + hint</td><td>OS credential manager — same store, separate entry</td></tr>
+        <tr><td>Attached files (images, text)</td><td>Inlined into the message at send time — no separate file store</td></tr>
+        <tr><td>App data dir on Windows</td><td><code>%APPDATA%\dev.loach.app\</code></td></tr>
+        <tr><td>App data dir on Linux</td><td><code>~/.local/share/dev.loach.app/</code></td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="offline">Offline by default</h2>
+    <p>Loach launches and works completely offline as long as you stick to local providers. The following are all available without any network access:</p>
+    <ul>
+      <li>The <strong>Models</strong> library</li>
+      <li><strong>Spaces</strong> and <strong>Snippets</strong></li>
+      <li>Search across chats / spaces / snippets</li>
+      <li>The parameter sidebar</li>
+      <li>The app lock</li>
+      <li>Full chat history</li>
+    </ul>
+    <p>Only chat generations against <strong>remote</strong> endpoints (OpenAI, Groq, OpenRouter, …) need an internet connection.</p>
+
+    <h2 id="no-telemetry">No telemetry</h2>
+    <p>Loach does not phone home. There is no usage tracking, no analytics, no crash reporting service. The only outbound traffic the app makes on its own is the update check (which can be disabled).</p>
+
+    <h2 id="secrets">Secrets handling</h2>
+    <p>API keys and app-lock credentials are stored in your operating system's credential manager via the <a href="https://crates.io/crates/keyring" target="_blank" rel="noopener"><code>keyring</code></a> crate:</p>
+    <ul>
+      <li>On <strong>Windows</strong> — the <strong>Credential Manager</strong>.</li>
+      <li>On <strong>Linux</strong> — the <strong>Secret Service</strong> (GNOME Keyring / KWallet / equivalent).</li>
+    </ul>
+    <p>App-lock secrets are hashed with <strong>Argon2id</strong> before they're stored; the plaintext is never written anywhere.</p>
+
+    <h2 id="backup">Backup, restore and wipe</h2>
+    <p>From <strong>Settings → Data management</strong> you can:</p>
+    <ul>
+      <li><strong>Export</strong> your full content (chats, spaces, snippets, settings) to a JSON file.</li>
+      <li><strong>Restore</strong> from a previously exported file.</li>
+      <li><strong>Permanently delete</strong> all stored data in a few clicks.</li>
+    </ul>
+    <p>API keys are not part of the export — they live in the OS credential manager and stay there until you remove them.</p>
+
+    <h2 id="tech">Tech &amp; stack</h2>
+    <p>For the curious, here's the stack behind these guarantees:</p>
+    <table>
+      <thead><tr><th>Layer</th><th>Choice</th></tr></thead>
+      <tbody>
+        <tr><td>Desktop shell</td><td>Tauri 2.x (Rust)</td></tr>
+        <tr><td>Frontend</td><td>React 18 + Vite 7 + TypeScript</td></tr>
+        <tr><td>Styling</td><td>Tailwind CSS + shadcn/ui (Radix primitives)</td></tr>
+        <tr><td>Icons</td><td><code>lucide-react</code></td></tr>
+        <tr><td>State</td><td>Zustand (in-memory; SQLite-backed where appropriate)</td></tr>
+        <tr><td>Storage</td><td>SQLite via <code>rusqlite</code> (bundled — no system dependency)</td></tr>
+        <tr><td>Secrets</td><td><code>keyring</code> crate → Windows Credential Manager / Linux Secret Service</td></tr>
+        <tr><td>Hashing</td><td><code>argon2</code> + <code>rand_core</code> (app-lock)</td></tr>
+        <tr><td>HTTP</td><td><code>reqwest</code> with streaming + <code>rustls-tls</code></td></tr>
+        <tr><td>Markdown</td><td><code>react-markdown</code> + <code>remark-gfm</code> + <code>rehype-highlight</code></td></tr>
+        <tr><td>Document parsing</td><td><code>pdfjs-dist</code> (PDF) + <code>mammoth</code> (DOCX)</td></tr>
+        <tr><td>System tray</td><td>Tauri 2 built-in (<code>tray-icon</code> feature)</td></tr>
+        <tr><td>Bundle targets</td><td>NSIS <code>.exe</code> on Windows; <code>.deb</code> / <code>.rpm</code> / <code>.AppImage</code> on Linux</td></tr>
+      </tbody>
+    </table>
+
+    <div class="page-nav">
+      <a href="features.html">
+        <span class="label">Previous</span>
+        <span class="title">← Features</span>
+      </a>
+      <a href="faq.html" class="next">
+        <span class="label">Next</span>
+        <span class="title">FAQ →</span>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Loach is MIT-licensed and built by <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a>.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/search-index.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>

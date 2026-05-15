@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Providers — Loach Docs</title>
+  <meta name="description" content="Configure Ollama or any OpenAI-compatible endpoint as your model provider in Loach." />
+  <link rel="icon" type="image/png" href="../assets/img/loach-icon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">L</span>
+      <span class="brand-name">Loach Docs</span>
+    </a>
+
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Search the docs…" aria-label="Search documentation" />
+      <span class="search-shortcut">Ctrl K</span>
+      <div class="search-results" role="listbox"></div>
+    </div>
+
+    <div class="topbar-spacer"></div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener" aria-label="GitHub repository">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting started</div>
+      <a class="sidebar-link" href="../index.html">Introduction</a>
+      <a class="sidebar-link" href="installation.html">Installation</a>
+      <a class="sidebar-link" href="getting-started.html">Quick start</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Core concepts</div>
+      <a class="sidebar-link" href="concepts.html">Overview</a>
+      <a class="sidebar-link" href="providers.html">Providers</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Reference</div>
+      <a class="sidebar-link" href="features.html">Features</a>
+      <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Help</div>
+      <a class="sidebar-link" href="faq.html">FAQ</a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Providers</h1>
+    <p class="lead">Loach doesn't ship with built-in models. It connects to a provider you choose — local or remote. Both kinds are available side-by-side; switch from the chat header.</p>
+
+    <h2 id="ollama">Ollama (local)</h2>
+    <p><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> is the easiest way to run open-weight models on your machine. Loach probes <code>http://localhost:11434</code> on launch; any models you've pulled appear in the chat header automatically.</p>
+
+    <h3 id="ollama-setup">Setup</h3>
+    <ol>
+      <li>Install Ollama from <a href="https://ollama.com/download" target="_blank" rel="noopener">ollama.com/download</a>.</li>
+      <li>Start the server: <code>ollama serve</code> (or just open the Ollama app — it runs in the background).</li>
+      <li>Pull at least one model: <code>ollama pull gemma3:4b</code>.</li>
+      <li>Open Loach. The model appears in the chat-header dropdown.</li>
+    </ol>
+
+    <h3 id="ollama-library">The Models library</h3>
+    <p>The <strong>Models</strong> tab inside Loach is a full UI on top of the Ollama HTTP API. From there you can:</p>
+    <ul>
+      <li>Pull new tags by name.</li>
+      <li>Copy a model under a new name.</li>
+      <li>Customize an existing model with a <em>Modelfile</em> (system prompt, parameters, templates).</li>
+      <li>Delete models you no longer need.</li>
+    </ul>
+
+    <h3 id="ollama-remote">Pointing at a remote Ollama</h3>
+    <p>If Ollama is running on another machine on your network, change the base URL in <strong>Settings → Providers → Ollama</strong>. Make sure the remote server is reachable from your machine and listening on a routable interface.</p>
+
+    <h2 id="openai">OpenAI-compatible endpoints</h2>
+    <p>Anything that speaks the OpenAI Chat Completions protocol works. Configure it in <strong>Settings → Providers</strong>:</p>
+    <ol>
+      <li>Paste the <strong>API key</strong> (stored in your OS credential manager — never in plain text on disk).</li>
+      <li>Set the <strong>base URL</strong> for the endpoint.</li>
+      <li>Save. The provider becomes selectable from the chat header.</li>
+    </ol>
+
+    <h3 id="endpoints">Common base URLs</h3>
+    <table>
+      <thead>
+        <tr><th>Provider</th><th>Base URL</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OpenAI</td><td><code>https://api.openai.com/v1</code> <em>(default)</em></td></tr>
+        <tr><td>vLLM</td><td><code>http://localhost:8000/v1</code></td></tr>
+        <tr><td>LM Studio</td><td><code>http://localhost:1234/v1</code></td></tr>
+        <tr><td>LiteLLM</td><td><code>http://localhost:4000/v1</code></td></tr>
+        <tr><td>llama.cpp <code>llama-server</code></td><td><code>http://localhost:8080/v1</code></td></tr>
+        <tr><td>Groq</td><td><code>https://api.groq.com/openai/v1</code></td></tr>
+        <tr><td>OpenRouter</td><td><code>https://openrouter.ai/api/v1</code></td></tr>
+        <tr><td>Together, Fireworks, Mistral</td><td>per their docs</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout note">
+      <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <div class="callout-body">
+        <div class="callout-title">One endpoint at a time</div>
+        <p>Only one OpenAI-compatible endpoint is active at a time. To switch providers (say, from Groq to OpenRouter) change the base URL and key in Settings — your chats with the previous endpoint are preserved.</p>
+      </div>
+    </div>
+
+    <h2 id="default-model">Default model</h2>
+    <p>Pick the model new chats should open with — independently for each provider. New conversations honour the default; you can still change the model per-chat from the header.</p>
+
+    <h2 id="preload">Preloading and Low VRAM</h2>
+    <p>Two settings worth knowing about for local providers:</p>
+    <ul>
+      <li><strong>Model preloading</strong> — optionally warm your default local model into VRAM at launch, so the first message streams faster.</li>
+      <li><strong>Low VRAM mode</strong> — a global or per-chat toggle that sends Ollama's <code>low_vram</code> flag with every request. Useful on lower-spec devices.</li>
+    </ul>
+
+    <div class="page-nav">
+      <a href="concepts.html">
+        <span class="label">Previous</span>
+        <span class="title">← Core concepts</span>
+      </a>
+      <a href="features.html" class="next">
+        <span class="label">Next</span>
+        <span class="title">Features →</span>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Loach is MIT-licensed and built by <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a>.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/search-index.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>
