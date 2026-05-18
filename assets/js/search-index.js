@@ -161,132 +161,6 @@ window.LOACH_SEARCH_INDEX = [
     "body": "Model preloading warms your default local model into VRAM at launch so the first message streams faster. Low VRAM mode sends Ollama's low_vram flag with every request — useful on lower-spec devices."
   },
   {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Provider selection",
-    "anchor": "provider-switch",
-    "body": "Switch between Ollama local models and any OpenAI-compatible endpoint from the chat header."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Local model management",
-    "anchor": "models-library",
-    "body": "Pull, copy, customize and delete local models from inside the app. The Models library tab is a full UI over the Ollama HTTP API."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Per-chat parameters",
-    "anchor": "parameters",
-    "body": "temperature, top_k, top_p, min_p, max_tokens, context length, per-chat system prompts. Layered over Modelfile and per-model defaults."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Generation stats",
-    "anchor": "stats",
-    "body": "Inline tok/s, total tokens and elapsed time under every model turn so you always know how the model performed."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Markdown rendering",
-    "anchor": "markdown",
-    "body": "Full GitHub-flavoured Markdown with tables, task lists and LaTeX support — rendered live as the response streams."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Code blocks and canvas",
-    "anchor": "code",
-    "body": "Code blocks are syntax-highlighted with line numbers and offer copy, export and open in canvas options. The code canvas opens any code block in a wider, theme-aware view."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Voice dictation",
-    "anchor": "voice",
-    "body": "A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Web fetch",
-    "anchor": "web-fetch",
-    "body": "Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Temporal awareness",
-    "anchor": "temporal",
-    "body": "Optionally inject current date, time, weekday and timezone into the system prompt so the model can answer what day is it today correctly."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "MCP support",
-    "anchor": "mcp",
-    "body": "Register Model Context Protocol servers (Streamable HTTP), test the handshake and inspect the tools they provide. Once registered tools become available to the model during a chat."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Default model selector",
-    "anchor": "default-model",
-    "body": "Pick a model new chats open with, per provider. No need to re-select on each fresh conversation."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Low VRAM mode",
-    "anchor": "low-vram",
-    "body": "Global or per-chat toggle that sends Ollama's low_vram flag with every request — useful on lower-spec devices."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "App lock",
-    "anchor": "app-lock",
-    "body": "Optional PIN, password or PIN + password gate at launch. Credentials are hashed with Argon2id and stored in the OS credential manager."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Data management",
-    "anchor": "data-management",
-    "body": "Make a backup of your content to a JSON file, restore data, or permanently delete everything with a few clicks."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Themes",
-    "anchor": "themes",
-    "body": "Two themes — Aurora (glassy, gradient) and Solid (flat) — both available in Dark and Light variants."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "OTA updates",
-    "anchor": "ota",
-    "body": "Get new features, bug fixes, performance improvements and security patches directly from the app — no manual download needed."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Search",
-    "anchor": "search",
-    "body": "Search across chats, spaces and snippets — plus a browser-style in-chat finder with phrase highlighting."
-  },
-  {
-    "title": "Features",
-    "url": "pages/features.html",
-    "heading": "Chat archive",
-    "anchor": "archive",
-    "body": "Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view."
-  },
-  {
     "title": "Storage & privacy",
     "url": "pages/privacy.html",
     "heading": "Where things live",
@@ -397,6 +271,181 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Where do I report a bug or request a feature?",
     "anchor": "troubleshooting",
     "body": "Open an issue on the GitHub repository at github.com/ztcs-software/loach/issues. Please include your OS, Loach version, and steps to reproduce."
+  },
+  {
+    "title": "Features",
+    "url": "pages/features.html",
+    "heading": "All features",
+    "anchor": "",
+    "body": "A reference for every feature Loach ships with today, grouped by category. Pick a category or open any feature for the full description."
+  },
+  {
+    "title": "Provider selection",
+    "url": "pages/features/provider-selection.html",
+    "heading": "Provider selection",
+    "anchor": "",
+    "body": "Switch between Ollama local models and any OpenAI-compatible endpoint from the chat header."
+  },
+  {
+    "title": "Local model management",
+    "url": "pages/features/model-management.html",
+    "heading": "Local model management",
+    "anchor": "",
+    "body": "Pull, copy, customize and delete local models from inside the app. The Models library tab is a full UI over the Ollama HTTP API."
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Per-chat parameters",
+    "anchor": "",
+    "body": "temperature, top_k, top_p, min_p, max_tokens, context length, per-chat system prompts. Layered over Modelfile and per-model defaults."
+  },
+  {
+    "title": "Personas and tones",
+    "url": "pages/features/personas.html",
+    "heading": "Personas and tones",
+    "anchor": "",
+    "body": "Pick a role (Code Reviewer, Translator, ELI5) and a delivery style (Formal, Casual, Concise, Detailed). They layer on top of your custom instructions."
+  },
+  {
+    "title": "Custom instructions",
+    "url": "pages/features/custom-instructions.html",
+    "heading": "Custom instructions",
+    "anchor": "",
+    "body": "Free-text instructions injected into the system prompt. Set globally, per Space, or per chat. Lower scope wins over higher scope."
+  },
+  {
+    "title": "Generation stats",
+    "url": "pages/features/generation-stats.html",
+    "heading": "Generation stats",
+    "anchor": "",
+    "body": "Inline tok/s, total tokens and elapsed time under every model turn so you always know how the model performed."
+  },
+  {
+    "title": "Markdown rendering",
+    "url": "pages/features/markdown.html",
+    "heading": "Markdown rendering",
+    "anchor": "",
+    "body": "Full GitHub-flavoured Markdown with tables, task lists and LaTeX support, rendered live as the response streams."
+  },
+  {
+    "title": "Code blocks & canvas",
+    "url": "pages/features/code-canvas.html",
+    "heading": "Code blocks & canvas",
+    "anchor": "",
+    "body": "Code blocks are syntax-highlighted with line numbers and offer copy, export and open in canvas options. The code canvas opens any code block in a wider, theme-aware view."
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "Spaces",
+    "anchor": "",
+    "body": "Group chats around a project, with shared instructions, reference files and memory."
+  },
+  {
+    "title": "Snippets",
+    "url": "pages/features/snippets.html",
+    "heading": "Snippets",
+    "anchor": "",
+    "body": "Save reusable prompts with an optional pinned model. Click Run to open a fresh chat pre-filled with the prompt."
+  },
+  {
+    "title": "Chat archive",
+    "url": "pages/features/chat-archive.html",
+    "heading": "Chat archive",
+    "anchor": "",
+    "body": "Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view."
+  },
+  {
+    "title": "Search",
+    "url": "pages/features/search.html",
+    "heading": "Search",
+    "anchor": "",
+    "body": "Search across chats, spaces and snippets, plus a browser-style in-chat finder with phrase highlighting."
+  },
+  {
+    "title": "Import and export context",
+    "url": "pages/features/import-export.html",
+    "heading": "Import and export context",
+    "anchor": "",
+    "body": "Export chat context to JSON or Markdown, and paste exported data back into any chat's context."
+  },
+  {
+    "title": "Voice dictation",
+    "url": "pages/features/voice-dictation.html",
+    "heading": "Voice dictation",
+    "anchor": "",
+    "body": "A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use."
+  },
+  {
+    "title": "Web fetch",
+    "url": "pages/features/web-fetch.html",
+    "heading": "Web fetch",
+    "anchor": "",
+    "body": "Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request."
+  },
+  {
+    "title": "Temporal awareness",
+    "url": "pages/features/temporal-awareness.html",
+    "heading": "Temporal awareness",
+    "anchor": "",
+    "body": "Optionally inject current date, time, weekday and timezone into the system prompt so the model can answer what day is it today correctly."
+  },
+  {
+    "title": "MCP support",
+    "url": "pages/features/mcp.html",
+    "heading": "MCP support",
+    "anchor": "",
+    "body": "Register Model Context Protocol servers (Streamable HTTP), test the handshake and inspect the tools they provide. Tools become available to the model during a chat."
+  },
+  {
+    "title": "Default model selector",
+    "url": "pages/features/default-model.html",
+    "heading": "Default model selector",
+    "anchor": "",
+    "body": "Pick a model new chats open with, per provider. No need to re-select on each fresh conversation."
+  },
+  {
+    "title": "Model preloading",
+    "url": "pages/features/model-preloading.html",
+    "heading": "Model preloading",
+    "anchor": "",
+    "body": "Optionally warm your default local model into VRAM at launch so the first message streams faster."
+  },
+  {
+    "title": "Low VRAM mode",
+    "url": "pages/features/low-vram.html",
+    "heading": "Low VRAM mode",
+    "anchor": "",
+    "body": "Global or per-chat toggle that sends Ollama's low_vram flag with every request — useful on lower-spec devices."
+  },
+  {
+    "title": "App lock",
+    "url": "pages/features/app-lock.html",
+    "heading": "App lock",
+    "anchor": "",
+    "body": "Optional PIN, password or PIN + password gate at launch. Credentials are hashed with Argon2id and stored in the OS credential manager."
+  },
+  {
+    "title": "Data management",
+    "url": "pages/features/data-management.html",
+    "heading": "Data management",
+    "anchor": "",
+    "body": "Make a backup of your content to a JSON file, restore data, or permanently delete everything with a few clicks."
+  },
+  {
+    "title": "Themes",
+    "url": "pages/features/themes.html",
+    "heading": "Themes",
+    "anchor": "",
+    "body": "Two themes — Aurora (glassy, gradient) and Solid (flat) — both available in Dark and Light variants."
+  },
+  {
+    "title": "OTA updates",
+    "url": "pages/features/ota-updates.html",
+    "heading": "OTA updates",
+    "anchor": "",
+    "body": "Get new features, bug fixes, performance improvements and security patches directly from the app, no manual download needed."
   }
 ]
 ;

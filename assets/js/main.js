@@ -66,9 +66,51 @@
 
     // ---------- Active sidebar link ----------
     const path = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.sidebar-link').forEach(function (link) {
+    const isFeaturePage = /\/features\/[^/]+\.html$/.test(window.location.pathname.replace(/\\/g, '/'));
+    document.querySelectorAll('.sidebar-link, .sidebar-sublink').forEach(function (link) {
       const href = link.getAttribute('href').split('/').pop();
       if (href === path) link.classList.add('active');
+    });
+
+    // ---------- Collapsible sidebar groups ----------
+    const GROUP_KEY = 'loach-docs-sidebar-groups';
+    let groupState = {};
+    try { groupState = JSON.parse(localStorage.getItem(GROUP_KEY) || '{}') || {}; } catch (_) { groupState = {}; }
+
+    document.querySelectorAll('.sidebar-group').forEach(function (group) {
+      const id = group.dataset.group || '';
+      const toggle = group.querySelector('.sidebar-group-toggle');
+      const submenu = group.querySelector('.sidebar-submenu');
+      if (!toggle || !submenu) return;
+
+      const hasActiveChild = !!submenu.querySelector('.sidebar-sublink.active');
+      const stored = Object.prototype.hasOwnProperty.call(groupState, id) ? !!groupState[id] : null;
+
+      // Auto-open if on a feature page or a sublink is active; else fall back to stored state.
+      let open = hasActiveChild || (id === 'features' && isFeaturePage);
+      if (!open && stored !== null) open = stored;
+
+      group.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const nowOpen = !group.classList.contains('open');
+        group.classList.toggle('open', nowOpen);
+        toggle.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+        if (id) {
+          groupState[id] = nowOpen;
+          try { localStorage.setItem(GROUP_KEY, JSON.stringify(groupState)); } catch (_) {}
+        }
+      });
+    });
+
+    // Close mobile sidebar when a sublink is tapped too
+    document.querySelectorAll('.sidebar-sublink').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 980) closeSidebar();
+      });
     });
 
     // ---------- Site switcher dropdown ----------

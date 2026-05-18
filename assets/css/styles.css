@@ -543,12 +543,205 @@ img { max-width: 100%; }
   border-left-color: var(--accent);
 }
 
+/* Collapsible group (e.g. Features) */
+.sidebar-group {
+  margin: 1px 0;
+}
+.sidebar-group-header {
+  display: flex;
+  align-items: stretch;
+  border-radius: var(--radius-sm);
+}
+.sidebar-group-header .sidebar-link {
+  flex: 1;
+  margin: 0;
+}
+.sidebar-group-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  flex-shrink: 0;
+  background: transparent;
+  border: 0;
+  color: var(--text-subtle);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+  padding: 0;
+}
+.sidebar-group-toggle:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+.sidebar-group-toggle svg {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--transition);
+}
+.sidebar-group.open > .sidebar-group-header .sidebar-group-toggle svg,
+.sidebar-group.open > .sidebar-group-toggle svg {
+  transform: rotate(180deg);
+}
+.sidebar-submenu {
+  list-style: none;
+  padding: 2px 0 4px;
+  margin: 0 0 0 12px;
+  border-left: 1px solid var(--border);
+  display: none;
+}
+.sidebar-group.open > .sidebar-submenu {
+  display: block;
+}
+.sidebar-sublink {
+  display: block;
+  padding: 5px 10px;
+  margin-left: 4px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  font-size: 13.5px;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  padding-left: 12px;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.sidebar-sublink:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+  text-decoration: none;
+}
+.sidebar-sublink.active {
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+/* Nested category level under Features
+   ----------------------------------------------------------
+   Outer category list is indented + tree-lined so categories
+   visually sit underneath the Features parent. Each category
+   then opens its own per-feature list, further indented. */
+.sidebar-submenu--categories {
+  margin: 4px 0 4px 14px;
+  border-left: 1px solid var(--border);
+  padding: 2px 0;
+}
+.sidebar-group--category { margin: 0; }
+
+/* Category row: full-width button, label left, chevron right.
+   Explicitly resets width/justify-content inherited from the
+   base .sidebar-group-toggle (which targets the Features chevron). */
+.sidebar-category-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  width: 100%;
+  height: auto;
+  padding: 5px 10px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 13.5px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+.sidebar-category-toggle:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+.sidebar-category-toggle span {
+  flex: 1;
+  order: 1;
+}
+.sidebar-category-toggle svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--text-subtle);
+  order: 2;
+  transition: transform var(--transition);
+}
+.sidebar-group--category.open > .sidebar-category-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* Per-feature list inside a category (the only level with a tree-line) */
+.sidebar-group--category > .sidebar-submenu {
+  margin-left: 14px;
+  border-left: 1px solid var(--border);
+  padding: 1px 0 4px;
+}
+.sidebar-group--category > .sidebar-submenu .sidebar-sublink {
+  font-size: 13px;
+  padding: 4px 10px 4px 12px;
+}
+
 /* Main content */
 .content {
   flex: 1;
   min-width: 0;
   padding: 36px 48px 80px;
   max-width: 880px;
+}
+
+/* Breadcrumb / back-link above an h1 */
+.breadcrumb {
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+/* Feature grid on the Features overview page */
+.feature-grid {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.feature-grid li { margin: 0; }
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: var(--text);
+  text-decoration: none;
+  height: 100%;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.feature-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+.feature-card-title {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 15px;
+}
+.feature-card-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
 }
 
 /* Right-side "On this page" TOC */

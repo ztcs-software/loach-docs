@@ -75,7 +75,96 @@
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
-      <a class="sidebar-link" href="features.html">Features</a>
+      <div class="sidebar-group" data-group="features">
+        <div class="sidebar-group-header">
+          <a class="sidebar-link" href="features.html">Features</a>
+          <button class="sidebar-group-toggle" type="button" aria-expanded="false" aria-label="Expand Features">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+        <ul class="sidebar-submenu sidebar-submenu--categories">
+          <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Chat experience</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
+              <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
+              <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
+              <li><a class="sidebar-sublink" href="features/personas.html">Personas and tones</a></li>
+              <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
+              <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
+              <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Organization</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
+              <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
+              <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Input &amp; output</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
+              <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Advanced</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
+              <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
+              <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Security &amp; data</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
+              <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Appearance</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Updates</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
     </div>
     <div class="sidebar-section">
@@ -99,7 +188,7 @@ ollama pull gemma3:4b      # or any other tag</code></pre>
       <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       <div class="callout-body">
         <div class="callout-title">Tip</div>
-        <p>Pick a model that fits your VRAM. <code>gemma3:4b</code>, <code>qwen3:4b</code> and <code>deepseek-r1:7b</code> are good starting points for most laptops. For lower-spec devices, see <a href="features.html#low-vram">Low VRAM mode</a>.</p>
+        <p>Pick a model that fits your VRAM. <code>gemma3:4b</code>, <code>qwen3:4b</code> and <code>deepseek-r1:7b</code> are good starting points for most laptops. For lower-spec devices, see <a href="features/low-vram.html">Low VRAM mode</a>.</p>
       </div>
     </div>
 
@@ -135,7 +224,7 @@ ollama pull gemma3:4b      # or any other tag</code></pre>
     <ul>
       <li>Read <a href="concepts.html">Core concepts</a> to understand chats, spaces, snippets and parameters.</li>
       <li>Skim <a href="features.html">Features</a> to see what else is available — voice dictation, MCP servers, web fetch, code canvas and more.</li>
-      <li>Lock the app behind a PIN or password — see <a href="features.html#app-lock">App lock</a>.</li>
+      <li>Lock the app behind a PIN or password — see <a href="features/app-lock.html">App lock</a>.</li>
     </ul>
 
     <div class="page-nav">

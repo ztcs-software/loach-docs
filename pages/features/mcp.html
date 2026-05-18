@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loach — A native, local-first AI workspace</title>
-  <meta name="description" content="Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint." />
-  <link rel="icon" type="image/png" href="assets/img/loach-icon.png" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>MCP support — Loach Docs</title>
+  <meta name="description" content="Register Model Context Protocol servers (Streamable HTTP), test the handshake and inspect the tools they provide. Once registered, tools become available to the model during a chat — bringing structured external capabilities into your conversation." />
+  <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     <button class="icon-btn menu-btn" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <a class="brand" href="index.html">
+    <a class="brand" href="../../index.html">
       <span class="brand-mark">L</span>
       <span class="brand-name">Loach Docs</span>
     </a>
@@ -64,20 +64,20 @@
   <aside class="sidebar">
     <div class="sidebar-section">
       <div class="sidebar-section-title">Getting started</div>
-      <a class="sidebar-link" href="index.html">Introduction</a>
-      <a class="sidebar-link" href="pages/installation.html">Installation</a>
-      <a class="sidebar-link" href="pages/getting-started.html">Quick start</a>
+      <a class="sidebar-link" href="../../index.html">Introduction</a>
+      <a class="sidebar-link" href="../installation.html">Installation</a>
+      <a class="sidebar-link" href="../getting-started.html">Quick start</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Core concepts</div>
-      <a class="sidebar-link" href="pages/concepts.html">Overview</a>
-      <a class="sidebar-link" href="pages/providers.html">Providers</a>
+      <a class="sidebar-link" href="../concepts.html">Overview</a>
+      <a class="sidebar-link" href="../providers.html">Providers</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
         <div class="sidebar-group-header">
-          <a class="sidebar-link" href="pages/features.html">Features</a>
+          <a class="sidebar-link" href="../features.html">Features</a>
           <button class="sidebar-group-toggle" type="button" aria-expanded="false" aria-label="Expand Features">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
@@ -89,14 +89,14 @@
               <span>Chat experience</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/provider-selection.html">Provider selection</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/model-management.html">Local model management</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/parameters.html">Per-chat parameters</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/personas.html">Personas and tones</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/custom-instructions.html">Custom instructions</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/generation-stats.html">Generation stats</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/markdown.html">Markdown rendering</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
+              <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
+              <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
+              <li><a class="sidebar-sublink" href="personas.html">Personas and tones</a></li>
+              <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
+              <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
+              <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -105,11 +105,11 @@
               <span>Organization</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/spaces.html">Spaces</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/snippets.html">Snippets</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/chat-archive.html">Chat archive</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/search.html">Search</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/import-export.html">Import and export context</a></li>
+              <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
+              <li><a class="sidebar-sublink" href="search.html">Search</a></li>
+              <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
@@ -118,9 +118,9 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/voice-dictation.html">Voice dictation</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/web-fetch.html">Web fetch</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/temporal-awareness.html">Temporal awareness</a></li>
+              <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
+              <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
@@ -129,10 +129,10 @@
               <span>Advanced</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/mcp.html">MCP support</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/default-model.html">Default model selector</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/model-preloading.html">Model preloading</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/low-vram.html">Low VRAM mode</a></li>
+              <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
+              <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
+              <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
@@ -141,8 +141,8 @@
               <span>Security &amp; data</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/app-lock.html">App lock</a></li>
-              <li><a class="sidebar-sublink" href="pages/features/data-management.html">Data management</a></li>
+              <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
+              <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
@@ -151,7 +151,7 @@
               <span>Appearance</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/themes.html">Themes</a></li>
+              <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-updates">
@@ -160,97 +160,43 @@
               <span>Updates</span>
             </button>
             <ul class="sidebar-submenu">
-              <li><a class="sidebar-sublink" href="pages/features/ota-updates.html">OTA updates</a></li>
+              <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
         </ul>
       </div>
-      <a class="sidebar-link" href="pages/privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Help</div>
-      <a class="sidebar-link" href="pages/faq.html">FAQ</a>
+      <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
 
   <main class="content">
-
-    <div class="hero">
-      <span class="chip">Local-first · Open source · Free</span>
-      <h1>Loach</h1>
-      <p class="hero-sub">A native, local-first AI workspace for desktops. Run local LLMs with Ollama, or connect any OpenAI-compatible endpoint side-by-side — with a focused UX, native apps for Windows and Linux, and powerful features out of the box.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="pages/installation.html">
-          Install Loach
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a class="btn" href="pages/getting-started.html">Quick start</a>
-        <a class="btn" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
-          View on GitHub
-        </a>
-      </div>
-    </div>
-
-    <h2 id="what-is-loach">What is Loach?</h2>
-    <p>Loach is an all-in-one desktop AI workspace built around a single idea: talking to an LLM should feel effortless. Simple from the first click and ready to grow with you as your needs do. It talks to a local Ollama server and accepts any OpenAI-compatible endpoint as a provider — including <strong>llama.cpp</strong>, <strong>LM Studio</strong>, <strong>vLLM</strong> and <strong>LiteLLM</strong>.</p>
-
-    <p>With local models — Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and others — your data stays on your machine. There is <strong>no telemetry</strong>, no required network access, no paid subscriptions and no usage limits. Optional API keys live in your operating system's credential manager.</p>
-
-    <p>Behind a calm, beautifully crafted UI sits a rich feature set — ready when you need it, out of the way when you don't.</p>
-
-    <h2 id="highlights">Highlights</h2>
-    <div class="card-grid">
-      <a class="card" href="pages/concepts.html#providers">
-        <div class="card-title">Two providers, side-by-side</div>
-        <div class="card-desc">Switch between a local Ollama server and any OpenAI-compatible endpoint right from the chat header.</div>
-      </a>
-      <a class="card" href="pages/concepts.html#spaces">
-        <div class="card-title">Spaces</div>
-        <div class="card-desc">Group chats around a project, with shared instructions, reference files and memory.</div>
-      </a>
-      <a class="card" href="pages/concepts.html#snippets">
-        <div class="card-title">Snippets</div>
-        <div class="card-desc">Reusable prompts with an optional pinned model — click <em>Run</em> and a fresh chat is pre-filled.</div>
-      </a>
-      <a class="card" href="pages/features/parameters.html">
-        <div class="card-title">Per-chat parameters</div>
-        <div class="card-desc">Tune temperature, top_k, top_p, min_p, context length and more — layered over Modelfile defaults.</div>
-      </a>
-      <a class="card" href="pages/features/mcp.html">
-        <div class="card-title">MCP support</div>
-        <div class="card-desc">Register Model Context Protocol servers, inspect tools, and use them from chats.</div>
-      </a>
-      <a class="card" href="pages/privacy.html">
-        <div class="card-title">Local-first &amp; private</div>
-        <div class="card-desc">Everything lives in a local SQLite file. API keys go to the OS credential manager — never to disk.</div>
-      </a>
-    </div>
-
-    <h2 id="next">Where to next?</h2>
-    <ul>
-      <li><a href="pages/installation.html">Installation</a> — pre-built packages for Windows &amp; Linux, or build from source.</li>
-      <li><a href="pages/getting-started.html">Quick start</a> — your first chat with a local model in two minutes.</li>
-      <li><a href="pages/concepts.html">Core concepts</a> — providers, chats, spaces, snippets, parameters.</li>
-      <li><a href="pages/features.html">Features</a> — the full feature reference.</li>
-      <li><a href="pages/faq.html">FAQ</a> — the questions people ask first.</li>
-    </ul>
+    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <h1>MCP support</h1>
+    <p class="lead">Register <strong>Model Context Protocol</strong> servers (Streamable HTTP), test the handshake and inspect the tools they provide. Once registered, tools become available to the model during a chat — bringing structured external capabilities into your conversation.</p>
 
     <div class="page-nav">
-      <a href="pages/installation.html" class="next" style="margin-left:auto">
+      <a href="temporal-awareness.html">
+        <span class="label">Previous</span>
+        <span class="title">← Temporal awareness</span>
+      </a>
+      <a href="default-model.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Installation →</span>
+        <span class="title">Default model selector →</span>
       </a>
     </div>
 
     <footer class="site-footer">
-      <p>Loach is MIT-licensed and built by <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a>. Docs &amp; site © ZTCS.</p>
+      <p>Loach is MIT-licensed and built by <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a>.</p>
     </footer>
   </main>
 </div>
 
-<script src="assets/js/main.js"></script>
-<script src="assets/js/search-index.js"></script>
-<script src="assets/js/search.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/search-index.js"></script>
+<script src="../../assets/js/search.js"></script>
 </body>
 </html>

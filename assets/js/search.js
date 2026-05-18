@@ -6,10 +6,12 @@
   let visibleResults = [];
 
   function getBasePath() {
-    // Determine "../" prefix needed depending on page location.
-    // Pages in /pages/ need ../, the root index does not.
-    const path = window.location.pathname;
-    return path.indexOf('/pages/') !== -1 ? '../' : '';
+    // Determine "../" prefix needed to reach the site root from the current page.
+    // Root index → '', /pages/<x>.html → '../', /pages/features/<x>.html → '../../'.
+    const path = window.location.pathname.replace(/\\/g, '/');
+    if (/\/pages\/[^/]+\/[^/]+\.html?$/.test(path)) return '../../';
+    if (path.indexOf('/pages/') !== -1) return '../';
+    return '';
   }
 
   function loadIndex() {
