@@ -57,9 +57,9 @@
   --bg-hover: #232934;
   --bg-code: #1a1f28;
 
-  --text: #e7e9ec;
-  --text-muted: #a1a8b3;
-  --text-subtle: #6c7682;
+  --text: #eff1f4;
+  --text-muted: #c5cad3;
+  --text-subtle: #969ca7;
 
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
@@ -434,7 +434,16 @@ img { max-width: 100%; }
   align-self: flex-start;
   height: calc(100vh - var(--topbar-h));
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
 }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover { background: var(--text-subtle); }
 
 .sidebar-section {
   margin-bottom: 18px;
@@ -683,7 +692,16 @@ img { max-width: 100%; }
   align-self: flex-start;
   max-height: calc(100vh - var(--topbar-h));
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
 }
+.toc::-webkit-scrollbar { width: 6px; }
+.toc::-webkit-scrollbar-track { background: transparent; }
+.toc::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+.toc::-webkit-scrollbar-thumb:hover { background: var(--text-subtle); }
 .toc-title {
   font-size: 11px;
   font-weight: 700;
@@ -854,6 +872,17 @@ kbd {
 .callout.note  { border-left: 3px solid var(--accent); }
 .callout.tip   { border-left: 3px solid #20c997; }
 .callout.warn  { border-left: 3px solid #f59f00; }
+
+/* Troubleshooting: the italic problem statement that sits under each h2,
+   above the solution body. Visually distinguishes the symptom from the fix
+   without resorting to literal "Problem:" / "Solution:" labels. */
+.problem-statement {
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 2px solid var(--border);
+  padding: 2px 0 2px 12px;
+  margin: -4px 0 14px;
+}
 
 /* Example list — stacked quote-style boxes for verbatim samples */
 .example-list {

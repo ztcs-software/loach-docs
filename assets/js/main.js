@@ -30,9 +30,10 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     setActiveThemeOption(root.getAttribute('data-theme') || 'light');
-    document.querySelectorAll('.theme-toggle-opt').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        applyTheme(this.dataset.themeSet);
+    document.querySelectorAll('.theme-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
       });
     });
 
@@ -65,11 +66,17 @@
     });
 
     // ---------- Active sidebar link ----------
-    const path = window.location.pathname.split('/').pop() || 'index.html';
-    const isFeaturePage = /\/features\/[^/]+\.html$/.test(window.location.pathname.replace(/\\/g, '/'));
+    const here = window.location.href;
+    const herePath = window.location.pathname.replace(/\\/g, '/');
+    const isFeaturePage = /\/features\/[^/]+\.html$/.test(herePath);
+    const isTroubleshootingPage = /\/troubleshooting\/[^/]+\.html$/.test(herePath);
     document.querySelectorAll('.sidebar-link, .sidebar-sublink').forEach(function (link) {
-      const href = link.getAttribute('href').split('/').pop();
-      if (href === path) link.classList.add('active');
+      const raw = link.getAttribute('href');
+      if (!raw) return;
+      try {
+        const resolved = new URL(raw, here).pathname.replace(/\\/g, '/');
+        if (resolved === herePath) link.classList.add('active');
+      } catch (_) {}
     });
 
     // ---------- Collapsible sidebar groups ----------
@@ -86,8 +93,8 @@
       const hasActiveChild = !!submenu.querySelector('.sidebar-sublink.active');
       const stored = Object.prototype.hasOwnProperty.call(groupState, id) ? !!groupState[id] : null;
 
-      // Auto-open if on a feature page or a sublink is active; else fall back to stored state.
-      let open = hasActiveChild || (id === 'features' && isFeaturePage);
+      // Auto-open if on a feature/troubleshooting page or a sublink is active; else fall back to stored state.
+      let open = hasActiveChild || (id === 'features' && isFeaturePage) || (id === 'troubleshooting' && isTroubleshootingPage);
       if (!open && stored !== null) open = stored;
 
       group.classList.toggle('open', open);

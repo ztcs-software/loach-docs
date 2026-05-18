@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ — Loach Docs</title>
-  <meta name="description" content="Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more." />
+  <title>Troubleshooting — Loach Docs</title>
+  <meta name="description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP, app lock, models, updates, data and more." />
   <link rel="icon" type="image/png" href="../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
@@ -202,165 +202,36 @@
   </aside>
 
   <main class="content">
-    <h1>Frequently asked questions</h1>
-    <p class="lead">Short answers to the things people ask most often.</p>
+    <h1>Troubleshooting</h1>
+    <p class="lead">Common problems and how to fix them. Pick a category below — each entry follows the same shape: a short description of what you&rsquo;re seeing, then what to do about it.</p>
 
-    <h2 id="general">General</h2>
+    <p>If your problem isn&rsquo;t here, the app version and a description of the steps that reproduce it are usually enough to file a useful bug report at <a href="https://github.com/ztcs-software/loach/issues" target="_blank" rel="noopener">github.com/ztcs-software/loach/issues</a>.</p>
 
-    <details class="faq-item">
-      <summary>Is Loach free?</summary>
-      <div class="faq-body">
-        <p>Yes. Loach is open source under the MIT license. There are no subscriptions, paywalled features, or usage limits inside the app. If you connect to a paid endpoint (e.g. OpenAI), you pay <em>them</em> for tokens — Loach itself is free.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Which platforms are supported?</summary>
-      <div class="faq-body">
-        <p>Native desktop apps for <strong>Windows</strong> and <strong>Linux</strong> are published with every release. macOS is not officially packaged at this time, but the source can be built on macOS — see <a href="installation.html#source">Build from source</a>.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Does Loach send my data anywhere?</summary>
-      <div class="faq-body">
-        <p>No, not on its own. There is no telemetry. The only outbound requests Loach initiates are (a) generations against the <em>remote</em> provider you configured, and (b) update checks (which can be turned off). With a purely local provider like Ollama, Loach works fully offline. See <a href="privacy.html">Storage &amp; privacy</a>.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Where does Loach store my chats?</summary>
-      <div class="faq-body">
-        <p>In a SQLite database at <code>&lt;app-data-dir&gt;/loach.db</code>:</p>
-        <ul>
-          <li><strong>Windows</strong>: <code>%APPDATA%\dev.loach.app\loach.db</code></li>
-          <li><strong>Linux</strong>: <code>~/.local/share/dev.loach.app/loach.db</code></li>
-        </ul>
-      </div>
-    </details>
-
-    <h2 id="models">Models &amp; providers</h2>
-
-    <details class="faq-item">
-      <summary>Does Loach come with a built-in model?</summary>
-      <div class="faq-body">
-        <p>No. Loach is the workspace; the model is supplied by a provider. Install <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> and pull a local model, or configure an OpenAI-compatible endpoint.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Which local models can I run?</summary>
-      <div class="faq-body">
-        <p>Anything supported by Ollama. Popular choices include Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and Llama derivatives. Use the in-app <strong>Models</strong> tab to pull and manage them.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can I use both a local and a remote provider?</summary>
-      <div class="faq-body">
-        <p>Yes — that's the point. Ollama and your OpenAI-compatible endpoint live side-by-side, and you switch between them from the chat header without changing anything else.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can I connect multiple OpenAI-compatible endpoints at once?</summary>
-      <div class="faq-body">
-        <p>One at a time. The base URL and API key are a single configuration in <strong>Settings → Providers</strong>. To switch from, say, Groq to OpenRouter, update the base URL and key — your existing chats are preserved.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>I have very limited VRAM. Can I still use local models?</summary>
-      <div class="faq-body">
-        <p>Yes — try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable <a href="features/low-vram.html">Low VRAM mode</a> globally or per-chat. This sends Ollama's <code>low_vram</code> flag with every request.</p>
-      </div>
-    </details>
-
-    <h2 id="security">Security</h2>
-
-    <details class="faq-item">
-      <summary>Where are my API keys stored?</summary>
-      <div class="faq-body">
-        <p>In your operating system's credential manager — <strong>Windows Credential Manager</strong> or the Linux <strong>Secret Service</strong>. Keys are never written to the SQLite database or to plain-text config.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>How does the app lock work?</summary>
-      <div class="faq-body">
-        <p>Optional PIN, password, or both. Your credentials are hashed with <strong>Argon2id</strong> and stored in the OS credential manager (separately from API keys). The plaintext is never persisted. Configure it in <strong>Settings → App lock</strong>.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>I forgot my app-lock PIN. Can I reset it?</summary>
-      <div class="faq-body">
-        <p>You can clear the app lock by removing the corresponding entry from your OS credential manager (the entry is created and managed by the Loach app). Doing so unlocks the app but leaves the rest of your data intact.</p>
-      </div>
-    </details>
-
-    <h2 id="data">Data &amp; backup</h2>
-
-    <details class="faq-item">
-      <summary>How do I back up my chats?</summary>
-      <div class="faq-body">
-        <p>Open <strong>Settings → Data management</strong> and use <em>Export</em>. You'll get a single JSON file containing chats, spaces, snippets and settings. API keys are <em>not</em> in the export — they live in the OS credential manager.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>How do I move Loach to a new machine?</summary>
-      <div class="faq-body">
-        <p>Install Loach on the new machine, then use <em>Restore</em> in <strong>Settings → Data management</strong> with the JSON file you exported from the old one. You'll need to re-enter API keys on the new machine since those don't travel in the export.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>How do I delete everything?</summary>
-      <div class="faq-body">
-        <p><strong>Settings → Data management → Delete all data</strong> wipes the SQLite database. Remove the corresponding entries from your OS credential manager to delete API keys and the app-lock hash.</p>
-      </div>
-    </details>
-
-    <h2 id="troubleshooting">Troubleshooting</h2>
-
-    <details class="faq-item">
-      <summary>The model dropdown is empty.</summary>
-      <div class="faq-body">
-        <p>For <strong>Ollama</strong>: make sure <code>ollama serve</code> is running and at least one model is pulled. Loach probes <code>http://localhost:11434</code> on launch — if Ollama is on another host or port, update the base URL in <strong>Settings → Providers</strong>.</p>
-        <p>For an <strong>OpenAI-compatible</strong> provider: confirm the base URL, that the API key is set, and that the endpoint actually exposes a <code>/models</code> route. Some self-hosted servers require a non-standard model identifier — try typing it manually.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Generations are very slow on my machine.</summary>
-      <div class="faq-body">
-        <p>Try a smaller model or a more aggressive quantization. Turn on <a href="features/model-preloading.html">Model preloading</a> so the first request doesn't wait on a cold start. Enable <a href="features/low-vram.html">Low VRAM mode</a> if you're memory-constrained.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Markdown / code blocks render badly.</summary>
-      <div class="faq-body">
-        <p>That usually means the model output isn't well-formed Markdown. Lower the temperature, or add an explicit instruction like "Reply in valid GitHub-flavoured Markdown". Loach uses <code>remark-gfm</code> + <code>rehype-highlight</code> under the hood, so anything valid will render.</p>
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Where do I report a bug or request a feature?</summary>
-      <div class="faq-body">
-        <p>Open an issue on the GitHub repository: <a href="https://github.com/ztcs-software/loach/issues" target="_blank" rel="noopener">github.com/ztcs-software/loach/issues</a>. Please include your OS, Loach version, and steps to reproduce.</p>
-      </div>
-    </details>
+    <h2 id="categories">Categories</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="troubleshooting/providers-connections.html"><span class="feature-card-title">Providers &amp; connections</span><span class="feature-card-desc">Ollama unreachable, OpenAI 401, empty model lists, Linux key storage issues.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/messages.html"><span class="feature-card-title">Sending &amp; receiving messages</span><span class="feature-card-desc">Stuck &ldquo;waiting&rdquo; chats, half-streamed replies, missing thinking traces or token counts, off-topic answers.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/performance.html"><span class="feature-card-title">Performance &amp; VRAM</span><span class="feature-card-desc">Out-of-memory crashes, sluggish UI, slow first reply after launch.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">File-too-large errors, empty scanned PDFs, legacy DOCX, truncation footers, vision-only images.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/web-fetch-mcp.html"><span class="feature-card-title">Web fetch &amp; MCP</span><span class="feature-card-desc">Ignored URLs, blocked internal hosts, failed fetches and MCP handshake errors.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/spaces-memory.html"><span class="feature-card-title">Spaces &amp; memory</span><span class="feature-card-desc">Missing memory entries, bad facts, reference file caps, Space-instruction overrides.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/models-editor.html"><span class="feature-card-title">Models editor</span><span class="feature-card-desc">Modelfile validation errors, stuck pulls, delete failures.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/updates.html"><span class="feature-card-title">Updates</span><span class="feature-card-desc">Missing install buttons on Linux, stale &ldquo;up to date&rdquo; messages, signature failures.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/data.html"><span class="feature-card-title">Data, import &amp; export</span><span class="feature-card-desc">Rejected JSON imports, scope of &ldquo;Wipe user data&rdquo; vs &ldquo;Factory reset&rdquo;.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/appearance.html"><span class="feature-card-title">Appearance &amp; window</span><span class="feature-card-desc">Aurora tearing on integrated GPUs, partial font-size scaling.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/search-palette.html"><span class="feature-card-title">Search palette</span><span class="feature-card-desc">Cmd/Ctrl+K doing nothing during onboarding or lock screen.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/platform.html"><span class="feature-card-title">Platform</span><span class="feature-card-desc">No macOS build, Credential Manager access denied on managed Windows machines.</span></a></li>
+    </ul>
 
     <div class="page-nav">
-      <a href="privacy.html">
+      <a href="faq.html">
         <span class="label">Previous</span>
-        <span class="title">← Storage &amp; privacy</span>
+        <span class="title">&larr; FAQ</span>
       </a>
-      <a href="troubleshooting.html" class="next">
+      <a href="troubleshooting/providers-connections.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Troubleshooting →</span>
+        <span class="title">Providers &amp; connections &rarr;</span>
       </a>
     </div>
 

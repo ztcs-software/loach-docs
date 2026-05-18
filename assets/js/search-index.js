@@ -1104,6 +1104,307 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Where shortcuts do not apply",
     "anchor": "system",
     "body": "The search palette and global shortcuts are suppressed while the app lock screen or the onboarding wizard owns the window — both are deliberate gates that cannot be bypassed by keyboard."
+  },
+  {
+    "title": "Troubleshooting",
+    "url": "pages/troubleshooting.html",
+    "heading": "Troubleshooting",
+    "anchor": "",
+    "body": "Common problems with Loach and how to fix them. Pick a category — each entry follows the same shape: a short description of what you're seeing, then what to do about it."
+  },
+  {
+    "title": "Troubleshooting",
+    "url": "pages/troubleshooting.html",
+    "heading": "Categories",
+    "anchor": "categories",
+    "body": "Providers, messages, performance, attachments, web fetch, MCP, spaces, memory, app lock, models editor, updates, data, appearance, search palette, platform."
+  },
+  {
+    "title": "Providers & connections",
+    "url": "pages/troubleshooting/providers-connections.html",
+    "heading": "Ollama is installed but Loach can't see it",
+    "anchor": "ollama-unreachable",
+    "body": "The Providers panel says Ollama isn't reachable, or the model dropdown is empty. Make sure ollama serve is running; check the Base URL in Settings → Providers → Ollama (default http://localhost:11434); refresh; allow inbound port and set OLLAMA_HOST=0.0.0.0 for remote hosts."
+  },
+  {
+    "title": "Providers & connections",
+    "url": "pages/troubleshooting/providers-connections.html",
+    "heading": "OpenAI says \"invalid key\" or returns 401",
+    "anchor": "openai-401",
+    "body": "Re-enter the key (a trailing space silently fails). Confirm the key is active on your dashboard. For custom OpenAI-compatible endpoints, the Base URL should end with /v1 and the endpoint must accept Authorization: Bearer headers."
+  },
+  {
+    "title": "Providers & connections",
+    "url": "pages/troubleshooting/providers-connections.html",
+    "heading": "Key won't save on Linux",
+    "anchor": "linux-secret-service",
+    "body": "Loach uses the system Secret Service. On minimal Linux installs there is none — install gnome-keyring or KWallet, make sure the login session is unlocked, then restart Loach."
+  },
+  {
+    "title": "Providers & connections",
+    "url": "pages/troubleshooting/providers-connections.html",
+    "heading": "Models list shows no models",
+    "anchor": "empty-model-list",
+    "body": "Ollama is reachable but no models pulled. In the Models tab click Pull a model and type a tag, e.g. llama3.1:8b."
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "My new message is stuck on \"waiting\"",
+    "anchor": "stuck-waiting",
+    "body": "Loach runs one generation at a time across all chats. Your message is parked in a FIFO queue. Wait, or click Respond now in the busy chat to cancel and jump the line."
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "The reply stopped halfway and shows an error",
+    "anchor": "reply-half-error",
+    "body": "Partial stream is kept — use Copy raw to preserve it. Send the same prompt again or click Regenerate. For repeated errors, see Providers & connections or Performance & VRAM."
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "I see no \"thinking\" trace even though the model supports reasoning",
+    "anchor": "no-thinking-trace",
+    "body": "Confirm the Thinking toggle in the Parameters sidebar. Verify the model advertises the thinking capability (badge in Models tab). Thinking is Ollama-only — OpenAI providers ignore the toggle."
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "Tokens-per-second or token count chip is missing",
+    "anchor": "missing-stats",
+    "body": "Metrics are shown when the provider reports them. Most OpenAI-compatible proxies omit timing fields, so those chats only show token counts (or nothing)."
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "Replies are off-topic, repetitive, or too short",
+    "anchor": "bad-output",
+    "body": "Open the Parameters sidebar — lower temperature, raise max tokens or num_ctx, increase repeat_penalty (1.1–1.3) for loops, or Reset to defaults."
+  },
+  {
+    "title": "Performance & VRAM",
+    "url": "pages/troubleshooting/performance.html",
+    "heading": "Ollama crashes with \"out of memory\" or the model fails to load",
+    "anchor": "ollama-oom",
+    "body": "Turn on Low VRAM mode, lower num_ctx, reduce GPU layer count to push more onto CPU/RAM, or pick a smaller quantization (q4_K_M instead of q8_0) or a smaller parameter size."
+  },
+  {
+    "title": "Performance & VRAM",
+    "url": "pages/troubleshooting/performance.html",
+    "heading": "The UI feels sluggish",
+    "anchor": "sluggish-ui",
+    "body": "Switch the theme from Aurora to Solid in Settings → Appearance — Aurora's animated gradient is heavy on weak GPUs. Close very long chats while testing."
+  },
+  {
+    "title": "Performance & VRAM",
+    "url": "pages/troubleshooting/performance.html",
+    "heading": "The first reply takes forever, even on a fast model",
+    "anchor": "slow-first-reply",
+    "body": "Ollama loads the model into VRAM on first use. Turn on Settings → General → Default model preload to warm it at launch, at the cost of pinning VRAM as soon as Loach opens."
+  },
+  {
+    "title": "Attachments (troubleshooting)",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "\"File too large\" when dropping a file",
+    "anchor": "file-too-large",
+    "body": "There's a 20 MB cap per file. Split large logs or paste the relevant section as text."
+  },
+  {
+    "title": "Attachments (troubleshooting)",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "The PDF came in empty or with garbled text",
+    "anchor": "empty-pdf",
+    "body": "Loach extracts text from PDFs, but scanned PDFs (image pages with no text layer) have nothing to extract. Run the PDF through OCR first, or paste the relevant pages as plain text."
+  },
+  {
+    "title": "Attachments (troubleshooting)",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "The DOCX won't attach",
+    "anchor": "docx-rejected",
+    "body": "Only .docx is supported, not legacy .doc. Open the file in Word or LibreOffice and Save As → Word Document (.docx)."
+  },
+  {
+    "title": "Attachments (troubleshooting)",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "A long document shows a \"content truncated\" footer",
+    "anchor": "content-truncated",
+    "body": "Per-file cap is 200,000 characters; total inlined content per message is 500,000 characters. Trim the document or split it across several messages."
+  },
+  {
+    "title": "Attachments (troubleshooting)",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "Images don't seem to be working",
+    "anchor": "vision-images",
+    "body": "The model needs vision capability — the tile shows a vision badge in the Models tab when supported. Switch to a vision-capable model (Llava, Llama 3.2 Vision, GPT-4o)."
+  },
+  {
+    "title": "Web fetch & MCP",
+    "url": "pages/troubleshooting/web-fetch-mcp.html",
+    "heading": "Pasted URL is ignored",
+    "anchor": "url-ignored",
+    "body": "Web fetch is off by default — turn it on in Settings → Tools → Web fetch. Only http:// and https:// URLs are fetched. Up to 5 URLs per message are followed."
+  },
+  {
+    "title": "Web fetch & MCP",
+    "url": "pages/troubleshooting/web-fetch-mcp.html",
+    "heading": "\"URL blocked\" for localhost or my office VPN",
+    "anchor": "url-blocked",
+    "body": "Intentional. The SSRF guard rejects any URL whose resolved IP lands on loopback, link-local, or private RFC1918 ranges, even if the hostname resolves there via DNS. Copy and paste the page text instead."
+  },
+  {
+    "title": "Web fetch & MCP",
+    "url": "pages/troubleshooting/web-fetch-mcp.html",
+    "heading": "A URL fetch silently produces a \"fetch failed\" stub",
+    "anchor": "fetch-failed",
+    "body": "The fetch hit a limit: 30 s total or 10 s connect timeout, 5 MB body cap, or a non-2xx HTTP response. Slow, large, or user-agent-gated pages will fail."
+  },
+  {
+    "title": "Web fetch & MCP",
+    "url": "pages/troubleshooting/web-fetch-mcp.html",
+    "heading": "MCP \"Test connection\" fails",
+    "anchor": "mcp-test-fail",
+    "body": "Confirm the URL is the Streamable-HTTP endpoint (stdio and SSE are not supported). Add an Authorization header if required. Response body must fit under 4 MiB. Per-request timeout is 30 s."
+  },
+  {
+    "title": "Spaces & memory (troubleshooting)",
+    "url": "pages/troubleshooting/spaces-memory.html",
+    "heading": "Memories aren't being saved",
+    "anchor": "memory-not-saved",
+    "body": "Extraction runs only after a complete assistant reply. The Memory toggle must be on. Each fact must be under 280 characters. Tiny models often return empty extractions — try a larger one."
+  },
+  {
+    "title": "Spaces & memory (troubleshooting)",
+    "url": "pages/troubleshooting/spaces-memory.html",
+    "heading": "Memory captured something wrong or private",
+    "anchor": "bad-memory",
+    "body": "Open the Space's Memory tab and click the row to edit or delete it. Turning the toggle off only stops new writes; existing memories ride along until you remove them."
+  },
+  {
+    "title": "Spaces & memory (troubleshooting)",
+    "url": "pages/troubleshooting/spaces-memory.html",
+    "heading": "Reference files won't add to a Space",
+    "anchor": "reference-cap",
+    "body": "Per-Space cap is 200 MB total across all files. Remove older references or move content into a smaller file."
+  },
+  {
+    "title": "Spaces & memory (troubleshooting)",
+    "url": "pages/troubleshooting/spaces-memory.html",
+    "heading": "Space instructions seem to override my custom instructions",
+    "anchor": "space-instructions",
+    "body": "By design. When a Space has its own instructions, they replace the global ones for chats in that Space. Clear them or repeat the relevant parts."
+  },
+  {
+    "title": "App lock (troubleshooting)",
+    "url": "pages/troubleshooting/app-lock.html",
+    "heading": "I forgot my PIN or password",
+    "anchor": "forgot-pin",
+    "body": "No recovery path. The lock blob is hashed with Argon2id in the OS credential store. Try the hint if you set one, or factory reset (wipes everything). Set a hint when you create a lock."
+  },
+  {
+    "title": "App lock (troubleshooting)",
+    "url": "pages/troubleshooting/app-lock.html",
+    "heading": "\"Too many attempts\" — the unlock button is greyed out",
+    "anchor": "too-many-attempts",
+    "body": "After 5 consecutive failed attempts, Loach starts an escalating cool-down (30 s → 60 s → 2 min … up to 2 h). Wait, or restart the app — the counter resets on restart and on successful unlock."
+  },
+  {
+    "title": "App lock (troubleshooting)",
+    "url": "pages/troubleshooting/app-lock.html",
+    "heading": "Changing or removing the lock asks for my current password",
+    "anchor": "reauth-prompts",
+    "body": "Intentional. Re-authentication is required for changing/removing the lock, importing data, wiping user data and factory resetting, so a compromised UI process can't quietly disable the gate."
+  },
+  {
+    "title": "Models editor (troubleshooting)",
+    "url": "pages/troubleshooting/models-editor.html",
+    "heading": "\"Save as…\" rejects my Modelfile",
+    "anchor": "save-as-rejected",
+    "body": "Base tag must only contain letters, digits, . _ / - (no spaces or quotes). SYSTEM and TEMPLATE bodies cannot contain triple quotes. Save as always writes a new model — replace by saving under a new name then deleting the old one."
+  },
+  {
+    "title": "Models editor (troubleshooting)",
+    "url": "pages/troubleshooting/models-editor.html",
+    "heading": "A model pull is stuck",
+    "anchor": "pull-stuck",
+    "body": "Cancel and start the pull again. Confirm Ollama is reachable (Providers panel goes red if not). Check disk space on Ollama's model cache drive."
+  },
+  {
+    "title": "Models editor (troubleshooting)",
+    "url": "pages/troubleshooting/models-editor.html",
+    "heading": "Can't delete a model",
+    "anchor": "cant-delete",
+    "body": "Switch every chat off this model first (pick a different one from the model dropdown), then retry. Ollama refuses to delete a model currently loaded in VRAM."
+  },
+  {
+    "title": "Updates (troubleshooting)",
+    "url": "pages/troubleshooting/updates.html",
+    "heading": "No \"Install update\" button on Linux",
+    "anchor": "no-install-button-linux",
+    "body": "Expected for .deb and .rpm installs — the Tauri updater can only patch AppImage installs on Linux. Your package manager owns updates. Install the AppImage to get in-app updates."
+  },
+  {
+    "title": "Updates (troubleshooting)",
+    "url": "pages/troubleshooting/updates.html",
+    "heading": "\"Up to date\" but I see a newer version on GitHub",
+    "anchor": "stale-up-to-date",
+    "body": "The updater only reads published releases, not drafts. Wait until the release is published, or download manually."
+  },
+  {
+    "title": "Updates (troubleshooting)",
+    "url": "pages/troubleshooting/updates.html",
+    "heading": "Update download or signature fails",
+    "anchor": "signature-fail",
+    "body": "Re-run the check (transient network failures are common). Signature errors usually mean the release is mid-publish — wait a few minutes. Fallback: download the installer directly."
+  },
+  {
+    "title": "Data, import & export (troubleshooting)",
+    "url": "pages/troubleshooting/data.html",
+    "heading": "Import won't accept my JSON file",
+    "anchor": "import-rejected",
+    "body": "Import expects a full Loach export from Settings → Data → Export everything. Single-chat exports (per-chat Export menu) are for sharing or archiving outside the app, not as import sources."
+  },
+  {
+    "title": "Data, import & export (troubleshooting)",
+    "url": "pages/troubleshooting/data.html",
+    "heading": "\"Wipe user data\" didn't remove my OpenAI key",
+    "anchor": "wipe-keeps-key",
+    "body": "By design. Wipe user data removes chats, Spaces, snippets, MCP servers and memories but keeps app settings and your stored API key. Use Factory reset to clear the key too."
+  },
+  {
+    "title": "Appearance & window (troubleshooting)",
+    "url": "pages/troubleshooting/appearance.html",
+    "heading": "Aurora theme tears or stutters",
+    "anchor": "aurora-tearing",
+    "body": "Switch to the Solid theme in Settings → Appearance. Aurora relies on GPU compositing; integrated GPUs and remote desktop sessions don't always cope."
+  },
+  {
+    "title": "Appearance & window (troubleshooting)",
+    "url": "pages/troubleshooting/appearance.html",
+    "heading": "Font size change didn't fully apply",
+    "anchor": "partial-font-scale",
+    "body": "A few elements (the title bar, native dialogs) follow the OS font scale, not Loach's. Adjust system display scaling alongside the in-app setting if you need uniformity."
+  },
+  {
+    "title": "Search palette (troubleshooting)",
+    "url": "pages/troubleshooting/search-palette.html",
+    "heading": "Cmd/Ctrl+K does nothing",
+    "anchor": "shortcut-dead",
+    "body": "The palette is suppressed while the onboarding wizard or the lock screen owns the window. Finish onboarding or unlock the app first."
+  },
+  {
+    "title": "Platform (troubleshooting)",
+    "url": "pages/troubleshooting/platform.html",
+    "heading": "macOS — there's no macOS build",
+    "anchor": "macos",
+    "body": "Not currently supported. The codebase is Tauri 2 and portable in principle, but no builds, signing, or test coverage exist for macOS yet."
+  },
+  {
+    "title": "Platform (troubleshooting)",
+    "url": "pages/troubleshooting/platform.html",
+    "heading": "Windows: \"Credential Manager access denied\"",
+    "anchor": "windows-credman",
+    "body": "Some corporate group policies block apps from writing to Credential Manager. Loach cannot store secrets without it. Ask your IT admin to allow Credential Manager writes for the Loach process, or use a personal machine."
   }
 ]
 ;
