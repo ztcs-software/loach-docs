@@ -356,6 +356,10 @@ img { max-width: 100%; }
 /* Mobile menu button */
 .menu-btn { display: none; }
 
+/* Mobile search trigger & close (shown via media queries) */
+.search-btn,
+.search-close { display: none; }
+
 /* ===========================================
    Search
    =========================================== */
@@ -1168,7 +1172,9 @@ footer.site-footer {
   .content { padding: 28px 22px 80px; max-width: 100%; }
 
   .search-wrap {
-    position: static;
+    position: relative;
+    top: auto;
+    left: auto;
     transform: none;
     width: auto;
     max-width: none;
@@ -1185,4 +1191,23 @@ footer.site-footer {
   .hero h1 { font-size: 32px; }
   .content h1 { font-size: 28px; }
   .page-nav { flex-direction: column; }
+
+  /* Default mobile: bar hidden, icon button visible */
+  .search-wrap { display: none; }
+  .search-btn { display: inline-flex; }
+
+  /* Active overlay state: only the search bar + close button show */
+  .topbar.search-open .menu-btn,
+  .topbar.search-open .brand,
+  .topbar.search-open .site-switcher,
+  .topbar.search-open .search-btn,
+  .topbar.search-open .topbar-spacer,
+  .topbar.search-open .theme-toggle { display: none; }
+
+  .topbar.search-open .search-wrap {
+    display: block;
+    flex: 1;
+  }
+  .topbar.search-open .search-close { display: inline-flex; }
+  .topbar.search-open .search-input { padding-right: 14px; }
 }

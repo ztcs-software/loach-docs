@@ -213,16 +213,53 @@
       update();
     })();
 
-    // ---------- Search keyboard shortcut ----------
+    // ---------- Search: keyboard shortcut + mobile overlay ----------
     const searchInput = document.querySelector('.search-input');
+    const topbar = document.querySelector('.topbar');
+    const searchBtn = document.querySelector('.search-btn');
+    const searchClose = document.querySelector('.search-close');
+
+    function openMobileSearch() {
+      if (!topbar) return;
+      topbar.classList.add('search-open');
+      if (searchInput) {
+        // Wait for layout so focus/keyboard appears reliably on mobile
+        setTimeout(function () { searchInput.focus(); }, 0);
+      }
+    }
+    function closeMobileSearch() {
+      if (!topbar) return;
+      topbar.classList.remove('search-open');
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.blur();
+        searchInput.dispatchEvent(new Event('input'));
+      }
+    }
+
+    if (searchBtn) searchBtn.addEventListener('click', openMobileSearch);
+    if (searchClose) searchClose.addEventListener('click', closeMobileSearch);
+
     document.addEventListener('keydown', function (e) {
       const mod = e.ctrlKey || e.metaKey;
       if (mod && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        if (searchInput) searchInput.focus();
+        if (window.innerWidth <= 640) openMobileSearch();
+        else if (searchInput) searchInput.focus();
       }
-      if (e.key === 'Escape' && document.activeElement === searchInput) {
-        searchInput.blur();
+      if (e.key === 'Escape') {
+        if (topbar && topbar.classList.contains('search-open')) {
+          closeMobileSearch();
+        } else if (document.activeElement === searchInput) {
+          searchInput.blur();
+        }
+      }
+    });
+
+    // If the viewport grows past mobile while the overlay is open, drop the state
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 640 && topbar && topbar.classList.contains('search-open')) {
+        topbar.classList.remove('search-open');
       }
     });
   });
