@@ -205,81 +205,6 @@ img { max-width: 100%; }
 
 .brand-name { letter-spacing: -0.01em; }
 
-/* Site switcher dropdown */
-.site-switcher {
-  position: relative;
-  flex-shrink: 0;
-}
-.site-switcher-btn {
-  appearance: none;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
-  padding: 0;
-}
-.site-switcher-btn:hover {
-  background: var(--bg-hover);
-  color: var(--text);
-  border-color: var(--border-strong);
-}
-.site-switcher-btn svg {
-  width: 14px;
-  height: 14px;
-  transition: transform var(--transition);
-}
-.site-switcher.open .site-switcher-btn svg { transform: rotate(180deg); }
-.site-switcher.open .site-switcher-btn {
-  background: var(--bg-hover);
-  color: var(--text);
-  border-color: var(--accent);
-}
-
-.site-switcher-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  min-width: 200px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  padding: 6px;
-  display: none;
-  z-index: 110;
-}
-.site-switcher.open .site-switcher-menu { display: block; }
-
-.site-switcher-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background var(--transition);
-}
-.site-switcher-item:hover {
-  background: var(--bg-hover);
-  text-decoration: none;
-  color: var(--text);
-}
-.site-switcher-icon {
-  width: 16px;
-  height: 16px;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
 .brand-tag {
   margin-left: 4px;
   padding: 2px 7px;
@@ -1205,7 +1130,6 @@ footer.site-footer {
   .topbar { padding: 0 12px; gap: 8px; }
   .brand-name { display: none; }
   .brand-tag { display: none; }
-  .site-switcher { display: none; }
   .search-shortcut { display: none; }
   .hero h1 { font-size: 32px; }
   .content h1 { font-size: 28px; }
@@ -1218,7 +1142,7 @@ footer.site-footer {
   /* Active overlay state: only the search bar + close button show */
   .topbar.search-open .menu-btn,
   .topbar.search-open .brand,
-  .topbar.search-open .site-switcher,
+  .topbar.search-open .github-link,
   .topbar.search-open .search-btn,
   .topbar.search-open .topbar-spacer,
   .topbar.search-open .theme-toggle { display: none; }

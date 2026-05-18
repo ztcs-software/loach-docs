@@ -113,27 +113,6 @@
       });
     });
 
-    // ---------- Site switcher dropdown ----------
-    const switcher = document.querySelector('.site-switcher');
-    if (switcher) {
-      const btn = switcher.querySelector('.site-switcher-btn');
-      function closeSwitcher() {
-        switcher.classList.remove('open');
-        if (btn) btn.setAttribute('aria-expanded', 'false');
-      }
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const isOpen = switcher.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-      document.addEventListener('click', function (e) {
-        if (!e.target.closest('.site-switcher')) closeSwitcher();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeSwitcher();
-      });
-    }
-
     // ---------- On-this-page TOC ----------
     (function buildToc() {
       const content = document.querySelector('.content');
