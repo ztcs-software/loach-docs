@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Storage &amp; privacy — Loach Docs</title>
   <meta name="description" content="Where Loach stores its data, what stays local, and what (if anything) goes over the network." />
-  <link rel="icon" type="image/png" href="../assets/img/loach-icon.png" />
+  <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
@@ -171,6 +171,7 @@
         </ul>
       </div>
       <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="tech-stack.html">Tech stack</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Help</div>
@@ -250,35 +251,14 @@
     </ul>
     <p>API keys are not part of the export — they live in the OS credential manager and stay there until you remove them.</p>
 
-    <h2 id="tech">Tech &amp; stack</h2>
-    <p>For the curious, here's the stack behind these guarantees:</p>
-    <table>
-      <thead><tr><th>Layer</th><th>Choice</th></tr></thead>
-      <tbody>
-        <tr><td>Desktop shell</td><td>Tauri 2.x (Rust)</td></tr>
-        <tr><td>Frontend</td><td>React 18 + Vite 7 + TypeScript</td></tr>
-        <tr><td>Styling</td><td>Tailwind CSS + shadcn/ui (Radix primitives)</td></tr>
-        <tr><td>Icons</td><td><code>lucide-react</code></td></tr>
-        <tr><td>State</td><td>Zustand (in-memory; SQLite-backed where appropriate)</td></tr>
-        <tr><td>Storage</td><td>SQLite via <code>rusqlite</code> (bundled — no system dependency)</td></tr>
-        <tr><td>Secrets</td><td><code>keyring</code> crate → Windows Credential Manager / Linux Secret Service</td></tr>
-        <tr><td>Hashing</td><td><code>argon2</code> + <code>rand_core</code> (app-lock)</td></tr>
-        <tr><td>HTTP</td><td><code>reqwest</code> with streaming + <code>rustls-tls</code></td></tr>
-        <tr><td>Markdown</td><td><code>react-markdown</code> + <code>remark-gfm</code> + <code>rehype-highlight</code></td></tr>
-        <tr><td>Document parsing</td><td><code>pdfjs-dist</code> (PDF) + <code>mammoth</code> (DOCX)</td></tr>
-        <tr><td>System tray</td><td>Tauri 2 built-in (<code>tray-icon</code> feature)</td></tr>
-        <tr><td>Bundle targets</td><td>NSIS <code>.exe</code> on Windows; <code>.deb</code> / <code>.rpm</code> / <code>.AppImage</code> on Linux</td></tr>
-      </tbody>
-    </table>
-
     <div class="page-nav">
       <a href="features.html">
         <span class="label">Previous</span>
         <span class="title">← Features</span>
       </a>
-      <a href="faq.html" class="next">
+      <a href="tech-stack.html" class="next">
         <span class="label">Next</span>
-        <span class="title">FAQ →</span>
+        <span class="title">Tech stack →</span>
       </a>
     </div>
 

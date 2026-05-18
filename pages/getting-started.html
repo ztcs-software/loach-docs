@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quick start — Loach Docs</title>
   <meta name="description" content="Go from a fresh install to your first chat with a local or remote model in a couple of minutes." />
-  <link rel="icon" type="image/png" href="../assets/img/loach-icon.png" />
+  <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body>
@@ -171,6 +171,7 @@
         </ul>
       </div>
       <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="tech-stack.html">Tech stack</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Help</div>
@@ -208,7 +209,7 @@
     <h2 id="ollama">Using with Ollama (local, recommended)</h2>
     <p>Install <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> and start the server, then pull at least one model:</p>
 <pre><code>ollama serve
-ollama pull gemma3:4b      # or any other tag</code></pre>
+ollama pull gemma4:e4b      # or any other tag</code></pre>
 
     <p>Loach probes <code>http://localhost:11434</code> on launch. Pulled models appear in the chat header dropdown automatically. The <strong>Models</strong> library tab also lets you pull new tags and customize existing ones from inside the app — no terminal required.</p>
 
@@ -216,7 +217,7 @@ ollama pull gemma3:4b      # or any other tag</code></pre>
       <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       <div class="callout-body">
         <div class="callout-title">Tip</div>
-        <p>Pick a model that fits your VRAM. <code>gemma3:4b</code>, <code>qwen3:4b</code> and <code>deepseek-r1:7b</code> are good starting points for most laptops. For lower-spec devices, see <a href="features/low-vram.html">Low VRAM mode</a>.</p>
+        <p>Pick a model that fits your VRAM. <code>ministral-3:3b</code>, <code>gemma4:e4b</code> or <code>qwen3.5:9b</code> may be good starting points. For lower-spec devices, see <a href="features/low-vram.html">Low VRAM mode</a>.</p>
       </div>
     </div>
 
@@ -233,7 +234,7 @@ ollama pull gemma3:4b      # or any other tag</code></pre>
         <tr><td>LM Studio</td><td><code>http://localhost:1234/v1</code></td></tr>
         <tr><td>LiteLLM</td><td><code>http://localhost:4000/v1</code></td></tr>
         <tr><td>llama.cpp <code>llama-server</code></td><td><code>http://localhost:8080/v1</code></td></tr>
-        <tr><td>Groq, OpenRouter, Together, Fireworks, Mistral</td><td>per their docs</td></tr>
+        <tr><td>Other</td><td>per their docs</td></tr>
       </tbody>
     </table>
 

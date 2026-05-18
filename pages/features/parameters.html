@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Per-chat parameters — Loach Docs</title>
   <meta name="description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
-  <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
+  <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
 <body>
@@ -171,6 +171,7 @@
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="../tech-stack.html">Tech stack</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Help</div>
@@ -224,6 +225,53 @@
       <li><strong>Global app overrides</strong> &mdash; for example the Settings &rarr; General Low VRAM pin, which forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
     </ol>
     <p>A <strong>Reset to defaults</strong> button in the panel header clears the per-chat overrides and falls back to the merged defaults.</p>
+
+    <h2 id="settings-reference">Settings reference</h2>
+    <p>A short description of every knob the panel exposes, grouped by what it affects. Anything tagged <em>Ignored by OpenAI providers</em> is sent to Ollama only &mdash; OpenAI-compatible endpoints decide that knob server-side.</p>
+
+    <h3 id="ref-thinking">Thinking</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Thinking</strong> &mdash; lets the model reason step-by-step before replying. Adds latency on long answers but often improves quality on complex prompts. Only takes effect on models that advertise thinking capability; ignored by OpenAI providers (their chain-of-thought is internal).</li>
+    </ul>
+
+    <h3 id="ref-sampling">Sampling</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Temperature <code>0&ndash;1</code></strong> &mdash; controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that.</li>
+      <li><strong class="feat-name">Top-P <code>0&ndash;1</code></strong> &mdash; nucleus sampling. The model picks from the smallest set of tokens whose probabilities sum to this value. Lower = more on-track; higher = more variety.</li>
+      <li><strong class="feat-name">Top-K <code>0&ndash;200</code></strong> &mdash; only consider the K most likely tokens at each step. Lower is more focused; <code>0</code> disables the cap. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Min-P <code>0&ndash;0.5</code></strong> &mdash; drops any token whose probability is below this fraction of the top token&rsquo;s. A robust alternative to tuning Top-P/Top-K. Ignored by OpenAI providers.</li>
+    </ul>
+
+    <h3 id="ref-length">Length</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Context Length</strong> (<code>num_ctx</code>) &mdash; how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K &rarr; 1M). Ignored by OpenAI providers &mdash; the server decides.</li>
+      <li><strong class="feat-name">Max Tokens <code>128&ndash;32768</code></strong> &mdash; hard cap on the length of a single reply. Generation stops here even if the model isn&rsquo;t finished.</li>
+    </ul>
+
+    <h3 id="ref-repetition">Repetition</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Repeat Penalty <code>0.8&ndash;2.0</code></strong> &mdash; penalizes tokens the model has just used, discouraging loops. <code>1.0</code> is off; much above <code>1.3</code> starts to sound robotic. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Frequency Penalty <code>&minus;2 to 2</code></strong> &mdash; pushes down tokens in proportion to how often they&rsquo;ve already appeared in this reply. Negative values encourage repetition instead.</li>
+      <li><strong class="feat-name">Presence Penalty <code>&minus;2 to 2</code></strong> &mdash; flat one-time penalty for any token that has already appeared. Nudges the model toward fresh vocabulary and new topics.</li>
+    </ul>
+
+    <h3 id="ref-performance">Performance</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">GPU Layers</strong> (<code>num_gpu</code>) &mdash; how many model layers to offload to the GPU. Blank = Ollama auto-detects; <code>0</code> = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Low VRAM</strong> &mdash; trades throughput for footprint (smaller batches, leaner KV cache). Flip on when you&rsquo;re hitting OOMs and <code>num_gpu</code> alone isn&rsquo;t enough. Can be pinned on globally in <strong>Settings &rarr; General</strong>, which forces the per-chat toggle on. Ignored by OpenAI providers.</li>
+    </ul>
+
+    <h3 id="ref-reproducibility">Reproducibility</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Seed</strong> &mdash; a fixed integer makes the model&rsquo;s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place.</li>
+    </ul>
+
+    <h3 id="ref-prompt-layering">Prompt layering</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Persona</strong> &mdash; defines the assistant&rsquo;s role (e.g. <em>Code Reviewer</em>, <em>Writer</em>). Layered into the system prompt at send time. See <a href="personas.html">Personas and tones</a>.</li>
+      <li><strong class="feat-name">Tone</strong> &mdash; style modifier appended after the system prompt. Falls back to the global default (<strong>Settings &rarr; General</strong>) when not set per chat.</li>
+      <li><strong class="feat-name">Additional instructions (this chat)</strong> &mdash; free-form per-chat system prompt text. Sits between the persona and the tone. Empty falls back to the global <a href="custom-instructions.html">custom instructions</a>.</li>
+    </ul>
 
     <h2 id="thinking">Thinking toggle</h2>
     <p>Visible for Ollama models whose capabilities include <code>thinking</code>. It sets the <code>think</code> parameter on the chat request and is ignored by OpenAI-compatible providers. The default for new chats comes from <strong>Settings &rarr; General &rarr; Thinking</strong>.</p>

@@ -196,11 +196,18 @@ window.LOACH_SEARCH_INDEX = [
     "body": "From Settings then Data management export full content to JSON, restore from a previously exported file, or permanently delete all stored data in a few clicks."
   },
   {
-    "title": "Storage & privacy",
-    "url": "pages/privacy.html",
-    "heading": "Tech and stack",
-    "anchor": "tech",
-    "body": "Tauri 2.x Rust desktop shell, React 18 with Vite 7 and TypeScript frontend, Tailwind CSS + shadcn/ui, Zustand state, SQLite via rusqlite, keyring crate, argon2, reqwest with rustls, react-markdown with remark-gfm and rehype-highlight, pdfjs-dist and mammoth."
+    "title": "Tech stack",
+    "url": "pages/tech-stack.html",
+    "heading": "Tech stack",
+    "anchor": "",
+    "body": "The technology stack behind Loach: Tauri 2.x desktop shell, React 18 + Vite 7 + TypeScript frontend, Tailwind CSS and shadcn/ui, Zustand state, SQLite via rusqlite, keyring crate for secrets, argon2 hashing, reqwest with rustls-tls, react-markdown, pdfjs-dist and mammoth for document parsing."
+  },
+  {
+    "title": "Tech stack",
+    "url": "pages/tech-stack.html",
+    "heading": "Stack at a glance",
+    "anchor": "stack",
+    "body": "Desktop shell: Tauri 2.x (Rust). Frontend: React 18 + Vite 7 + TypeScript. Styling: Tailwind CSS + shadcn/ui. State: Zustand. Storage: SQLite via rusqlite. Secrets: keyring crate. Hashing: argon2 + rand_core. HTTP: reqwest + rustls-tls. Markdown: react-markdown + remark-gfm + rehype-highlight. Document parsing: pdfjs-dist + mammoth. System tray: Tauri 2 tray-icon. Bundle targets: NSIS .exe on Windows; .deb / .rpm / .AppImage on Linux."
   },
   {
     "title": "FAQ",
@@ -355,6 +362,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "How the values cascade",
     "anchor": "cascade",
     "body": "What a chat actually sends to the model is a merge of several layers. From broadest to narrowest, with later layers winning:"
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Settings reference",
+    "anchor": "settings-reference",
+    "body": "A short description of every knob the panel exposes: Thinking, Temperature, Top-P, Top-K, Min-P, Context Length (num_ctx), Max Tokens, Repeat Penalty, Frequency Penalty, Presence Penalty, GPU Layers (num_gpu), Low VRAM, Seed, Persona, Tone, additional instructions."
   },
   {
     "title": "Per-chat parameters",
