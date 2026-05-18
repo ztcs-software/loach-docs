@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Voice dictation — Loach Docs</title>
-  <meta name="description" content="A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use." />
+  <meta name="description" content="A mic button in the composer turns speech into text in real time, using the browser’s built-in Web Speech API." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,37 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Voice dictation</h1>
-    <p class="lead">A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use.</p>
+    <p class="lead">A mic button in the composer turns speech into text in real time. It is built on the WebView&rsquo;s native <code>SpeechRecognition</code> API, so there is no extra model to install &mdash; but it also means the platform itself decides what happens to the audio.</p>
 
+    <h2 id="how-it-works">How it works</h2>
+    <p>Click the mic icon to start recording. The current contents of the composer are snapshotted as your &ldquo;base text&rdquo;; interim guesses render as a preview appended to the base while you speak, and final phrases get committed as soon as the engine settles on them. You can keep typing between phrases &mdash; mid-sentence updates won&rsquo;t clobber your edits, because they always replay over the same anchored base text.</p>
+    <p>Click the mic again to stop. Submitting the message auto-stops the recogniser for you. Benign errors like &ldquo;no speech detected&rdquo; or &ldquo;aborted&rdquo; are swallowed silently; a permission denial surfaces a short hint so you can fix it in browser settings.</p>
+
+    <h2 id="availability">Where it shows up</h2>
+    <p>Voice dictation depends on the platform exposing the Web Speech API. In practice:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Windows</strong> &mdash; supported via WebView2.</li>
+      <li><strong class="feat-name">macOS</strong> &mdash; supported via WebKit.</li>
+      <li><strong class="feat-name">Linux</strong> &mdash; usually unavailable. The mic button is hidden on systems whose WebView does not expose the API rather than showing a button that does nothing.</li>
+    </ul>
+
+    <div class="callout warn">
+      <div class="callout-body">
+        <div class="callout-title">Heads up: audio routing</div>
+        <p>On Chromium-based engines, audio for the speech recogniser is typically routed through Google&rsquo;s hosted speech service. Voice dictation is therefore <em>not</em> strictly offline, even though the rest of Loach is local-first. If that is a concern, stick to typing.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="import-export.html">
+      <a href="attachments.html">
         <span class="label">Previous</span>
-        <span class="title">← Import and export context</span>
+        <span class="title">&larr; Attachments</span>
       </a>
       <a href="web-fetch.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Web fetch →</span>
+        <span class="title">Web fetch &rarr;</span>
       </a>
     </div>
 

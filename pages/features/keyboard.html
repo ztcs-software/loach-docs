@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data management — Loach Docs</title>
-  <meta name="description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <title>Keyboard shortcuts — Loach Docs</title>
+  <meta name="description" content="Loach keyboard reference: global search palette, find within a chat, send and newline behaviour in the composer, and palette navigation." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -192,38 +192,39 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Data management</h1>
-    <p class="lead"><strong>Settings &rarr; Data</strong> is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes &mdash; and you can take it with you.</p>
+    <h1>Keyboard shortcuts</h1>
+    <p class="lead">Loach is keyboard-friendly. The shortcuts below work everywhere unless something modal is on top, like the lock screen or the onboarding wizard.</p>
 
-    <h2 id="export">Export everything</h2>
-    <p>Produces a single JSON blob containing every chat, message, Space, file, memory, snippet, MCP server and setting. The native save dialog opens; the file is written from the app backend, so the renderer never sees the chosen path.</p>
-    <p>This is the canonical backup format. Keep one before you do anything risky &mdash; OS reinstall, machine swap, experimental settings.</p>
+    <h2 id="global">Global</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Cmd / Ctrl&nbsp;+&nbsp;K</strong> &mdash; open the search palette. Cross-searches chats, Spaces and Snippets.</li>
+      <li><strong class="feat-name">Cmd / Ctrl&nbsp;+&nbsp;F</strong> &mdash; find within the current chat transcript. Browser-style match highlighting.</li>
+      <li><strong class="feat-name">Esc</strong> &mdash; dismiss the active menu, dialog or panel. In the search palette it first clears a non-empty query, then closes.</li>
+    </ul>
 
-    <h2 id="import">Import</h2>
-    <p>Open a previously exported JSON file. Loach reports per-table row counts in a toast on success, so you can see at a glance what came back in. If app lock is configured, Import asks for your current credentials before running &mdash; an unauthorised renderer cannot trigger it.</p>
+    <h2 id="composer">In the composer</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Enter</strong> &mdash; send the message.</li>
+      <li><strong class="feat-name">Shift&nbsp;+&nbsp;Enter</strong> &mdash; insert a newline without sending. Use this for multi-paragraph prompts.</li>
+    </ul>
 
-    <h2 id="wipe">Wipe user data</h2>
-    <p>Drops chats, Spaces, snippets, MCP servers and memories. <em>Keeps</em> app settings and the stored OpenAI key, so the app remains usable immediately afterwards. Gated on app-lock credentials when a lock is configured.</p>
-    <p>Use this when you want a clean conversational slate but do not want to redo all your provider setup.</p>
+    <h2 id="search-palette">In the search palette</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">&uarr; / &darr;</strong> &mdash; move between results.</li>
+      <li><strong class="feat-name">Enter</strong> &mdash; open the highlighted result. A chat opens the conversation; a Space opens its detail view; a Snippet starts a fresh chat with the snippet&rsquo;s prompt primed in the composer.</li>
+      <li><strong class="feat-name">Esc</strong> &mdash; clear the query, then close the palette on a second press.</li>
+    </ul>
 
-    <h2 id="factory-reset">Factory reset</h2>
-    <p>Wipe user data <em>plus</em> clear all settings <em>plus</em> remove the OpenAI key from the credential store. Re-runs <a href="onboarding.html">onboarding</a> on next launch. Irreversible.</p>
-    <p>Use this when handing the machine to someone else, or as the last step in &ldquo;start completely over&rdquo;.</p>
-
-    <div class="callout warn">
-      <div class="callout-body">
-        <div class="callout-title">All of this is destructive</div>
-        <p>Wipe and factory reset are immediate and cannot be undone by a button. Export everything first if there is any chance you might want it back.</p>
-      </div>
-    </div>
+    <h2 id="system">Where shortcuts do not apply</h2>
+    <p>The search palette and global shortcuts are suppressed while the <a href="app-lock.html">app lock</a> screen or the <a href="onboarding.html">onboarding wizard</a> owns the window &mdash; both are deliberate gates that cannot be bypassed by keyboard.</p>
     <div class="page-nav">
-      <a href="app-lock.html">
+      <a href="onboarding.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; App lock</span>
+        <span class="title">&larr; Onboarding wizard</span>
       </a>
-      <a href="themes.html" class="next">
+      <a href="../features.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Themes &rarr;</span>
+        <span class="title">Features overview &rarr;</span>
       </a>
     </div>
 

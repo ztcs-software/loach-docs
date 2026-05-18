@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Model preloading — Loach Docs</title>
-  <meta name="description" content="Optionally warm your default local model into VRAM at launch, so the first message streams faster." />
+  <meta name="description" content="Optionally warm your default local model into VRAM at launch so the first message of the day streams faster." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,32 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Model preloading</h1>
-    <p class="lead">Optionally warm your default local model into VRAM at launch, so the first message streams faster.</p>
+    <p class="lead">When <strong>Default model preload</strong> is on, Loach sends an empty chat to the resolved default model at app launch &mdash; warming it into VRAM so the first real prompt of the session streams without the usual cold-start pause.</p>
 
+    <h2 id="enabling">Enabling</h2>
+    <p>Toggle <strong>Settings &rarr; General &rarr; Default model preload</strong>. It is off by default, and it is Ollama-only &mdash; hosted providers do not have a meaningful concept of warm vs cold from your side.</p>
+
+    <h2 id="trade-off">The trade-off</h2>
+    <p>Preloading pins VRAM at launch even if you only opened Loach to re-read an old conversation. That is why it ships off: many users only want VRAM consumed when they are about to actually chat. Turn it on if you launch Loach with intent &mdash; you know the first thing you do is going to be a fresh prompt.</p>
+
+    <h2 id="how-it-resolves">Which model gets warmed</h2>
+    <p>Preload resolves through the same logic as <a href="default-model.html">Default model</a>:</p>
+    <ul>
+      <li>If you pinned a specific model, that one.</li>
+      <li>If you pinned to a provider, the most-recent model on that provider.</li>
+      <li>Otherwise, your most recent (provider, model) pair &mdash; provided it is Ollama. If your most recent model is on an OpenAI-compatible endpoint, preload does nothing.</li>
+    </ul>
     <div class="page-nav">
       <a href="default-model.html">
         <span class="label">Previous</span>
-        <span class="title">← Default model selector</span>
+        <span class="title">&larr; Default model selector</span>
       </a>
       <a href="low-vram.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Low VRAM mode →</span>
+        <span class="title">Low VRAM mode &rarr;</span>
       </a>
     </div>
 

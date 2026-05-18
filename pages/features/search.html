@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Search — Loach Docs</title>
-  <meta name="description" content="Search across chats, spaces and snippets — plus a browser-style in-chat finder with phrase highlighting." />
+  <meta name="description" content="Two searches: a global Cmd/Ctrl+K palette that cross-searches chats, Spaces and Snippets, and a browser-style find within the current chat transcript." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,38 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Search</h1>
-    <p class="lead">Search across chats, spaces and snippets — plus a browser-style in-chat finder with phrase highlighting.</p>
+    <p class="lead">Loach has two complementary search surfaces: a global palette for jumping anywhere in the app, and a browser-style finder for the chat you are currently looking at.</p>
 
+    <h2 id="palette">The global palette</h2>
+    <p>Press <kbd>Cmd</kbd>&nbsp;/&nbsp;<kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>K</kbd> (or click the search pill in the title bar) to open the palette. It cross-searches:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Chats</strong> &mdash; by title and by message contents.</li>
+      <li><strong class="feat-name">Spaces</strong> &mdash; by name and description.</li>
+      <li><strong class="feat-name">Snippets</strong> &mdash; by title and body.</li>
+    </ul>
+    <p>An empty query shows recent suggestions across all three. Use the arrow keys to move and Enter to commit. Picking a chat opens it; picking a Space opens its detail view; picking a Snippet starts a fresh chat with the Snippet&rsquo;s prompt primed in the composer.</p>
+    <p><kbd>Esc</kbd> clears a non-empty query first, then closes the palette. The palette is suppressed while the lock screen or onboarding wizard owns the window.</p>
+
+    <h2 id="in-chat">Find within a chat</h2>
+    <p>Press <kbd>Cmd</kbd>&nbsp;/&nbsp;<kbd>Ctrl</kbd>&nbsp;+&nbsp;<kbd>F</kbd> inside a chat to open the in-transcript finder. It works like browser find: type to search, matches highlight inline, and you can step through them with the keyboard.</p>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">Tip</div>
+        <p>When you remember &ldquo;there was a snippet about X&rdquo; but not <em>where</em>, hit <kbd>Cmd/Ctrl + K</kbd> and start typing &mdash; you do not have to switch tabs first. The palette is the fastest path between two places in the app.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="chat-archive.html">
         <span class="label">Previous</span>
-        <span class="title">← Chat archive</span>
+        <span class="title">&larr; Chat archive</span>
       </a>
       <a href="import-export.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Import and export context →</span>
+        <span class="title">Import and export context &rarr;</span>
       </a>
     </div>
 

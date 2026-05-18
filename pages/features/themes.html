@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Themes — Loach Docs</title>
-  <meta name="description" content="Two themes — Aurora (glassy, gradient) and Solid (flat) — both available in Dark and Light variants. Switch from Settings." />
+  <meta name="description" content="Two themes — Aurora (animated gradient) and Solid (flat) — both available in light, dark and follow-system modes. Plus three font sizes that scale every text size in the app." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,38 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Themes</h1>
-    <p class="lead">Two themes — <strong>Aurora</strong> (glassy, gradient) and <strong>Solid</strong> (flat) — both available in <strong>Dark</strong> and <strong>Light</strong> variants. Switch from Settings.</p>
+    <p class="lead">Loach ships two themes, three colour modes and three font sizes. Everything updates instantly &mdash; no reload &mdash; and your choice is remembered across launches.</p>
 
+    <h2 id="themes">Themes</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Solid</strong> &mdash; calm flat background, azure accent. The default if you want minimal visual noise.</li>
+      <li><strong class="feat-name">Aurora</strong> &mdash; animated glass-mesh gradient, warm orange accent. The right pick if you like a bit more atmosphere.</li>
+    </ul>
+
+    <h2 id="colour-modes">Colour modes</h2>
+    <p>Independent of the theme, you can pick:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Light</strong></li>
+      <li><strong class="feat-name">System</strong> &mdash; follows your OS preference and switches automatically when you do.</li>
+      <li><strong class="feat-name">Dark</strong></li>
+    </ul>
+
+    <h2 id="font-size">Font size</h2>
+    <p>Pick <strong>Small</strong>, <strong>Normal</strong> or <strong>Large</strong>. The choice is applied as a scale to every rem-based and pixel-based text size in the app, so headings, body copy and chrome stay in proportion.</p>
+
+    <h2 id="window-chrome">Window chrome</h2>
+    <p>Loach uses a borderless window on both Windows and Linux. The title bar hosts the window controls (minimise, maximise, close) inline &mdash; you do not lose any controls by going borderless.</p>
     <div class="page-nav">
       <a href="data-management.html">
         <span class="label">Previous</span>
-        <span class="title">← Data management</span>
+        <span class="title">&larr; Data management</span>
       </a>
       <a href="ota-updates.html" class="next">
         <span class="label">Next</span>
-        <span class="title">OTA updates →</span>
+        <span class="title">OTA updates &rarr;</span>
       </a>
     </div>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Provider selection — Loach Docs</title>
-  <meta name="description" content="Switch between Ollama local models and any OpenAI-compatible endpoint (OpenAI, llama.cpp, LM Studio, vLLM, Groq, OpenRouter…) directly from the chat header — no restart required." />
+  <meta name="description" content="Pick between local Ollama models and any OpenAI-compatible endpoint per chat, per Space and per Snippet. Switching is instant and persists with the conversation." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,41 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Provider selection</h1>
-    <p class="lead">Switch between Ollama local models and any OpenAI-compatible endpoint (OpenAI, llama.cpp, LM Studio, vLLM, Groq, OpenRouter…) directly from the chat header — no restart required.</p>
+    <p class="lead">Loach is a chat client, not a model. Out of the box it speaks two protocols: <strong>Ollama</strong> for local models running on your machine, and any <strong>OpenAI-compatible</strong> endpoint for hosted or self-hosted services. You can keep both wired up at once and switch between them at will.</p>
 
+    <h2 id="local-ollama">Local: Ollama</h2>
+    <p>The default backend. Loach talks to a local <code>ollama serve</code> process over HTTP and refreshes the model list automatically when you open the providers panel. If Ollama is not running, the panel surfaces a soft &ldquo;start ollama serve&rdquo; hint instead of erroring noisily.</p>
+    <p>When the chosen model supports them, streaming, multimodal images and thinking-mode reasoning are passed through to the daemon without extra configuration. By default Loach assumes Ollama is on <code>localhost</code> &mdash; change the base URL in <strong>Settings &rarr; Providers</strong> if it lives on another machine or port.</p>
+
+    <h2 id="cloud-openai">Cloud or self-hosted: OpenAI-compatible</h2>
+    <p>Any endpoint that implements <code>/v1/chat/completions</code> works. That includes the real OpenAI API, plus vLLM, LM Studio, LiteLLM, OpenRouter, Groq and other proxies. Set the base URL and API key in <strong>Settings &rarr; Providers</strong>; the catalog is fetched on demand. If no key is configured the panel hides itself rather than spam failed requests.</p>
+    <p>API keys are saved into the OS credential store, not written into the SQLite database in plaintext, and never shipped to the renderer process. If you remove a key, the cached catalog is forgotten.</p>
+
+    <h2 id="model-picker">The model picker</h2>
+    <p>Every chat has a model dropdown in its header that lists both providers&rsquo; catalogs side-by-side, grouped by name. Picking a model:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Persists onto the chat</strong> &mdash; reloading the app remembers which model that chat last used.</li>
+      <li><strong class="feat-name">Updates the &ldquo;most recent&rdquo; pair</strong> &mdash; used by <a href="default-model.html">Default model &rarr; Use most recent</a> when starting fresh chats.</li>
+      <li><strong class="feat-name">Unloads the old model</strong> &mdash; for Ollama, the previous model is released from VRAM and the new one&rsquo;s parameter cache is warmed for the parameters sidebar.</li>
+    </ul>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Heads up</div>
+        <p>You can switch providers <em>mid-conversation</em>. The chat keeps its full message history; only future replies use the new model. Use this freely to compare answers across models without copy-pasting context.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="../features.html">
         <span class="label">Previous</span>
-        <span class="title">← Features overview</span>
+        <span class="title">&larr; Features overview</span>
       </a>
       <a href="model-management.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Local model management →</span>
+        <span class="title">Local model management &rarr;</span>
       </a>
     </div>
 

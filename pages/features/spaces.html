@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spaces — Loach Docs</title>
-  <meta name="description" content="Group chats around a project, with shared instructions, reference files and memory. Use a Space when several chats orbit the same topic: a codebase, a research question, an ongoing piece of writing." />
+  <meta name="description" content="A Space bundles instructions, reference files, a memory store and pinned model defaults around a project. Every chat created inside a Space inherits that context." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,48 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Spaces</h1>
-    <p class="lead">Group chats around a project, with shared instructions, reference files and memory. Use a Space when several chats orbit the same topic: a codebase, a research question, an ongoing piece of writing.</p>
+    <p class="lead">A <strong>Space</strong> is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference files, memory and pinned model defaults. Every chat created inside a Space inherits that context automatically.</p>
 
+    <h2 id="what-a-space-holds">What a Space holds</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Instructions</strong> &mdash; a system prompt that overrides the global <a href="custom-instructions.html">custom instructions</a> when set. The Space is the user explicitly opting in to space-level guidance.</li>
+      <li><strong class="feat-name">Reference files</strong> &mdash; text files and PDFs are inlined into the system prompt of every chat in the Space; images ride along with the user turn so vision-capable models can see them.</li>
+      <li><strong class="feat-name">Memory</strong> &mdash; optional auto-extracted one-line facts about the user (see below).</li>
+      <li><strong class="feat-name">Default provider and model</strong> &mdash; pinned per-Space, so a &ldquo;code review&rdquo; Space can always start in a different model than a &ldquo;writing&rdquo; Space.</li>
+      <li><strong class="feat-name">Default generation parameters</strong> &mdash; temperature, top-p and the rest, layered between model defaults and per-chat overrides.</li>
+    </ul>
+
+    <h2 id="lifecycle">Creating and editing</h2>
+    <p>Create a Space from the <strong>Spaces</strong> sidebar tab or from the in-app library tile. Each Space has a detail view with its own tabs for chats, instructions, files, memory and model defaults. Editing any field updates the context for every chat inside the Space the next time they are sent.</p>
+    <p>Deleting a Space cascades: the chats inside it, the reference files and the auto-saved memories all go with it. Move any chat you want to keep out of the Space first.</p>
+
+    <h2 id="memory">Space Memory</h2>
+    <p>Optional per-Space auto-memory. After every assistant reply in a Space, Loach fires a one-shot call against the same provider and model the user is chatting with and asks it to extract durable, single-sentence facts about the user from the new turn. The surviving facts are deduplicated and persisted as memories.</p>
+    <p>You will see a small <em>Saved to memory</em> pill briefly appear after every save, showing the new fact &mdash; so you always know what landed in long-term context.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Memory tab</strong> &mdash; review, edit or delete any auto-saved row. You can also add facts manually.</li>
+      <li><strong class="feat-name">Per-Space toggle</strong> &mdash; turn extraction off without wiping the existing rows. Stored memories keep riding along in every chat; only new writes stop.</li>
+      <li><strong class="feat-name">Cancelled or errored turns</strong> never trigger extraction, because the assistant&rsquo;s text is incomplete.</li>
+    </ul>
+    <p>Memories are silently injected into the system prompt of every chat inside the Space as a short <code>--- Space memory ---</code> bulleted list.</p>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">When to make a Space</div>
+        <p>Reach for a Space whenever you find yourself opening several chats that share the same reference files or the same custom instructions. The cost is one click; the upside is never re-pasting context again.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="code-canvas.html">
+      <a href="concurrency.html">
         <span class="label">Previous</span>
-        <span class="title">← Code blocks &amp; canvas</span>
+        <span class="title">&larr; Concurrency & queue</span>
       </a>
       <a href="snippets.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Snippets →</span>
+        <span class="title">Snippets &rarr;</span>
       </a>
     </div>
 

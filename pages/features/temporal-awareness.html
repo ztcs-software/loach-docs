@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Temporal awareness — Loach Docs</title>
-  <meta name="description" content="Optionally inject current date, time, weekday and timezone into the system prompt, so models can answer &quot;what day is it today?&quot; correctly." />
+  <meta name="description" content="Optionally prepend the current date, time, weekday and timezone to every system prompt — so models can answer “what day is it today?” correctly." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,38 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Temporal awareness</h1>
-    <p class="lead">Optionally inject current date, time, weekday and timezone into the system prompt, so models can answer "what day is it today?" correctly.</p>
+    <p class="lead">Out of the box, most models do not know what day it is. Temporal awareness fixes that by prepending a short &ldquo;current date / time / timezone&rdquo; preamble to every system prompt &mdash; only when the prompt does not already pull those values in itself.</p>
 
+    <h2 id="enabling">Enabling</h2>
+    <p>Toggle <strong>Settings &rarr; General &rarr; Temporal awareness</strong>. New chats will start including the preamble immediately. Existing chats inherit the new setting on their next message.</p>
+
+    <h2 id="how-it-fires">How it decides to fire</h2>
+    <p>Loach scans your effective system prompt (after the global &rarr; Space &rarr; per-chat <a href="custom-instructions.html">cascade</a>) for any of the <code>{{CURRENT_*}}</code> placeholders:</p>
+    <ul class="feature-list">
+      <li><code>{{CURRENT_DATE}}</code>, <code>{{CURRENT_TIME}}</code>, <code>{{CURRENT_WEEKDAY}}</code>, <code>{{CURRENT_DATETIME}}</code>, <code>{{CURRENT_TIMEZONE}}</code></li>
+    </ul>
+    <p>If any of them are present, you have asked for the values inline and Loach does not prepend anything &mdash; you are in control of where and how they appear. If none are present, Loach prepends a short preamble of the form &ldquo;Current date: &hellip; Current time: &hellip; Timezone: &hellip;&rdquo;.</p>
+
+    <h2 id="why">Why it matters</h2>
+    <p>Many factual queries depend on &ldquo;today&rdquo;: meeting scheduling, deadlines, age calculations, news cut-offs. Without temporal awareness the model relies on whatever date it was trained around, which is almost certainly wrong by the time you are talking to it.</p>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">Tip</div>
+        <p>If you only want the date in <em>some</em> chats (or formatted differently from the default), turn temporal awareness <em>off</em> and put a <code>{{CURRENT_DATE}}</code> or <code>{{CURRENT_WEEKDAY}}</code> into the relevant Space&rsquo;s instructions instead.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="web-fetch.html">
         <span class="label">Previous</span>
-        <span class="title">← Web fetch</span>
+        <span class="title">&larr; Web fetch</span>
       </a>
       <a href="mcp.html" class="next">
         <span class="label">Next</span>
-        <span class="title">MCP support →</span>
+        <span class="title">MCP support &rarr;</span>
       </a>
     </div>
 

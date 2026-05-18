@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Custom instructions — Loach Docs</title>
-  <meta name="description" content="Set instructions globally, per-Space or per-chat. Lower-scope wins over higher-scope." />
+  <meta name="description" content="Set instructions globally, per-Space or per-chat. Narrower scope wins. Template variables let you inject the user’s name, date, time and timezone into any prompt." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,51 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Custom instructions</h1>
-    <p class="lead">Set instructions globally, per-Space or per-chat. Lower-scope wins over higher-scope.</p>
+    <p class="lead">Custom instructions are the system prompt Loach attaches to your messages. You can write them at three scopes and the narrower scope always wins, so you can set defaults once and tighten them where it matters.</p>
 
+    <h2 id="where-to-set">Where to set them</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Global</strong> &mdash; <strong>Settings &rarr; General</strong>. Applies to every new chat.</li>
+      <li><strong class="feat-name">Per-Space</strong> &mdash; each <a href="spaces.html">Space</a> has its own <em>Instructions</em> field. Overrides the global instructions for chats inside the Space.</li>
+      <li><strong class="feat-name">Per-chat</strong> &mdash; the system prompt textarea in the chat&rsquo;s <strong>Parameters</strong> panel. Overrides both of the above.</li>
+    </ul>
+
+    <h2 id="precedence">Precedence</h2>
+    <p>Custom instructions cascade from broadest to narrowest:</p>
+    <p><strong>global &rarr; per-Space &rarr; per-chat</strong></p>
+    <p>The narrower scope always wins. A per-chat instruction overrides the Space it belongs to, and a Space&rsquo;s instructions override the global ones &mdash; so you can set sensible defaults once at the global level, then tighten them for individual Spaces or chats as needed.</p>
+
+    <h2 id="template-variables">Template variables</h2>
+    <p>Any prompt authored by you &mdash; global instructions, Space instructions, Snippet bodies, per-chat system prompts &mdash; can use these placeholders. They are substituted at send time.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">{{USER_NAME}}</strong> &mdash; the display name from <strong>Settings &rarr; General</strong>.</li>
+      <li><strong class="feat-name">{{CURRENT_DATE}}</strong> &mdash; <code>YYYY-MM-DD</code>.</li>
+      <li><strong class="feat-name">{{CURRENT_TIME}}</strong> &mdash; <code>HH:MM</code>, 24-hour local time.</li>
+      <li><strong class="feat-name">{{CURRENT_WEEKDAY}}</strong> &mdash; <code>Monday</code>, <code>Tuesday</code>, &hellip;</li>
+      <li><strong class="feat-name">{{CURRENT_DATETIME}}</strong> &mdash; <code>YYYY-MM-DD HH:MM</code>.</li>
+      <li><strong class="feat-name">{{CURRENT_TIMEZONE}}</strong> &mdash; an IANA zone such as <code>Europe/Warsaw</code>, with a UTC offset fallback on very old WebViews.</li>
+    </ul>
+    <p>See also <a href="temporal-awareness.html">Temporal awareness</a>, which automatically prepends a short date/time preamble when your prompt does not already use the <code>{{CURRENT_*}}</code> placeholders.</p>
+
+    <h2 id="examples">Examples</h2>
+    <ul class="example-list">
+      <li>&ldquo;Always reply in Polish unless I write to you in English.&rdquo;</li>
+      <li>&ldquo;You are a senior product manager. Push back on vague requirements and ask clarifying questions before answering.&rdquo;</li>
+      <li>&ldquo;When writing code, prefer Python 3.12 with type hints and f-strings. Skip explanatory comments unless asked.&rdquo;</li>
+      <li>&ldquo;Cite a source for every factual claim. If you cannot verify something, say so explicitly.&rdquo;</li>
+      <li>&ldquo;My name is {{USER_NAME}}. Today is {{CURRENT_WEEKDAY}} {{CURRENT_DATE}}. Use that when reasoning about deadlines.&rdquo;</li>
+    </ul>
     <div class="page-nav">
       <a href="personas.html">
         <span class="label">Previous</span>
-        <span class="title">← Personas and tones</span>
+        <span class="title">&larr; Personas and tones</span>
       </a>
       <a href="generation-stats.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Generation stats →</span>
+        <span class="title">Generation stats &rarr;</span>
       </a>
     </div>
 

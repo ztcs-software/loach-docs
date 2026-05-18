@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Code blocks & canvas — Loach Docs</title>
-  <meta name="description" content="Code blocks are syntax-highlighted with line numbers and offer copy, export and open in canvas options. The code canvas opens any code block in a wider, theme-aware view that's easier to read and review." />
+  <meta name="description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,42 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
-    <h1>Code blocks &amp; canvas</h1>
-    <p class="lead">Code blocks are syntax-highlighted with line numbers and offer <strong>copy</strong>, <strong>export</strong> and <strong>open in canvas</strong> options. The <strong>code canvas</strong> opens any code block in a wider, theme-aware view that's easier to read and review.</p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
+    <h1>Code blocks & canvas</h1>
+    <p class="lead">Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, the <strong>Open in canvas</strong> action gives you a wider, easier-to-read view alongside the conversation.</p>
 
+    <h2 id="inline-actions">Inline actions</h2>
+    <p>Hover over any code block and the toolbar exposes:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Copy</strong> &mdash; put the snippet on the clipboard. Works for everything, even non-code (JSON, logs, plain prose in a fenced block).</li>
+      <li><strong class="feat-name">Export</strong> &mdash; save to a file via the native save dialog. The default filename uses a sensible extension based on the detected language (<code>snippet.ts</code>, <code>snippet.py</code>, <code>Dockerfile</code>, and so on).</li>
+      <li><strong class="feat-name">Open in canvas</strong> &mdash; pop the block out into the wide canvas panel.</li>
+    </ul>
+
+    <h2 id="canvas-panel">The canvas panel</h2>
+    <p>The canvas opens in the right-hand slot of the window. It shows:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Title bar</strong> with the inferred language and a short title.</li>
+      <li><strong class="feat-name">Copy</strong> button mirroring the inline action.</li>
+      <li><strong class="feat-name">Export</strong> button with the same sensible-filename defaults.</li>
+      <li><strong class="feat-name">Read-only body</strong> with line numbers and language-aware highlighting. Unknown languages fall back to auto-detection.</li>
+    </ul>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Heads up</div>
+        <p>The canvas and the <a href="parameters.html">parameters sidebar</a> share the same right-hand slot. Opening the canvas will close the parameters panel for that chat; closing the canvas brings it back.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="markdown.html">
         <span class="label">Previous</span>
-        <span class="title">← Markdown rendering</span>
+        <span class="title">&larr; Markdown rendering</span>
       </a>
-      <a href="spaces.html" class="next">
+      <a href="concurrency.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Spaces →</span>
+        <span class="title">Concurrency & queue &rarr;</span>
       </a>
     </div>
 

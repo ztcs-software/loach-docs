@@ -930,6 +930,25 @@ kbd {
 .callout.tip   { border-left: 3px solid #20c997; }
 .callout.warn  { border-left: 3px solid #f59f00; }
 
+/* Example list — stacked quote-style boxes for verbatim samples */
+.example-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: grid;
+  gap: 10px;
+}
+.example-list li {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  background: var(--bg-elevated);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.55;
+}
+
 /* Cards grid */
 .card-grid {
   display: grid;

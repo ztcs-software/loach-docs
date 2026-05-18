@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MCP support — Loach Docs</title>
-  <meta name="description" content="Register Model Context Protocol servers (Streamable HTTP), test the handshake and inspect the tools they provide. Once registered, tools become available to the model during a chat — bringing structured external capabilities into your conversation." />
+  <meta name="description" content="Register Model Context Protocol servers over Streamable HTTP, test the handshake and expose their tools to the chat. Configure servers in Settings → MCP." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,41 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>MCP support</h1>
-    <p class="lead">Register <strong>Model Context Protocol</strong> servers (Streamable HTTP), test the handshake and inspect the tools they provide. Once registered, tools become available to the model during a chat — bringing structured external capabilities into your conversation.</p>
+    <p class="lead">Loach speaks the <strong>Model Context Protocol</strong> (MCP) over the Streamable HTTP transport. Register one or more servers in <strong>Settings &rarr; MCP</strong> and their tools become available to the model during a chat &mdash; bringing structured external capabilities into the conversation.</p>
 
+    <h2 id="what-is-mcp">What is MCP?</h2>
+    <p>MCP is an open protocol that lets models call structured tools served by a separate process. Where <a href="web-fetch.html">Web fetch</a> just hands the model a page of text, an MCP server can expose typed tools (&ldquo;list files in this repo&rdquo;, &ldquo;search this database&rdquo;, &ldquo;send this email&rdquo;) that the model calls with arguments and gets typed results back. The integration is provider-agnostic from Loach&rsquo;s point of view &mdash; whichever model you are chatting with can use the tools, as long as it supports tool calls.</p>
+
+    <h2 id="registering">Registering a server</h2>
+    <p>Each MCP entry has:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Name</strong> &mdash; a display label.</li>
+      <li><strong class="feat-name">URL</strong> &mdash; an <code>https://&hellip;</code> endpoint.</li>
+      <li><strong class="feat-name">Headers</strong> &mdash; an optional key/value map (typically <code>Authorization</code>).</li>
+      <li><strong class="feat-name">Enabled toggle</strong> &mdash; disable a server without deleting it.</li>
+      <li><strong class="feat-name">Test connection</strong> &mdash; runs the <code>initialize</code> + <code>tools/list</code> handshake against the endpoint without persisting it, and reports back the server name, protocol version and tool list. Use this before saving.</li>
+    </ul>
+
+    <h2 id="safety">Safety guards</h2>
+    <p>URLs are validated, headers are checked for size and disallowed characters, and per-request bodies are capped so a misconfigured or malicious server cannot exhaust the app. Each request also has a sensible timeout, so a hung server does not freeze the chat.</p>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Choosing a model</div>
+        <p>Tools only show up to models that advertise tool-use capability. Hosted models from major providers typically support this; many local Ollama models do too. Check the capability tags in the <a href="model-management.html">Models editor</a> if you are unsure.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="temporal-awareness.html">
         <span class="label">Previous</span>
-        <span class="title">← Temporal awareness</span>
+        <span class="title">&larr; Temporal awareness</span>
       </a>
       <a href="default-model.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Default model selector →</span>
+        <span class="title">Default model selector &rarr;</span>
       </a>
     </div>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Web fetch — Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request — no separate browser extension needed." />
+  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,38 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Web fetch</h1>
-    <p class="lead">Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request — no separate browser extension needed.</p>
+    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
 
+    <h2 id="opt-in">Off by default</h2>
+    <p>Loach is offline-first. Web fetch is the only built-in tool that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on in <strong>Settings &rarr; Tools</strong> when you want it &mdash; or leave it off if you would rather everything stay strictly local.</p>
+
+    <h2 id="how-it-works">How it works</h2>
+    <p>When you send a message, Loach scans it for URLs. For each one it finds:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Downloads</strong> the page with a sensible timeout, deduping repeated links.</li>
+      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, dropping scripts, styles and noise.</li>
+      <li><strong class="feat-name">Inlines</strong> the extracted text into the request as a fenced block tagged with the source URL, so the model knows where the content came from.</li>
+    </ul>
+    <p>Per-message and per-URL limits keep the prompt manageable. If a single page is huge, only the leading portion of its text is sent; if a fetch fails or times out, a short stub is rendered in its place so the model knows you intended to share it.</p>
+
+    <h2 id="safety">Safety guards</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Schemes</strong> &mdash; only <code>http</code> and <code>https</code>.</li>
+      <li><strong class="feat-name">Private-IP guard</strong> &mdash; resolved addresses on loopback, private network ranges, link-local and other reserved blocks are refused, so a malicious URL cannot pivot at your local network.</li>
+      <li><strong class="feat-name">Redirects</strong> &mdash; walked manually and re-screened at every hop with the same rules.</li>
+      <li><strong class="feat-name">Failures are silent per URL</strong> &mdash; a dead link does not block your message; you just get a short stub for that one URL.</li>
+    </ul>
     <div class="page-nav">
       <a href="voice-dictation.html">
         <span class="label">Previous</span>
-        <span class="title">← Voice dictation</span>
+        <span class="title">&larr; Voice dictation</span>
       </a>
       <a href="temporal-awareness.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Temporal awareness →</span>
+        <span class="title">Temporal awareness &rarr;</span>
       </a>
     </div>
 

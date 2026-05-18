@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data management — Loach Docs</title>
-  <meta name="description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <title>Concurrency & queue — Loach Docs</title>
+  <meta name="description" content="Loach runs one generation at a time across all chats, with a FIFO queue and a Respond now action for jumping the line. Cancelled streams keep what was written." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -192,38 +192,31 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Data management</h1>
-    <p class="lead"><strong>Settings &rarr; Data</strong> is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes &mdash; and you can take it with you.</p>
+    <h1>Concurrency & queue</h1>
+    <p class="lead">Only one model generation runs at a time across all of your chats. Everything else waits in a FIFO queue &mdash; and you can always jump the line when you need to.</p>
 
-    <h2 id="export">Export everything</h2>
-    <p>Produces a single JSON blob containing every chat, message, Space, file, memory, snippet, MCP server and setting. The native save dialog opens; the file is written from the app backend, so the renderer never sees the chosen path.</p>
-    <p>This is the canonical backup format. Keep one before you do anything risky &mdash; OS reinstall, machine swap, experimental settings.</p>
+    <h2 id="one-at-a-time">One generation at a time</h2>
+    <p>Local models are heavy on hardware: most of the time only one prompt can stream at once without thrashing VRAM or pinning the CPU. Loach enforces this at the application level, regardless of which chats or providers are involved. The benefit is predictable performance &mdash; no two chats fighting for the same GPU &mdash; and a clear mental model of what is happening.</p>
+    <p>Inside a single chat the rule is even simpler: only one in-flight request per chat. Pressing send while a reply is already streaming in the same chat is a no-op.</p>
 
-    <h2 id="import">Import</h2>
-    <p>Open a previously exported JSON file. Loach reports per-table row counts in a toast on success, so you can see at a glance what came back in. If app lock is configured, Import asks for your current credentials before running &mdash; an unauthorised renderer cannot trigger it.</p>
+    <h2 id="the-queue">The queue</h2>
+    <p>Send a prompt while another chat is busy and your request is parked. The chat&rsquo;s row in the sidebar shows a spinner so you can see at a glance which chats are waiting. The queue is strictly first-in, first-out &mdash; earlier requests run before later ones.</p>
+    <p>You can keep typing in any chat while you wait, switch around the sidebar, browse Spaces or Snippets, or just close the window &mdash; the queue survives until the runner finishes.</p>
 
-    <h2 id="wipe">Wipe user data</h2>
-    <p>Drops chats, Spaces, snippets, MCP servers and memories. <em>Keeps</em> app settings and the stored OpenAI key, so the app remains usable immediately afterwards. Gated on app-lock credentials when a lock is configured.</p>
-    <p>Use this when you want a clean conversational slate but do not want to redo all your provider setup.</p>
+    <h2 id="respond-now">Respond now</h2>
+    <p>If a chat is waiting and you do not want to wait any more, the chat header offers a <strong>Respond now</strong> action. It cancels whatever generation is currently running (preserving its partial output, see below) and immediately starts yours.</p>
+    <p>This is the right tool when the in-flight reply has gone off the rails, or when you are switching contexts and the queued chat is the one you actually care about.</p>
 
-    <h2 id="factory-reset">Factory reset</h2>
-    <p>Wipe user data <em>plus</em> clear all settings <em>plus</em> remove the OpenAI key from the credential store. Re-runs <a href="onboarding.html">onboarding</a> on next launch. Irreversible.</p>
-    <p>Use this when handing the machine to someone else, or as the last step in &ldquo;start completely over&rdquo;.</p>
-
-    <div class="callout warn">
-      <div class="callout-body">
-        <div class="callout-title">All of this is destructive</div>
-        <p>Wipe and factory reset are immediate and cannot be undone by a button. Export everything first if there is any chance you might want it back.</p>
-      </div>
-    </div>
+    <h2 id="cancel-and-error">Cancelling and errors</h2>
+    <p>Whether you stop a stream manually (the send button becomes a stop button while streaming) or the runner is pre-empted by <strong>Respond now</strong>, the partial output is kept in the transcript along with a short error tail so the message bubble is never silently empty. The same applies if the provider drops the connection &mdash; you can see how far it got, decide what to do, and retry without losing context.</p>
     <div class="page-nav">
-      <a href="app-lock.html">
+      <a href="code-canvas.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; App lock</span>
+        <span class="title">&larr; Code blocks & canvas</span>
       </a>
-      <a href="themes.html" class="next">
+      <a href="spaces.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Themes &rarr;</span>
+        <span class="title">Spaces &rarr;</span>
       </a>
     </div>
 

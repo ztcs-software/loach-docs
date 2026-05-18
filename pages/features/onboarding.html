@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data management — Loach Docs</title>
-  <meta name="description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <title>Onboarding wizard — Loach Docs</title>
+  <meta name="description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, name, provider, prompt, features and start." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -192,38 +192,38 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Data management</h1>
-    <p class="lead"><strong>Settings &rarr; Data</strong> is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes &mdash; and you can take it with you.</p>
+    <h1>Onboarding wizard</h1>
+    <p class="lead">A six-step wizard runs on first launch and after a factory reset. Each step writes its choice straight into settings, so closing the wizard part-way still leaves the app in a consistent state &mdash; you can finish setting things up from <strong>Settings</strong> later.</p>
 
-    <h2 id="export">Export everything</h2>
-    <p>Produces a single JSON blob containing every chat, message, Space, file, memory, snippet, MCP server and setting. The native save dialog opens; the file is written from the app backend, so the renderer never sees the chosen path.</p>
-    <p>This is the canonical backup format. Keep one before you do anything risky &mdash; OS reinstall, machine swap, experimental settings.</p>
+    <h2 id="steps">The steps</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">1. Welcome</strong> &mdash; a brief intro card. Click <em>Get started</em> to move on.</li>
+      <li><strong class="feat-name">2. Name</strong> &mdash; an optional display name. Once set, it is available as the <code>{{USER_NAME}}</code> template variable in any system prompt (custom instructions, Space instructions, snippets, per-chat overrides).</li>
+      <li><strong class="feat-name">3. Provider</strong> &mdash; the only required step. Pick Ollama and (optionally) install a suggested starter model, or add an OpenAI-compatible API key. Skipping with <em>Esc</em> or <em>&times;</em> here triggers a confirm dialog, because the app needs a provider before anything else can work.</li>
+      <li><strong class="feat-name">4. Prompt</strong> &mdash; the global <strong>Custom instructions</strong> textarea. Whatever you type here becomes the system prompt for every new chat (unless a Space or per-chat override wins).</li>
+      <li><strong class="feat-name">5. Features</strong> &mdash; toggle the default behaviour for Temporal awareness, Thinking, Web fetch and Low VRAM mode. The wizard ships with recommended defaults pre-selected (see below).</li>
+      <li><strong class="feat-name">6. Final</strong> &mdash; closes the wizard. You land in a fresh chat with the model dropdown auto-opened so you can pick a model and start typing immediately.</li>
+    </ul>
 
-    <h2 id="import">Import</h2>
-    <p>Open a previously exported JSON file. Loach reports per-table row counts in a toast on success, so you can see at a glance what came back in. If app lock is configured, Import asks for your current credentials before running &mdash; an unauthorised renderer cannot trigger it.</p>
+    <h2 id="recommended-defaults">Recommended defaults</h2>
+    <p>On the Features step, Loach pre-selects the toggle states that make sense for most people:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Temporal awareness</strong> &mdash; on. Models get a small &ldquo;today is&hellip;&rdquo; preamble so they can answer &ldquo;what day is it?&rdquo; correctly.</li>
+      <li><strong class="feat-name">Thinking</strong> &mdash; on. Reasoning-capable models stream their thought process into a collapsible block.</li>
+      <li><strong class="feat-name">Web fetch</strong> &mdash; on. URLs in your prompts are downloaded and inlined.</li>
+      <li><strong class="feat-name">Low VRAM</strong> &mdash; off. Only enable it if your machine is constrained.</li>
+    </ul>
 
-    <h2 id="wipe">Wipe user data</h2>
-    <p>Drops chats, Spaces, snippets, MCP servers and memories. <em>Keeps</em> app settings and the stored OpenAI key, so the app remains usable immediately afterwards. Gated on app-lock credentials when a lock is configured.</p>
-    <p>Use this when you want a clean conversational slate but do not want to redo all your provider setup.</p>
-
-    <h2 id="factory-reset">Factory reset</h2>
-    <p>Wipe user data <em>plus</em> clear all settings <em>plus</em> remove the OpenAI key from the credential store. Re-runs <a href="onboarding.html">onboarding</a> on next launch. Irreversible.</p>
-    <p>Use this when handing the machine to someone else, or as the last step in &ldquo;start completely over&rdquo;.</p>
-
-    <div class="callout warn">
-      <div class="callout-body">
-        <div class="callout-title">All of this is destructive</div>
-        <p>Wipe and factory reset are immediate and cannot be undone by a button. Export everything first if there is any chance you might want it back.</p>
-      </div>
-    </div>
+    <h2 id="dismissing">Dismissing and resuming</h2>
+    <p>Press <kbd>Esc</kbd> or click <em>&times;</em> on any step to close the wizard. Steps you have completed stay completed; the rest can be filled in later from <strong>Settings</strong>. The wizard does not re-appear on subsequent launches unless you run a factory reset (see <a href="data-management.html">Data management</a>).</p>
     <div class="page-nav">
-      <a href="app-lock.html">
+      <a href="ota-updates.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; App lock</span>
+        <span class="title">&larr; OTA updates</span>
       </a>
-      <a href="themes.html" class="next">
+      <a href="keyboard.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Themes &rarr;</span>
+        <span class="title">Keyboard shortcuts &rarr;</span>
       </a>
     </div>
 

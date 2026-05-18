@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Import and export context — Loach Docs</title>
-  <meta name="description" content="Export chat context to JSON or Markdown, and paste exported data — or any text — back into any chat's context." />
+  <meta name="description" content="Export the full transcript of a chat to JSON or Markdown, and paste exported data — or any plain text — back into another chat to extend its context." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,30 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Import and export context</h1>
-    <p class="lead">Export chat context to JSON or Markdown, and paste exported data — or any text — back into any chat's context.</p>
+    <p class="lead">Chats are not locked into Loach. You can move a conversation in or out as either structured JSON or human-readable Markdown, and re-import context into any other chat.</p>
 
+    <h2 id="export">Export</h2>
+    <p>From the chat header, pick <strong>Export &rarr; JSON</strong> or <strong>Export &rarr; Markdown</strong>. The native save dialog opens; the chosen path is owned by the app backend, not the renderer.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">JSON</strong> &mdash; full structured export with messages, roles, timestamps and attachments-by-name. Ideal for piping into another tool or re-importing into Loach.</li>
+      <li><strong class="feat-name">Markdown</strong> &mdash; human-readable transcript with role headers and code-fenced blocks. Drop it into a notes app, a doc, or commit it alongside your code.</li>
+    </ul>
+    <p><strong>Copy as Markdown</strong>, also in the chat header, puts the same Markdown rendering on your clipboard without a file dialog.</p>
+
+    <h2 id="import">Import context</h2>
+    <p>From any chat&rsquo;s header, pick <strong>Import context</strong> and paste exported JSON, exported Markdown or just plain text. Loach parses what you give it into messages and appends them to the current chat. The previous conversation is preserved &mdash; imported content sits at the end as new turns.</p>
+    <p>This is the right tool for stitching together two related threads, picking up where another tool left off, or re-using a long transcript as the seed for a new line of questioning.</p>
     <div class="page-nav">
       <a href="search.html">
         <span class="label">Previous</span>
-        <span class="title">← Search</span>
+        <span class="title">&larr; Search</span>
       </a>
-      <a href="voice-dictation.html" class="next">
+      <a href="attachments.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Voice dictation →</span>
+        <span class="title">Attachments &rarr;</span>
       </a>
     </div>
 

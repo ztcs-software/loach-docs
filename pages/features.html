@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
@@ -189,23 +201,25 @@
       <li><a class="feature-card" href="features/model-management.html"><span class="feature-card-title">Local model management</span><span class="feature-card-desc">Pull, copy, customize and delete local models from inside the app — no terminal required. The <strong>Models</strong> library tab is a full UI over the Ollama HTTP API.</span></a></li>
       <li><a class="feature-card" href="features/parameters.html"><span class="feature-card-title">Per-chat parameters</span><span class="feature-card-desc">Set <code>temperature</code>, <code>top_k</code>, <code>top_p</code>, <code>min_p</code>, <code>max_tokens</code>, <code>context length</code> and per-chat system prompts. Values are layered over Modelfile defaults and per-model defaults.</span></a></li>
       <li><a class="feature-card" href="features/personas.html"><span class="feature-card-title">Personas and tones</span><span class="feature-card-desc">Pick a role (Code Reviewer, Translator, ELI5…) and a delivery style (Formal, Casual, Concise, Detailed…). They layer on top of your custom instructions.</span></a></li>
-      <li><a class="feature-card" href="features/custom-instructions.html"><span class="feature-card-title">Custom instructions</span><span class="feature-card-desc">Set instructions globally, per-Space or per-chat. Lower-scope wins over higher-scope.</span></a></li>
+      <li><a class="feature-card" href="features/custom-instructions.html"><span class="feature-card-title">Custom instructions</span><span class="feature-card-desc">Set instructions globally, per-Space or per-chat — with template variables for your name, the date, time, weekday and timezone. Narrower scope wins.</span></a></li>
       <li><a class="feature-card" href="features/generation-stats.html"><span class="feature-card-title">Generation stats</span><span class="feature-card-desc">An inline <code>tok/s · total tokens · elapsed</code> line under every model turn so you always know how the model performed.</span></a></li>
-      <li><a class="feature-card" href="features/markdown.html"><span class="feature-card-title">Markdown rendering</span><span class="feature-card-desc">Full GitHub-flavoured Markdown with tables, task lists and LaTeX support — rendered live as the response streams.</span></a></li>
+      <li><a class="feature-card" href="features/markdown.html"><span class="feature-card-title">Markdown rendering</span><span class="feature-card-desc">Full GitHub-flavoured Markdown with tables, task lists, footnotes and LaTeX support — rendered live as the response streams. Thinking traces fold into their own collapsible block.</span></a></li>
       <li><a class="feature-card" href="features/code-canvas.html"><span class="feature-card-title">Code blocks &amp; canvas</span><span class="feature-card-desc">Code blocks are syntax-highlighted with line numbers and offer <strong>copy</strong>, <strong>export</strong> and <strong>open in canvas</strong> options. The <strong>code canvas</strong> opens any code block in a wider, theme-aware view that's easier to read and review.</span></a></li>
+      <li><a class="feature-card" href="features/concurrency.html"><span class="feature-card-title">Concurrency &amp; queue</span><span class="feature-card-desc">One generation at a time across all chats, with a FIFO queue and a <strong>Respond now</strong> action for jumping the line. Cancelled streams preserve their partial output.</span></a></li>
     </ul>
 
     <h2 id="organization">Organization</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="features/spaces.html"><span class="feature-card-title">Spaces</span><span class="feature-card-desc">Group chats around a project, with shared instructions, reference files and memory. Use a Space when several chats orbit the same topic: a codebase, a research question, an ongoing piece of writing.</span></a></li>
+      <li><a class="feature-card" href="features/spaces.html"><span class="feature-card-title">Spaces</span><span class="feature-card-desc">Group chats around a project, with shared instructions, reference files, memory and pinned model defaults. Every chat inside the Space inherits the context.</span></a></li>
       <li><a class="feature-card" href="features/snippets.html"><span class="feature-card-title">Snippets</span><span class="feature-card-desc">Save reusable prompts with an optional pinned model and click <em>Run</em> to start a fresh chat pre-filled and ready to send.</span></a></li>
       <li><a class="feature-card" href="features/chat-archive.html"><span class="feature-card-title">Chat archive</span><span class="feature-card-desc">Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view.</span></a></li>
-      <li><a class="feature-card" href="features/search.html"><span class="feature-card-title">Search</span><span class="feature-card-desc">Search across chats, spaces and snippets — plus a browser-style in-chat finder with phrase highlighting.</span></a></li>
+      <li><a class="feature-card" href="features/search.html"><span class="feature-card-title">Search</span><span class="feature-card-desc">A global <kbd>Cmd/Ctrl + K</kbd> palette across chats, Spaces and Snippets, plus a browser-style in-chat finder with phrase highlighting.</span></a></li>
       <li><a class="feature-card" href="features/import-export.html"><span class="feature-card-title">Import and export context</span><span class="feature-card-desc">Export chat context to JSON or Markdown, and paste exported data — or any text — back into any chat's context.</span></a></li>
     </ul>
 
     <h2 id="input-output">Input &amp; output</h2>
     <ul class="feature-grid">
+      <li><a class="feature-card" href="features/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">Drag and drop images, code, PDFs and DOCX files into the composer. Loach parses each one and inlines its content into the request.</span></a></li>
       <li><a class="feature-card" href="features/voice-dictation.html"><span class="feature-card-title">Voice dictation</span><span class="feature-card-desc">A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use.</span></a></li>
       <li><a class="feature-card" href="features/web-fetch.html"><span class="feature-card-title">Web fetch</span><span class="feature-card-desc">Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request — no separate browser extension needed.</span></a></li>
       <li><a class="feature-card" href="features/temporal-awareness.html"><span class="feature-card-title">Temporal awareness</span><span class="feature-card-desc">Optionally inject current date, time, weekday and timezone into the system prompt, so models can answer "what day is it today?" correctly.</span></a></li>
@@ -221,18 +235,24 @@
 
     <h2 id="security-data">Security &amp; data</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="features/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Optional PIN, password or PIN + password gate at launch. Credentials are hashed with Argon2id and stored in the OS credential manager.</span></a></li>
+      <li><a class="feature-card" href="features/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Optional PIN, password or PIN + password gate at launch. Credentials are hashed with a strong KDF and stored in the OS credential manager, never on disk in plaintext.</span></a></li>
       <li><a class="feature-card" href="features/data-management.html"><span class="feature-card-title">Data management</span><span class="feature-card-desc">Make a backup of your content to a JSON file, restore data, or permanently delete everything with a few clicks.</span></a></li>
     </ul>
 
     <h2 id="appearance">Appearance</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="features/themes.html"><span class="feature-card-title">Themes</span><span class="feature-card-desc">Two themes — <strong>Aurora</strong> (glassy, gradient) and <strong>Solid</strong> (flat) — both available in <strong>Dark</strong> and <strong>Light</strong> variants. Switch from Settings.</span></a></li>
+      <li><a class="feature-card" href="features/themes.html"><span class="feature-card-title">Themes</span><span class="feature-card-desc">Two themes — <strong>Aurora</strong> (glassy, gradient) and <strong>Solid</strong> (flat) — both available in <strong>Dark</strong> and <strong>Light</strong> variants. Three font sizes scale every text size across the app.</span></a></li>
     </ul>
 
     <h2 id="updates">Updates</h2>
     <ul class="feature-grid">
       <li><a class="feature-card" href="features/ota-updates.html"><span class="feature-card-title">OTA updates</span><span class="feature-card-desc">Get new features, bug fixes, performance improvements and security patches directly from the app — no need to manually download a new installer.</span></a></li>
+    </ul>
+
+    <h2 id="reference">Reference</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/onboarding.html"><span class="feature-card-title">Onboarding wizard</span><span class="feature-card-desc">The six-step first-launch wizard: welcome, name, provider, prompt, features and start. Re-runs after a factory reset.</span></a></li>
+      <li><a class="feature-card" href="features/keyboard.html"><span class="feature-card-title">Keyboard shortcuts</span><span class="feature-card-desc">Global search, in-chat find, composer send and newline behaviour, palette navigation — at a glance.</span></a></li>
     </ul>
 
     <div class="page-nav">

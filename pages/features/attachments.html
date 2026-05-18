@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data management — Loach Docs</title>
-  <meta name="description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <title>Attachments — Loach Docs</title>
+  <meta name="description" content="Drop files into any chat — images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -192,38 +192,41 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Data management</h1>
-    <p class="lead"><strong>Settings &rarr; Data</strong> is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes &mdash; and you can take it with you.</p>
+    <h1>Attachments</h1>
+    <p class="lead">Drag and drop files into the composer, or click the <strong>+</strong> icon to open the native file picker. Loach parses each file and inlines its contents into the request — there is no separate upload step and nothing leaves your machine unless you are using a cloud provider.</p>
 
-    <h2 id="export">Export everything</h2>
-    <p>Produces a single JSON blob containing every chat, message, Space, file, memory, snippet, MCP server and setting. The native save dialog opens; the file is written from the app backend, so the renderer never sees the chosen path.</p>
-    <p>This is the canonical backup format. Keep one before you do anything risky &mdash; OS reinstall, machine swap, experimental settings.</p>
+    <h2 id="supported-types">Supported file types</h2>
+    <p>Loach recognises three flavours of attachment:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Images</strong> &mdash; PNG, JPEG, WEBP and GIF. Sent alongside the text turn to vision-capable models.</li>
+      <li><strong class="feat-name">Text and code</strong> &mdash; about fifty recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown, SQL, shell, and so on) plus anything served as a <code>text/*</code> MIME type. The contents are inlined into the prompt as a fenced code block tagged with the right language.</li>
+      <li><strong class="feat-name">Documents</strong> &mdash; PDF and DOCX. Loach extracts the readable text (and the PDF page count) and inlines that. Layout and embedded images are not preserved; everything becomes plain text that the model can reason about.</li>
+    </ul>
 
-    <h2 id="import">Import</h2>
-    <p>Open a previously exported JSON file. Loach reports per-table row counts in a toast on success, so you can see at a glance what came back in. If app lock is configured, Import asks for your current credentials before running &mdash; an unauthorised renderer cannot trigger it.</p>
+    <h2 id="how-it-works">How attachments enter the prompt</h2>
+    <p>Each attachment is rendered into the user turn as its own block, with the filename as a header so the model knows what it is looking at. Multiple files in one message work &mdash; Loach concatenates them in the order you dropped them, then appends your prompt at the bottom. The attachments stay with the message in the transcript, so re-running the conversation later replays the same context.</p>
 
-    <h2 id="wipe">Wipe user data</h2>
-    <p>Drops chats, Spaces, snippets, MCP servers and memories. <em>Keeps</em> app settings and the stored OpenAI key, so the app remains usable immediately afterwards. Gated on app-lock credentials when a lock is configured.</p>
-    <p>Use this when you want a clean conversational slate but do not want to redo all your provider setup.</p>
+    <h2 id="caps-and-truncation">Caps and truncation</h2>
+    <p>To keep the prompt manageable, Loach applies sensible per-file and per-message limits. When a long PDF or DOCX exceeds its per-file budget, the file chip shows a truncation badge and a one-line note is added inline so the model is told <em>what</em> was cut.</p>
+    <p>If everything together still does not fit, files that could not be inlined are listed by name in a short trailing footer &mdash; so the model knows the file exists and can ask you for an excerpt.</p>
 
-    <h2 id="factory-reset">Factory reset</h2>
-    <p>Wipe user data <em>plus</em> clear all settings <em>plus</em> remove the OpenAI key from the credential store. Re-runs <a href="onboarding.html">onboarding</a> on next launch. Irreversible.</p>
-    <p>Use this when handing the machine to someone else, or as the last step in &ldquo;start completely over&rdquo;.</p>
-
-    <div class="callout warn">
+    <div class="callout tip">
       <div class="callout-body">
-        <div class="callout-title">All of this is destructive</div>
-        <p>Wipe and factory reset are immediate and cannot be undone by a button. Export everything first if there is any chance you might want it back.</p>
+        <div class="callout-title">Tip</div>
+        <p>For very large documents, paste the section you actually want reasoned about instead of dropping the whole file. The model gets cleaner context and you burn fewer tokens.</p>
       </div>
     </div>
+
+    <h2 id="unknown-formats">Files Loach cannot decode</h2>
+    <p>Legacy <code>.doc</code> files, archives, binaries and other formats Loach does not parse are kept in the transcript and announced to the model by name, but no readable content is inlined. The model can still acknowledge that &ldquo;you attached <code>report.zip</code>&rdquo; and ask for a usable version.</p>
     <div class="page-nav">
-      <a href="app-lock.html">
+      <a href="import-export.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; App lock</span>
+        <span class="title">&larr; Import and export context</span>
       </a>
-      <a href="themes.html" class="next">
+      <a href="voice-dictation.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Themes &rarr;</span>
+        <span class="title">Voice dictation &rarr;</span>
       </a>
     </div>
 

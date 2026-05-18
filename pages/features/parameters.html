@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Per-chat parameters — Loach Docs</title>
-  <meta name="description" content="Set temperature, top_k, top_p, min_p, max_tokens, context length and per-chat system prompts. Values are layered over Modelfile defaults and per-model defaults." />
+  <meta name="description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,47 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Per-chat parameters</h1>
-    <p class="lead">Set <code>temperature</code>, <code>top_k</code>, <code>top_p</code>, <code>min_p</code>, <code>max_tokens</code>, <code>context length</code> and per-chat system prompts. Values are layered over Modelfile defaults and per-model defaults.</p>
+    <p class="lead">Every chat has a slide-out <strong>Parameters</strong> panel on the right of the window. It exposes the knobs the provider offers and remembers per-chat overrides so you can dial each conversation independently.</p>
 
+    <h2 id="simple-advanced">Simple and Advanced modes</h2>
+    <p>The panel has two views:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Simple</strong> &mdash; temperature, max tokens, num_ctx, seed, the Thinking toggle, the Low VRAM toggle, and a per-chat system prompt textarea. Enough for everyday tuning.</li>
+      <li><strong class="feat-name">Advanced</strong> &mdash; adds top_p, top_k, min_p, repeat_penalty, frequency and presence penalties, GPU layer count, and everything else the provider exposes.</li>
+    </ul>
+    <p>Switch between them at the top of the panel. Values you set in Simple stay set when you flip to Advanced and vice versa.</p>
+
+    <h2 id="cascade">How the values cascade</h2>
+    <p>What a chat actually sends to the model is a merge of several layers. From broadest to narrowest, with later layers winning:</p>
+    <ol>
+      <li><strong>App defaults</strong> &mdash; a sensible universal fallback (for example, temperature 0.7, top_p 0.95).</li>
+      <li><strong>Model defaults</strong> &mdash; parsed from the Ollama Modelfile&rsquo;s PARAMETER block. Cached after the first chat with that model so subsequent loads are instant.</li>
+      <li><strong>Per-model preferences</strong> &mdash; e.g. the Thinking preference you set in the <a href="model-management.html">Models editor</a>.</li>
+      <li><strong>Space defaults</strong> &mdash; if the chat belongs to a <a href="spaces.html">Space</a> with its own pinned parameters.</li>
+      <li><strong>Per-chat overrides</strong> &mdash; what the sliders in <em>this</em> panel save.</li>
+      <li><strong>Global app overrides</strong> &mdash; for example the Settings &rarr; General Low VRAM pin, which forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
+    </ol>
+    <p>A <strong>Reset to defaults</strong> button in the panel header clears the per-chat overrides and falls back to the merged defaults.</p>
+
+    <h2 id="thinking">Thinking toggle</h2>
+    <p>Visible for Ollama models whose capabilities include <code>thinking</code>. It sets the <code>think</code> parameter on the chat request and is ignored by OpenAI-compatible providers. The default for new chats comes from <strong>Settings &rarr; General &rarr; Thinking</strong>.</p>
+
+    <h2 id="low-vram">Low VRAM toggle</h2>
+    <p>Ollama-only. Forces smaller batches and a leaner KV cache &mdash; useful when you are tight on GPU memory. The per-chat toggle is overridden if <strong>Settings &rarr; General &rarr; Low VRAM mode</strong> is enabled globally; in that case the panel shows the toggle pinned and disabled with a pointer back to the global setting. See <a href="low-vram.html">Low VRAM mode</a>.</p>
+
+    <h2 id="system-prompt">Per-chat system prompt</h2>
+    <p>The textarea at the bottom of the Simple view sets a system prompt for this chat only. It overrides any global <a href="custom-instructions.html">custom instructions</a> and Space-level instructions for the chat it lives in.</p>
     <div class="page-nav">
       <a href="model-management.html">
         <span class="label">Previous</span>
-        <span class="title">← Local model management</span>
+        <span class="title">&larr; Local model management</span>
       </a>
       <a href="personas.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Personas and tones →</span>
+        <span class="title">Personas and tones &rarr;</span>
       </a>
     </div>
 

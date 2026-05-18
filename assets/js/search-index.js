@@ -284,168 +284,826 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/provider-selection.html",
     "heading": "Provider selection",
     "anchor": "",
-    "body": "Switch between Ollama local models and any OpenAI-compatible endpoint from the chat header."
+    "body": "Loach is a chat client, not a model. Out of the box it speaks two protocols: Ollama for local models running on your machine, and any OpenAI-compatible endpoint for hosted or self-hosted services. You can keep both wired up at once and switch between them at…"
+  },
+  {
+    "title": "Provider selection",
+    "url": "pages/features/provider-selection.html",
+    "heading": "Local: Ollama",
+    "anchor": "local-ollama",
+    "body": "The default backend. Loach talks to a local ollama serve process over HTTP and refreshes the model list automatically when you open the providers panel. If Ollama is not running, the panel surfaces a soft \"start ollama…"
+  },
+  {
+    "title": "Provider selection",
+    "url": "pages/features/provider-selection.html",
+    "heading": "Cloud or self-hosted: OpenAI-compatible",
+    "anchor": "cloud-openai",
+    "body": "Any endpoint that implements /v1/chat/completions works. That includes the real OpenAI API, plus vLLM, LM Studio, LiteLLM, OpenRouter, Groq and other proxies. Set the base URL and API key in Settings → Providers ; the…"
+  },
+  {
+    "title": "Provider selection",
+    "url": "pages/features/provider-selection.html",
+    "heading": "The model picker",
+    "anchor": "model-picker",
+    "body": "Every chat has a model dropdown in its header that lists both providers' catalogs side-by-side, grouped by name. Picking a model:"
   },
   {
     "title": "Local model management",
     "url": "pages/features/model-management.html",
     "heading": "Local model management",
     "anchor": "",
-    "body": "Pull, copy, customize and delete local models from inside the app. The Models library tab is a full UI over the Ollama HTTP API."
+    "body": "The Models sidebar tab is a full management surface for the local Ollama catalog, plus a read-only listing of the catalog reachable through your OpenAI-compatible endpoint."
+  },
+  {
+    "title": "Local model management",
+    "url": "pages/features/model-management.html",
+    "heading": "The library",
+    "anchor": "library",
+    "body": "Every installed model gets a tile showing its family, parameter size, on-disk size, quantization and capabilities (thinking, tool use, vision). The toolbar offers:"
+  },
+  {
+    "title": "Local model management",
+    "url": "pages/features/model-management.html",
+    "heading": "The Models editor",
+    "anchor": "editor",
+    "body": "Opening a model loads its full configuration in a form so you can:"
+  },
+  {
+    "title": "Local model management",
+    "url": "pages/features/model-management.html",
+    "heading": "Modelfile safety",
+    "anchor": "modelfile-safety",
+    "body": "The Save as… form refuses to compile a Modelfile that would smuggle in extra directives via a malicious base tag, system block or template block. Base tags are checked against a conservative allowlist; system and…"
   },
   {
     "title": "Per-chat parameters",
     "url": "pages/features/parameters.html",
     "heading": "Per-chat parameters",
     "anchor": "",
-    "body": "temperature, top_k, top_p, min_p, max_tokens, context length, per-chat system prompts. Layered over Modelfile and per-model defaults."
+    "body": "Every chat has a slide-out Parameters panel on the right of the window. It exposes the knobs the provider offers and remembers per-chat overrides so you can dial each conversation independently."
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Simple and Advanced modes",
+    "anchor": "simple-advanced",
+    "body": "The panel has two views:"
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "How the values cascade",
+    "anchor": "cascade",
+    "body": "What a chat actually sends to the model is a merge of several layers. From broadest to narrowest, with later layers winning:"
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Thinking toggle",
+    "anchor": "thinking",
+    "body": "Visible for Ollama models whose capabilities include thinking . It sets the think parameter on the chat request and is ignored by OpenAI-compatible providers. The default for new chats comes from Settings → General →…"
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Low VRAM toggle",
+    "anchor": "low-vram",
+    "body": "Ollama-only. Forces smaller batches and a leaner KV cache — useful when you are tight on GPU memory. The per-chat toggle is overridden if Settings → General → Low VRAM mode is enabled globally; in that case the panel…"
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Per-chat system prompt",
+    "anchor": "system-prompt",
+    "body": "The textarea at the bottom of the Simple view sets a system prompt for this chat only. It overrides any global custom instructions and Space-level instructions for the chat it lives in."
   },
   {
     "title": "Personas and tones",
     "url": "pages/features/personas.html",
     "heading": "Personas and tones",
     "anchor": "",
-    "body": "Pick a role (Code Reviewer, Translator, ELI5) and a delivery style (Formal, Casual, Concise, Detailed). They layer on top of your custom instructions."
+    "body": "Personas and tones are two thin style layers that compose with the chat's system prompt at send time. A persona sets the role the model plays; a tone tweaks how it speaks. They're curated presets that play nicely with your own custom instructions rather than…"
+  },
+  {
+    "title": "Personas and tones",
+    "url": "pages/features/personas.html",
+    "heading": "Personas (role)",
+    "anchor": "personas",
+    "body": "Pick one from the composer's + menu or from the parameters sidebar. The selected persona pre-pends a short system prompt that frames the assistant's job."
+  },
+  {
+    "title": "Personas and tones",
+    "url": "pages/features/personas.html",
+    "heading": "Tones (style)",
+    "anchor": "tones",
+    "body": "A tone is appended after the persona and your instructions, biasing the delivery without changing the role."
+  },
+  {
+    "title": "Personas and tones",
+    "url": "pages/features/personas.html",
+    "heading": "How they stack",
+    "anchor": "how-they-stack",
+    "body": "At send time the model receives, in order: your custom instructions (resolved per the precedence rules ), the persona's system prompt, and the tone modifier. The chat's own per-chat system prompt sits at the head of…"
   },
   {
     "title": "Custom instructions",
     "url": "pages/features/custom-instructions.html",
     "heading": "Custom instructions",
     "anchor": "",
-    "body": "Free-text instructions injected into the system prompt. Set globally, per Space, or per chat. Lower scope wins over higher scope."
+    "body": "Custom instructions are the system prompt Loach attaches to your messages. You can write them at three scopes and the narrower scope always wins, so you can set defaults once and tighten them where it matters."
+  },
+  {
+    "title": "Custom instructions",
+    "url": "pages/features/custom-instructions.html",
+    "heading": "Where to set them",
+    "anchor": "where-to-set",
+    "body": "Global — Settings → General . Applies to every new chat."
+  },
+  {
+    "title": "Custom instructions",
+    "url": "pages/features/custom-instructions.html",
+    "heading": "Precedence",
+    "anchor": "precedence",
+    "body": "Custom instructions cascade from broadest to narrowest:"
+  },
+  {
+    "title": "Custom instructions",
+    "url": "pages/features/custom-instructions.html",
+    "heading": "Template variables",
+    "anchor": "template-variables",
+    "body": "Any prompt authored by you — global instructions, Space instructions, Snippet bodies, per-chat system prompts — can use these placeholders. They are substituted at send time."
+  },
+  {
+    "title": "Custom instructions",
+    "url": "pages/features/custom-instructions.html",
+    "heading": "Examples",
+    "anchor": "examples",
+    "body": "Loach is MIT-licensed and built by ZTCS ."
   },
   {
     "title": "Generation stats",
     "url": "pages/features/generation-stats.html",
     "heading": "Generation stats",
     "anchor": "",
-    "body": "Inline tok/s, total tokens and elapsed time under every model turn so you always know how the model performed."
+    "body": "Every assistant reply shows a small metrics chip under the bubble. It gives you a quick read on how the model performed without leaving the conversation."
+  },
+  {
+    "title": "Generation stats",
+    "url": "pages/features/generation-stats.html",
+    "heading": "What you see",
+    "anchor": "what-you-see",
+    "body": "The chip reports, when the provider makes the data available:"
+  },
+  {
+    "title": "Generation stats",
+    "url": "pages/features/generation-stats.html",
+    "heading": "When some numbers are missing",
+    "anchor": "when-its-missing",
+    "body": "Not every provider returns every metric. Local Ollama reports all of them. Hosted OpenAI-compatible endpoints typically return token counts but not always tokens per second; Loach renders whatever was given and…"
+  },
+  {
+    "title": "Generation stats",
+    "url": "pages/features/generation-stats.html",
+    "heading": "Cancelled and errored replies",
+    "anchor": "cancelled-replies",
+    "body": "If a generation is cancelled or errors mid-stream, the chip still shows the partial token count and elapsed time so you can tell how far the model got before it stopped. See Concurrency & queue for details on how…"
   },
   {
     "title": "Markdown rendering",
     "url": "pages/features/markdown.html",
     "heading": "Markdown rendering",
     "anchor": "",
-    "body": "Full GitHub-flavoured Markdown with tables, task lists and LaTeX support, rendered live as the response streams."
+    "body": "Every assistant turn is rendered as GitHub-flavoured Markdown as the response streams . You see formatted output the moment the tokens arrive, not after the model finishes."
+  },
+  {
+    "title": "Markdown rendering",
+    "url": "pages/features/markdown.html",
+    "heading": "What works out of the box",
+    "anchor": "what-works",
+    "body": "Headings, lists, blockquotes — standard CommonMark."
+  },
+  {
+    "title": "Markdown rendering",
+    "url": "pages/features/markdown.html",
+    "heading": "Copying and selecting",
+    "anchor": "copy-and-select",
+    "body": "Right-click any assistant message for a menu with Copy raw (the original markdown source) and Copy as markdown (the rendered text serialized back to markdown). You can also highlight any range of text and a small Copy…"
+  },
+  {
+    "title": "Markdown rendering",
+    "url": "pages/features/markdown.html",
+    "heading": "Long user messages",
+    "anchor": "long-prompts",
+    "body": "User bubbles that paste in dozens of lines automatically clamp to the first ten lines with a Show more toggle, so the assistant's reply does not get pushed off-screen by your own input."
+  },
+  {
+    "title": "Markdown rendering",
+    "url": "pages/features/markdown.html",
+    "heading": "Thinking traces",
+    "anchor": "thinking-traces",
+    "body": "For reasoning-capable models, the chain-of-thought stream is rendered into a separate, collapsible block above the answer. You can fold it away when you only care about the final answer and pop it back open to audit…"
   },
   {
     "title": "Code blocks & canvas",
     "url": "pages/features/code-canvas.html",
     "heading": "Code blocks & canvas",
     "anchor": "",
-    "body": "Code blocks are syntax-highlighted with line numbers and offer copy, export and open in canvas options. The code canvas opens any code block in a wider, theme-aware view."
+    "body": "Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, the Open in canvas action gives you a wider, easier-to-read view alongside the conversation."
+  },
+  {
+    "title": "Code blocks & canvas",
+    "url": "pages/features/code-canvas.html",
+    "heading": "Inline actions",
+    "anchor": "inline-actions",
+    "body": "Hover over any code block and the toolbar exposes:"
+  },
+  {
+    "title": "Code blocks & canvas",
+    "url": "pages/features/code-canvas.html",
+    "heading": "The canvas panel",
+    "anchor": "canvas-panel",
+    "body": "The canvas opens in the right-hand slot of the window. It shows:"
+  },
+  {
+    "title": "Concurrency & queue",
+    "url": "pages/features/concurrency.html",
+    "heading": "Concurrency & queue",
+    "anchor": "",
+    "body": "Only one model generation runs at a time across all of your chats. Everything else waits in a FIFO queue — and you can always jump the line when you need to."
+  },
+  {
+    "title": "Concurrency & queue",
+    "url": "pages/features/concurrency.html",
+    "heading": "One generation at a time",
+    "anchor": "one-at-a-time",
+    "body": "Local models are heavy on hardware: most of the time only one prompt can stream at once without thrashing VRAM or pinning the CPU. Loach enforces this at the application level, regardless of which chats or providers…"
+  },
+  {
+    "title": "Concurrency & queue",
+    "url": "pages/features/concurrency.html",
+    "heading": "The queue",
+    "anchor": "the-queue",
+    "body": "Send a prompt while another chat is busy and your request is parked. The chat's row in the sidebar shows a spinner so you can see at a glance which chats are waiting. The queue is strictly first-in, first-out — earlier…"
+  },
+  {
+    "title": "Concurrency & queue",
+    "url": "pages/features/concurrency.html",
+    "heading": "Respond now",
+    "anchor": "respond-now",
+    "body": "If a chat is waiting and you do not want to wait any more, the chat header offers a Respond now action. It cancels whatever generation is currently running (preserving its partial output, see below) and immediately…"
+  },
+  {
+    "title": "Concurrency & queue",
+    "url": "pages/features/concurrency.html",
+    "heading": "Cancelling and errors",
+    "anchor": "cancel-and-error",
+    "body": "Whether you stop a stream manually (the send button becomes a stop button while streaming) or the runner is pre-empted by Respond now , the partial output is kept in the transcript along with a short error tail so the…"
   },
   {
     "title": "Spaces",
     "url": "pages/features/spaces.html",
     "heading": "Spaces",
     "anchor": "",
-    "body": "Group chats around a project, with shared instructions, reference files and memory."
+    "body": "A Space is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference files, memory and pinned model defaults. Every chat created inside a Space inherits that context…"
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "What a Space holds",
+    "anchor": "what-a-space-holds",
+    "body": "Instructions — a system prompt that overrides the global custom instructions when set. The Space is the user explicitly opting in to space-level guidance."
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "Creating and editing",
+    "anchor": "lifecycle",
+    "body": "Create a Space from the Spaces sidebar tab or from the in-app library tile. Each Space has a detail view with its own tabs for chats, instructions, files, memory and model defaults. Editing any field updates the…"
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "Space Memory",
+    "anchor": "memory",
+    "body": "Optional per-Space auto-memory. After every assistant reply in a Space, Loach fires a one-shot call against the same provider and model the user is chatting with and asks it to extract durable, single-sentence facts…"
   },
   {
     "title": "Snippets",
     "url": "pages/features/snippets.html",
     "heading": "Snippets",
     "anchor": "",
-    "body": "Save reusable prompts with an optional pinned model. Click Run to open a fresh chat pre-filled with the prompt."
+    "body": "A Snippet is a saved prompt with an optional pinned provider and model. Snippets live in their own sidebar tab and exist for the kind of prompt you reach for over and over — \"summarise this in three bullets\", \"review this diff for security issues\",…"
+  },
+  {
+    "title": "Snippets",
+    "url": "pages/features/snippets.html",
+    "heading": "Creating",
+    "anchor": "creating",
+    "body": "Create a Snippet with a title and the prompt body. Optionally pin it to a specific provider and model so Run always starts a chat there. Pinning is a nice fit for prompts that genuinely need a particular model — a…"
+  },
+  {
+    "title": "Snippets",
+    "url": "pages/features/snippets.html",
+    "heading": "Running",
+    "anchor": "running",
+    "body": "Hit Run on a Snippet to open a fresh chat (with the pinned model if any) and prime the composer with the snippet's prompt. You can edit the prompt before sending — Snippets are a starting point, not a one-shot button."
+  },
+  {
+    "title": "Snippets",
+    "url": "pages/features/snippets.html",
+    "heading": "Bookmark assistant replies as Snippets",
+    "anchor": "bookmark-replies",
+    "body": "Right-click any assistant message and pick Save as snippet . Loach pre-fills the editor with that text so you can turn a good reply into a reusable prompt without copy-pasting."
+  },
+  {
+    "title": "Snippets",
+    "url": "pages/features/snippets.html",
+    "heading": "The library",
+    "anchor": "library",
+    "body": "The Snippets tab shows a tile grid sorted by recency, with a search field at the top. Each tile has a … menu for edit and delete."
   },
   {
     "title": "Chat archive",
     "url": "pages/features/chat-archive.html",
     "heading": "Chat archive",
     "anchor": "",
-    "body": "Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view."
+    "body": "Some chats you want to keep but stop seeing every day. The archive moves them out of the sidebar without deleting anything — they stay searchable and you can pull them back at any time."
+  },
+  {
+    "title": "Chat archive",
+    "url": "pages/features/chat-archive.html",
+    "heading": "Archiving a chat",
+    "anchor": "archiving",
+    "body": "Open the per-row menu in the sidebar (or right-click the row) and pick Move to Archive . The chat disappears from the main list immediately. The same option lives in the chat's own header menu."
+  },
+  {
+    "title": "Chat archive",
+    "url": "pages/features/chat-archive.html",
+    "heading": "The archive view",
+    "anchor": "archive-view",
+    "body": "The archive lives at Settings → Archive . From there you can:"
   },
   {
     "title": "Search",
     "url": "pages/features/search.html",
     "heading": "Search",
     "anchor": "",
-    "body": "Search across chats, spaces and snippets, plus a browser-style in-chat finder with phrase highlighting."
+    "body": "Loach has two complementary search surfaces: a global palette for jumping anywhere in the app, and a browser-style finder for the chat you are currently looking at."
+  },
+  {
+    "title": "Search",
+    "url": "pages/features/search.html",
+    "heading": "The global palette",
+    "anchor": "palette",
+    "body": "Press Cmd / Ctrl + K (or click the search pill in the title bar) to open the palette. It cross-searches:"
+  },
+  {
+    "title": "Search",
+    "url": "pages/features/search.html",
+    "heading": "Find within a chat",
+    "anchor": "in-chat",
+    "body": "Press Cmd / Ctrl + F inside a chat to open the in-transcript finder. It works like browser find: type to search, matches highlight inline, and you can step through them with the keyboard."
   },
   {
     "title": "Import and export context",
     "url": "pages/features/import-export.html",
     "heading": "Import and export context",
     "anchor": "",
-    "body": "Export chat context to JSON or Markdown, and paste exported data back into any chat's context."
+    "body": "Chats are not locked into Loach. You can move a conversation in or out as either structured JSON or human-readable Markdown, and re-import context into any other chat."
+  },
+  {
+    "title": "Import and export context",
+    "url": "pages/features/import-export.html",
+    "heading": "Export",
+    "anchor": "export",
+    "body": "From the chat header, pick Export → JSON or Export → Markdown . The native save dialog opens; the chosen path is owned by the app backend, not the renderer."
+  },
+  {
+    "title": "Import and export context",
+    "url": "pages/features/import-export.html",
+    "heading": "Import context",
+    "anchor": "import",
+    "body": "From any chat's header, pick Import context and paste exported JSON, exported Markdown or just plain text. Loach parses what you give it into messages and appends them to the current chat. The previous conversation is…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "Attachments",
+    "anchor": "",
+    "body": "Drag and drop files into the composer, or click the + icon to open the native file picker. Loach parses each file and inlines its contents into the request — there is no separate upload step and nothing leaves your machine unless you are using a cloud…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "Supported file types",
+    "anchor": "supported-types",
+    "body": "Loach recognises three flavours of attachment:"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "How attachments enter the prompt",
+    "anchor": "how-it-works",
+    "body": "Each attachment is rendered into the user turn as its own block, with the filename as a header so the model knows what it is looking at. Multiple files in one message work — Loach concatenates them in the order you…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "Caps and truncation",
+    "anchor": "caps-and-truncation",
+    "body": "To keep the prompt manageable, Loach applies sensible per-file and per-message limits. When a long PDF or DOCX exceeds its per-file budget, the file chip shows a truncation badge and a one-line note is added inline so…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "Files Loach cannot decode",
+    "anchor": "unknown-formats",
+    "body": "Legacy .doc files, archives, binaries and other formats Loach does not parse are kept in the transcript and announced to the model by name, but no readable content is inlined. The model can still acknowledge that \"you…"
   },
   {
     "title": "Voice dictation",
     "url": "pages/features/voice-dictation.html",
     "heading": "Voice dictation",
     "anchor": "",
-    "body": "A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use."
+    "body": "A mic button in the composer turns speech into text in real time. It is built on the WebView's native SpeechRecognition API, so there is no extra model to install — but it also means the platform itself decides what happens to the audio."
+  },
+  {
+    "title": "Voice dictation",
+    "url": "pages/features/voice-dictation.html",
+    "heading": "How it works",
+    "anchor": "how-it-works",
+    "body": "Click the mic icon to start recording. The current contents of the composer are snapshotted as your \"base text\"; interim guesses render as a preview appended to the base while you speak, and final phrases get committed…"
+  },
+  {
+    "title": "Voice dictation",
+    "url": "pages/features/voice-dictation.html",
+    "heading": "Where it shows up",
+    "anchor": "availability",
+    "body": "Voice dictation depends on the platform exposing the Web Speech API. In practice:"
   },
   {
     "title": "Web fetch",
     "url": "pages/features/web-fetch.html",
     "heading": "Web fetch",
     "anchor": "",
-    "body": "Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request."
+    "body": "Drop an http:// or https:// URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension…"
+  },
+  {
+    "title": "Web fetch",
+    "url": "pages/features/web-fetch.html",
+    "heading": "Off by default",
+    "anchor": "opt-in",
+    "body": "Loach is offline-first. Web fetch is the only built-in tool that reaches out to the network on your behalf, so it ships off . Turn it on in Settings → Tools when you want it — or leave it off if you would rather…"
+  },
+  {
+    "title": "Web fetch",
+    "url": "pages/features/web-fetch.html",
+    "heading": "How it works",
+    "anchor": "how-it-works",
+    "body": "When you send a message, Loach scans it for URLs. For each one it finds:"
+  },
+  {
+    "title": "Web fetch",
+    "url": "pages/features/web-fetch.html",
+    "heading": "Safety guards",
+    "anchor": "safety",
+    "body": "Loach is MIT-licensed and built by ZTCS ."
   },
   {
     "title": "Temporal awareness",
     "url": "pages/features/temporal-awareness.html",
     "heading": "Temporal awareness",
     "anchor": "",
-    "body": "Optionally inject current date, time, weekday and timezone into the system prompt so the model can answer what day is it today correctly."
+    "body": "Out of the box, most models do not know what day it is. Temporal awareness fixes that by prepending a short \"current date / time / timezone\" preamble to every system prompt — only when the prompt does not already pull those values in itself."
+  },
+  {
+    "title": "Temporal awareness",
+    "url": "pages/features/temporal-awareness.html",
+    "heading": "Enabling",
+    "anchor": "enabling",
+    "body": "Toggle Settings → General → Temporal awareness . New chats will start including the preamble immediately. Existing chats inherit the new setting on their next message."
+  },
+  {
+    "title": "Temporal awareness",
+    "url": "pages/features/temporal-awareness.html",
+    "heading": "How it decides to fire",
+    "anchor": "how-it-fires",
+    "body": "Loach scans your effective system prompt (after the global → Space → per-chat cascade ) for any of the {{CURRENT_*}} placeholders:"
+  },
+  {
+    "title": "Temporal awareness",
+    "url": "pages/features/temporal-awareness.html",
+    "heading": "Why it matters",
+    "anchor": "why",
+    "body": "Many factual queries depend on \"today\": meeting scheduling, deadlines, age calculations, news cut-offs. Without temporal awareness the model relies on whatever date it was trained around, which is almost certainly…"
   },
   {
     "title": "MCP support",
     "url": "pages/features/mcp.html",
     "heading": "MCP support",
     "anchor": "",
-    "body": "Register Model Context Protocol servers (Streamable HTTP), test the handshake and inspect the tools they provide. Tools become available to the model during a chat."
+    "body": "Loach speaks the Model Context Protocol (MCP) over the Streamable HTTP transport. Register one or more servers in Settings → MCP and their tools become available to the model during a chat — bringing structured external capabilities into the conversation."
+  },
+  {
+    "title": "MCP support",
+    "url": "pages/features/mcp.html",
+    "heading": "What is MCP?",
+    "anchor": "what-is-mcp",
+    "body": "MCP is an open protocol that lets models call structured tools served by a separate process. Where Web fetch just hands the model a page of text, an MCP server can expose typed tools (\"list files in this repo\", \"search…"
+  },
+  {
+    "title": "MCP support",
+    "url": "pages/features/mcp.html",
+    "heading": "Registering a server",
+    "anchor": "registering",
+    "body": "Each MCP entry has:"
+  },
+  {
+    "title": "MCP support",
+    "url": "pages/features/mcp.html",
+    "heading": "Safety guards",
+    "anchor": "safety",
+    "body": "URLs are validated, headers are checked for size and disallowed characters, and per-request bodies are capped so a misconfigured or malicious server cannot exhaust the app. Each request also has a sensible timeout, so…"
   },
   {
     "title": "Default model selector",
     "url": "pages/features/default-model.html",
     "heading": "Default model selector",
     "anchor": "",
-    "body": "Pick a model new chats open with, per provider. No need to re-select on each fresh conversation."
+    "body": "When you start a fresh chat, which model should it open with? Settings → General → Default model answers that question. Three modes, picked according to how predictable you want new chats to feel."
+  },
+  {
+    "title": "Default model selector",
+    "url": "pages/features/default-model.html",
+    "heading": "The three modes",
+    "anchor": "modes",
+    "body": "Use most recent (default) — pick up wherever you left off. The most recently used (provider, model) pair from your existing chats wins."
+  },
+  {
+    "title": "Default model selector",
+    "url": "pages/features/default-model.html",
+    "heading": "What can override it",
+    "anchor": "overrides",
+    "body": "The global default is the last word for plain new chats. But:"
   },
   {
     "title": "Model preloading",
     "url": "pages/features/model-preloading.html",
     "heading": "Model preloading",
     "anchor": "",
-    "body": "Optionally warm your default local model into VRAM at launch so the first message streams faster."
+    "body": "When Default model preload is on, Loach sends an empty chat to the resolved default model at app launch — warming it into VRAM so the first real prompt of the session streams without the usual cold-start pause."
+  },
+  {
+    "title": "Model preloading",
+    "url": "pages/features/model-preloading.html",
+    "heading": "Enabling",
+    "anchor": "enabling",
+    "body": "Toggle Settings → General → Default model preload . It is off by default, and it is Ollama-only — hosted providers do not have a meaningful concept of warm vs cold from your side."
+  },
+  {
+    "title": "Model preloading",
+    "url": "pages/features/model-preloading.html",
+    "heading": "The trade-off",
+    "anchor": "trade-off",
+    "body": "Preloading pins VRAM at launch even if you only opened Loach to re-read an old conversation. That is why it ships off: many users only want VRAM consumed when they are about to actually chat. Turn it on if you launch…"
+  },
+  {
+    "title": "Model preloading",
+    "url": "pages/features/model-preloading.html",
+    "heading": "Which model gets warmed",
+    "anchor": "how-it-resolves",
+    "body": "Preload resolves through the same logic as Default model :"
   },
   {
     "title": "Low VRAM mode",
     "url": "pages/features/low-vram.html",
     "heading": "Low VRAM mode",
     "anchor": "",
-    "body": "Global or per-chat toggle that sends Ollama's low_vram flag with every request — useful on lower-spec devices."
+    "body": "Low VRAM mode sends Ollama's low_vram flag with every request, asking the daemon for smaller batches and a leaner KV cache. It trades throughput for the ability to run on hardware that would otherwise OOM."
+  },
+  {
+    "title": "Low VRAM mode",
+    "url": "pages/features/low-vram.html",
+    "heading": "Where to set it",
+    "anchor": "where",
+    "body": "There are two places this lives:"
+  },
+  {
+    "title": "Low VRAM mode",
+    "url": "pages/features/low-vram.html",
+    "heading": "Which one wins",
+    "anchor": "precedence",
+    "body": "The global setting overrides the per-chat toggle. When the global pin is on, the per-chat toggle shows up as pinned and disabled, with a pointer back to the setting so you understand why it cannot be flipped from the…"
+  },
+  {
+    "title": "Low VRAM mode",
+    "url": "pages/features/low-vram.html",
+    "heading": "Ollama only",
+    "anchor": "ollama-only",
+    "body": "The flag is meaningful only for the local Ollama backend. Loach does not send it to OpenAI-compatible endpoints — hosted services have no concept of your VRAM budget."
   },
   {
     "title": "App lock",
     "url": "pages/features/app-lock.html",
     "heading": "App lock",
     "anchor": "",
-    "body": "Optional PIN, password or PIN + password gate at launch. Credentials are hashed with Argon2id and stored in the OS credential manager."
+    "body": "App lock is an optional credential gate that runs before any chat data hydrates. Configure it in Settings → Security ."
+  },
+  {
+    "title": "App lock",
+    "url": "pages/features/app-lock.html",
+    "heading": "PIN, password, or both",
+    "anchor": "modes",
+    "body": "You can require any of:"
+  },
+  {
+    "title": "App lock",
+    "url": "pages/features/app-lock.html",
+    "heading": "How credentials are stored",
+    "anchor": "storage",
+    "body": "Loach never writes the PIN or password to disk in plaintext, and never stores them in the SQLite database. The lock blob — a salted hash produced by a modern password hashing function — lives in the OS credential…"
+  },
+  {
+    "title": "App lock",
+    "url": "pages/features/app-lock.html",
+    "heading": "The lock screen",
+    "anchor": "lock-screen",
+    "body": "On launch, the lock screen fills the window until you authenticate. When both a PIN and a password are required, the PIN field is shown first. A wrong attempt clears the PIN field but keeps the password field, so you…"
+  },
+  {
+    "title": "App lock",
+    "url": "pages/features/app-lock.html",
+    "heading": "Rate limiting",
+    "anchor": "rate-limit",
+    "body": "After several consecutive failed unlocks the unlock command is refused for an escalating cool-off window — from tens of seconds up to a couple of hours after persistent failures. The counter resets on a successful…"
+  },
+  {
+    "title": "App lock",
+    "url": "pages/features/app-lock.html",
+    "heading": "Re-authentication for destructive actions",
+    "anchor": "reauth",
+    "body": "Even after you unlock the app, changing or removing the lock and the destructive Data management commands (Import, Wipe user data, Factory reset) ask for your current credentials again. This means a compromised…"
   },
   {
     "title": "Data management",
     "url": "pages/features/data-management.html",
     "heading": "Data management",
     "anchor": "",
-    "body": "Make a backup of your content to a JSON file, restore data, or permanently delete everything with a few clicks."
+    "body": "Settings → Data is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes — and you can take it with you."
+  },
+  {
+    "title": "Data management",
+    "url": "pages/features/data-management.html",
+    "heading": "Export everything",
+    "anchor": "export",
+    "body": "Produces a single JSON blob containing every chat, message, Space, file, memory, snippet, MCP server and setting. The native save dialog opens; the file is written from the app backend, so the renderer never sees the…"
+  },
+  {
+    "title": "Data management",
+    "url": "pages/features/data-management.html",
+    "heading": "Import",
+    "anchor": "import",
+    "body": "Open a previously exported JSON file. Loach reports per-table row counts in a toast on success, so you can see at a glance what came back in. If app lock is configured, Import asks for your current credentials before…"
+  },
+  {
+    "title": "Data management",
+    "url": "pages/features/data-management.html",
+    "heading": "Wipe user data",
+    "anchor": "wipe",
+    "body": "Drops chats, Spaces, snippets, MCP servers and memories. Keeps app settings and the stored OpenAI key, so the app remains usable immediately afterwards. Gated on app-lock credentials when a lock is configured."
+  },
+  {
+    "title": "Data management",
+    "url": "pages/features/data-management.html",
+    "heading": "Factory reset",
+    "anchor": "factory-reset",
+    "body": "Wipe user data plus clear all settings plus remove the OpenAI key from the credential store. Re-runs onboarding on next launch. Irreversible."
   },
   {
     "title": "Themes",
     "url": "pages/features/themes.html",
     "heading": "Themes",
     "anchor": "",
-    "body": "Two themes — Aurora (glassy, gradient) and Solid (flat) — both available in Dark and Light variants."
+    "body": "Loach ships two themes, three colour modes and three font sizes. Everything updates instantly — no reload — and your choice is remembered across launches."
+  },
+  {
+    "title": "Themes",
+    "url": "pages/features/themes.html",
+    "heading": "Themes",
+    "anchor": "themes",
+    "body": "Solid — calm flat background, azure accent. The default if you want minimal visual noise."
+  },
+  {
+    "title": "Themes",
+    "url": "pages/features/themes.html",
+    "heading": "Colour modes",
+    "anchor": "colour-modes",
+    "body": "Independent of the theme, you can pick:"
+  },
+  {
+    "title": "Themes",
+    "url": "pages/features/themes.html",
+    "heading": "Font size",
+    "anchor": "font-size",
+    "body": "Pick Small , Normal or Large . The choice is applied as a scale to every rem-based and pixel-based text size in the app, so headings, body copy and chrome stay in proportion."
+  },
+  {
+    "title": "Themes",
+    "url": "pages/features/themes.html",
+    "heading": "Window chrome",
+    "anchor": "window-chrome",
+    "body": "Loach uses a borderless window on both Windows and Linux. The title bar hosts the window controls (minimise, maximise, close) inline — you do not lose any controls by going borderless."
   },
   {
     "title": "OTA updates",
     "url": "pages/features/ota-updates.html",
     "heading": "OTA updates",
     "anchor": "",
-    "body": "Get new features, bug fixes, performance improvements and security patches directly from the app, no manual download needed."
+    "body": "Loach has a built-in updater so you do not have to keep an eye on the releases page. New features, performance work and security patches arrive directly from the app for the install formats that support it."
+  },
+  {
+    "title": "OTA updates",
+    "url": "pages/features/ota-updates.html",
+    "heading": "By install format",
+    "anchor": "install-formats",
+    "body": "Windows (NSIS) — the updater downloads the new package and a click on Install update runs a passive install in place. No re-download from a browser needed."
+  },
+  {
+    "title": "OTA updates",
+    "url": "pages/features/ota-updates.html",
+    "heading": "What's new",
+    "anchor": "release-notes",
+    "body": "Every release ships with a markdown notes file that populates both the GitHub release body and the in-app Updates panel when an upgrade is available. Skim it before clicking install if you want to know what is changing."
+  },
+  {
+    "title": "OTA updates",
+    "url": "pages/features/ota-updates.html",
+    "heading": "Signing",
+    "anchor": "signing",
+    "body": "Update bundles are cryptographically signed. The updater verifies the signature against a key bundled with the app before replacing any binary on disk, so a man-in-the-middle on the download channel cannot swap in a…"
+  },
+  {
+    "title": "Onboarding wizard",
+    "url": "pages/features/onboarding.html",
+    "heading": "Onboarding wizard",
+    "anchor": "",
+    "body": "A six-step wizard runs on first launch and after a factory reset. Each step writes its choice straight into settings, so closing the wizard part-way still leaves the app in a consistent state — you can finish setting things up from Settings later."
+  },
+  {
+    "title": "Onboarding wizard",
+    "url": "pages/features/onboarding.html",
+    "heading": "The steps",
+    "anchor": "steps",
+    "body": "1. Welcome — a brief intro card. Click Get started to move on."
+  },
+  {
+    "title": "Onboarding wizard",
+    "url": "pages/features/onboarding.html",
+    "heading": "Recommended defaults",
+    "anchor": "recommended-defaults",
+    "body": "On the Features step, Loach pre-selects the toggle states that make sense for most people:"
+  },
+  {
+    "title": "Onboarding wizard",
+    "url": "pages/features/onboarding.html",
+    "heading": "Dismissing and resuming",
+    "anchor": "dismissing",
+    "body": "Press Esc or click &times; on any step to close the wizard. Steps you have completed stay completed; the rest can be filled in later from Settings . The wizard does not re-appear on subsequent launches unless you run a…"
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "pages/features/keyboard.html",
+    "heading": "Keyboard shortcuts",
+    "anchor": "",
+    "body": "Loach is keyboard-friendly. The shortcuts below work everywhere unless something modal is on top, like the lock screen or the onboarding wizard."
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "pages/features/keyboard.html",
+    "heading": "Global",
+    "anchor": "global",
+    "body": "Cmd / Ctrl + K — open the search palette. Cross-searches chats, Spaces and Snippets."
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "pages/features/keyboard.html",
+    "heading": "In the composer",
+    "anchor": "composer",
+    "body": "Enter — send the message."
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "pages/features/keyboard.html",
+    "heading": "In the search palette",
+    "anchor": "search-palette",
+    "body": "&uarr; / &darr; — move between results."
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "pages/features/keyboard.html",
+    "heading": "Where shortcuts do not apply",
+    "anchor": "system",
+    "body": "The search palette and global shortcuts are suppressed while the app lock screen or the onboarding wizard owns the window — both are deliberate gates that cannot be bypassed by keyboard."
   }
 ]
 ;

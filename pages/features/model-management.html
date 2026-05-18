@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local model management — Loach Docs</title>
-  <meta name="description" content="Pull, copy, customize and delete local models from inside the app — no terminal required. The Models library tab is a full UI over the Ollama HTTP API." />
+  <meta name="description" content="Pull, copy, customize and delete local Ollama models without leaving Loach. The Models tab is a full UI over the Ollama HTTP API, with safe Modelfile editing built in." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,49 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Local model management</h1>
-    <p class="lead">Pull, copy, customize and delete local models from inside the app — no terminal required. The <strong>Models</strong> library tab is a full UI over the Ollama HTTP API.</p>
+    <p class="lead">The <strong>Models</strong> sidebar tab is a full management surface for the local Ollama catalog, plus a read-only listing of the catalog reachable through your OpenAI-compatible endpoint.</p>
 
+    <h2 id="library">The library</h2>
+    <p>Every installed model gets a tile showing its family, parameter size, on-disk size, quantization and capabilities (thinking, tool use, vision). The toolbar offers:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Pull</strong> &mdash; download a new model by tag. An inline progress chip shows percentage and current digest; you can cancel mid-pull.</li>
+      <li><strong class="feat-name">Refresh</strong> &mdash; re-query both provider catalogs.</li>
+      <li><strong class="feat-name">Search</strong> &mdash; substring match across model names.</li>
+      <li><strong class="feat-name">Open</strong> &mdash; jump into the Models editor for any installed Ollama model.</li>
+    </ul>
+
+    <h2 id="editor">The Models editor</h2>
+    <p>Opening a model loads its full configuration in a form so you can:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Inspect</strong> the Modelfile, system prompt, chat template, parsed PARAMETER block and capability tags.</li>
+      <li><strong class="feat-name">Edit</strong> any of those fields.</li>
+      <li><strong class="feat-name">Save as&hellip;</strong> &mdash; write a new <em>derived</em> model with your changes. Loach never overwrites the base model, so the original is always available to revert to.</li>
+      <li><strong class="feat-name">Copy model</strong> &mdash; duplicate under a new tag without changes.</li>
+      <li><strong class="feat-name">Delete model</strong> &mdash; remove the local copy. Irreversible.</li>
+      <li><strong class="feat-name">Thinking preference</strong> &mdash; a per-model override for the Thinking toggle, sitting between the Modelfile default and any per-chat override.</li>
+      <li><strong class="feat-name">Open chat</strong> &mdash; jump straight into a fresh chat pinned to this model.</li>
+    </ul>
+
+    <h2 id="modelfile-safety">Modelfile safety</h2>
+    <p>The <strong>Save as&hellip;</strong> form refuses to compile a Modelfile that would smuggle in extra directives via a malicious base tag, system block or template block. Base tags are checked against a conservative allowlist; system and template bodies are rejected if they contain delimiters that the Ollama parser would treat as an early end-of-block. You get a clear error rather than a quietly corrupted model.</p>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">Tip</div>
+        <p>For lightweight customisation, copying an existing model and tweaking just the system prompt is usually enough. Save under a tag like <code>qwen-coder:my-style</code> and that&rsquo;s the version that shows up in the chat picker.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="provider-selection.html">
         <span class="label">Previous</span>
-        <span class="title">← Provider selection</span>
+        <span class="title">&larr; Provider selection</span>
       </a>
       <a href="parameters.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Per-chat parameters →</span>
+        <span class="title">Per-chat parameters &rarr;</span>
       </a>
     </div>
 

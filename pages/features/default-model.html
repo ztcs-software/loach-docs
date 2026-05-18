@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Default model selector — Loach Docs</title>
-  <meta name="description" content="Pick a model new chats open with — per provider. No need to re-select on each fresh conversation." />
+  <meta name="description" content="Pick the model new chats open with. Three modes: use most recent, pin to a provider, or pin to a specific model." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,33 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Default model selector</h1>
-    <p class="lead">Pick a model new chats open with — per provider. No need to re-select on each fresh conversation.</p>
+    <p class="lead">When you start a fresh chat, which model should it open with? <strong>Settings &rarr; General &rarr; Default model</strong> answers that question. Three modes, picked according to how predictable you want new chats to feel.</p>
 
+    <h2 id="modes">The three modes</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Use most recent</strong> (default) &mdash; pick up wherever you left off. The most recently used (provider, model) pair from your existing chats wins.</li>
+      <li><strong class="feat-name">Pin to provider</strong> &mdash; the most recent model <em>for that provider</em>. Useful if you bounce between Ollama and a hosted endpoint but always want one of them for new chats.</li>
+      <li><strong class="feat-name">Pin to a specific model</strong> &mdash; always start in this exact model, regardless of what you used last.</li>
+    </ul>
+
+    <h2 id="overrides">What can override it</h2>
+    <p>The global default is the last word for plain new chats. But:</p>
+    <ul class="feature-list">
+      <li>Chats started inside a <a href="spaces.html">Space</a> use the Space&rsquo;s pinned model when one is set.</li>
+      <li>Chats started by <em>Run</em> on a <a href="snippets.html">Snippet</a> use that Snippet&rsquo;s pinned model when set.</li>
+      <li>Switching the model in the chat header always wins for that conversation onwards.</li>
+    </ul>
     <div class="page-nav">
       <a href="mcp.html">
         <span class="label">Previous</span>
-        <span class="title">← MCP support</span>
+        <span class="title">&larr; MCP support</span>
       </a>
       <a href="model-preloading.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Model preloading →</span>
+        <span class="title">Model preloading &rarr;</span>
       </a>
     </div>
 

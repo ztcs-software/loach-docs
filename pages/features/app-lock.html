@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>App lock — Loach Docs</title>
-  <meta name="description" content="Optional PIN, password or PIN + password gate at launch. Credentials are hashed with Argon2id and stored in the OS credential manager." />
+  <meta name="description" content="Optional PIN, password or PIN + password gate at launch. Credentials are hashed with a strong KDF and stored in the OS credential manager, never on disk in plaintext." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,46 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>App lock</h1>
-    <p class="lead">Optional PIN, password or PIN + password gate at launch. Credentials are hashed with Argon2id and stored in the OS credential manager.</p>
+    <p class="lead">App lock is an optional credential gate that runs before any chat data hydrates. Configure it in <strong>Settings &rarr; Security</strong>.</p>
 
+    <h2 id="modes">PIN, password, or both</h2>
+    <p>You can require any of:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">PIN</strong> &mdash; 4, 6 or 8 digits. Quick to type on a numeric pad.</li>
+      <li><strong class="feat-name">Password</strong> &mdash; any length and character set.</li>
+      <li><strong class="feat-name">PIN + password</strong> &mdash; both required. The PIN is asked first because it is faster to type.</li>
+    </ul>
+    <p>An optional plaintext hint can be stored alongside, so you have something to read after a failed unlock. The hint is plaintext on purpose &mdash; if it were encrypted with the password, you would need the password to see the hint, which defeats the point.</p>
+
+    <h2 id="storage">How credentials are stored</h2>
+    <p>Loach never writes the PIN or password to disk in plaintext, and never stores them in the SQLite database. The lock blob &mdash; a salted hash produced by a modern password hashing function &mdash; lives in the OS credential manager. On Windows that is Credential Manager; on Linux it is the Secret Service via your desktop&rsquo;s keyring.</p>
+
+    <h2 id="lock-screen">The lock screen</h2>
+    <p>On launch, the lock screen fills the window until you authenticate. When both a PIN and a password are required, the PIN field is shown first. A wrong attempt clears the PIN field but keeps the password field, so you can fix a typo without retyping everything.</p>
+
+    <h2 id="rate-limit">Rate limiting</h2>
+    <p>After several consecutive failed unlocks the unlock command is refused for an escalating cool-off window &mdash; from tens of seconds up to a couple of hours after persistent failures. The counter resets on a successful unlock and on app restart.</p>
+
+    <h2 id="reauth">Re-authentication for destructive actions</h2>
+    <p>Even after you unlock the app, changing or removing the lock and the destructive <a href="data-management.html">Data management</a> commands (Import, Wipe user data, Factory reset) ask for your current credentials again. This means a compromised renderer cannot silently disable the gate or trigger a wipe.</p>
+
+    <div class="callout warn">
+      <div class="callout-body">
+        <div class="callout-title">No recovery</div>
+        <p>Loach has no &ldquo;forgot your PIN&rdquo; flow on purpose. If you lose the credentials you set, the only path back in is a factory reset &mdash; which deletes your chats. Make sure your hint is enough.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="low-vram.html">
         <span class="label">Previous</span>
-        <span class="title">← Low VRAM mode</span>
+        <span class="title">&larr; Low VRAM mode</span>
       </a>
       <a href="data-management.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Data management →</span>
+        <span class="title">Data management &rarr;</span>
       </a>
     </div>
 

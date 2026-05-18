@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Markdown rendering — Loach Docs</title>
-  <meta name="description" content="Full GitHub-flavoured Markdown with tables, task lists and LaTeX support — rendered live as the response streams." />
+  <meta name="description" content="Loach renders assistant replies as GitHub-flavoured markdown live, as the response streams: headings, tables, task lists, code blocks with syntax highlighting, math and footnotes." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,37 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Markdown rendering</h1>
-    <p class="lead">Full GitHub-flavoured Markdown with tables, task lists and LaTeX support — rendered live as the response streams.</p>
+    <p class="lead">Every assistant turn is rendered as GitHub-flavoured Markdown <em>as the response streams</em>. You see formatted output the moment the tokens arrive, not after the model finishes.</p>
 
+    <h2 id="what-works">What works out of the box</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Headings, lists, blockquotes</strong> &mdash; standard CommonMark.</li>
+      <li><strong class="feat-name">Tables</strong> &mdash; GitHub-style pipe tables with alignment.</li>
+      <li><strong class="feat-name">Task lists</strong> &mdash; <code>- [ ]</code> and <code>- [x]</code> render as checkboxes.</li>
+      <li><strong class="feat-name">Footnotes</strong> &mdash; inline reference markers with linked-back definitions.</li>
+      <li><strong class="feat-name">Math</strong> &mdash; LaTeX-style inline <code>$\dots$</code> and display <code>$$\dots$$</code> expressions.</li>
+      <li><strong class="feat-name">Fenced code</strong> &mdash; language-aware syntax highlighting, plus a toolbar for copy, export and <a href="code-canvas.html">open in canvas</a>.</li>
+    </ul>
+
+    <h2 id="copy-and-select">Copying and selecting</h2>
+    <p>Right-click any assistant message for a menu with <em>Copy raw</em> (the original markdown source) and <em>Copy as markdown</em> (the rendered text serialized back to markdown). You can also highlight any range of text and a small <strong>Copy selection</strong> pill will appear at the cursor.</p>
+
+    <h2 id="long-prompts">Long user messages</h2>
+    <p>User bubbles that paste in dozens of lines automatically clamp to the first ten lines with a <strong>Show more</strong> toggle, so the assistant&rsquo;s reply does not get pushed off-screen by your own input.</p>
+
+    <h2 id="thinking-traces">Thinking traces</h2>
+    <p>For reasoning-capable models, the chain-of-thought stream is rendered into a separate, collapsible block above the answer. You can fold it away when you only care about the final answer and pop it back open to audit how the model got there.</p>
     <div class="page-nav">
       <a href="generation-stats.html">
         <span class="label">Previous</span>
-        <span class="title">← Generation stats</span>
+        <span class="title">&larr; Generation stats</span>
       </a>
       <a href="code-canvas.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Code blocks &amp; canvas →</span>
+        <span class="title">Code blocks & canvas &rarr;</span>
       </a>
     </div>
 

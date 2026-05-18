@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chat archive — Loach Docs</title>
-  <meta name="description" content="Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view." />
+  <meta name="description" content="Move chats out of the sidebar without deleting them. Open archived chats read-only, unarchive to bring them back, or permanently delete from the archive view." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,37 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Chat archive</h1>
-    <p class="lead">Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view.</p>
+    <p class="lead">Some chats you want to keep but stop seeing every day. The <strong>archive</strong> moves them out of the sidebar without deleting anything &mdash; they stay searchable and you can pull them back at any time.</p>
 
+    <h2 id="archiving">Archiving a chat</h2>
+    <p>Open the per-row menu in the sidebar (or right-click the row) and pick <em>Move to Archive</em>. The chat disappears from the main list immediately. The same option lives in the chat&rsquo;s own header menu.</p>
+
+    <h2 id="archive-view">The archive view</h2>
+    <p>The archive lives at <strong>Settings &rarr; Archive</strong>. From there you can:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Open</strong> an archived chat read-only.</li>
+      <li><strong class="feat-name">Unarchive</strong> to bring it back into the main list.</li>
+      <li><strong class="feat-name">Permanently delete</strong> from the archive.</li>
+      <li><strong class="feat-name">Archive all</strong> &mdash; mass-park your current chats before starting fresh.</li>
+    </ul>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Archive vs delete</div>
+        <p>Archiving keeps the conversation intact. If you want it gone for good, pick <em>Delete</em> from the chat&rsquo;s menu instead &mdash; or archive first and decide later.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="snippets.html">
         <span class="label">Previous</span>
-        <span class="title">← Snippets</span>
+        <span class="title">&larr; Snippets</span>
       </a>
       <a href="search.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Search →</span>
+        <span class="title">Search &rarr;</span>
       </a>
     </div>
 

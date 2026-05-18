@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Low VRAM mode — Loach Docs</title>
-  <meta name="description" content="Global or per-chat toggle that sends Ollama's low_vram flag with every request — useful on lower-spec devices." />
+  <meta name="description" content="Globally or per-chat, send Ollama’s low_vram flag with every request — useful on lower-spec GPUs. The global setting wins over the per-chat toggle." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,32 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Low VRAM mode</h1>
-    <p class="lead">Global or per-chat toggle that sends Ollama's <code>low_vram</code> flag with every request — useful on lower-spec devices.</p>
+    <p class="lead">Low VRAM mode sends Ollama&rsquo;s <code>low_vram</code> flag with every request, asking the daemon for smaller batches and a leaner KV cache. It trades throughput for the ability to run on hardware that would otherwise OOM.</p>
 
+    <h2 id="where">Where to set it</h2>
+    <p>There are two places this lives:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Per chat</strong> &mdash; the Low VRAM toggle in the <a href="parameters.html">parameters panel</a>. Affects just that conversation.</li>
+      <li><strong class="feat-name">Globally</strong> &mdash; <strong>Settings &rarr; General &rarr; Low VRAM mode</strong>. Forces <code>low_vram: true</code> on every Ollama request.</li>
+    </ul>
+
+    <h2 id="precedence">Which one wins</h2>
+    <p>The global setting overrides the per-chat toggle. When the global pin is on, the per-chat toggle shows up as pinned and disabled, with a pointer back to the setting so you understand why it cannot be flipped from the panel.</p>
+    <p>Turn the global setting off and you regain per-chat control.</p>
+
+    <h2 id="ollama-only">Ollama only</h2>
+    <p>The flag is meaningful only for the local Ollama backend. Loach does not send it to OpenAI-compatible endpoints &mdash; hosted services have no concept of your VRAM budget.</p>
     <div class="page-nav">
       <a href="model-preloading.html">
         <span class="label">Previous</span>
-        <span class="title">← Model preloading</span>
+        <span class="title">&larr; Model preloading</span>
       </a>
       <a href="app-lock.html" class="next">
         <span class="label">Next</span>
-        <span class="title">App lock →</span>
+        <span class="title">App lock &rarr;</span>
       </a>
     </div>
 

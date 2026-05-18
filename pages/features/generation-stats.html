@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Generation stats — Loach Docs</title>
-  <meta name="description" content="An inline tok/s · total tokens · elapsed line under every model turn so you always know how the model performed." />
+  <meta name="description" content="Every assistant turn shows a small metrics chip with prompt and completion token count, wall-clock time and tokens per second when the provider reports them." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,32 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Generation stats</h1>
-    <p class="lead">An inline <code>tok/s · total tokens · elapsed</code> line under every model turn so you always know how the model performed.</p>
+    <p class="lead">Every assistant reply shows a small metrics chip under the bubble. It gives you a quick read on how the model performed without leaving the conversation.</p>
 
+    <h2 id="what-you-see">What you see</h2>
+    <p>The chip reports, when the provider makes the data available:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Tokens per second</strong> &mdash; the live throughput of the completion. Useful for comparing models on your hardware at a glance.</li>
+      <li><strong class="feat-name">Total tokens</strong> &mdash; prompt plus completion. Helps you reason about context budgets.</li>
+      <li><strong class="feat-name">Elapsed time</strong> &mdash; wall-clock duration of the request, end-to-end.</li>
+    </ul>
+
+    <h2 id="when-its-missing">When some numbers are missing</h2>
+    <p>Not every provider returns every metric. Local Ollama reports all of them. Hosted OpenAI-compatible endpoints typically return token counts but not always tokens per second; Loach renders whatever was given and silently omits the rest. The elapsed time is always shown because it is measured locally.</p>
+
+    <h2 id="cancelled-replies">Cancelled and errored replies</h2>
+    <p>If a generation is cancelled or errors mid-stream, the chip still shows the partial token count and elapsed time so you can tell how far the model got before it stopped. See <a href="concurrency.html">Concurrency &amp; queue</a> for details on how partial output is preserved.</p>
     <div class="page-nav">
       <a href="custom-instructions.html">
         <span class="label">Previous</span>
-        <span class="title">← Custom instructions</span>
+        <span class="title">&larr; Custom instructions</span>
       </a>
       <a href="markdown.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Markdown rendering →</span>
+        <span class="title">Markdown rendering &rarr;</span>
       </a>
     </div>
 

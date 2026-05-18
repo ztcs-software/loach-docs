@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Snippets — Loach Docs</title>
-  <meta name="description" content="Save reusable prompts with an optional pinned model and click Run to start a fresh chat pre-filled and ready to send." />
+  <meta name="description" content="Save reusable prompts with an optional pinned model. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,30 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Snippets</h1>
-    <p class="lead">Save reusable prompts with an optional pinned model and click <em>Run</em> to start a fresh chat pre-filled and ready to send.</p>
+    <p class="lead">A <strong>Snippet</strong> is a saved prompt with an optional pinned provider and model. Snippets live in their own sidebar tab and exist for the kind of prompt you reach for over and over &mdash; &ldquo;summarise this in three bullets&rdquo;, &ldquo;review this diff for security issues&rdquo;, &ldquo;translate to formal Polish&rdquo;.</p>
 
+    <h2 id="creating">Creating</h2>
+    <p>Create a Snippet with a title and the prompt body. Optionally pin it to a specific provider and model so <strong>Run</strong> always starts a chat there. Pinning is a nice fit for prompts that genuinely need a particular model &mdash; a vision-capable model for image work, a coding-tuned model for review.</p>
+
+    <h2 id="running">Running</h2>
+    <p>Hit <strong>Run</strong> on a Snippet to open a fresh chat (with the pinned model if any) and prime the composer with the snippet&rsquo;s prompt. You can edit the prompt before sending &mdash; Snippets are a starting point, not a one-shot button.</p>
+
+    <h2 id="bookmark-replies">Bookmark assistant replies as Snippets</h2>
+    <p>Right-click any assistant message and pick <em>Save as snippet</em>. Loach pre-fills the editor with that text so you can turn a good reply into a reusable prompt without copy-pasting.</p>
+
+    <h2 id="library">The library</h2>
+    <p>The Snippets tab shows a tile grid sorted by recency, with a search field at the top. Each tile has a <code>&hellip;</code> menu for edit and delete.</p>
     <div class="page-nav">
       <a href="spaces.html">
         <span class="label">Previous</span>
-        <span class="title">← Spaces</span>
+        <span class="title">&larr; Spaces</span>
       </a>
       <a href="chat-archive.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Chat archive →</span>
+        <span class="title">Chat archive &rarr;</span>
       </a>
     </div>
 

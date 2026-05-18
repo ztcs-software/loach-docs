@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OTA updates — Loach Docs</title>
-  <meta name="description" content="Get new features, bug fixes, performance improvements and security patches directly from the app — no need to manually download a new installer." />
+  <meta name="description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-icon.png" />
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
@@ -103,6 +103,7 @@
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -124,6 +125,7 @@
               <span>Input &amp; output</span>
             </button>
             <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
@@ -169,6 +171,16 @@
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
       <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
@@ -178,20 +190,31 @@
       <a class="sidebar-link" href="../faq.html">FAQ</a>
     </div>
   </aside>
-
   <main class="content">
-    <p class="breadcrumb"><a href="../features.html">← All features</a></p>
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>OTA updates</h1>
-    <p class="lead">Get new features, bug fixes, performance improvements and security patches directly from the app — no need to manually download a new installer.</p>
+    <p class="lead">Loach has a built-in updater so you do not have to keep an eye on the releases page. New features, performance work and security patches arrive directly from the app for the install formats that support it.</p>
 
+    <h2 id="install-formats">By install format</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Windows (NSIS)</strong> &mdash; the updater downloads the new package and a click on <em>Install update</em> runs a passive install in place. No re-download from a browser needed.</li>
+      <li><strong class="feat-name">Linux AppImage</strong> &mdash; same flow. The updater replaces the AppImage on disk.</li>
+      <li><strong class="feat-name">Linux .deb / .rpm</strong> &mdash; updates are managed by your system package manager. The Updates panel detects that you are on one of these and points to the GitHub releases page instead of pretending in-app updates work.</li>
+    </ul>
+
+    <h2 id="release-notes">What&rsquo;s new</h2>
+    <p>Every release ships with a markdown notes file that populates both the GitHub release body and the in-app <strong>Updates</strong> panel when an upgrade is available. Skim it before clicking install if you want to know what is changing.</p>
+
+    <h2 id="signing">Signing</h2>
+    <p>Update bundles are cryptographically signed. The updater verifies the signature against a key bundled with the app <em>before</em> replacing any binary on disk, so a man-in-the-middle on the download channel cannot swap in a tampered build.</p>
     <div class="page-nav">
       <a href="themes.html">
         <span class="label">Previous</span>
-        <span class="title">← Themes</span>
+        <span class="title">&larr; Themes</span>
       </a>
-      <a href="../privacy.html" class="next">
+      <a href="onboarding.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Storage &amp; privacy →</span>
+        <span class="title">Onboarding wizard &rarr;</span>
       </a>
     </div>
 
