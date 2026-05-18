@@ -2,10 +2,14 @@
   'use strict';
 
   // ---------- Theme ----------
+  // The initial data-theme attribute is set by the inline bootstrap in each page's <head>,
+  // so there's no flash on load. This block keeps localStorage and the button states in sync.
   const THEME_KEY = 'loach-docs-theme';
   const root = document.documentElement;
 
   function getInitialTheme() {
+    const attr = root.getAttribute('data-theme');
+    if (attr === 'light' || attr === 'dark') return attr;
     const stored = localStorage.getItem(THEME_KEY);
     if (stored === 'light' || stored === 'dark') return stored;
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -16,24 +20,27 @@
 
   function setActiveThemeOption(theme) {
     document.querySelectorAll('.theme-toggle-opt').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.themeSet === theme);
+      const isActive = b.dataset.themeSet === theme;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
   }
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
-    localStorage.setItem(THEME_KEY, theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (_) {}
     setActiveThemeOption(theme);
   }
 
   applyTheme(getInitialTheme());
 
   document.addEventListener('DOMContentLoaded', function () {
-    setActiveThemeOption(root.getAttribute('data-theme') || 'light');
-    document.querySelectorAll('.theme-toggle').forEach(function (toggle) {
-      toggle.addEventListener('click', function () {
-        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        applyTheme(current === 'dark' ? 'light' : 'dark');
+    // Per-button handler: clicking a button sets THAT theme, instead of always toggling.
+    // (The previous behaviour flipped the theme even when the user clicked the already-active option.)
+    document.querySelectorAll('.theme-toggle-opt').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const target = btn.dataset.themeSet === 'dark' ? 'dark' : 'light';
+        applyTheme(target);
       });
     });
 
@@ -195,7 +202,7 @@
         }
       }
       window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
+      window.addEventListener('resize', onScroll, { passive: true });
       update();
     })();
 
@@ -247,6 +254,6 @@
       if (window.innerWidth > 640 && topbar && topbar.classList.contains('search-open')) {
         topbar.classList.remove('search-open');
       }
-    });
+    }, { passive: true });
   });
 })();

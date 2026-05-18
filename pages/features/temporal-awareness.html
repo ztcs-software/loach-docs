@@ -6,6 +6,7 @@
   <title>Temporal awareness — Loach Docs</title>
   <meta name="description" content="Optionally prepend the current date, time, weekday and timezone to every system prompt — so models can answer “what day is it today?” correctly." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
+  <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
 </head>
 <body>
@@ -15,7 +16,7 @@
     <button class="icon-btn menu-btn" aria-label="Toggle navigation">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <a class="brand" href="../../index.html">
+    <a class="brand" href="../../index.html" aria-label="Loach Docs home">
       <span class="brand-mark">L</span>
       <span class="brand-name">Loach Docs</span>
     </a>
@@ -39,10 +40,10 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
       </a>
       <div class="theme-toggle" role="group" aria-label="Theme">
-        <button class="theme-toggle-opt" data-theme-set="light" aria-label="Light theme">
+        <button class="theme-toggle-opt" data-theme-set="light" aria-label="Light theme" aria-pressed="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <button class="theme-toggle-opt" data-theme-set="dark" aria-label="Dark theme">
+        <button class="theme-toggle-opt" data-theme-set="dark" aria-label="Dark theme" aria-pressed="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
       </div>
@@ -204,7 +205,7 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Temporal awareness</h1>
-    <p class="lead">Out of the box, most models do not know what day it is. Temporal awareness fixes that by prepending a short &ldquo;current date / time / timezone&rdquo; preamble to every system prompt &mdash; only when the prompt does not already pull those values in itself.</p>
+    <p class="lead">Out of the box, most models do not know what day it is. Temporal awareness fixes that by prepending a short &ldquo;current date / time / timezone&rdquo; preamble to every system prompt — only when the prompt does not already pull those values in itself.</p>
 
     <h2 id="enabling">Enabling</h2>
     <p>Toggle <strong>Settings &rarr; General &rarr; Temporal awareness</strong>. New chats will start including the preamble immediately. Existing chats inherit the new setting on their next message.</p>
@@ -214,7 +215,7 @@
     <ul class="feature-list">
       <li><code>{{CURRENT_DATE}}</code>, <code>{{CURRENT_TIME}}</code>, <code>{{CURRENT_WEEKDAY}}</code>, <code>{{CURRENT_DATETIME}}</code>, <code>{{CURRENT_TIMEZONE}}</code></li>
     </ul>
-    <p>If any of them are present, you have asked for the values inline and Loach does not prepend anything &mdash; you are in control of where and how they appear. If none are present, Loach prepends a short preamble of the form &ldquo;Current date: &hellip; Current time: &hellip; Timezone: &hellip;&rdquo;.</p>
+    <p>If any of them are present, you have asked for the values inline and Loach does not prepend anything — you are in control of where and how they appear. If none are present, Loach prepends a short preamble of the form &ldquo;Current date: &hellip; Current time: &hellip; Timezone: &hellip;&rdquo;.</p>
 
     <h2 id="why">Why it matters</h2>
     <p>Many factual queries depend on &ldquo;today&rdquo;: meeting scheduling, deadlines, age calculations, news cut-offs. Without temporal awareness the model relies on whatever date it was trained around, which is almost certainly wrong by the time you are talking to it.</p>

@@ -42,13 +42,27 @@
     if (idx === -1) return escapeHtml(text);
     const start = Math.max(0, idx - 30);
     const end = Math.min(text.length, idx + q.length + 80);
-    let snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
-    const re = new RegExp(escapeRegex(q), 'gi');
-    return escapeHtml(snippet).replace(re, function (m) { return '<mark>' + escapeHtml(m) + '</mark>'; });
-  }
+    const snippet = text.slice(start, end);
+    const prefix = start > 0 ? '…' : '';
+    const suffix = end < text.length ? '…' : '';
 
-  function escapeRegex(s) {
-    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Walk the snippet by query-length matches on the lowercased copy, so we mark
+    // the original text (not its HTML-escaped form). Avoids <mark> tags ending up
+    // inside an HTML entity (e.g. &lt;) when the query overlaps with one.
+    const lowerSnip = snippet.toLowerCase();
+    let out = '';
+    let i = 0;
+    while (i < snippet.length) {
+      const hit = lowerSnip.indexOf(q, i);
+      if (hit === -1) {
+        out += escapeHtml(snippet.slice(i));
+        break;
+      }
+      out += escapeHtml(snippet.slice(i, hit));
+      out += '<mark>' + escapeHtml(snippet.slice(hit, hit + q.length)) + '</mark>';
+      i = hit + q.length;
+    }
+    return prefix + out + suffix;
   }
 
   function escapeHtml(s) {
