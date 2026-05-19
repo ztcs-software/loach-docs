@@ -2,8 +2,6 @@
 
 Documentation website for [Loach](https://github.com/ztcs-software/loach) — a native, local-first AI workspace. 
 
-**👉 LIVE: [docs.loach.dev](https://docs.loach.dev)**
-
 This is a plain HTML/CSS/JS site. **No build step, no framework, no package manager** — the files in this repo are exactly what's served.
 
 **👉 LIVE: [docs.loach.dev](https://docs.loach.dev)**
