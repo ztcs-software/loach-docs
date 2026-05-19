@@ -8,27 +8,27 @@
   <link rel="icon" type="image/png" href="assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="canonical" href="https://loach.example.com/" />
+  <link rel="canonical" href="https://docs.loach.dev/" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://loach.example.com/" />
+  <meta property="og:url" content="https://docs.loach.dev/" />
   <meta property="og:title" content="Loach — A native, local-first AI workspace" />
   <meta property="og:description" content="Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint." />
-  <meta property="og:image" content="https://loach.example.com/assets/img/loach-logo.png" />
+  <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Loach — A native, local-first AI workspace" />
   <meta name="twitter:description" content="Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint." />
-  <meta name="twitter:image" content="https://loach.example.com/assets/img/loach-logo.png" />
+  <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://loach.example.com/#website",
-      "url": "https://loach.example.com/",
+      "@id": "https://docs.loach.dev/#website",
+      "url": "https://docs.loach.dev/",
       "name": "Loach Docs",
       "description": "Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint.",
       "publisher": {
@@ -37,7 +37,7 @@
         "url": "https://github.com/ztcs-software",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://loach.example.com/assets/img/loach-icon.png"
+          "url": "https://docs.loach.dev/assets/img/loach-icon.png"
         }
       },
       "inLanguage": "en"
@@ -49,7 +49,7 @@
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Windows, Linux",
       "url": "https://github.com/ztcs-software/loach",
-      "image": "https://loach.example.com/assets/img/loach-logo.png",
+      "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "license": "https://github.com/ztcs-software/loach/blob/main/LICENSE",
       "offers": {
         "@type": "Offer",
@@ -127,12 +127,7 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <div class="sidebar-group-header">
-          <a class="sidebar-link" href="pages/features.html">Features</a>
-          <button class="sidebar-group-toggle" type="button" aria-expanded="false" aria-label="Expand Features">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </div>
+        <a class="sidebar-link sidebar-toplevel-toggle" href="pages/features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
         <ul class="sidebar-submenu sidebar-submenu--categories">
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
             <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
@@ -235,12 +230,7 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="pages/faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <div class="sidebar-group-header">
-          <a class="sidebar-link" href="pages/troubleshooting.html">Troubleshooting</a>
-          <button class="sidebar-group-toggle" type="button" aria-expanded="false" aria-label="Expand Troubleshooting">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </div>
+        <a class="sidebar-link sidebar-toplevel-toggle" href="pages/troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
         <ul class="sidebar-submenu">
           <li><a class="sidebar-sublink" href="pages/troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="pages/troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
@@ -263,7 +253,6 @@
   <main class="content">
 
     <div class="hero">
-      <span class="chip">Local-first · Open source · Free</span>
       <h1>Loach</h1>
       <p class="hero-sub">A native, local-first AI workspace for desktops. Run local LLMs with Ollama, or connect any OpenAI-compatible endpoint side-by-side — with a focused UX, native apps for Windows and Linux, and powerful features out of the box.</p>
       <div class="hero-actions">

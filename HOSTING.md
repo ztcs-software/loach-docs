@@ -1,38 +1,36 @@
 # Hosting & deployment notes
 
 This site ships as plain static files — upload the directory tree to your
-static host root. See [README.md](README.md) for the basics; this file
-covers the one piece of post-deploy plumbing that **must** be done before
-search engines see the site.
+static host root. See [README.md](README.md) for the basics.
 
-## Replace the placeholder base URL
+## Canonical production hostname
 
-For SEO (canonical URLs, OpenGraph `og:url`, sitemap entries, JSON-LD `url`
-fields) we need an absolute base URL. The codebase currently uses
-`https://loach.example.com` as a placeholder marker. **Before the first
-production deploy, replace it with the real hostname.**
+The site is configured to live at:
 
-Files that contain the placeholder:
+> **https://docs.loach.dev**
 
-- `robots.txt`
-- `sitemap.xml`
-- `index.html`
-- `pages/*.html` (9 files)
-- `pages/features/*.html` (28 files)
-- `pages/troubleshooting/*.html` (13 files)
+This hostname is embedded directly in:
 
-Total: **52 files**.
+- `robots.txt` (the `Sitemap:` line)
+- `sitemap.xml` (every `<loc>` entry)
+- Every HTML file's `<head>`:
+  - `<link rel="canonical">`
+  - `<meta property="og:url">`, `<meta property="og:image">`
+  - `<meta name="twitter:image">`
+  - JSON-LD `url`, `image`, `@id`, `mainEntityOfPage`, `BreadcrumbList` items
 
-### One-shot replacement
+If you ever rename the docs host, use the bulk-rename procedure below.
 
-From the repo root, using Python (matches the pattern documented in
-`CLAUDE.md` for bulk page edits):
+## Renaming the docs host
+
+From the repo root, with Python (matches the heredoc pattern in
+`CLAUDE.md`):
 
 ```bash
 PYTHONIOENCODING=utf-8 python - <<'PY'
 import pathlib
-OLD = 'https://loach.example.com'
-NEW = 'https://your-real-domain.example'   # <-- edit this
+OLD = 'https://docs.loach.dev'         # <-- current hostname
+NEW = 'https://your-new-domain.example' # <-- target hostname
 targets = ['robots.txt', 'sitemap.xml']
 targets += [str(p) for p in pathlib.Path('.').rglob('*.html')]
 for f in targets:
@@ -44,13 +42,16 @@ for f in targets:
 PY
 ```
 
-Verify with a quick `grep -c 'loach.example.com' **/*.html robots.txt sitemap.xml`
-— every count should be `0` afterwards.
+Don't forget to update the `https://docs.loach.dev` references in this
+file too if you change the canonical URL.
+
+Verify with `grep -c 'docs.loach.dev'` (or whatever the old hostname was)
+afterwards — every count should be `0`.
 
 ## After deploy
 
 - Submit `sitemap.xml` to Google Search Console and Bing Webmaster Tools.
-- Confirm crawlable: `curl -I https://<host>/robots.txt` returns 200.
+- Confirm crawlable: `curl -I https://docs.loach.dev/robots.txt` returns 200.
 - Verify rich-result eligibility with the
   [Schema Markup Validator](https://validator.schema.org/) on the home page
   (SoftwareApplication), the FAQ page (FAQPage), and any feature page

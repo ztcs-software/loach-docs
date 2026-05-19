@@ -484,14 +484,34 @@ img { max-width: 100%; }
 .sidebar-group {
   margin: 1px 0;
 }
-.sidebar-group-header {
+
+/* Top-level group toggle (Features, Troubleshooting): a single full-width
+   anchor styled like .sidebar-link with the chevron on the right — matches
+   the visual treatment of the nested .sidebar-category-toggle below. Click
+   navigates to the overview page; main.js auto-opens the group on arrival. */
+.sidebar-toplevel-toggle {
   display: flex;
-  align-items: stretch;
-  border-radius: var(--radius-sm);
+  align-items: center;
+  gap: 8px;
 }
-.sidebar-group-header .sidebar-link {
+.sidebar-toplevel-toggle span {
   flex: 1;
-  margin: 0;
+}
+.sidebar-toplevel-toggle svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--text-subtle);
+  transition: transform var(--transition), color var(--transition);
+}
+.sidebar-toplevel-toggle:hover svg {
+  color: var(--text);
+}
+.sidebar-toplevel-toggle.active svg {
+  color: var(--accent);
+}
+.sidebar-group.open > .sidebar-toplevel-toggle svg {
+  transform: rotate(180deg);
 }
 .sidebar-group-toggle {
   display: inline-flex;
@@ -516,7 +536,6 @@ img { max-width: 100%; }
   height: 14px;
   transition: transform var(--transition);
 }
-.sidebar-group.open > .sidebar-group-header .sidebar-group-toggle svg,
 .sidebar-group.open > .sidebar-group-toggle svg {
   transform: rotate(180deg);
 }

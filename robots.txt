@@ -6,4 +6,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loach.example.com/sitemap.xml
+Sitemap: https://docs.loach.dev/sitemap.xml

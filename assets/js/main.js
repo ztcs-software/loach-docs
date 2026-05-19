@@ -34,6 +34,43 @@
 
   applyTheme(getInitialTheme());
 
+  // ---------- Sidebar scroll persistence ----------
+  // Preserve the menu scroll position across navigation so it doesn't jump back
+  // to the top whenever you click a link. The script tag is at the end of <body>,
+  // so .sidebar exists, but its layout hasn't necessarily been computed yet —
+  // setting scrollTop before layout has no effect (the value is clamped to 0).
+  // We force a layout flush by reading scrollHeight first, and we re-apply on
+  // DOMContentLoaded as a belt-and-braces fallback.
+  const SIDEBAR_SCROLL_KEY = 'loach-docs-sidebar-scroll';
+  const sidebarForScroll = document.querySelector('.sidebar');
+  function restoreSidebarScroll() {
+    if (!sidebarForScroll) return;
+    try {
+      const stored = sessionStorage.getItem(SIDEBAR_SCROLL_KEY);
+      if (stored === null) return;
+      const v = parseInt(stored, 10);
+      if (!isFinite(v)) return;
+      // Force layout so scrollHeight is computed, otherwise scrollTop is clamped to 0.
+      void sidebarForScroll.scrollHeight;
+      sidebarForScroll.scrollTop = v;
+    } catch (_) {}
+  }
+  restoreSidebarScroll();
+
+  if (sidebarForScroll) {
+    let scrollTicking = false;
+    sidebarForScroll.addEventListener('scroll', function () {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(function () {
+        scrollTicking = false;
+        try {
+          sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(sidebarForScroll.scrollTop));
+        } catch (_) {}
+      });
+    }, { passive: true });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // Per-button handler: clicking a button sets THAT theme, instead of always toggling.
     // (The previous behaviour flipped the theme even when the user clicked the already-active option.)
@@ -91,34 +128,79 @@
     let groupState = {};
     try { groupState = JSON.parse(localStorage.getItem(GROUP_KEY) || '{}') || {}; } catch (_) { groupState = {}; }
 
+    const isFeaturesOverview = /\/features\.html$/.test(herePath);
+    const isTroubleshootingOverview = /\/troubleshooting\.html$/.test(herePath);
+
+    function persistGroupState(id, open) {
+      if (!id) return;
+      groupState[id] = open;
+      try { localStorage.setItem(GROUP_KEY, JSON.stringify(groupState)); } catch (_) {}
+    }
+
     document.querySelectorAll('.sidebar-group').forEach(function (group) {
       const id = group.dataset.group || '';
-      const toggle = group.querySelector('.sidebar-group-toggle');
-      const submenu = group.querySelector('.sidebar-submenu');
-      if (!toggle || !submenu) return;
+      // Direct child only — otherwise the parent Features group would pick up the
+      // first nested category toggle as its own.
+      const toggle = group.querySelector(':scope > .sidebar-group-toggle');
+      const submenu = group.querySelector(':scope > .sidebar-submenu');
+      const toplevelToggle = group.querySelector(':scope > .sidebar-toplevel-toggle');
+      if (!submenu) return;
 
       const hasActiveChild = !!submenu.querySelector('.sidebar-sublink.active');
       const stored = Object.prototype.hasOwnProperty.call(groupState, id) ? !!groupState[id] : null;
 
-      // Auto-open if on a feature/troubleshooting page or a sublink is active; else fall back to stored state.
-      let open = hasActiveChild || (id === 'features' && isFeaturePage) || (id === 'troubleshooting' && isTroubleshootingPage);
-      if (!open && stored !== null) open = stored;
+      // Open-state precedence:
+      //   1. If a descendant page is the current page, force open — otherwise the
+      //      active sublink is hidden and the user loses context.
+      //   2. Otherwise the user's stored manual toggle wins — Features and
+      //      Troubleshooting must remember their state across navigations,
+      //      INDEPENDENTLY of each other.
+      //   3. Only as a first-visit fallback do we auto-open based on URL
+      //      (landing on /features.html or /troubleshooting.html).
+      let open;
+      if (hasActiveChild) {
+        open = true;
+      } else if (stored !== null) {
+        open = stored;
+      } else {
+        open = (id === 'features' && (isFeaturePage || isFeaturesOverview))
+            || (id === 'troubleshooting' && (isTroubleshootingPage || isTroubleshootingOverview));
+      }
 
       group.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (toplevelToggle) toplevelToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const nowOpen = !group.classList.contains('open');
-        group.classList.toggle('open', nowOpen);
-        toggle.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
-        if (id) {
-          groupState[id] = nowOpen;
-          try { localStorage.setItem(GROUP_KEY, JSON.stringify(groupState)); } catch (_) {}
-        }
-      });
+      // Nested category chevron: pure toggle, no navigation.
+      if (toggle) {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const nowOpen = !group.classList.contains('open');
+          group.classList.toggle('open', nowOpen);
+          toggle.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+          persistGroupState(id, nowOpen);
+        });
+      }
+
+      // Top-level row (Features / Troubleshooting): is an <a>, so it navigates
+      // on click. We also toggle the group's open state and persist it so the
+      // user's choice survives the page reload — and so toggling one group
+      // doesn't disturb the other.
+      if (toplevelToggle) {
+        toplevelToggle.addEventListener('click', function () {
+          const nowOpen = !group.classList.contains('open');
+          group.classList.toggle('open', nowOpen);
+          toplevelToggle.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+          persistGroupState(id, nowOpen);
+          // Default action (navigate to href) proceeds.
+        });
+      }
     });
+
+    // Restore sidebar scroll AFTER groups are opened (the auto-open above is what
+    // gives the sidebar its real scrollHeight; before that, scrollTop is clamped to 0).
+    restoreSidebarScroll();
 
     // Close mobile sidebar when a sublink is tapped too
     document.querySelectorAll('.sidebar-sublink').forEach(function (link) {

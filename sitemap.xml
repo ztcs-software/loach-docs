@@ -3,7 +3,7 @@
 
   <!-- Home -->
   <url>
-    <loc>https://loach.example.com/</loc>
+    <loc>https://docs.loach.dev/</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -11,13 +11,13 @@
 
   <!-- Getting started -->
   <url>
-    <loc>https://loach.example.com/pages/installation.html</loc>
+    <loc>https://docs.loach.dev/pages/installation.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/getting-started.html</loc>
+    <loc>https://docs.loach.dev/pages/getting-started.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -25,13 +25,13 @@
 
   <!-- Core concepts -->
   <url>
-    <loc>https://loach.example.com/pages/concepts.html</loc>
+    <loc>https://docs.loach.dev/pages/concepts.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/providers.html</loc>
+    <loc>https://docs.loach.dev/pages/providers.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -39,175 +39,175 @@
 
   <!-- Reference: features overview + 28 subpages -->
   <url>
-    <loc>https://loach.example.com/pages/features.html</loc>
+    <loc>https://docs.loach.dev/pages/features.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/provider-selection.html</loc>
+    <loc>https://docs.loach.dev/pages/features/provider-selection.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/model-management.html</loc>
+    <loc>https://docs.loach.dev/pages/features/model-management.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/parameters.html</loc>
+    <loc>https://docs.loach.dev/pages/features/parameters.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/personas.html</loc>
+    <loc>https://docs.loach.dev/pages/features/personas.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/custom-instructions.html</loc>
+    <loc>https://docs.loach.dev/pages/features/custom-instructions.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/generation-stats.html</loc>
+    <loc>https://docs.loach.dev/pages/features/generation-stats.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/markdown.html</loc>
+    <loc>https://docs.loach.dev/pages/features/markdown.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/code-canvas.html</loc>
+    <loc>https://docs.loach.dev/pages/features/code-canvas.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/concurrency.html</loc>
+    <loc>https://docs.loach.dev/pages/features/concurrency.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/spaces.html</loc>
+    <loc>https://docs.loach.dev/pages/features/spaces.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/snippets.html</loc>
+    <loc>https://docs.loach.dev/pages/features/snippets.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/chat-archive.html</loc>
+    <loc>https://docs.loach.dev/pages/features/chat-archive.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/search.html</loc>
+    <loc>https://docs.loach.dev/pages/features/search.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/import-export.html</loc>
+    <loc>https://docs.loach.dev/pages/features/import-export.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/attachments.html</loc>
+    <loc>https://docs.loach.dev/pages/features/attachments.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/voice-dictation.html</loc>
+    <loc>https://docs.loach.dev/pages/features/voice-dictation.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/web-fetch.html</loc>
+    <loc>https://docs.loach.dev/pages/features/web-fetch.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/temporal-awareness.html</loc>
+    <loc>https://docs.loach.dev/pages/features/temporal-awareness.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/mcp.html</loc>
+    <loc>https://docs.loach.dev/pages/features/mcp.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/default-model.html</loc>
+    <loc>https://docs.loach.dev/pages/features/default-model.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/model-preloading.html</loc>
+    <loc>https://docs.loach.dev/pages/features/model-preloading.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/low-vram.html</loc>
+    <loc>https://docs.loach.dev/pages/features/low-vram.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/app-lock.html</loc>
+    <loc>https://docs.loach.dev/pages/features/app-lock.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/data-management.html</loc>
+    <loc>https://docs.loach.dev/pages/features/data-management.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/themes.html</loc>
+    <loc>https://docs.loach.dev/pages/features/themes.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/ota-updates.html</loc>
+    <loc>https://docs.loach.dev/pages/features/ota-updates.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/onboarding.html</loc>
+    <loc>https://docs.loach.dev/pages/features/onboarding.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/features/keyboard.html</loc>
+    <loc>https://docs.loach.dev/pages/features/keyboard.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -215,13 +215,13 @@
 
   <!-- Reference: privacy / tech stack -->
   <url>
-    <loc>https://loach.example.com/pages/privacy.html</loc>
+    <loc>https://docs.loach.dev/pages/privacy.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/tech-stack.html</loc>
+    <loc>https://docs.loach.dev/pages/tech-stack.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -229,91 +229,91 @@
 
   <!-- Help -->
   <url>
-    <loc>https://loach.example.com/pages/faq.html</loc>
+    <loc>https://docs.loach.dev/pages/faq.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/providers-connections.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/providers-connections.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/messages.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/messages.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/performance.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/performance.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/attachments.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/attachments.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/web-fetch-mcp.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/web-fetch-mcp.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/spaces-memory.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/spaces-memory.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/app-lock.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/app-lock.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/models-editor.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/models-editor.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/updates.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/updates.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/data.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/data.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/appearance.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/appearance.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/search-palette.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/search-palette.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://loach.example.com/pages/troubleshooting/platform.html</loc>
+    <loc>https://docs.loach.dev/pages/troubleshooting/platform.html</loc>
     <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
