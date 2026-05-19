@@ -433,6 +433,10 @@ img { max-width: 100%; }
   align-self: flex-start;
   height: calc(100vh - var(--topbar-h));
   overflow-y: auto;
+  /* Keep mobile swipes from chaining out to the page below when the user
+     hits the top/bottom of the sidebar content. */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
 }
@@ -788,6 +792,10 @@ img { max-width: 100%; }
 }
 .content p { margin: 0 0 14px; }
 .content ul, .content ol { margin: 0 0 14px; padding-left: 22px; }
+.content ul.feature-grid,
+.content ul.feature-list,
+.content ul.example-list,
+.content ul.card-grid { padding-left: 0; }
 .content li { margin: 4px 0; }
 .content li strong { color: var(--text); }
 
@@ -1152,16 +1160,45 @@ footer.site-footer {
     position: fixed;
     top: var(--topbar-h);
     left: 0;
-    bottom: 0;
-    height: auto;
-    width: var(--sidebar-w);
+    /* Explicit height — `height: auto` with top + bottom collapses to
+       content height in practice, leaving the sidebar's bottom pushed
+       off-screen and `overflow-y: auto` with nothing to scroll. */
+    height: calc(100vh - var(--topbar-h));
+    /* Wider on mobile so links aren't cramped — caps so tablets don't
+       end up with a comically wide drawer. */
+    width: min(380px, 88vw);
     background: var(--bg);
     transform: translateX(-100%);
     transition: transform 220ms ease;
     z-index: 95;
-    padding-bottom: 80px;
+    padding: 20px 12px 80px 16px;
   }
   .sidebar.open { transform: translateX(0); }
+
+  /* Bigger tap targets and readable text on touch devices. */
+  .sidebar-link {
+    padding: 12px 14px;
+    font-size: 16px;
+    margin: 2px 0;
+  }
+  .sidebar-sublink {
+    padding: 11px 12px 11px 14px;
+    font-size: 15px;
+  }
+  .sidebar-group--category > .sidebar-submenu .sidebar-sublink {
+    padding: 10px 12px 10px 14px;
+    font-size: 14.5px;
+  }
+  .sidebar-category-toggle {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+  .sidebar-section-title {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+  .sidebar-toplevel-toggle svg { width: 16px; height: 16px; }
+  .sidebar-category-toggle svg { width: 14px; height: 14px; }
 
   .content { padding: 28px 22px 80px; max-width: 100%; }
 
@@ -1216,7 +1253,7 @@ footer.site-footer {
 
 @media (max-width: 640px) {
   .topbar { padding: 0 12px; gap: 8px; }
-  .brand-name { display: none; }
+  .brand-name-prefix { display: none; }
   .brand-tag { display: none; }
   .search-shortcut { display: none; }
   .hero h1 { font-size: 32px; }
