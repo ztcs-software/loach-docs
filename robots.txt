@@ -1,0 +1,9 @@
+# Loach Docs — crawler directives
+#
+# All content here is public-facing documentation and intended to be indexed.
+# Update the Sitemap URL below to match the production hostname.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://loach.example.com/sitemap.xml

@@ -8,6 +8,207 @@
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="canonical" href="https://loach.example.com/pages/faq.html" />
+  <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
+  <meta property="og:site_name" content="Loach Docs" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://loach.example.com/pages/faq.html" />
+  <meta property="og:title" content="FAQ — Loach Docs" />
+  <meta property="og:description" content="Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more." />
+  <meta property="og:image" content="https://loach.example.com/assets/img/loach-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ — Loach Docs" />
+  <meta name="twitter:description" content="Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more." />
+  <meta name="twitter:image" content="https://loach.example.com/assets/img/loach-logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://loach.example.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://loach.example.com/pages/faq.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "url": "https://loach.example.com/pages/faq.html",
+      "name": "FAQ",
+      "description": "Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://loach.example.com/#website"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Loach free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Loach is open source under the MIT license. There are no subscriptions, paywalled features, or usage limits inside the app. If you connect to a paid endpoint (e.g. OpenAI), you pay them for tokens — Loach itself is free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platforms are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Native desktop apps for Windows and Linux are published with every release. macOS is not officially packaged at this time, but the source can be built on macOS — see Build from source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Loach send my data anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are (a) generations against the remote provider you configured, and (b) update checks (which can be turned off). With a purely local provider like Ollama, Loach works fully offline. See Storage & privacy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does Loach store my chats?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In a SQLite database at <app-data-dir>/loach.db: Windows: %APPDATA%\\dev.loach.app\\loach.db Linux: ~/.local/share/dev.loach.app/loach.db"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Loach come with a built-in model?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Loach is the workspace; the model is supplied by a provider. Install Ollama and pull a local model, or configure an OpenAI-compatible endpoint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which local models can I run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anything supported by Ollama. Popular choices include Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and Llama derivatives. Use the in-app Models tab to pull and manage them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use both a local and a remote provider?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — that's the point. Ollama and your OpenAI-compatible endpoint live side-by-side, and you switch between them from the chat header without changing anything else."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I connect multiple OpenAI-compatible endpoints at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One at a time. The base URL and API key are a single configuration in Settings → Providers. To switch from, say, Groq to OpenRouter, update the base URL and key — your existing chats are preserved."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I have very limited VRAM. Can I still use local models?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable Low VRAM mode globally or per-chat. This sends Ollama's low_vram flag with every request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are my API keys stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In your operating system's credential manager — Windows Credential Manager or the Linux Secret Service. Keys are never written to the SQLite database or to plain-text config."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the app lock work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Optional PIN, password, or both. Your credentials are hashed with Argon2id and stored in the OS credential manager (separately from API keys). The plaintext is never persisted. Configure it in Settings → App lock."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I forgot my app-lock PIN. Can I reset it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can clear the app lock by removing the corresponding entry from your OS credential manager (the entry is created and managed by the Loach app). Doing so unlocks the app but leaves the rest of your data intact."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I back up my chats?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Settings → Data management and use Export. You'll get a single JSON file containing chats, Spaces, Snippets and settings. API keys are not in the export — they live in the OS credential manager."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I move Loach to a new machine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Install Loach on the new machine, then use Restore in Settings → Data management with the JSON file you exported from the old one. You'll need to re-enter API keys on the new machine since those don't travel in the export."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I delete everything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Settings → Data management → Delete all data wipes the SQLite database. Remove the corresponding entries from your OS credential manager to delete API keys and the app-lock hash."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "The model dropdown is empty.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For Ollama: make sure ollama serve is running and at least one model is pulled. Loach probes http://localhost:11434 on launch — if Ollama is on another host or port, update the base URL in Settings → Providers. For an OpenAI-compatible provider: confirm the base URL, that the API key is set, and that the endpoint actually exposes a /models route. Some self-hosted servers require a non-standard model identifier — try typing it manually."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Generations are very slow on my machine.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Try a smaller model or a more aggressive quantization. Turn on Model preloading so the first request doesn't wait on a cold start. Enable Low VRAM mode if you're memory-constrained."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Markdown / code blocks render badly.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That usually means the model output isn't well-formed Markdown. Lower the temperature, or add an explicit instruction like \"Reply in valid GitHub-flavoured Markdown\". Loach uses remark-gfm + rehype-highlight under the hood, so anything valid will render."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do I report a bug or request a feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open an issue on the GitHub repository: github.com/ztcs-software/loach/issues. Please include your OS, Loach version, and steps to reproduce."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
