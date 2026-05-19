@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OTA updates — Loach Docs</title>
+  <meta name="description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
+  <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
+  <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/ota-updates.html" />
+  <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
+  <meta property="og:site_name" content="Loach Docs" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/ota-updates.html" />
+  <meta property="og:title" content="OTA updates — Loach Docs" />
+  <meta property="og:description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
+  <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OTA updates — Loach Docs" />
+  <meta name="twitter:description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
+  <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://docs.loach.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://docs.loach.dev/pages/features.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "OTA updates",
+          "item": "https://docs.loach.dev/pages/features/ota-updates.html"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "OTA updates",
+      "description": "Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager.",
+      "url": "https://docs.loach.dev/pages/features/ota-updates.html",
+      "image": "https://docs.loach.dev/assets/img/loach-logo.png",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://docs.loach.dev/#website"
+      },
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/ota-updates.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ZTCS",
+        "url": "https://github.com/ztcs-software",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://docs.loach.dev/assets/img/loach-icon.png"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="brand" href="../../index.html" aria-label="Loach Docs home">
+      <span class="brand-mark">L</span>
+      <span class="brand-name"><span class="brand-name-prefix">Loach </span>Docs</span>
+    </a>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Search the docs…" aria-label="Search documentation" />
+      <span class="search-shortcut">Ctrl K</span>
+      <div class="search-results" role="listbox"></div>
+    </div>
+
+    <div class="topbar-spacer"></div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn search-close" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a class="icon-btn github-link" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener" aria-label="View Loach on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
+      </a>
+      <div class="theme-toggle" role="group" aria-label="Theme">
+        <button class="theme-toggle-opt" data-theme-set="light" aria-label="Light theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="theme-toggle-opt" data-theme-set="dark" aria-label="Dark theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting started</div>
+      <a class="sidebar-link" href="../../index.html">Introduction</a>
+      <a class="sidebar-link" href="../installation.html">Installation</a>
+      <a class="sidebar-link" href="../getting-started.html">Quick start</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Core concepts</div>
+      <a class="sidebar-link" href="../concepts.html">Overview</a>
+      <a class="sidebar-link" href="../providers.html">Providers</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Reference</div>
+      <div class="sidebar-group" data-group="features">
+        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="sidebar-submenu sidebar-submenu--categories">
+          <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Chat experience</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
+              <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
+              <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
+              <li><a class="sidebar-sublink" href="personas.html">Personas and tones</a></li>
+              <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
+              <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
+              <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Organization</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
+              <li><a class="sidebar-sublink" href="search.html">Search</a></li>
+              <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Input &amp; output</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
+              <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
+              <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Advanced</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
+              <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
+              <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Security &amp; data</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
+              <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Appearance</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Updates</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="../tech-stack.html">Tech stack</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Help</div>
+      <a class="sidebar-link" href="../faq.html">FAQ</a>
+      <div class="sidebar-group" data-group="troubleshooting">
+        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="sidebar-submenu">
+          <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/data.html">Data, import &amp; export</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/appearance.html">Appearance &amp; window</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/search-palette.html">Search palette</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/platform.html">Platform</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <main class="content">
+    <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
+    <h1>OTA updates</h1>
+    <p class="lead">Loach has a built-in updater so you do not have to keep an eye on the releases page. New features, performance work and security patches arrive directly from the app for the install formats that support it.</p>
+
+    <h2 id="install-formats">By install format</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Windows (NSIS)</strong> — the updater downloads the new package and a click on <em>Install update</em> runs a passive install in place. No re-download from a browser needed.</li>
+      <li><strong class="feat-name">Linux AppImage</strong> — same flow. The updater replaces the AppImage on disk.</li>
+      <li><strong class="feat-name">Linux .deb / .rpm</strong> — updates are managed by your system package manager. The Updates panel detects that you are on one of these and points to the GitHub releases page instead of pretending in-app updates work.</li>
+    </ul>
+
+    <h2 id="release-notes">What&rsquo;s new</h2>
+    <p>Every release ships with a markdown notes file that populates both the GitHub release body and the in-app <strong>Updates</strong> panel when an upgrade is available. Skim it before clicking install if you want to know what is changing.</p>
+
+    <h2 id="signing">Signing</h2>
+    <p>Update bundles are cryptographically signed. The updater verifies the signature against a key bundled with the app <em>before</em> replacing any binary on disk, so a man-in-the-middle on the download channel cannot swap in a tampered build.</p>
+    <div class="page-nav">
+      <a href="themes.html">
+        <span class="label">Previous</span>
+        <span class="title">&larr; Themes</span>
+      </a>
+      <a href="onboarding.html" class="next">
+        <span class="label">Next</span>
+        <span class="title">Onboarding wizard &rarr;</span>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; <span class="footer-year"></span> <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a><br>Loach Docs <span class="footer-version"></span></p>
+    </footer>
+  </main>
+</div>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/search-index.js"></script>
+<script src="../../assets/js/search.js"></script>
+</body>
+</html>

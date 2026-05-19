@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Features — Loach Docs</title>
+  <meta name="description" content="The full feature set of Loach: Spaces, Snippets, MCP, voice dictation, code canvas, parameters, themes and more." />
+  <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
+  <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features.html" />
+  <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
+  <meta property="og:site_name" content="Loach Docs" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features.html" />
+  <meta property="og:title" content="Features — Loach Docs" />
+  <meta property="og:description" content="The full feature set of Loach: Spaces, Snippets, MCP, voice dictation, code canvas, parameters, themes and more." />
+  <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Features — Loach Docs" />
+  <meta name="twitter:description" content="The full feature set of Loach: Spaces, Snippets, MCP, voice dictation, code canvas, parameters, themes and more." />
+  <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://docs.loach.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://docs.loach.dev/pages/features.html"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "Features",
+      "description": "The full feature set of Loach: Spaces, Snippets, MCP, voice dictation, code canvas, parameters, themes and more.",
+      "url": "https://docs.loach.dev/pages/features.html",
+      "image": "https://docs.loach.dev/assets/img/loach-logo.png",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://docs.loach.dev/#website"
+      },
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ZTCS",
+        "url": "https://github.com/ztcs-software",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://docs.loach.dev/assets/img/loach-icon.png"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="brand" href="../index.html" aria-label="Loach Docs home">
+      <span class="brand-mark">L</span>
+      <span class="brand-name"><span class="brand-name-prefix">Loach </span>Docs</span>
+    </a>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Search the docs…" aria-label="Search documentation" />
+      <span class="search-shortcut">Ctrl K</span>
+      <div class="search-results" role="listbox"></div>
+    </div>
+
+    <div class="topbar-spacer"></div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn search-close" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a class="icon-btn github-link" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener" aria-label="View Loach on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
+      </a>
+      <div class="theme-toggle" role="group" aria-label="Theme">
+        <button class="theme-toggle-opt" data-theme-set="light" aria-label="Light theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="theme-toggle-opt" data-theme-set="dark" aria-label="Dark theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting started</div>
+      <a class="sidebar-link" href="../index.html">Introduction</a>
+      <a class="sidebar-link" href="installation.html">Installation</a>
+      <a class="sidebar-link" href="getting-started.html">Quick start</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Core concepts</div>
+      <a class="sidebar-link" href="concepts.html">Overview</a>
+      <a class="sidebar-link" href="providers.html">Providers</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Reference</div>
+      <div class="sidebar-group" data-group="features">
+        <a class="sidebar-link sidebar-toplevel-toggle" href="features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="sidebar-submenu sidebar-submenu--categories">
+          <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Chat experience</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
+              <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
+              <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
+              <li><a class="sidebar-sublink" href="features/personas.html">Personas and tones</a></li>
+              <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
+              <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
+              <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Organization</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
+              <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
+              <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Input &amp; output</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
+              <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
+              <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Advanced</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
+              <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
+              <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Security &amp; data</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
+              <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Appearance</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Updates</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu">
+              <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <a class="sidebar-link" href="privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="tech-stack.html">Tech stack</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Help</div>
+      <a class="sidebar-link" href="faq.html">FAQ</a>
+      <div class="sidebar-group" data-group="troubleshooting">
+        <a class="sidebar-link sidebar-toplevel-toggle" href="troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="sidebar-submenu">
+          <li><a class="sidebar-sublink" href="troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/performance.html">Performance &amp; VRAM</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/data.html">Data, import &amp; export</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/appearance.html">Appearance &amp; window</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/search-palette.html">Search palette</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/platform.html">Platform</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <h1>Features</h1>
+    <p class="lead">A reference for the features Loach ships with today. We're continuously extending this list — including new RAG and agentic capabilities. Pick a category below, or open any feature for the full description.</p>
+
+    <h2 id="chat-experience">Chat experience</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/provider-selection.html"><span class="feature-card-title">Provider selection</span><span class="feature-card-desc">Switch between Ollama local models and any OpenAI-compatible endpoint (OpenAI, llama.cpp, LM Studio, vLLM, Groq, OpenRouter…) directly from the chat header — no restart required.</span></a></li>
+      <li><a class="feature-card" href="features/model-management.html"><span class="feature-card-title">Local model management</span><span class="feature-card-desc">Pull, copy, customize and delete local models from inside the app — no terminal required. The <strong>Models</strong> library tab is a full UI over the Ollama HTTP API.</span></a></li>
+      <li><a class="feature-card" href="features/parameters.html"><span class="feature-card-title">Per-chat parameters</span><span class="feature-card-desc">Set <code>temperature</code>, <code>top_k</code>, <code>top_p</code>, <code>min_p</code>, <code>max_tokens</code>, <code>context length</code> and per-chat system prompts. Values are layered over Modelfile defaults and per-model defaults.</span></a></li>
+      <li><a class="feature-card" href="features/personas.html"><span class="feature-card-title">Personas and tones</span><span class="feature-card-desc">Pick a role (Code Reviewer, Translator, ELI5…) and a delivery style (Formal, Casual, Concise, Detailed…). They layer on top of your custom instructions.</span></a></li>
+      <li><a class="feature-card" href="features/custom-instructions.html"><span class="feature-card-title">Custom instructions</span><span class="feature-card-desc">Set instructions globally, per-Space or per-chat — with template variables for your name, the date, time, weekday and timezone. Narrower scope wins.</span></a></li>
+      <li><a class="feature-card" href="features/generation-stats.html"><span class="feature-card-title">Generation stats</span><span class="feature-card-desc">An inline <code>tok/s · total tokens · elapsed</code> line under every model turn so you always know how the model performed.</span></a></li>
+      <li><a class="feature-card" href="features/markdown.html"><span class="feature-card-title">Markdown rendering</span><span class="feature-card-desc">Full GitHub-flavoured Markdown with tables, task lists, footnotes and LaTeX support — rendered live as the response streams. Thinking traces fold into their own collapsible block.</span></a></li>
+      <li><a class="feature-card" href="features/code-canvas.html"><span class="feature-card-title">Code blocks &amp; canvas</span><span class="feature-card-desc">Code blocks are syntax-highlighted with line numbers and offer <strong>copy</strong>, <strong>export</strong> and <strong>open in canvas</strong> options. The <strong>code canvas</strong> opens any code block in a wider, theme-aware view that's easier to read and review.</span></a></li>
+      <li><a class="feature-card" href="features/concurrency.html"><span class="feature-card-title">Concurrency &amp; queue</span><span class="feature-card-desc">One generation at a time across all chats, with a FIFO queue and a <strong>Respond now</strong> action for jumping the line. Cancelled streams preserve their partial output.</span></a></li>
+    </ul>
+
+    <h2 id="organization">Organization</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/spaces.html"><span class="feature-card-title">Spaces</span><span class="feature-card-desc">Group chats around a project, with shared instructions, reference files, memory and pinned model defaults. Every chat inside the Space inherits the context.</span></a></li>
+      <li><a class="feature-card" href="features/snippets.html"><span class="feature-card-title">Snippets</span><span class="feature-card-desc">Save reusable prompts with an optional pinned model and click <em>Run</em> to start a fresh chat pre-filled and ready to send.</span></a></li>
+      <li><a class="feature-card" href="features/chat-archive.html"><span class="feature-card-title">Chat archive</span><span class="feature-card-desc">Move chats out of the sidebar without deleting them. Restore or delete them from a dedicated archive view.</span></a></li>
+      <li><a class="feature-card" href="features/search.html"><span class="feature-card-title">Search</span><span class="feature-card-desc">A global <kbd>Ctrl + K</kbd> palette across chats, Spaces and Snippets, plus a browser-style in-chat finder with phrase highlighting.</span></a></li>
+      <li><a class="feature-card" href="features/import-export.html"><span class="feature-card-title">Import and export context</span><span class="feature-card-desc">Export chat context to JSON or Markdown, and paste exported data — or any text — back into any chat's context.</span></a></li>
+    </ul>
+
+    <h2 id="input-output">Input &amp; output</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">Drag and drop images, code, PDFs and DOCX files into the composer. Loach parses each one and inlines its content into the request.</span></a></li>
+      <li><a class="feature-card" href="features/voice-dictation.html"><span class="feature-card-title">Voice dictation</span><span class="feature-card-desc">A mic button in the composer turns speech into text in real time. Useful for long prompts and hands-free use.</span></a></li>
+      <li><a class="feature-card" href="features/web-fetch.html"><span class="feature-card-title">Web fetch</span><span class="feature-card-desc">Drop a URL into a message. Loach fetches the page, sanitizes it, and inlines the content into the request — no separate browser extension needed.</span></a></li>
+      <li><a class="feature-card" href="features/temporal-awareness.html"><span class="feature-card-title">Temporal awareness</span><span class="feature-card-desc">Optionally inject current date, time, weekday and timezone into the system prompt, so models can answer "what day is it today?" correctly.</span></a></li>
+    </ul>
+
+    <h2 id="advanced">Advanced</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/mcp.html"><span class="feature-card-title">MCP support</span><span class="feature-card-desc">Register <strong>Model Context Protocol</strong> servers (Streamable HTTP), test the handshake and inspect the tools they provide. Once registered, tools become available to the model during a chat — bringing structured external capabilities into your conversation.</span></a></li>
+      <li><a class="feature-card" href="features/default-model.html"><span class="feature-card-title">Default model selector</span><span class="feature-card-desc">Pick a model new chats open with — per provider. No need to re-select on each fresh conversation.</span></a></li>
+      <li><a class="feature-card" href="features/model-preloading.html"><span class="feature-card-title">Model preloading</span><span class="feature-card-desc">Optionally warm your default local model into VRAM at launch, so the first message streams faster.</span></a></li>
+      <li><a class="feature-card" href="features/low-vram.html"><span class="feature-card-title">Low VRAM mode</span><span class="feature-card-desc">Global or per-chat toggle that sends Ollama's <code>low_vram</code> flag with every request — useful on lower-spec devices.</span></a></li>
+    </ul>
+
+    <h2 id="security-data">Security &amp; data</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Optional PIN, password or PIN + password gate at launch. Credentials are hashed with a strong KDF and stored in the OS credential manager, never on disk in plaintext.</span></a></li>
+      <li><a class="feature-card" href="features/data-management.html"><span class="feature-card-title">Data management</span><span class="feature-card-desc">Make a backup of your content to a JSON file, restore data, or permanently delete everything with a few clicks.</span></a></li>
+    </ul>
+
+    <h2 id="appearance">Appearance</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/themes.html"><span class="feature-card-title">Themes</span><span class="feature-card-desc">Two themes — <strong>Aurora</strong> (glassy, gradient) and <strong>Solid</strong> (flat) — both available in <strong>Dark</strong> and <strong>Light</strong> variants. Three font sizes scale every text size across the app.</span></a></li>
+    </ul>
+
+    <h2 id="updates">Updates</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/ota-updates.html"><span class="feature-card-title">OTA updates</span><span class="feature-card-desc">Get new features, bug fixes, performance improvements and security patches directly from the app — no need to manually download a new installer.</span></a></li>
+    </ul>
+
+    <h2 id="reference">Reference</h2>
+    <ul class="feature-grid">
+      <li><a class="feature-card" href="features/onboarding.html"><span class="feature-card-title">Onboarding wizard</span><span class="feature-card-desc">The six-step first-launch wizard: welcome, name, provider, prompt, features and start. Re-runs after a factory reset.</span></a></li>
+      <li><a class="feature-card" href="features/keyboard.html"><span class="feature-card-title">Keyboard shortcuts</span><span class="feature-card-desc">Global search, in-chat find, composer send and newline behaviour, palette navigation — at a glance.</span></a></li>
+    </ul>
+
+    <div class="page-nav">
+      <a href="providers.html">
+        <span class="label">Previous</span>
+        <span class="title">← Providers</span>
+      </a>
+      <a href="features/provider-selection.html" class="next">
+        <span class="label">Next</span>
+        <span class="title">Provider selection →</span>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; <span class="footer-year"></span> <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a><br>Loach Docs <span class="footer-version"></span></p>
+    </footer>
+  </main>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/search-index.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>
