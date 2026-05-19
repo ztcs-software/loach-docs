@@ -10,7 +10,7 @@ window.LOACH_SEARCH_INDEX = [
     "title": "Introduction",
     "url": "index.html",
     "heading": "Local-first and private",
-    "anchor": "highlights",
+    "anchor": "what-is-loach",
     "body": "With local models — Qwen, Gemma, DeepSeek, GPT-OSS and Mistral — your data stays on your machine. No telemetry, no required network access, no paid subscriptions and no usage limits. Optional API keys live in your OS credential manager."
   },
   {
@@ -452,7 +452,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/custom-instructions.html",
     "heading": "Examples",
     "anchor": "examples",
-    "body": "Loach is MIT-licensed and built by ZTCS ."
+    "body": "© ZTCS. Loach Docs."
   },
   {
     "title": "Generation stats",
@@ -781,7 +781,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/web-fetch.html",
     "heading": "Safety guards",
     "anchor": "safety",
-    "body": "Loach is MIT-licensed and built by ZTCS ."
+    "body": "© ZTCS. Loach Docs."
   },
   {
     "title": "Temporal awareness",

@@ -47,7 +47,6 @@
 
   --aurora-1: rgba(79, 124, 255, 0.18);
   --aurora-2: rgba(180, 110, 255, 0.14);
-  --aurora-3: rgba(86, 207, 200, 0.14);
 }
 
 [data-theme="dark"] {
@@ -80,7 +79,6 @@
 
   --aurora-1: rgba(79, 124, 255, 0.22);
   --aurora-2: rgba(180, 110, 255, 0.18);
-  --aurora-3: rgba(86, 207, 200, 0.18);
 }
 
 /* ===========================================
@@ -204,18 +202,6 @@ img { max-width: 100%; }
 }
 
 .brand-name { letter-spacing: -0.01em; }
-
-.brand-tag {
-  margin-left: 4px;
-  padding: 2px 7px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  letter-spacing: 0.02em;
-}
 
 .topbar-spacer { flex: 1; }
 
@@ -1254,7 +1240,6 @@ footer.site-footer {
 @media (max-width: 640px) {
   .topbar { padding: 0 12px; gap: 8px; }
   .brand-name-prefix { display: none; }
-  .brand-tag { display: none; }
   .search-shortcut { display: none; }
   .hero h1 { font-size: 32px; }
   .content h1 { font-size: 28px; }

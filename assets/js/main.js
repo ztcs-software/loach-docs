@@ -1,6 +1,11 @@
 (function () {
   'use strict';
 
+  // ---------- Version ----------
+  // Bump this when shipping a meaningful docs update. The footer pulls from it
+  // on every page, so one edit here updates all 51 HTML files.
+  const LOACH_DOCS_VERSION = 'v1.0.0';
+
   // ---------- Theme ----------
   // The initial data-theme attribute is set by the inline bootstrap in each page's <head>,
   // so there's no flash on load. This block keeps localStorage and the button states in sync.
@@ -72,6 +77,14 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    // ---------- Footer year + version ----------
+    document.querySelectorAll('.footer-year').forEach(function (el) {
+      el.textContent = String(new Date().getFullYear());
+    });
+    document.querySelectorAll('.footer-version').forEach(function (el) {
+      el.textContent = LOACH_DOCS_VERSION;
+    });
+
     // Per-button handler: clicking a button sets THAT theme, instead of always toggling.
     // (The previous behaviour flipped the theme even when the user clicked the already-active option.)
     document.querySelectorAll('.theme-toggle-opt').forEach(function (btn) {
