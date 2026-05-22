@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -264,10 +265,11 @@
     <h2 id="simple-advanced">Simple and Advanced modes</h2>
     <p>The panel has two views:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Simple</strong> — temperature, max tokens, num_ctx, seed, the Thinking toggle, the Low VRAM toggle, and a per-chat system prompt textarea. Enough for everyday tuning.</li>
-      <li><strong class="feat-name">Advanced</strong> — adds top_p, top_k, min_p, repeat_penalty, frequency and presence penalties, GPU layer count, and everything else the provider exposes.</li>
+      <li><strong class="feat-name">Simple</strong> — max tokens, num_ctx, seed, the Thinking toggle, the Low VRAM toggle, and a per-chat system prompt textarea. Deliberately terse so the common knobs are reachable without scrolling.</li>
+      <li><strong class="feat-name">Advanced</strong> — adds temperature, top_p, top_k, min_p, repeat_penalty, frequency and presence penalties, GPU layer count, and everything else the provider exposes.</li>
     </ul>
     <p>Switch between them at the top of the panel. Values you set in Simple stay set when you flip to Advanced and vice versa.</p>
+    <p>The same panel is reused by <a href="private-chat.html">Private Chat</a> with the same Simple / Advanced split — it just closes and wipes along with the overlay.</p>
 
     <h2 id="cascade">How the values cascade</h2>
     <p>What a chat actually sends to the model is a merge of several layers. From broadest to narrowest, with later layers winning:</p>
@@ -277,7 +279,7 @@
       <li><strong>Per-model preferences</strong> — e.g. the Thinking preference you set in the <a href="model-management.html">Models editor</a>.</li>
       <li><strong>Space defaults</strong> — if the chat belongs to a <a href="spaces.html">Space</a> with its own pinned parameters.</li>
       <li><strong>Per-chat overrides</strong> — what the sliders in <em>this</em> panel save.</li>
-      <li><strong>Global app overrides</strong> — for example the Settings &rarr; General Low VRAM pin, which forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
+      <li><strong>Global app overrides</strong> — for example the Settings &rarr; Features Low VRAM pin, which forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
     </ol>
     <p>A <strong>Reset to defaults</strong> button in the panel header clears the per-chat overrides and falls back to the merged defaults.</p>
 
@@ -313,7 +315,7 @@
     <h3 id="ref-performance">Performance</h3>
     <ul class="feature-list">
       <li><strong class="feat-name">GPU Layers</strong> (<code>num_gpu</code>) — how many model layers to offload to the GPU. Blank = Ollama auto-detects; <code>0</code> = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). Ignored by OpenAI providers.</li>
-      <li><strong class="feat-name">Low VRAM</strong> — trades throughput for footprint (smaller batches, leaner KV cache). Flip on when you&rsquo;re hitting OOMs and <code>num_gpu</code> alone isn&rsquo;t enough. Can be pinned on globally in <strong>Settings &rarr; General</strong>, which forces the per-chat toggle on. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Low VRAM</strong> — trades throughput for footprint (smaller batches, leaner KV cache). Flip on when you&rsquo;re hitting OOMs and <code>num_gpu</code> alone isn&rsquo;t enough. Can be pinned on globally in <strong>Settings &rarr; Features</strong>, which forces the per-chat toggle on. Ignored by OpenAI providers.</li>
     </ul>
 
     <h3 id="ref-reproducibility">Reproducibility</h3>
@@ -329,10 +331,10 @@
     </ul>
 
     <h2 id="thinking">Thinking toggle</h2>
-    <p>Visible for Ollama models whose capabilities include <code>thinking</code>. It sets the <code>think</code> parameter on the chat request and is ignored by OpenAI-compatible providers. The default for new chats comes from <strong>Settings &rarr; General &rarr; Thinking</strong>.</p>
+    <p>Visible for Ollama models whose capabilities include <code>thinking</code>. It sets the <code>think</code> parameter on the chat request and is ignored by OpenAI-compatible providers. The default for new chats comes from <strong>Settings &rarr; Features &rarr; Thinking</strong>.</p>
 
     <h2 id="low-vram">Low VRAM toggle</h2>
-    <p>Ollama-only. Forces smaller batches and a leaner KV cache — useful when you are tight on GPU memory. The per-chat toggle is overridden if <strong>Settings &rarr; General &rarr; Low VRAM mode</strong> is enabled globally; in that case the panel shows the toggle pinned and disabled with a pointer back to the global setting. See <a href="low-vram.html">Low VRAM mode</a>.</p>
+    <p>Ollama-only. Forces smaller batches and a leaner KV cache — useful when you are tight on GPU memory. The per-chat toggle is overridden if <strong>Settings &rarr; Features &rarr; Low VRAM mode</strong> is enabled globally; in that case the panel shows the toggle pinned and disabled with a pointer back to the global setting. See <a href="low-vram.html">Low VRAM mode</a>.</p>
 
     <h2 id="system-prompt">Per-chat system prompt</h2>
     <p>The textarea at the bottom of the Simple view sets a system prompt for this chat only. It overrides any global <a href="custom-instructions.html">custom instructions</a> and Space-level instructions for the chat it lives in.</p>

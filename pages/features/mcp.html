@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -276,6 +277,8 @@
 
     <h2 id="safety">Safety guards</h2>
     <p>URLs are validated, headers are checked for size and disallowed characters, and per-request bodies are capped so a misconfigured or malicious server cannot exhaust the app. Each request also has a sensible timeout, so a hung server does not freeze the chat.</p>
+    <p>If a single server advertises the same tool name more than once, the duplicates are de-duped at registration so a chat never sees colliding entries from the same source.</p>
+    <p><a href="private-chat.html">Private Chat</a> deliberately does <em>not</em> expose MCP tools — a tool call inside that surface could side-channel the conversation out to a third party, which would defeat the &ldquo;leaves no trace&rdquo; promise.</p>
 
     <div class="callout note">
       <div class="callout-body">

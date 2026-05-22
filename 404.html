@@ -3,68 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loach — A native, local-first AI workspace</title>
-  <meta name="description" content="Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint." />
+  <title>Page not found &mdash; Loach Docs</title>
+  <meta name="description" content="The page you were looking for could not be found in the Loach documentation." />
+  <meta name="robots" content="noindex, follow" />
   <link rel="icon" type="image/png" href="assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
-  <meta property="og:site_name" content="Loach Docs" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://docs.loach.dev/" />
-  <meta property="og:title" content="Loach — A native, local-first AI workspace" />
-  <meta property="og:description" content="Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint." />
-  <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Loach — A native, local-first AI workspace" />
-  <meta name="twitter:description" content="Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint." />
-  <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://docs.loach.dev/#website",
-      "url": "https://docs.loach.dev/",
-      "name": "Loach Docs",
-      "description": "Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "ZTCS",
-        "url": "https://github.com/ztcs-software",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://docs.loach.dev/assets/img/loach-icon.png"
-        }
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "name": "Loach",
-      "description": "Documentation for Loach, a native local-first AI workspace for desktops. Run local LLMs via Ollama or any OpenAI-compatible endpoint.",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Windows, Linux",
-      "url": "https://github.com/ztcs-software/loach",
-      "image": "https://docs.loach.dev/assets/img/loach-logo.png",
-      "license": "https://github.com/ztcs-software/loach/blob/main/LICENSE",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "ZTCS",
-        "url": "https://github.com/ztcs-software"
-      }
+  <style>
+    .error-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: calc(100vh - 240px);
+      padding: 40px 0;
     }
-  ]
-}
-  </script>
+    .error-code {
+      font-size: 120px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+    .error-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      color: var(--text);
+    }
+    .error-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 24px;
+      line-height: 1.55;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .error-suggestions {
+      width: 100%;
+      max-width: 680px;
+      text-align: left;
+    }
+    .error-suggestions-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin: 0 0 12px;
+    }
+    @media (max-width: 640px) {
+      .error-code { font-size: 84px; }
+      .error-title { font-size: 22px; }
+      .error-sub { font-size: 15px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -79,7 +82,7 @@
     </a>
     <div class="search-wrap">
       <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input class="search-input" type="text" placeholder="Search the docs…" aria-label="Search documentation" />
+      <input class="search-input" type="text" placeholder="Search the docs&hellip;" aria-label="Search documentation" />
       <span class="search-shortcut">Ctrl K</span>
       <div class="search-results" role="listbox"></div>
     </div>
@@ -253,76 +256,40 @@
 
   <main class="content">
 
-    <div class="hero">
-      <h1>Loach</h1>
-      <p class="hero-sub">A native, local-first AI workspace for desktops. Run local LLMs with Ollama, or connect any OpenAI-compatible endpoint side-by-side — with a focused UX, native apps for Windows and Linux, and powerful features out of the box.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="pages/installation.html">
-          Install Loach
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    <div class="error-page">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page not found</h1>
+      <p class="error-sub">The page you were looking for doesn&rsquo;t exist or may have moved. If you followed a link from elsewhere, it&rsquo;s probably out of date.</p>
+      <div class="error-actions">
+        <a class="btn btn-primary" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Back to docs home
         </a>
         <a class="btn" href="pages/getting-started.html">Quick start</a>
-        <a class="btn" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
-          View on GitHub
-        </a>
+        <a class="btn" href="pages/faq.html">FAQ</a>
       </div>
-    </div>
 
-    <h2 id="what-is-loach">What is Loach?</h2>
-    <p>Loach is an all-in-one desktop AI workspace built around a single idea: talking to an LLM should feel effortless. Simple from the first click and ready to grow with you as your needs do. It talks to a local Ollama server and accepts any OpenAI-compatible endpoint as a provider — including <strong>llama.cpp</strong>, <strong>LM Studio</strong>, <strong>vLLM</strong> and <strong>LiteLLM</strong>.</p>
-
-    <p>With local models — Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and others — your data stays on your machine. There is <strong>no telemetry</strong>, no required network access, no paid subscriptions and no usage limits. Optional API keys live in your operating system's credential manager.</p>
-
-    <p>Behind a calm, beautifully crafted UI sits a rich feature set — ready when you need it, out of the way when you don't.</p>
-
-    <h2 id="highlights">Highlights</h2>
-    <div class="card-grid">
-      <a class="card" href="pages/concepts.html#providers">
-        <div class="card-title">Two providers, side-by-side</div>
-        <div class="card-desc">Switch between a local Ollama server and any OpenAI-compatible endpoint right from the chat header.</div>
-      </a>
-      <a class="card" href="pages/concepts.html#spaces">
-        <div class="card-title">Spaces</div>
-        <div class="card-desc">Group chats around a project, with shared instructions, reference files and memory.</div>
-      </a>
-      <a class="card" href="pages/concepts.html#snippets">
-        <div class="card-title">Snippets</div>
-        <div class="card-desc">Reusable prompts with an optional pinned model — click <em>Run</em> and a fresh chat is pre-filled.</div>
-      </a>
-      <a class="card" href="pages/features/parameters.html">
-        <div class="card-title">Per-chat parameters</div>
-        <div class="card-desc">Tune temperature, top_k, top_p, min_p, context length and more — layered over Modelfile defaults.</div>
-      </a>
-      <a class="card" href="pages/features/mcp.html">
-        <div class="card-title">MCP support</div>
-        <div class="card-desc">Register Model Context Protocol servers, inspect tools, and use them from chats.</div>
-      </a>
-      <a class="card" href="pages/privacy.html">
-        <div class="card-title">Local-first &amp; private</div>
-        <div class="card-desc">Everything lives in a local SQLite file. API keys go to the OS credential manager — never to disk.</div>
-      </a>
-      <a class="card" href="pages/features/private-chat.html">
-        <div class="card-title">Private Chat</div>
-        <div class="card-desc">A dark-only, ephemeral overlay for conversations that leave no trace. Wiped the moment you close it.</div>
-      </a>
-    </div>
-
-    <h2 id="next">Where to next?</h2>
-    <ul>
-      <li><a href="pages/installation.html">Installation</a> — pre-built packages for Windows &amp; Linux, or build from source.</li>
-      <li><a href="pages/getting-started.html">Quick start</a> — your first chat with a local model in two minutes.</li>
-      <li><a href="pages/concepts.html">Core concepts</a> — providers, chats, Spaces, Snippets, parameters.</li>
-      <li><a href="pages/features.html">Features</a> — the full feature reference.</li>
-      <li><a href="pages/faq.html">FAQ</a> — the questions people ask first.</li>
-      <li><a href="pages/troubleshooting.html">Troubleshooting</a> — common problems and how to fix them.</li>
-    </ul>
-
-    <div class="page-nav">
-      <a href="pages/installation.html" class="next">
-        <span class="label">Next</span>
-        <span class="title">Installation →</span>
-      </a>
+      <div class="error-suggestions">
+        <div class="error-suggestions-title">Try these popular pages</div>
+        <div class="card-grid">
+          <a class="card" href="pages/installation.html">
+            <div class="card-title">Installation</div>
+            <div class="card-desc">Pre-built packages for Windows &amp; Linux, or build from source.</div>
+          </a>
+          <a class="card" href="pages/concepts.html">
+            <div class="card-title">Core concepts</div>
+            <div class="card-desc">Providers, chats, Spaces, Snippets, parameters.</div>
+          </a>
+          <a class="card" href="pages/features.html">
+            <div class="card-title">Features</div>
+            <div class="card-desc">The full feature reference for everything Loach does.</div>
+          </a>
+          <a class="card" href="pages/troubleshooting.html">
+            <div class="card-title">Troubleshooting</div>
+            <div class="card-desc">Common problems and how to fix them.</div>
+          </a>
+        </div>
+      </div>
     </div>
 
     <footer class="site-footer">

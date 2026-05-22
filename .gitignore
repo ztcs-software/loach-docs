@@ -94,6 +94,9 @@ local.css
 local.js
 local.html
 
+# Server config — sample lives outside the repo; real one is host-specific
+.htaccess
+
 # Archives & exports — none are part of the site itself
 *.zip
 *.tar

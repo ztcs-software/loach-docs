@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -267,7 +268,15 @@
 
     <h2 id="cloud-openai">Cloud or self-hosted: OpenAI-compatible</h2>
     <p>Any endpoint that implements <code>/v1/chat/completions</code> works. That includes the real OpenAI API, plus vLLM, LM Studio, LiteLLM, OpenRouter, Groq and other proxies. Set the base URL and API key in <strong>Settings &rarr; Providers</strong>; the catalog is fetched on demand. If no key is configured the panel hides itself rather than spam failed requests.</p>
+    <p>A <strong>presets dropdown</strong> next to the base URL field one-clicks the URL to the documented endpoint for OpenAI, llama.cpp (<code>llama-server</code>), LM Studio, vLLM, or LiteLLM — handy when you switch between local proxies and hosted services.</p>
     <p>API keys are saved into the OS credential store, not written into the SQLite database in plaintext, and never shipped to the renderer process. If you remove a key, the cached catalog is forgotten.</p>
+
+    <h2 id="test-connection">Test connection</h2>
+    <p>Each provider section exposes a one-click probe so you can verify a base URL (and API key) <em>before</em> opening a chat:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Ollama</strong> — pings <code>/api/tags</code> and reports the daemon version and visible model count, or a readable error if it cannot reach the URL.</li>
+      <li><strong class="feat-name">OpenAI-compatible</strong> — calls the endpoint&rsquo;s <code>/models</code> listing with the stored key and reports the model count or a readable error. Disabled while there is an unsaved key still in the input.</li>
+    </ul>
 
     <h2 id="model-picker">The model picker</h2>
     <p>Every chat has a model dropdown in its header that lists both providers&rsquo; catalogs side-by-side, grouped by name. Picking a model:</p>
