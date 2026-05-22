@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -265,7 +266,7 @@
     <h2 id="ollama-oom">Ollama crashes with &ldquo;out of memory&rdquo; or the model fails to load</h2>
     <p class="problem-statement">A pull works but loading or chatting fails with a CUDA / VRAM error.</p>
     <ol>
-  <li>Turn on <strong>Low VRAM mode</strong> in the Parameters sidebar (or globally in <strong>Settings &rarr; General</strong>). This forces smaller batches and a leaner KV cache.</li>
+  <li>Turn on <strong>Low VRAM mode</strong> in the Parameters sidebar (or globally in <strong>Settings &rarr; Features</strong>). This forces smaller batches and a leaner KV cache.</li>
   <li>Lower <strong>num_ctx</strong> in the same panel — a smaller context window uses dramatically less VRAM.</li>
   <li>Lower the <strong>GPU layer count</strong> to push more of the model onto CPU/RAM at the cost of speed.</li>
   <li>Pick a smaller quantization (for example <code>q4_K_M</code> instead of <code>q8_0</code>) or a smaller parameter size.</li>

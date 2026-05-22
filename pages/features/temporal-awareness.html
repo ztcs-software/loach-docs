@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -262,7 +263,7 @@
     <p class="lead">Out of the box, most models do not know what day it is. Temporal awareness fixes that by prepending a short &ldquo;current date / time / timezone&rdquo; preamble to every system prompt — only when the prompt does not already pull those values in itself.</p>
 
     <h2 id="enabling">Enabling</h2>
-    <p>Toggle <strong>Settings &rarr; General &rarr; Temporal awareness</strong>. New chats will start including the preamble immediately. Existing chats inherit the new setting on their next message.</p>
+    <p>Toggle <strong>Settings &rarr; Features &rarr; Temporal awareness</strong>. New chats will start including the preamble immediately. Existing chats inherit the new setting on their next message. The Features tab also includes an expandable <em>&ldquo;Template variables&rdquo;</em> cheat sheet listing every <code>{{CURRENT_*}}</code> placeholder with an example value.</p>
 
     <h2 id="how-it-fires">How it decides to fire</h2>
     <p>Loach scans your effective system prompt (after the global &rarr; Space &rarr; per-chat <a href="custom-instructions.html">cascade</a>) for any of the <code>{{CURRENT_*}}</code> placeholders:</p>

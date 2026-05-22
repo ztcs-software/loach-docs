@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Model preloading — Loach Docs</title>
-  <meta name="description" content="Optionally warm your default local model into VRAM at launch so the first message of the day streams faster." />
+  <title>Private Chat — Loach Docs</title>
+  <meta name="description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace — nothing is written to disk, MCP tools are blocked, and only Ollama models are offered." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/model-preloading.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/private-chat.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/model-preloading.html" />
-  <meta property="og:title" content="Model preloading — Loach Docs" />
-  <meta property="og:description" content="Optionally warm your default local model into VRAM at launch so the first message of the day streams faster." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/private-chat.html" />
+  <meta property="og:title" content="Private Chat — Loach Docs" />
+  <meta property="og:description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace — nothing is written to disk, MCP tools are blocked, and only Ollama models are offered." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Model preloading — Loach Docs" />
-  <meta name="twitter:description" content="Optionally warm your default local model into VRAM at launch so the first message of the day streams faster." />
+  <meta name="twitter:title" content="Private Chat — Loach Docs" />
+  <meta name="twitter:description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace — nothing is written to disk, MCP tools are blocked, and only Ollama models are offered." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Model preloading",
-          "item": "https://docs.loach.dev/pages/features/model-preloading.html"
+          "name": "Private Chat",
+          "item": "https://docs.loach.dev/pages/features/private-chat.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Model preloading",
-      "description": "Optionally warm your default local model into VRAM at launch so the first message of the day streams faster.",
-      "url": "https://docs.loach.dev/pages/features/model-preloading.html",
+      "headline": "Private Chat",
+      "description": "A dark-only, ephemeral chat surface for conversations that should leave no trace — nothing is written to disk, MCP tools are blocked, and only Ollama models are offered.",
+      "url": "https://docs.loach.dev/pages/features/private-chat.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/model-preloading.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/private-chat.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -259,30 +259,49 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Model preloading</h1>
-    <p class="lead">When <strong>Default model preload</strong> is on, Loach sends an empty chat to the resolved default model at app launch — warming it into VRAM so the first real prompt of the session streams without the usual cold-start pause.</p>
+    <h1>Private Chat</h1>
+    <p class="lead">An ephemeral chat surface for conversations that should leave no trace. Nothing is written to disk, nothing is remembered between sessions, and the transcript is wiped the moment the overlay closes. Open it from the ghost icon in the title bar.</p>
 
-    <h2 id="enabling">Enabling</h2>
-    <p>Toggle <strong>Settings &rarr; General &rarr; Default model preload</strong>. It is off by default, and it is Ollama-only — hosted providers do not have a meaningful concept of warm vs cold from your side.</p>
+    <h2 id="nothing-persisted">Nothing is persisted</h2>
+    <p>Unlike regular chats, Private Chat does not create a session row, message rows, metrics, or an attachment store. The transcript lives entirely in memory. The moment you close the overlay everything is gone &mdash; including the picked model, persona, tone, per-chat instructions, and parameters-panel state. There is nothing to export, nothing to search, and nothing for an attacker with disk access to recover.</p>
 
-    <h2 id="trade-off">The trade-off</h2>
-    <p>Preloading pins VRAM at launch even if you only opened Loach to re-read an old conversation. That is why it ships off: many users only want VRAM consumed when they are about to actually chat. Turn it on if you launch Loach with intent — you know the first thing you do is going to be a fresh prompt.</p>
+    <h2 id="ollama-only">Ollama only</h2>
+    <p>The model picker inside Private Chat only lists local <a href="provider-selection.html">Ollama</a> models. OpenAI-compatible providers are deliberately excluded &mdash; the data path for cloud providers crosses too many intermediaries (proxies, key vaults, hosted logging) to honour the &ldquo;leaves no trace&rdquo; promise.</p>
 
-    <h2 id="how-it-resolves">Which model gets warmed</h2>
-    <p>Preload resolves through the same logic as <a href="default-model.html">Default model</a>:</p>
+    <h2 id="mcp-blocked">MCP tools are blocked</h2>
+    <p>Servers configured in <strong>Settings &rarr; MCP</strong> are not exposed to the model inside Private Chat. A tool call could side-channel the conversation out to a third party &mdash; that defeats the point. If you need tools, use a regular chat. See <a href="mcp.html">MCP support</a>.</p>
+
+    <h2 id="opening-and-closing">Opening and closing</h2>
+    <p>Open Private Chat from the <strong>ghost icon</strong> in the title bar. It opens as a dark-only overlay above whatever you were doing. The overlay can only be dismissed by the explicit <code>X</code> in its header &mdash; clicking outside, pressing <kbd>Esc</kbd>, or otherwise stray-clicking <em>does not</em> close it. The wipe is destructive, so we don&rsquo;t want one accidental click to throw away the conversation.</p>
+    <p>While Private Chat is open the regular chat surface is paused: any in-flight regular generation is cancelled, and the rest of the app is non-interactive underneath until you close the overlay.</p>
+
+    <h2 id="shaping-layers">Shaping layers</h2>
+    <p>Private Chat reuses the same prompt-shaping layers as a regular chat &mdash; just with a couple of deliberate omissions:</p>
     <ul class="feature-list">
-      <li>If you pinned a specific model, that one.</li>
-      <li>If you pinned to a provider, the most-recent model on that provider.</li>
-      <li>Otherwise, your most recent (provider, model) pair — provided it is Ollama. If your most recent model is on an OpenAI-compatible endpoint, preload does nothing.</li>
+      <li><strong class="feat-name">Persona</strong> &mdash; pick any of the <a href="personas.html">personas</a> from the composer.</li>
+      <li><strong class="feat-name">Tone</strong> &mdash; pick any tone, or leave it unset to fall back to the default tone from <strong>Settings &rarr; General</strong>.</li>
+      <li><strong class="feat-name">Per-chat instructions</strong> &mdash; a free-form textarea, layered <em>persona &rarr; instructions &rarr; tone</em>.</li>
+      <li><strong class="feat-name">No Space context</strong> &mdash; Private Chat is never attached to a <a href="spaces.html">Space</a>; its instructions, files, and memory don&rsquo;t apply.</li>
+      <li><strong class="feat-name">No <code>{{USER_NAME}}</code> substitution</strong> and <strong>no temporal preamble</strong> &mdash; those belong to persistent chats.</li>
     </ul>
+
+    <h2 id="parameters">Parameters panel</h2>
+    <p>The same <a href="parameters.html">parameters panel</a> is available, with the same Simple / Advanced toggle, model defaults, Thinking toggle, and Low VRAM toggle. It closes and wipes along with the rest of the overlay &mdash; nothing about it survives the close.</p>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">What Private Chat is for</div>
+        <p>One-off questions you don&rsquo;t want sitting in your history, throwaway experiments with prompts, and anything you&rsquo;d normally type into a private browsing window. For ongoing work, a regular chat (or a <a href="spaces.html">Space</a>) is the right tool &mdash; you cannot scroll back to a Private Chat tomorrow.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="default-model.html">
+      <a href="concurrency.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Default model selector</span>
+        <span class="title">&larr; Concurrency &amp; queue</span>
       </a>
-      <a href="low-vram.html" class="next">
+      <a href="spaces.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Low VRAM mode &rarr;</span>
+        <span class="title">Spaces &rarr;</span>
       </a>
     </div>
 

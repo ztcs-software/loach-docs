@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -277,13 +278,16 @@
     <p>A tone is appended <em>after</em> the persona and your instructions, biasing the delivery without changing the role.</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Default</strong> — the model&rsquo;s natural voice, no override.</li>
-      <li><strong class="feat-name">Concise</strong> — short answers, no preamble.</li>
+      <li><strong class="feat-name">Direct</strong> — leads with the point; drops hedges and preamble. Replaces the old <em>Concise</em> tone.</li>
       <li><strong class="feat-name">Detailed</strong> — thorough coverage with caveats and reasoning.</li>
       <li><strong class="feat-name">Casual</strong> — plain English, conversational.</li>
       <li><strong class="feat-name">Formal</strong> — business register.</li>
       <li><strong class="feat-name">Encouraging</strong> — supportive framing for learners and first drafts.</li>
+      <li><strong class="feat-name">Playful</strong> — light wit and personality, humour in service of clarity.</li>
+      <li><strong class="feat-name">Skeptical</strong> — stress-tests claims, surfaces counterarguments and edge cases.</li>
+      <li><strong class="feat-name">Socratic</strong> — guides with questions instead of handing over answers; switches to direct answers when explicitly asked.</li>
     </ul>
-    <p>Set per chat from the parameters sidebar, or pick a default tone in <strong>Settings &rarr; General</strong> to apply to every new chat.</p>
+    <p>Set per chat from the parameters sidebar, or pick a default tone in <strong>Settings &rarr; General</strong> to apply to every new chat. The General tab has an expandable <em>&ldquo;What each tone does&rdquo;</em> drawer that shows the one-line summary for every tone, so the default-tone picker doubles as a reference.</p>
 
     <h2 id="how-they-stack">How they stack</h2>
     <p>At send time the model receives, in order: your custom instructions (resolved per the <a href="custom-instructions.html">precedence rules</a>), the persona&rsquo;s system prompt, and the tone modifier. The chat&rsquo;s own per-chat system prompt sits at the head of all of this and always wins on the points it cares about.</p>

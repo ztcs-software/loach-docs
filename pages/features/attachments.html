@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -285,6 +286,15 @@
 
     <h2 id="unknown-formats">Files Loach cannot decode</h2>
     <p>Legacy <code>.doc</code> files, archives, binaries and other formats Loach does not parse are kept in the transcript and announced to the model by name, but no readable content is inlined. The model can still acknowledge that &ldquo;you attached <code>report.zip</code>&rdquo; and ask for a usable version.</p>
+
+    <h2 id="previews">Previews</h2>
+    <p>Clicking an attachment chip opens a per-type preview without leaving the chat. Loach picks the right viewer based on what the file actually is:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Images</strong> — open in a lightbox with a <strong>Save</strong> button. Click the dim backdrop to close, matching standard lightbox behaviour.</li>
+      <li><strong class="feat-name">PDFs</strong> with original bytes retained — open as a multi-page rendered preview (lazy per-page rasterisation) with <strong>Save</strong>.</li>
+      <li><strong class="feat-name">Text and code</strong> — open in the <a href="code-canvas.html">Code canvas</a> with language-aware highlighting and export.</li>
+      <li><strong class="feat-name">DOCX, binaries, and older PDFs without raw bytes</strong> — open a file-info card with <strong>Save</strong>, so you can still pull the attachment back out even when Loach cannot render it inline.</li>
+    </ul>
     <div class="page-nav">
       <a href="import-export.html">
         <span class="label">Previous</span>

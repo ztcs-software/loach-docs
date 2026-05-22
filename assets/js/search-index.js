@@ -116,7 +116,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/concepts.html",
     "heading": "Personas and tones",
     "anchor": "personas-tones",
-    "body": "A Persona is a role the model takes on — Code Reviewer, Translator, ELI5. A Tone is the delivery style — Formal, Casual, Concise, Detailed. Both layer on top of your custom instructions."
+    "body": "A Persona is a role the model takes on — Code Reviewer, Translator, ELI5. A Tone is the delivery style — Direct, Detailed, Casual, Formal, Playful, Skeptical, Socratic. Both layer on top of your custom instructions."
   },
   {
     "title": "Core concepts",
@@ -305,7 +305,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/provider-selection.html",
     "heading": "Cloud or self-hosted: OpenAI-compatible",
     "anchor": "cloud-openai",
-    "body": "Any endpoint that implements /v1/chat/completions works. That includes the real OpenAI API, plus vLLM, LM Studio, LiteLLM, OpenRouter, Groq and other proxies. Set the base URL and API key in Settings → Providers ; the…"
+    "body": "Any endpoint that implements /v1/chat/completions works. That includes the real OpenAI API, plus vLLM, LM Studio, LiteLLM, OpenRouter, Groq and other proxies. A presets dropdown next to the base URL field one-clicks the URL to the documented endpoint for OpenAI, llama.cpp, LM Studio, vLLM, or LiteLLM."
+  },
+  {
+    "title": "Provider selection",
+    "url": "pages/features/provider-selection.html",
+    "heading": "Test connection",
+    "anchor": "test-connection",
+    "body": "Each provider section exposes a one-click probe so you can verify a base URL (and API key) before opening a chat. Ollama: pings /api/tags and reports the daemon version and visible model count. OpenAI-compatible: calls /models with the stored key and reports the model count or a readable error. Disabled while there is an unsaved key in the input."
   },
   {
     "title": "Provider selection",
@@ -410,7 +417,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/personas.html",
     "heading": "Tones (style)",
     "anchor": "tones",
-    "body": "A tone is appended after the persona and your instructions, biasing the delivery without changing the role."
+    "body": "Default, Direct (replaces the old Concise), Detailed, Casual, Formal, Encouraging, Playful, Skeptical, and Socratic. A tone is appended after the persona and your instructions. Settings → General has an expandable \"What each tone does\" drawer."
   },
   {
     "title": "Personas and tones",
@@ -513,6 +520,13 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Markdown rendering",
     "url": "pages/features/markdown.html",
+    "heading": "Regenerate the last reply",
+    "anchor": "regenerate",
+    "body": "The last assistant message carries a Regenerate action. Triggering it drops the existing reply, re-sends the preceding user turn, and streams a fresh answer in place — useful when the model wanders off or you want a second take without retyping the prompt. Only the most recent assistant message can be regenerated."
+  },
+  {
+    "title": "Markdown rendering",
+    "url": "pages/features/markdown.html",
     "heading": "Thinking traces",
     "anchor": "thinking-traces",
     "body": "For reasoning-capable models, the chain-of-thought stream is rendered into a separate, collapsible block above the answer. You can fold it away when you only care about the final answer and pop it back open to audit…"
@@ -572,6 +586,55 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Cancelling and errors",
     "anchor": "cancel-and-error",
     "body": "Whether you stop a stream manually (the send button becomes a stop button while streaming) or the runner is pre-empted by Respond now , the partial output is kept in the transcript along with a short error tail so the…"
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "Private Chat",
+    "anchor": "",
+    "body": "An ephemeral chat surface for conversations that should leave no trace. Nothing is written to disk, nothing is remembered between sessions, and the transcript is wiped the moment the overlay closes. Open it from the ghost icon in the title bar."
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "Nothing is persisted",
+    "anchor": "nothing-persisted",
+    "body": "No session row, no message rows, no metrics, no attachment store. The transcript lives entirely in memory and is wiped when the overlay closes, along with the picked model, persona, tone, per-chat instructions, and parameters state."
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "Ollama only",
+    "anchor": "ollama-only",
+    "body": "The model picker inside Private Chat only lists local Ollama models. OpenAI-compatible providers are deliberately excluded — the data path for cloud providers crosses too many intermediaries to honour the \"leaves no trace\" promise."
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "MCP tools are blocked",
+    "anchor": "mcp-blocked",
+    "body": "MCP servers are not exposed to the model inside Private Chat. A tool call could side-channel the conversation out to a third party — that defeats the point."
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "Opening and closing",
+    "anchor": "opening-and-closing",
+    "body": "Open Private Chat from the ghost icon in the title bar. The overlay can only be dismissed by the explicit X in its header — Esc and backdrop clicks do not close it. The wipe is destructive. Regular generation is paused while the overlay is open."
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "Shaping layers",
+    "anchor": "shaping-layers",
+    "body": "Same persona, tone, and per-chat instructions as a regular chat. No Space context, no {{USER_NAME}} substitution, no temporal preamble — those belong to persistent chats."
+  },
+  {
+    "title": "Private Chat",
+    "url": "pages/features/private-chat.html",
+    "heading": "Parameters panel",
+    "anchor": "parameters",
+    "body": "The same parameters panel is reused, with the same Simple / Advanced toggle, model defaults, Thinking toggle, and Low VRAM toggle. It closes and wipes along with the rest of the overlay."
   },
   {
     "title": "Spaces",
@@ -655,7 +718,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/chat-archive.html",
     "heading": "The archive view",
     "anchor": "archive-view",
-    "body": "The archive lives at Settings → Archive . From there you can:"
+    "body": "The archive lives at Settings → Archive . Open, Unarchive, Permanently delete, Archive all, and Remove all — the last one permanently deletes every archived chat in one step, guarded by a typed-confirm dialog because it is irreversible."
   },
   {
     "title": "Search",
@@ -733,6 +796,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Files Loach cannot decode",
     "anchor": "unknown-formats",
     "body": "Legacy .doc files, archives, binaries and other formats Loach does not parse are kept in the transcript and announced to the model by name, but no readable content is inlined. The model can still acknowledge that \"you…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "Previews",
+    "anchor": "previews",
+    "body": "Clicking an attachment chip opens a per-type preview. Images open in a lightbox with Save. PDFs open as a multi-page rendered preview with Save. Text and code open in the Code canvas with language-aware highlighting. DOCX and binary files open a file-info card with Save so you can still pull the attachment back out."
   },
   {
     "title": "Voice dictation",
@@ -837,7 +907,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/mcp.html",
     "heading": "Safety guards",
     "anchor": "safety",
-    "body": "URLs are validated, headers are checked for size and disallowed characters, and per-request bodies are capped so a misconfigured or malicious server cannot exhaust the app. Each request also has a sensible timeout, so…"
+    "body": "URLs are validated, headers are checked for size and disallowed characters, and per-request bodies are capped so a misconfigured or malicious server cannot exhaust the app. Each request also has a sensible timeout. Same-server duplicate tool names are de-duped at registration so a chat never sees colliding entries from the same source. MCP is deliberately not exposed inside Private Chat."
   },
   {
     "title": "Default model selector",

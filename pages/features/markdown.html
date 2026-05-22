@@ -151,6 +151,7 @@
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
@@ -276,6 +277,10 @@
 
     <h2 id="long-prompts">Long user messages</h2>
     <p>User bubbles that paste in dozens of lines automatically clamp to the first ten lines with a <strong>Show more</strong> toggle, so the assistant&rsquo;s reply does not get pushed off-screen by your own input.</p>
+
+    <h2 id="regenerate">Regenerate the last reply</h2>
+    <p>The last assistant message in a chat carries a <strong>Regenerate</strong> action. Triggering it drops the existing reply, re-sends the preceding user turn, and streams a fresh answer in place — useful when the model wanders off, hallucinates, or you just want a second take without retyping the prompt.</p>
+    <p>Only the most recent assistant message can be regenerated. Earlier turns stay intact so the rest of the conversation history is preserved.</p>
 
     <h2 id="thinking-traces">Thinking traces</h2>
     <p>For reasoning-capable models, the chain-of-thought stream is rendered into a separate, collapsible block above the answer. You can fold it away when you only care about the final answer and pop it back open to audit how the model got there.</p>
