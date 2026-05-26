@@ -274,10 +274,18 @@
     </ul>
     <p>Per-message and per-URL limits keep the prompt manageable. If a single page is huge, only the leading portion of its text is sent; if a fetch fails or times out, a short stub is rendered in its place so the model knows you intended to share it.</p>
 
+    <h2 id="limits">Limits</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Up to 5 URLs per message</strong> — duplicates are collapsed, anything beyond the cap is skipped.</li>
+      <li><strong class="feat-name">30 s overall timeout per URL</strong>, with a 10 s connect timeout.</li>
+      <li><strong class="feat-name">5 MB download cap per URL</strong> — larger responses are truncated.</li>
+      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> — the leading portion of long pages.</li>
+    </ul>
+
     <h2 id="safety">Safety guards</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Schemes</strong> — only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> — resolved addresses on loopback, private network ranges, link-local and other reserved blocks are refused, so a malicious URL cannot pivot into your local network.</li>
+      <li><strong class="feat-name">Private-IP guard</strong> — resolved addresses on loopback, private network ranges, link-local and other reserved blocks are refused, so a malicious URL cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> — a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t).</li>
       <li><strong class="feat-name">Redirects</strong> — walked manually and re-screened at every hop with the same rules.</li>
       <li><strong class="feat-name">Failures are silent per URL</strong> — a dead link does not block your message; you just get a short stub for that one URL.</li>
     </ul>

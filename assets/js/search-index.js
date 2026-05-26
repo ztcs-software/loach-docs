@@ -25,7 +25,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/installation.html",
     "heading": "Install from a pre-built package",
     "anchor": "prebuilt",
-    "body": "With every stable release ready-to-install packages are published for each supported operating system: Windows .exe NSIS installer; Linux .deb, .rpm and .AppImage."
+    "body": "With every stable release ready-to-install packages are published for each supported operating system: Windows .exe NSIS installer; Linux .deb, .rpm and .AppImage; macOS .dmg for Apple Silicon."
   },
   {
     "title": "Installation",
@@ -40,6 +40,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Linux",
     "anchor": "linux",
     "body": "Install the .deb on Debian and Ubuntu, .rpm on Fedora and RHEL, or run the .AppImage on any distro. sudo apt install ./loach_*.deb"
+  },
+  {
+    "title": "Installation",
+    "url": "pages/installation.html",
+    "heading": "macOS",
+    "anchor": "macos",
+    "body": "Download the .dmg and drag Loach into Applications. The build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass in System Settings → Privacy & Security → Open Anyway. Apple Silicon only; Intel Macs are not supported."
   },
   {
     "title": "Installation",
@@ -207,7 +214,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/tech-stack.html",
     "heading": "Stack at a glance",
     "anchor": "stack",
-    "body": "Desktop shell: Tauri 2.x (Rust). Frontend: React 18 + Vite 7 + TypeScript. Styling: Tailwind CSS + shadcn/ui. State: Zustand. Storage: SQLite via rusqlite. Secrets: keyring crate. Hashing: argon2 + rand_core. HTTP: reqwest + rustls-tls. Markdown: react-markdown + remark-gfm + rehype-highlight. Document parsing: pdfjs-dist + mammoth. System tray: Tauri 2 tray-icon. Bundle targets: NSIS .exe on Windows; .deb / .rpm / .AppImage on Linux."
+    "body": "Desktop shell: Tauri 2.x (Rust). Frontend: React 18 + Vite 7 + TypeScript. Styling: Tailwind CSS + shadcn/ui. State: Zustand. Storage: SQLite via rusqlite. Secrets: keyring crate (Windows Credential Manager / Linux Secret Service / macOS Keychain). Hashing: argon2 + rand_core. HTTP: reqwest + rustls-tls. Markdown: react-markdown + remark-gfm + rehype-highlight. Document parsing: pdfjs-dist + mammoth. System tray: Tauri 2 tray-icon. Bundle targets: NSIS .exe on Windows; .deb / .rpm / .AppImage on Linux; .dmg + .app.tar.gz on macOS (Apple Silicon)."
   },
   {
     "title": "FAQ",
@@ -221,7 +228,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/faq.html",
     "heading": "Which platforms are supported?",
     "anchor": "general",
-    "body": "Native desktop apps for Windows and Linux are published with every release. macOS is not officially packaged at this time but the source can be built on macOS."
+    "body": "Native desktop apps for Windows, Linux and macOS (Apple Silicon) are published with every release. The macOS build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass. Intel Macs are not supported."
   },
   {
     "title": "FAQ",
@@ -249,7 +256,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/faq.html",
     "heading": "Where are my API keys stored?",
     "anchor": "security",
-    "body": "In your operating system's credential manager — Windows Credential Manager or the Linux Secret Service. Keys are never written to the SQLite database or to plain-text config."
+    "body": "In your operating system's credential manager — Windows Credential Manager, the Linux Secret Service, or the macOS Keychain. Keys are never written to the SQLite database or to plain-text config."
   },
   {
     "title": "FAQ",
@@ -849,9 +856,16 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Web fetch",
     "url": "pages/features/web-fetch.html",
+    "heading": "Limits",
+    "anchor": "limits",
+    "body": "Up to 5 URLs per message (duplicates collapsed). 30 s overall timeout per URL with a 10 s connect timeout. 5 MB download cap per URL. About 12,000 characters of extracted text per URL — long pages are truncated to the leading portion."
+  },
+  {
+    "title": "Web fetch",
+    "url": "pages/features/web-fetch.html",
     "heading": "Safety guards",
     "anchor": "safety",
-    "body": "© ZTCS. Loach Docs."
+    "body": "Only http and https schemes. Resolved addresses on loopback, private network ranges, link-local and other reserved blocks are refused — this defends against SSRF (Server-Side Request Forgery), where a crafted URL tricks an app into reaching into networks the attacker can't. Redirects are walked manually and re-screened at every hop. Failures are silent per URL — a dead link does not block your message."
   },
   {
     "title": "Temporal awareness",
@@ -1096,7 +1110,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/themes.html",
     "heading": "Window chrome",
     "anchor": "window-chrome",
-    "body": "Loach uses a borderless window on both Windows and Linux. The title bar hosts the window controls (minimise, maximise, close) inline — you do not lose any controls by going borderless."
+    "body": "Loach uses a borderless window on Windows, Linux and macOS. The title bar hosts the window controls (minimise, maximise, close) inline — you do not lose any controls by going borderless."
   },
   {
     "title": "OTA updates",
@@ -1110,7 +1124,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/ota-updates.html",
     "heading": "By install format",
     "anchor": "install-formats",
-    "body": "Windows (NSIS) — the updater downloads the new package and a click on Install update runs a passive install in place. No re-download from a browser needed."
+    "body": "Windows (NSIS) — the updater downloads the new package and a click on Install update runs a passive install in place. No re-download from a browser needed. Linux AppImage replaces the file on disk. Linux .deb / .rpm go through the system package manager. macOS .app updates download a .app.tar.gz and replace the app bundle in place (Apple Silicon)."
   },
   {
     "title": "OTA updates",
@@ -1124,7 +1138,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/ota-updates.html",
     "heading": "Signing",
     "anchor": "signing",
-    "body": "Update bundles are cryptographically signed. The updater verifies the signature against a key bundled with the app before replacing any binary on disk, so a man-in-the-middle on the download channel cannot swap in a…"
+    "body": "Update bundles are cryptographically signed with the project's own Ed25519 key. The updater verifies the signature before replacing any binary on disk. On macOS this is separate from Apple notarization (the build is not Apple-notarized), so first install needs a one-time Gatekeeper bypass."
   },
   {
     "title": "Onboarding wizard",
@@ -1479,9 +1493,16 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Platform (troubleshooting)",
     "url": "pages/troubleshooting/platform.html",
-    "heading": "macOS — there's no macOS build",
-    "anchor": "macos",
-    "body": "Not currently supported. The codebase is Tauri 2 and portable in principle, but no builds, signing, or test coverage exist for macOS yet."
+    "heading": "macOS — \"Loach can't be opened\" on first launch",
+    "anchor": "macos-gatekeeper",
+    "body": "The Loach build is not Apple-notarized, so Gatekeeper shows a warning the first time. Open System Settings → Privacy & Security, scroll to the bottom and click Open Anyway. You only have to do this once; in-app updates do not re-prompt. Update bundles are still cryptographically signed with the project's Ed25519 key."
+  },
+  {
+    "title": "Platform (troubleshooting)",
+    "url": "pages/troubleshooting/platform.html",
+    "heading": "macOS — Intel Macs",
+    "anchor": "macos-intel",
+    "body": "Only Apple Silicon (M1 and later) is supported. There's no Intel build."
   },
   {
     "title": "Platform (troubleshooting)",

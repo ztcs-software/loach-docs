@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OTA updates — Loach Docs</title>
-  <meta name="description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
+  <meta name="description" content="Get new features, bug fixes and security patches directly from the app. NSIS, AppImage and macOS .app builds auto-update; .deb and .rpm builds go through the system package manager." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/ota-updates.html" />
   <meta property="og:title" content="OTA updates — Loach Docs" />
-  <meta property="og:description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
+  <meta property="og:description" content="Get new features, bug fixes and security patches directly from the app. NSIS, AppImage and macOS .app builds auto-update; .deb and .rpm builds go through the system package manager." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="OTA updates — Loach Docs" />
-  <meta name="twitter:description" content="Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager." />
+  <meta name="twitter:description" content="Get new features, bug fixes and security patches directly from the app. NSIS, AppImage and macOS .app builds auto-update; .deb and .rpm builds go through the system package manager." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "OTA updates",
-      "description": "Get new features, bug fixes and security patches directly from the app. NSIS and AppImage builds auto-update; .deb and .rpm builds go through the system package manager.",
+      "description": "Get new features, bug fixes and security patches directly from the app. NSIS, AppImage and macOS .app builds auto-update; .deb and .rpm builds go through the system package manager.",
       "url": "https://docs.loach.dev/pages/features/ota-updates.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -267,6 +267,7 @@
       <li><strong class="feat-name">Windows (NSIS)</strong> — the updater downloads the new package and a click on <em>Install update</em> runs a passive install in place. No re-download from a browser needed.</li>
       <li><strong class="feat-name">Linux AppImage</strong> — same flow. The updater replaces the AppImage on disk.</li>
       <li><strong class="feat-name">Linux .deb / .rpm</strong> — updates are managed by your system package manager. The Updates panel detects that you are on one of these and points to the GitHub releases page instead of pretending in-app updates work.</li>
+      <li><strong class="feat-name">macOS (.app)</strong> — the updater downloads a <code>.app.tar.gz</code> bundle and replaces the application in place. Apple Silicon only.</li>
     </ul>
 
     <h2 id="release-notes">What&rsquo;s new</h2>
@@ -274,6 +275,7 @@
 
     <h2 id="signing">Signing</h2>
     <p>Update bundles are cryptographically signed. The updater verifies the signature against a key bundled with the app <em>before</em> replacing any binary on disk, so a man-in-the-middle on the download channel cannot swap in a tampered build.</p>
+    <p>This Ed25519 signature check is what guards in-app updates on every platform. It is separate from Apple notarization, which only gates the <em>first launch</em> of a freshly downloaded app on macOS. The Loach build is <strong>not Apple-notarized</strong>, so you will see a Gatekeeper warning once on first install (see <a href="../installation.html#macos">Installation &rarr; macOS</a>); subsequent in-app updates do not re-prompt.</p>
     <div class="page-nav">
       <a href="themes.html">
         <span class="label">Previous</span>

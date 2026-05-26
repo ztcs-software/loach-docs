@@ -65,7 +65,7 @@
           "name": "Which platforms are supported?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Native desktop apps for Windows and Linux are published with every release. macOS is not officially packaged at this time, but the source can be built on macOS — see Build from source."
+            "text": "Native desktop apps for Windows, Linux and macOS (Apple Silicon) are published with every release. The macOS build is not Apple-notarized, so first launch requires a one-time Gatekeeper bypass. Intel Macs are not supported."
           }
         },
         {
@@ -129,7 +129,7 @@
           "name": "Where are my API keys stored?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In your operating system's credential manager — Windows Credential Manager or the Linux Secret Service. Keys are never written to the SQLite database or to plain-text config."
+            "text": "In your operating system's credential manager — Windows Credential Manager, the Linux Secret Service, or the macOS Keychain. Keys are never written to the SQLite database or to plain-text config."
           }
         },
         {
@@ -411,7 +411,7 @@
     <details class="faq-item">
       <summary>Which platforms are supported?</summary>
       <div class="faq-body">
-        <p>Native desktop apps for <strong>Windows</strong> and <strong>Linux</strong> are published with every release. macOS is not officially packaged at this time, but the source can be built on macOS — see <a href="installation.html#source">Build from source</a>.</p>
+        <p>Native desktop apps for <strong>Windows</strong>, <strong>Linux</strong> and <strong>macOS</strong> (Apple Silicon) are published with every release. The macOS build is <strong>not Apple-notarized</strong>, so first launch needs a one-time Gatekeeper bypass — see <a href="installation.html#macos">Installation &rarr; macOS</a>. Intel Macs are not supported.</p>
       </div>
     </details>
 
@@ -475,7 +475,7 @@
     <details class="faq-item">
       <summary>Where are my API keys stored?</summary>
       <div class="faq-body">
-        <p>In your operating system's credential manager — <strong>Windows Credential Manager</strong> or the Linux <strong>Secret Service</strong>. Keys are never written to the SQLite database or to plain-text config.</p>
+        <p>In your operating system's credential manager — <strong>Windows Credential Manager</strong>, the Linux <strong>Secret Service</strong>, or the <strong>macOS Keychain</strong>. Keys are never written to the SQLite database or to plain-text config.</p>
       </div>
     </details>
 
