@@ -266,13 +266,13 @@
         <tr><td>Icons</td><td><code>lucide-react</code></td></tr>
         <tr><td>State</td><td>Zustand (in-memory; SQLite-backed where appropriate)</td></tr>
         <tr><td>Storage</td><td>SQLite via <code>rusqlite</code> (bundled — no system dependency)</td></tr>
-        <tr><td>Secrets</td><td><code>keyring</code> crate &rarr; Windows Credential Manager / Linux Secret Service</td></tr>
+        <tr><td>Secrets</td><td><code>keyring</code> crate &rarr; Windows Credential Manager / Linux Secret Service / macOS Keychain</td></tr>
         <tr><td>Hashing</td><td><code>argon2</code> + <code>rand_core</code> (app-lock)</td></tr>
         <tr><td>HTTP</td><td><code>reqwest</code> with streaming + <code>rustls-tls</code></td></tr>
         <tr><td>Markdown</td><td><code>react-markdown</code> + <code>remark-gfm</code> + <code>rehype-highlight</code></td></tr>
         <tr><td>Document parsing</td><td><code>pdfjs-dist</code> (PDF) + <code>mammoth</code> (DOCX)</td></tr>
         <tr><td>System tray</td><td>Tauri 2 built-in (<code>tray-icon</code> feature)</td></tr>
-        <tr><td>Bundle targets</td><td>NSIS <code>.exe</code> on Windows; <code>.deb</code> / <code>.rpm</code> / <code>.AppImage</code> on Linux</td></tr>
+        <tr><td>Bundle targets</td><td>NSIS <code>.exe</code> on Windows; <code>.deb</code> / <code>.rpm</code> / <code>.AppImage</code> on Linux; <code>.dmg</code> + <code>.app.tar.gz</code> on macOS (Apple Silicon)</td></tr>
       </tbody>
     </table>
 

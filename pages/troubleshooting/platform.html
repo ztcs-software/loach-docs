@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Platform — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Platform-specific Loach issues: no macOS build, Credential Manager access denied on managed Windows machines." />
+  <meta name="description" content="Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/platform.html" />
   <meta property="og:title" content="Platform — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Platform-specific Loach issues: no macOS build, Credential Manager access denied on managed Windows machines." />
+  <meta property="og:description" content="Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Platform — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Platform-specific Loach issues: no macOS build, Credential Manager access denied on managed Windows machines." />
+  <meta name="twitter:description" content="Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Platform — Troubleshooting",
-      "description": "Platform-specific Loach issues: no macOS build, Credential Manager access denied on managed Windows machines.",
+      "description": "Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines.",
       "url": "https://docs.loach.dev/pages/troubleshooting/platform.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -263,9 +263,13 @@
     <h1>Platform</h1>
     <p class="lead">A few problems are specific to a particular operating system or IT policy.</p>
 
-    <h2 id="macos">macOS — there&rsquo;s no macOS build</h2>
-    <p class="problem-statement">You&rsquo;re on macOS and can&rsquo;t find an installer.</p>
-    <p>macOS is not currently supported. The codebase is Tauri 2 and portable in principle, but no builds, signing, or test coverage exist for macOS yet.</p>
+    <h2 id="macos-gatekeeper">macOS — &ldquo;Loach can&rsquo;t be opened&rdquo; on first launch</h2>
+    <p class="problem-statement">You opened Loach for the first time on macOS and macOS blocked it, saying it cannot be verified or comes from an unidentified developer.</p>
+    <p>The Loach build is <strong>not Apple-notarized</strong> (ZTCS doesn&rsquo;t subscribe to the Apple Developer Program), so Gatekeeper doesn&rsquo;t recognise it and shows a warning on first launch. Open <strong>System Settings &rarr; Privacy &amp; Security</strong>, scroll to the bottom and click <em>Open Anyway</em>. You only have to do this once; in-app updates afterwards do not re-prompt. (Update bundles themselves are cryptographically signed with the project&rsquo;s own Ed25519 key — a separate check that runs on every in-app update, regardless of notarization.)</p>
+
+    <h2 id="macos-intel">macOS — Intel Macs</h2>
+    <p class="problem-statement">You&rsquo;re on an Intel Mac and the <code>.dmg</code> won&rsquo;t run.</p>
+    <p>Only Apple Silicon (M1 and later) is supported. There&rsquo;s no Intel build.</p>
 
     <h2 id="windows-credman">Windows: &ldquo;Credential Manager access denied&rdquo;</h2>
     <p class="problem-statement">Saving keys or app-lock credentials fails on a managed Windows machine.</p>
