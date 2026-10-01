@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sending & receiving messages — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, missing token counts, and poor output quality in Loach." />
+  <title>Sending & receiving messages - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/messages.html" />
-  <meta property="og:title" content="Sending &amp; receiving messages — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, missing token counts, and poor output quality in Loach." />
+  <meta property="og:title" content="Sending &amp; receiving messages - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sending &amp; receiving messages — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, missing token counts, and poor output quality in Loach." />
+  <meta name="twitter:title" content="Sending &amp; receiving messages - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Sending & receiving messages — Troubleshooting",
+          "name": "Sending & receiving messages - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/messages.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Sending & receiving messages — Troubleshooting",
-      "description": "Troubleshoot stuck chats, half-streamed replies, missing thinking traces, missing token counts, and poor output quality in Loach.",
+      "headline": "Sending & receiving messages - Troubleshooting",
+      "description": "Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach.",
       "url": "https://docs.loach.dev/pages/troubleshooting/messages.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -265,39 +268,67 @@
 
     <h2 id="stuck-waiting">My new message is stuck on &ldquo;waiting&rdquo;</h2>
     <p class="problem-statement">You sent a prompt in one chat but it shows a spinner without streaming anything.</p>
-    <p>Loach runs <strong>one generation at a time across all chats</strong>. If another chat is busy, your message is parked in a FIFO queue.</p>
-<ul>
-  <li>Wait for the current generation to finish, or</li>
-  <li>Open the chat you want answered and click <strong>Respond now</strong> in its header. This cancels the current runner and starts yours.</li>
-</ul>
+    <p>Loach runs <strong>one generation at a time across all chats</strong>. If another chat is busy, your message is parked in a FIFO queue, and the chat shows a <strong>Waiting for other chats to finish&hellip;</strong> card.</p>
+    <ul>
+      <li>Wait for the current generation to finish, or</li>
+      <li>Click <strong>Respond now</strong> on that card. This cancels the current runner (keeping what it wrote so far) and starts yours. <strong>Cancel</strong> on the same card withdraws your prompt instead.</li>
+      <li>If nothing seems to be generating, the running chat may be paused on a tool approval card. The waiting card then reads <strong>Waiting for your approval of a tool call in &ldquo;&hellip;&rdquo;</strong> and offers <strong>Go to it</strong> - answer the card there. See <a href="web-fetch-mcp.html">Tools, MCP &amp; folders</a> for replies stuck on <em>Waiting for your approval&hellip;</em>.</li>
+      <li>While <a href="../features/private-chat.html">Private Chat</a> is open, queued regular chats don&rsquo;t start; close it and they carry on.</li>
+    </ul>
+    <p>See <a href="../features/concurrency.html">Concurrency &amp; queue</a> for the full rules.</p>
 
     <h2 id="reply-half-error">The reply stopped halfway and shows an error</h2>
-    <p class="problem-statement">A streaming reply was cancelled or errored, and the bubble ends with a red error line.</p>
-    <p>Whatever streamed before the failure is kept — open the message menu and use <strong>Copy raw</strong> if you want to preserve it. To get a full answer, send the same prompt again, or click <strong>Regenerate</strong> if it&rsquo;s visible. If errors repeat, see <a href="providers-connections.html">Providers &amp; connections</a> or <a href="performance.html">Performance &amp; VRAM</a>.</p>
+    <p class="problem-statement">A streaming reply errored, and the bubble ends with an italic error line starting with &#9888;.</p>
+    <p>Whatever streamed before the failure is kept - open the message&rsquo;s <code>&hellip;</code> menu and use <strong>Copy message</strong> if you want to preserve it. To get a full answer, send the same prompt again, or click <strong>Regenerate</strong> in the same menu if it&rsquo;s there (it&rsquo;s offered on the last reply only). If errors repeat, see <a href="providers-connections.html">Providers &amp; connections</a> or <a href="performance.html">Performance &amp; VRAM</a>.</p>
+    <p>A reply you stopped yourself, or one cut short by <strong>Respond now</strong>, also keeps its partial text but gets no error line.</p>
 
     <h2 id="no-thinking-trace">I see no &ldquo;thinking&rdquo; trace even though the model supports reasoning</h2>
     <p class="problem-statement">A reasoning model is selected but no thinking block appears above the answer.</p>
     <ol>
-  <li>Open the <strong>Parameters</strong> sidebar and confirm the <strong>Thinking</strong> toggle is on for this chat.</li>
-  <li>Make sure the model actually advertises the <code>thinking</code> capability — the tile in the Models tab shows a &ldquo;thinking&rdquo; badge if it does. Many tags of the same base model differ on this.</li>
-  <li>Thinking is <strong>Ollama-only</strong>. OpenAI providers ignore the toggle even when it&rsquo;s on.</li>
-</ol>
+      <li>Open the <strong>Parameters</strong> panel (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and confirm the <strong>Thinking</strong> toggle is on for this chat.</li>
+      <li>Make sure the model actually advertises the <code>thinking</code> capability - when it doesn&rsquo;t, the Thinking row in the panel is disabled with <em>This model doesn&rsquo;t support a thinking step</em>. Many tags of the same base model differ on this.</li>
+      <li>The Thinking toggle is <strong>Ollama-only</strong>. In a chat on an OpenAI-compatible provider it&rsquo;s disabled and reads off; a thinking block still appears there only if the server streams its reasoning as a separate <code>reasoning_content</code> field (some DeepSeek, vLLM and llama.cpp setups do).</li>
+    </ol>
 
-    <h2 id="missing-stats">Tokens-per-second or token count chip is missing</h2>
-    <p class="problem-statement">Some replies show a metrics chip; others don&rsquo;t.</p>
-    <p>Metrics are shown when the provider reports them. Most OpenAI-compatible proxies omit the timing fields, so chats against those backends will only show the token counts (or nothing).</p>
+    <h2 id="raw-tex">A formula shows as raw TeX instead of rendering</h2>
+    <p class="problem-statement">The reply contains <code>\frac{a}{b}</code> or similar and you see the source, not typeset math.</p>
+    <p>Which case it is:</p>
+    <ul>
+      <li><strong>Broken TeX renders as its own source</strong> on purpose, with the parse error on hover - that keeps a half-typed formula quiet while it streams rather than flashing an error. Hover it to see what KaTeX objected to.</li>
+      <li><strong><code>$&hellip;$</code> didn&rsquo;t typeset.</strong> Single dollars are treated as currency unless the span reads as math: it has to hug both delimiters, stay on one line and under 200 characters, not follow a word character, and not be chased by a digit. &ldquo;$5 and $10&rdquo; and &ldquo;US$5&rdquo; stay prose by design. Ask the model for <code>$$&hellip;$$</code>, <code>\(&hellip;\)</code> or a <code>```math</code> fence if you need the ambiguous case.</li>
+      <li><strong>Nothing renders at all.</strong> Math is always on, with no setting to find, so this is more likely a delimiter the model didn&rsquo;t emit - check the raw text via <strong>Copy message</strong>. Math inside backticks or a code fence (such as <code>```latex</code>) stays code on purpose; only <code>```math</code> fences typeset.</li>
+    </ul>
+    <p>See <a href="../features/math.html">LaTeX math</a> for the full rules.</p>
+
+    <h2 id="missing-stats">The metrics chip is missing or doesn&rsquo;t match my provider</h2>
+    <p class="problem-statement">A reply has no tokens-per-second chip, or its token count or speed doesn&rsquo;t line up with what the backend or your provider&rsquo;s dashboard reports.</p>
+    <ul>
+      <li><strong>No chip at all.</strong> The chip appears only once a reply finishes. Replies you stopped, ones cut short by <strong>Respond now</strong>, and ones that ended in an error don&rsquo;t get one.</li>
+      <li><strong>Different token count.</strong> The chip counts <strong>completion tokens only</strong> - not the prompt. Ollama reports the count itself; OpenAI-compatible endpoints only do so when they honour Loach&rsquo;s request for a usage report. Older proxies ignore it, and Loach then counts streamed chunks as an approximation.</li>
+      <li><strong>Different speed.</strong> When the backend reports no timing of its own (always the case on OpenAI-compatible endpoints), the rate is worked out from the wall clock, so it includes model loading and prompt processing.</li>
+    </ul>
+    <p>See <a href="../features/generation-stats.html">Generation stats</a> for what each number means.</p>
+
+    <h2 id="compaction">Compact context is greyed out or won&rsquo;t run</h2>
+    <p class="problem-statement">The <strong>Compact context</strong> button in the context-usage popover is disabled, or compacting shows an error.</p>
+    <ul>
+      <li><strong>Greyed out.</strong> The button needs at least six messages that haven&rsquo;t been compacted yet <em>and</em> a quarter of the context window in use. <code>/compact</code> only needs the six messages.</li>
+      <li><strong>&ldquo;Chat is busy&rdquo;.</strong> Wait for the chat&rsquo;s reply to finish (or for its queued prompt to run) first. Only one chat compacts at a time.</li>
+      <li><strong>&ldquo;Compaction failed&rdquo;.</strong> The summary is written by the chat&rsquo;s own model, so provider errors apply; a summary that takes more than three minutes is abandoned. Nothing in the chat changes, so you can try again - or <strong>Expand context window</strong> in the same popover instead.</li>
+    </ul>
+    <p>See <a href="../features/context-compaction.html">Context &amp; compaction</a>.</p>
 
     <h2 id="bad-output">Replies are off-topic, repetitive, or too short</h2>
     <p class="problem-statement">The model is technically responding but the quality is poor.</p>
-    <p>Open the <strong>Parameters</strong> sidebar:</p>
-<ul>
-  <li>Lower <strong>temperature</strong> for more focused answers, raise it for more variety.</li>
-  <li>Raise <strong>max tokens</strong> if the answer keeps cutting off.</li>
-  <li>Raise <strong>num_ctx</strong> if the model is forgetting earlier turns. Higher num_ctx uses more VRAM.</li>
-  <li>Increase <strong>repeat_penalty</strong> (try 1.1&ndash;1.3) if the model loops.</li>
-  <li>Click <strong>Reset to defaults</strong> in the panel header to discard per-chat overrides and fall back to the model&rsquo;s defaults.</li>
-</ul>
-
+    <p>Open the <strong>Parameters</strong> panel. <strong>Temperature</strong>, <strong>Max Tokens</strong> and <strong>Repeat Penalty</strong> only appear in its <strong>Advanced</strong> view:</p>
+    <ul>
+      <li>Lower <strong>Temperature</strong> for more focused answers, raise it for more variety.</li>
+      <li>Raise <strong>Max Tokens</strong> if the answer keeps cutting off.</li>
+      <li>Raise <strong>Context Length</strong> if the model is forgetting earlier turns. A longer context uses more VRAM.</li>
+      <li>Increase <strong>Repeat Penalty</strong> (default 1.1; try up to 1.3) if the model loops. On an OpenAI-compatible chat, Context Length and Repeat Penalty are ignored - use <strong>Frequency Penalty</strong> for loops instead.</li>
+      <li>Click <strong>Reset to defaults</strong> (or <strong>Reset to model defaults</strong>) below the sliders to discard per-chat overrides and fall back to the model&rsquo;s and app defaults.</li>
+    </ul>
+    <p>Check the chat&rsquo;s instructions too: in a Space with its own instructions, the chat&rsquo;s <strong>Additional instructions</strong> are ignored. See <a href="../features/parameters.html#system-prompt">Per-chat instructions</a>.</p>
     <div class="page-nav">
       <a href="providers-connections.html">
         <span class="label">Previous</span>

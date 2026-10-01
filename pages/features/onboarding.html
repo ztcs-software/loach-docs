@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Onboarding wizard — Loach Docs</title>
-  <meta name="description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, name, provider, prompt, features and start." />
+  <title>Onboarding wizard - Loach Docs</title>
+  <meta name="description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, provider, defaults, tools, custom instructions and start. The model recommendation is sized against your GPU." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/onboarding.html" />
-  <meta property="og:title" content="Onboarding wizard — Loach Docs" />
-  <meta property="og:description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, name, provider, prompt, features and start." />
+  <meta property="og:title" content="Onboarding wizard - Loach Docs" />
+  <meta property="og:description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, provider, defaults, tools, custom instructions and start. The model recommendation is sized against your GPU." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Onboarding wizard — Loach Docs" />
-  <meta name="twitter:description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, name, provider, prompt, features and start." />
+  <meta name="twitter:title" content="Onboarding wizard - Loach Docs" />
+  <meta name="twitter:description" content="On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, provider, defaults, tools, custom instructions and start. The model recommendation is sized against your GPU." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Onboarding wizard",
-      "description": "On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, name, provider, prompt, features and start.",
+      "description": "On first launch (and after a factory reset), Loach walks you through a six-step wizard: welcome, provider, defaults, tools, custom instructions and start. The model recommendation is sized against your GPU.",
       "url": "https://docs.loach.dev/pages/features/onboarding.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,29 +263,53 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Onboarding wizard</h1>
-    <p class="lead">A six-step wizard runs on first launch and after a factory reset. Each step writes its choice straight into settings, so closing the wizard part-way still leaves the app in a consistent state — you can finish setting things up from <strong>Settings</strong> later.</p>
+    <p class="lead">A six-step wizard runs on first launch and after a factory reset. Each step saves its own choices before moving on, so closing the wizard part-way still leaves the app in a consistent state - you can finish setting things up from <strong>Settings</strong> later.</p>
 
     <h2 id="steps">The steps</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">1. Welcome</strong> — a brief intro card. Click <em>Get started</em> to move on.</li>
-      <li><strong class="feat-name">2. Name</strong> — an optional display name. Once set, it is available as the <code>{{USER_NAME}}</code> template variable in any system prompt (custom instructions, Space instructions, snippets, per-chat overrides).</li>
-      <li><strong class="feat-name">3. Provider</strong> — the only required step. Pick Ollama and (optionally) install a suggested starter model, or add an OpenAI-compatible API key. Skipping with <kbd>Esc</kbd> or <em>&times;</em> here triggers a confirm dialog, because the app needs a provider before anything else can work.</li>
-      <li><strong class="feat-name">4. Prompt</strong> — the global <strong>Custom instructions</strong> textarea. Whatever you type here becomes the system prompt for every new chat (unless a Space or per-chat override wins).</li>
-      <li><strong class="feat-name">5. Features</strong> — toggle the default behaviour for Temporal awareness, Thinking, Web fetch and Low VRAM mode. The wizard ships with recommended defaults pre-selected (see below).</li>
-      <li><strong class="feat-name">6. Final</strong> — closes the wizard. You land in a fresh chat with the model dropdown auto-opened so you can pick a model and start typing immediately.</li>
+      <li><strong class="feat-name">1. Welcome</strong> - <em>Welcome to Loach</em> with a <strong>Get started</strong> button, plus <strong>Restore from backup</strong> for anyone arriving from another install with a <a href="data-management.html#export">full export</a> in hand. Restoring replaces the app&rsquo;s data with the backup&rsquo;s and reloads Loach, which then skips the rest of the wizard.</li>
+      <li><strong class="feat-name">2. Pick a provider</strong> - the only required step. Choose <strong>Ollama</strong> (local, marked <em>Recommended</em>) and, if you have no models yet, pull one sized to your machine - or <strong>OpenAI API</strong> for a cloud API or a local OpenAI-compatible server. A <strong>Provider</strong> switch flips between the two once you&rsquo;ve picked. <strong>Continue</strong> stays disabled, with a hint beside it, until Ollama has a model (or one is downloading) or the endpoint is verified. It sits second so a model download has the rest of the wizard to make progress.</li>
+      <li><strong class="feat-name">3. Pick your defaults</strong> - <a href="memory.html">Global memories</a>, <a href="temporal-awareness.html">Temporal awareness</a>, Thinking and <a href="low-vram.html">Low VRAM mode</a>. Whatever the switches show is saved whether you press <strong>Continue</strong> or <strong>Skip</strong>.</li>
+      <li><strong class="feat-name">4. Give the model some tools</strong> - <a href="web-fetch.html">Web fetch</a>, a row for <a href="mcp.html">MCP servers</a> with no switch (it explains them and points you to <strong>Settings &rarr; MCP</strong>), and the thirteen <a href="built-in-tools.html">built-in tools</a>, with a switch per tool and <strong>All OFF</strong> / <strong>Recommended</strong> / <strong>All ON</strong> presets. Collapse the list and its footer still says how many are on.</li>
+      <li><strong class="feat-name">5. Add custom instructions</strong> - the global <a href="custom-instructions.html">Custom instructions</a> textarea. Whatever you type here becomes the system prompt for every new chat unless a Space or per-chat override wins. <strong>Display an example</strong> shows a starter prompt with a <strong>Use this example</strong> link, and lists the template variables <code>{{CURRENT_DATE}}</code>, <code>{{CURRENT_TIME}}</code> and <code>{{USER_NAME}}</code>. <strong>Continue</strong> saves the text; <strong>Skip</strong> leaves your instructions as they were.</li>
+      <li><strong class="feat-name">6. Final</strong> - <em>You&rsquo;re all set</em> and a <strong>Start chatting</strong> button. You land in a fresh chat with the model dropdown auto-opened so you can pick a model and start typing immediately. If a model is still downloading, the screen says <em>Setup complete</em> instead, promises to tell you when the model is ready, and the button reads <strong>Explore Loach</strong>.</li>
     </ul>
+    <p>Every step after the welcome screen has a <strong>Back</strong> button (on <em>Pick a provider</em>, only until you&rsquo;ve chosen a path), and dots along the bottom show how far along you are.</p>
+    <p>The wizard does not ask for a display name. <code>{{USER_NAME}}</code> still resolves from <strong>Settings &rarr; General</strong>; it simply is not collected up front, because the value only pays off once you write it into a custom instruction.</p>
 
     <h2 id="recommended-defaults">Recommended defaults</h2>
-    <p>On the Features step, Loach pre-selects the toggle states that make sense for most people:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Temporal awareness</strong> — on. Models get a small &ldquo;today is&hellip;&rdquo; preamble so they can answer &ldquo;what day is it?&rdquo; correctly.</li>
-      <li><strong class="feat-name">Thinking</strong> — on. Reasoning-capable models stream their thought process into a collapsible block.</li>
-      <li><strong class="feat-name">Web fetch</strong> — on. URLs in your prompts are downloaded and inlined.</li>
-      <li><strong class="feat-name">Low VRAM</strong> — off. Only enable it if your machine is constrained.</li>
+      <li><strong class="feat-name">Global memories</strong> - off. When on, every reply triggers a second, hidden call to the chat&rsquo;s model that notes lasting facts about you, and those facts go with every chat - local or cloud provider alike. Private Chat never uses memory. See <a href="memory.html">Memory</a>.</li>
+      <li><strong class="feat-name">Temporal awareness</strong> - on. Every chat gets the current date, weekday and timezone so the model can answer &ldquo;what day is it?&rdquo; correctly.</li>
+      <li><strong class="feat-name">Thinking</strong> - on. This is the default for the per-chat Thinking toggle. It only affects thinking-capable Ollama models; other providers ignore it.</li>
+      <li><strong class="feat-name">Low VRAM mode</strong> - off. When on, it forces Ollama&rsquo;s low-VRAM mode for every chat, overriding the per-chat toggle. Only enable it if your machine is constrained; OpenAI-compatible providers ignore it.</li>
+      <li><strong class="feat-name">Built-in tools</strong> - the <strong>Recommended</strong> preset: everything on except the four only a developer asks for (<strong>Hash</strong>, <strong>UUID</strong>, <strong>Base64</strong>, <strong>IP / CIDR</strong>) and <strong>Workspace files</strong>, which switches itself on the first time you <a href="work-in-folders.html">add a folder to a chat</a>. Because the screen <em>shows</em> a selection, <strong>Continue</strong> saves the tools exactly as displayed, while <strong>Skip</strong> saves only what you explicitly flipped - skipping past is not consent to the recommended set.</li>
+      <li><strong class="feat-name">Web fetch</strong> - off. It is exempt from the presets and only ever saved when you touch it, being the one switch here that reaches the network on your behalf.</li>
     </ul>
 
+    <h2 id="model-recommendation">Choosing a model</h2>
+    <p>When Ollama is running but has no models, the provider step reads your machine&rsquo;s capacity and leads with a single <strong>Recommended for this machine</strong> card - the largest catalog entry that runs comfortably and fits your free disk space - with a <strong>Pull this one</strong> button, instead of asking a newcomer to pick blind from a dozen tags. When nothing runs comfortably it suggests the smallest download that fits on disk, and when nothing fits on disk it points at the smallest download overall. The card names the numbers it used, for example &ldquo;Based on 8.0 GB VRAM · NVIDIA GeForce RTX 4060 · 120 GB free on disk&rdquo;.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Sized against VRAM</strong> whenever a discrete GPU is present, since that is what decides whether a model is usable: Ollama loads what fits on the card and runs the rest on the CPU, so a model that &ldquo;fits in RAM&rdquo; can still crawl. Windows reads dedicated video memory for any vendor; Linux reads <code>nvidia-smi</code>, then the amdgpu sysfs node (Intel Arc falls back to RAM); macOS deliberately uses system RAM, because Apple Silicon shares it with the GPU. Adapters under 1 GB - and, on Windows, any adapter that reports unified memory - count as integrated graphics and are ignored. Anything unreadable falls back to RAM.</li>
+      <li><strong class="feat-name">A verdict on every row</strong> - <em>Runs well</em> (green, with a tick), <em>Runs OK</em> (fits with little headroom), <em>Runs slowly</em> (a dense model exceeding VRAM but fitting RAM), <em>Too big for this machine</em>, or <em>Not enough disk space</em>, which also disables that row&rsquo;s <strong>Pull</strong> button. Numbers and mechanics live in the tooltips.</li>
+      <li><strong class="feat-name">Honest about architecture</strong> - the memory need is modelled, not equated with the download. Models that keep part of themselves off the accelerator (Gemma&rsquo;s E-variants) are judged by their resident footprint, and mixture-of-experts models split across GPU and RAM are reported as running well, because only a few billion parameters run per token.</li>
+      <li><strong class="feat-name">A short catalog</strong> - six families (Gemma 4, Qwen 3.5, Qwen 3.6, Qwen 3.8, Nemotron 3.5 Lightning and Muse Glimmer), collapsed by default, each listing its parameter sizes with an approximate download size and a link to its ollama.com page.</li>
+      <li><strong class="feat-name">Not a restriction</strong> - every catalog entry stays pullable and the <strong>Pull a custom tag</strong> field takes any tag from ollama.com/library (<strong>Have a specific tag in mind?</strong> jumps to it). The badges are advice.</li>
+    </ul>
+    <p>If the recommendation looks wrong for your hardware, see <a href="../troubleshooting/performance.html#onboarding-sizing">Onboarding sized my machine wrong</a>.</p>
+    <p>Neither provider path pins a default model silently. When Ollama already has models, the step reports how many it found and shows them in a <strong>Default model</strong> picker, pre-set to the first one; the OpenAI path does the same with the endpoint&rsquo;s catalog (see below). Either way you can change the pick here or later from the model dropdown.</p>
+
+    <h2 id="openai-path">Connecting an OpenAI-compatible endpoint</h2>
+    <p>The <strong>OpenAI API</strong> path asks for a <strong>Base URL</strong> (defaults to <code>https://api.openai.com/v1</code>; change it for vLLM, LM Studio, LiteLLM or any OpenAI-compatible proxy) and an <strong>API key</strong>. The key is optional: local servers such as LM Studio usually need none, so leave it blank. <strong>Verify &amp; save</strong> stores the key in your OS credential manager and lists the endpoint&rsquo;s models to prove the connection works; if that fails, the key is removed again and the error is shown, so a bad key never stays saved. On success you see <em>Connection verified</em> and a <strong>Default model</strong> picker ranked so chat models come first - embedding, audio, image and moderation models go to the bottom.</p>
+
+    <h2 id="downloads">Downloads that outlive the wizard</h2>
+    <p>Starting a pull pins that model as your default and unlocks <strong>Continue</strong> right away, so you can finish setup while it downloads. A progress strip pinned to the bottom of every remaining step shows each pull, with a stop button per download - Ollama keeps the layers it already fetched, so a re-pull resumes from them. Finished pulls stay listed as <em>Downloaded</em> or <em>Failed</em> rather than vanishing. In the chat itself a banner above the composer tracks the same download, and sending to a model that is still downloading is refused with a clear &ldquo;still downloading (43%)&rdquo; message rather than a confusing not-found error.</p>
+
+    <h2 id="ollama-not-running">When Ollama is not reachable</h2>
+    <p>The provider step shows <em>Ollama isn&rsquo;t reachable</em> with three buttons: <strong>Start Ollama</strong>, <strong>Download Ollama</strong> (opens ollama.com) and <strong>Change URL</strong>, for an Ollama on another port or machine. It offers to start Ollama before suggesting a download, since &ldquo;installed but not running&rdquo; and &ldquo;not installed&rdquo; look identical from a failed probe - if the start fails, its error (such as not finding the Ollama executable) tells the two apart. Loach can only start Ollama on this computer. The panel also re-checks every 3 seconds in the background, so if you leave to install Ollama you come back to a green panel instead of a stale warning.</p>
+
     <h2 id="dismissing">Dismissing and resuming</h2>
-    <p>Press <kbd>Esc</kbd> or click <em>&times;</em> on any step to close the wizard. Steps you have completed stay completed; the rest can be filled in later from <strong>Settings</strong>. The wizard does not re-appear on subsequent launches unless you run a factory reset (see <a href="data-management.html">Data management</a>).</p>
+    <p>Press <kbd>Esc</kbd> or click <em>&times;</em> on any step to close the wizard. On <em>Pick a provider</em> it asks first - <em>Skip setup?</em> with <strong>Keep configuring</strong> and <strong>Skip anyway</strong> - because the app needs a provider before you can chat; you can set one up later in <strong>Settings &rarr; Providers</strong>. Steps you have completed stay saved, but the step you close on is not: its switches only save on <strong>Continue</strong> or <strong>Skip</strong>. Either way you land in a new, empty chat, and the wizard does not re-appear on later launches unless you run a <a href="data-management.html#factory-reset">factory reset</a>.</p>
     <div class="page-nav">
       <a href="ota-updates.html">
         <span class="label">Previous</span>

@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>Context &amp; compaction - Loach Docs</title>
+  <meta name="description" content="A context-usage bar shows how full the model's window is, with a per-part breakdown. Compact context summarises older turns into the system prompt to free space without losing scrollback." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/context-compaction.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/context-compaction.html" />
+  <meta property="og:title" content="Context &amp; compaction - Loach Docs" />
+  <meta property="og:description" content="A context-usage bar shows how full the model's window is, with a per-part breakdown. Compact context summarises older turns into the system prompt to free space without losing scrollback." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="Context &amp; compaction - Loach Docs" />
+  <meta name="twitter:description" content="A context-usage bar shows how full the model's window is, with a per-part breakdown. Compact context summarises older turns into the system prompt to free space without losing scrollback." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "Context & compaction",
+          "item": "https://docs.loach.dev/pages/features/context-compaction.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "Context & compaction",
+      "description": "A context-usage bar shows how full the model's window is, with a per-part breakdown. Compact context summarises older turns into the system prompt to free space without losing scrollback.",
+      "url": "https://docs.loach.dev/pages/features/context-compaction.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/context-compaction.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,57 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>Context usage &amp; compaction</h1>
+    <p class="lead">A slim <strong>context-usage bar</strong> sits just below the message box and shows how much of the model&rsquo;s context window the chat is using. When a conversation grows long, <strong>Compact context</strong> frees space without throwing away your scrollback.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
-
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="usage-bar">The context-usage bar</h2>
+    <p>The bar appears once a chat has messages. It reports <code>used / total</code> tokens and a percentage, and turns amber from 70% and red from 90%. Click it for a popover that breaks the estimate down:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
+      <li><strong class="feat-name">System prompt</strong> - this chat&rsquo;s own instructions (or your global Custom instructions), including any compaction summary.</li>
+      <li><strong class="feat-name">Project instructions (LOACHFILE.md)</strong> - shown when the chat has a <a href="work-in-folders.html#loachfile">folder</a> with a <code>LOACHFILE.md</code> and <strong>Workspace files</strong> is on.</li>
+      <li><strong class="feat-name">Memories</strong> - the global and Space <a href="memory.html#what-the-model-sees">memory</a> facts that ride along with each turn, when there are any.</li>
+      <li><strong class="feat-name">Messages</strong> - the back-and-forth so far, with a count. <em>Of which attachments</em> calls out how much of that is attached files.</li>
+      <li><strong class="feat-name">Window</strong> and <strong>Remaining</strong> - the chat&rsquo;s context length and what&rsquo;s left of it.</li>
     </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
+    <p>It&rsquo;s an estimate - about four characters per token - so actual counts vary by model. A Space&rsquo;s own instructions and reference files aren&rsquo;t counted, and neither are the persona and tone. The window is the chat&rsquo;s <a href="parameters.html#ref-length">Context Length</a> setting; an OpenAI-compatible server picks its own window, so on those chats treat the percentage as a rough guide.</p>
+    <p><strong>Expand context window</strong> at the bottom of the popover doubles this chat&rsquo;s Context Length - for example from 8K to 16K. On Ollama a bigger window uses more VRAM.</p>
 
-    <h2 id="limits">Limits</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
-    </ul>
+    <h2 id="compact">Compact context</h2>
+    <p>Press <strong>Compact context</strong> in the bar&rsquo;s popover, or use the <code>/compact</code> <a href="slash-commands.html">slash command</a>. Loach asks the chat&rsquo;s own model to summarise the older turns as short bullet points - your goals, decisions, key facts and open threads - and keeps that summary with the chat&rsquo;s instructions. The four most recent messages stay as they are; everything before them is replaced, for the model, by the summary.</p>
+    <p>The original messages aren&rsquo;t deleted. They stay in the transcript for scrollback above an <strong>Earlier messages compacted</strong> divider - click it to read the summary - but are dropped from what the model sees on the next turn, so the freed context goes to new conversation. Compacting again later folds the previous summary into the new one, so older context carries forward.</p>
 
-    <h2 id="safety">Safety guards</h2>
+    <h3 id="when-available">When you can compact</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
+      <li><strong class="feat-name">The popover button</strong> - enabled once the chat has at least six messages that haven&rsquo;t been compacted yet and at least a quarter of the window is in use.</li>
+      <li><strong class="feat-name"><code>/compact</code></strong> - only needs the six messages.</li>
+      <li><strong class="feat-name">Not while busy</strong> - a chat whose reply is streaming or waiting in the queue can&rsquo;t be compacted, and only one chat compacts at a time.</li>
+      <li><strong class="feat-name">Three-minute limit</strong> - if the model hasn&rsquo;t finished the summary by then, compaction fails with a notice and the chat is left as it was.</li>
     </ul>
 
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <h3 id="summary-and-instructions">Where the summary lives</h3>
+    <p>The summary is stored with the chat&rsquo;s own instructions, so you can read - and edit - it in the <a href="parameters.html#system-prompt">Additional instructions</a> box of the parameters panel, between <code>[Loach: earlier conversation summary]</code> markers. It doesn&rsquo;t count as an instruction, though: it rides along with whichever instructions apply - a Space&rsquo;s, the chat&rsquo;s own, or your global <a href="custom-instructions.html">Custom instructions</a> - so compacting a chat never switches those off. Setting or clearing instructions with <code>/instructions</code> keeps the summary in place.</p>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Your transcript is safe</div>
+        <p>Compaction only changes what the <em>model</em> receives on the next turn. Nothing is removed from your side of the conversation, and you can keep scrolling back through everything that was said.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">A compact copy without compacting</div>
+        <p><strong>Export context</strong> in the chat header has its own <strong>Compact context</strong> switch: it summarises the whole conversation into a shorter Markdown export and leaves the chat untouched. See <a href="import-export.html#export">Import and export context</a>.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="slash-commands.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; Slash commands</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="pinned-responses.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Pinned responses &rarr;</span>
       </a>
     </div>
 

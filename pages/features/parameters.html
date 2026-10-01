@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Per-chat parameters — Loach Docs</title>
+  <title>Per-chat parameters - Loach Docs</title>
   <meta name="description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/parameters.html" />
-  <meta property="og:title" content="Per-chat parameters — Loach Docs" />
+  <meta property="og:title" content="Per-chat parameters - Loach Docs" />
   <meta property="og:description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Per-chat parameters — Loach Docs" />
+  <meta name="twitter:title" content="Per-chat parameters - Loach Docs" />
   <meta name="twitter:description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -261,83 +264,87 @@
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Per-chat parameters</h1>
     <p class="lead">Every chat has a slide-out <strong>Parameters</strong> panel on the right of the window. It exposes the knobs the provider offers and remembers per-chat overrides so you can dial each conversation independently.</p>
+    <p>Open it with the sliders button at the right end of the chat header, or press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>; the same shortcut closes it.</p>
 
     <h2 id="simple-advanced">Simple and Advanced modes</h2>
     <p>The panel has two views:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Simple</strong> — max tokens, num_ctx, seed, the Thinking toggle, the Low VRAM toggle, and a per-chat system prompt textarea. Deliberately terse so the common knobs are reachable without scrolling.</li>
-      <li><strong class="feat-name">Advanced</strong> — adds temperature, top_p, top_k, min_p, repeat_penalty, frequency and presence penalties, GPU layer count, and everything else the provider exposes.</li>
+      <li><strong class="feat-name">Simple</strong> - the Thinking toggle, Context Length, the Low VRAM toggle, persona, tone and the per-chat <strong>Additional instructions</strong> box. Deliberately terse so the common knobs are reachable without scrolling.</li>
+      <li><strong class="feat-name">Advanced</strong> - adds Temperature, Top-P, Top-K, Min-P, Max Tokens, Repeat Penalty, Frequency and Presence Penalty, GPU Layers and Seed.</li>
     </ul>
-    <p>Switch between them at the top of the panel. Values you set in Simple stay set when you flip to Advanced and vice versa.</p>
-    <p>The same panel is reused by <a href="private-chat.html">Private Chat</a> with the same Simple / Advanced split — it just closes and wipes along with the overlay.</p>
+    <p>Switch between them at the top of the panel; Loach remembers the view you used last. Values you set in one view stay set in the other. Just below the switch, a short line says where the values come from - the model&rsquo;s Modelfile defaults, the app defaults, or <em>Custom - adjusted for this chat</em> once you have changed something.</p>
+    <p><a href="private-chat.html">Private Chat</a> has its own copy of the Simple view (there is no Advanced view there), and it is wiped along with the rest of the overlay.</p>
 
     <h2 id="cascade">How the values cascade</h2>
     <p>What a chat actually sends to the model is a merge of several layers. From broadest to narrowest, with later layers winning:</p>
     <ol>
-      <li><strong>App defaults</strong> — a sensible universal fallback (for example, temperature 0.7, top_p 0.95).</li>
-      <li><strong>Model defaults</strong> — parsed from the Ollama Modelfile&rsquo;s PARAMETER block. Cached after the first chat with that model so subsequent loads are instant.</li>
-      <li><strong>Per-model preferences</strong> — e.g. the Thinking preference you set in the <a href="model-management.html">Models editor</a>.</li>
-      <li><strong>Space defaults</strong> — if the chat belongs to a <a href="spaces.html">Space</a> with its own pinned parameters.</li>
-      <li><strong>Per-chat overrides</strong> — what the sliders in <em>this</em> panel save.</li>
-      <li><strong>Global app overrides</strong> — for example the Settings &rarr; Features Low VRAM pin, which forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
+      <li><strong>App defaults</strong> - a universal fallback: temperature 0.7, top-p 0.95, top-k 40, min-p 0.05, max tokens 4096, context length 8K, repeat penalty 1.1, no frequency or presence penalty, and a random seed.</li>
+      <li><strong>Global Thinking default</strong> - the <strong>Settings → Features → Thinking</strong> switch (Ollama only).</li>
+      <li><strong>Model defaults</strong> - the <code>PARAMETER</code> lines of the Ollama model&rsquo;s Modelfile (temperature, top-p, top-k, min-p, <code>num_predict</code>, <code>num_ctx</code>, <code>num_gpu</code>, the penalties and seed). Read from Ollama when the chat uses the model, and cached while Loach runs.</li>
+      <li><strong>Per-model Thinking preference</strong> - the toggle you set in the <a href="model-management.html">Models editor</a>. It lasts until Loach restarts.</li>
+      <li><strong>Per-chat overrides</strong> - what you change in <em>this</em> panel (or with <code>/thinking on|off</code>).</li>
+      <li><strong>Global Low VRAM pin</strong> - <strong>Settings → Features → Low VRAM mode</strong> forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
     </ol>
-    <p>A <strong>Reset to defaults</strong> button in the panel header clears the per-chat overrides and falls back to the merged defaults.</p>
+    <p>Changing any value saves the whole set you see as this chat&rsquo;s overrides, so switching the chat to another model later doesn&rsquo;t quietly shift them. The <strong>Reset to defaults</strong> button below the sliders - labelled <strong>Reset to model defaults</strong> when the model ships Modelfile defaults - drops the chat&rsquo;s overrides and falls back to the layers above. It stays greyed out until something has been overridden.</p>
 
     <h2 id="settings-reference">Settings reference</h2>
-    <p>A short description of every knob the panel exposes, grouped by what it affects. Anything tagged <em>Ignored by OpenAI providers</em> is sent to Ollama only — OpenAI-compatible endpoints decide that knob server-side.</p>
+    <p>A short description of every knob the panel exposes, grouped the way the panel groups them. Anything tagged <em>Ignored by OpenAI providers</em> is sent to Ollama only - OpenAI-compatible endpoints decide that knob server-side, and the panel dims it on those chats. Temperature, Top-P, Max Tokens, both penalties and Seed are sent to either kind of provider.</p>
 
     <h3 id="ref-thinking">Thinking</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Thinking</strong> — lets the model reason step-by-step before replying. Adds latency on long answers but often improves quality on complex prompts. Only takes effect on models that advertise thinking capability; ignored by OpenAI providers (their chain-of-thought is internal).</li>
+      <li><strong class="feat-name">Thinking</strong> - lets the model reason step-by-step before replying. Adds latency on long answers but often improves quality on complex prompts. Only takes effect on models that advertise thinking capability; ignored by OpenAI providers. See <a href="#thinking">Thinking toggle</a>.</li>
     </ul>
 
     <h3 id="ref-sampling">Sampling</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Temperature <code>0&ndash;1</code></strong> — controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that.</li>
-      <li><strong class="feat-name">Top-P <code>0&ndash;1</code></strong> — nucleus sampling. The model picks from the smallest set of tokens whose probabilities sum to this value. Lower = more on-track; higher = more variety.</li>
-      <li><strong class="feat-name">Top-K <code>0&ndash;200</code></strong> — only consider the K most likely tokens at each step. Lower is more focused; <code>0</code> disables the cap. Ignored by OpenAI providers.</li>
-      <li><strong class="feat-name">Min-P <code>0&ndash;0.5</code></strong> — drops any token whose probability is below this fraction of the top token&rsquo;s. A robust alternative to tuning Top-P/Top-K. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Temperature <code>0&ndash;1</code></strong> - controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that.</li>
+      <li><strong class="feat-name">Top-P <code>0&ndash;1</code></strong> - nucleus sampling. The model picks from the smallest set of tokens whose probabilities sum to this value. Lower = more on-track; higher = more variety.</li>
+      <li><strong class="feat-name">Top-K <code>0&ndash;200</code></strong> - only consider the K most likely tokens at each step. Lower is more focused; <code>0</code> disables the cap. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Min-P <code>0&ndash;0.5</code></strong> - drops any token whose probability is below this fraction of the top token&rsquo;s. A robust alternative to tuning Top-P/Top-K. Ignored by OpenAI providers.</li>
     </ul>
 
     <h3 id="ref-length">Length</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Context Length</strong> (<code>num_ctx</code>) — how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K &rarr; 1M). Ignored by OpenAI providers — the server decides.</li>
-      <li><strong class="feat-name">Max Tokens <code>128&ndash;32768</code></strong> — hard cap on the length of a single reply. Generation stops here even if the model isn&rsquo;t finished.</li>
+      <li><strong class="feat-name">Context Length</strong> (<code>num_ctx</code>) - how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K &rarr; 1M). Ignored by OpenAI providers - the server decides. The <a href="context-compaction.html">context-usage bar</a> measures against this value, and its <strong>Expand context window</strong> button doubles it.</li>
+      <li><strong class="feat-name">Max Tokens <code>128&ndash;32768</code></strong> - hard cap on the length of a single reply. Generation stops here even if the model isn&rsquo;t finished.</li>
     </ul>
 
     <h3 id="ref-repetition">Repetition</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Repeat Penalty <code>0.8&ndash;2.0</code></strong> — penalizes tokens the model has just used, discouraging loops. <code>1.0</code> is off; much above <code>1.3</code> starts to sound robotic. Ignored by OpenAI providers.</li>
-      <li><strong class="feat-name">Frequency Penalty <code>&minus;2 to 2</code></strong> — pushes down tokens in proportion to how often they&rsquo;ve already appeared in this reply. Negative values encourage repetition instead.</li>
-      <li><strong class="feat-name">Presence Penalty <code>&minus;2 to 2</code></strong> — flat one-time penalty for any token that has already appeared. Nudges the model toward fresh vocabulary and new topics.</li>
+      <li><strong class="feat-name">Repeat Penalty <code>0.8&ndash;2.0</code></strong> - penalizes tokens the model has just used, discouraging loops. <code>1.0</code> is off; much above <code>1.3</code> starts to sound robotic. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Frequency Penalty <code>&minus;2 to 2</code></strong> - pushes down tokens in proportion to how often they&rsquo;ve already appeared in this reply. Negative values encourage repetition instead.</li>
+      <li><strong class="feat-name">Presence Penalty <code>&minus;2 to 2</code></strong> - flat one-time penalty for any token that has already appeared. Nudges the model toward fresh vocabulary and new topics.</li>
     </ul>
 
     <h3 id="ref-performance">Performance</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">GPU Layers</strong> (<code>num_gpu</code>) — how many model layers to offload to the GPU. Blank = Ollama auto-detects; <code>0</code> = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). Ignored by OpenAI providers.</li>
-      <li><strong class="feat-name">Low VRAM</strong> — trades throughput for footprint (smaller batches, leaner KV cache). Flip on when you&rsquo;re hitting OOMs and <code>num_gpu</code> alone isn&rsquo;t enough. Can be pinned on globally in <strong>Settings &rarr; Features</strong>, which forces the per-chat toggle on. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">GPU Layers</strong> (<code>num_gpu</code>) - how many model layers to offload to the GPU. Blank = Ollama auto-detects; <code>0</code> = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). The clear button next to the field goes back to auto-detect. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">Low VRAM</strong> - trades throughput for footprint (smaller batches, leaner KV cache). Flip on when you&rsquo;re hitting OOMs and <code>num_gpu</code> alone isn&rsquo;t enough. Can be pinned on globally in <strong>Settings → Features</strong>, which forces the per-chat toggle on. Ignored by OpenAI providers.</li>
     </ul>
 
     <h3 id="ref-reproducibility">Reproducibility</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Seed</strong> — a fixed integer makes the model&rsquo;s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place.</li>
+      <li><strong class="feat-name">Seed</strong> - a fixed integer makes the model&rsquo;s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place, and the clear button goes back to random.</li>
     </ul>
 
     <h3 id="ref-prompt-layering">Prompt layering</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Persona</strong> — defines the assistant&rsquo;s role (e.g. <em>Code Reviewer</em>, <em>Writing Editor</em>). Layered into the system prompt at send time. See <a href="personas.html">Personas and tones</a>.</li>
-      <li><strong class="feat-name">Tone</strong> — style modifier appended after the system prompt. Falls back to the global default (<strong>Settings &rarr; General</strong>) when not set per chat.</li>
-      <li><strong class="feat-name">Additional instructions (this chat)</strong> — free-form per-chat system prompt text. Sits between the persona and the tone. Empty falls back to the global <a href="custom-instructions.html">custom instructions</a>.</li>
+      <li><strong class="feat-name">Persona</strong> - defines the assistant&rsquo;s role (e.g. <em>Code Reviewer</em>, <em>Writing Editor</em>). Layered into the system prompt at send time. See <a href="personas.html">Personas and tones</a>.</li>
+      <li><strong class="feat-name">Tone</strong> - style modifier appended after the system prompt. Falls back to the global default (<strong>Settings → General</strong>) when not set per chat.</li>
+      <li><strong class="feat-name">Additional instructions (this chat)</strong> - free-form instructions for this chat. Sits between the persona and the tone. Empty falls back to the global <a href="custom-instructions.html">custom instructions</a>. See <a href="#system-prompt">Per-chat instructions</a>.</li>
     </ul>
 
     <h2 id="thinking">Thinking toggle</h2>
-    <p>Visible for Ollama models whose capabilities include <code>thinking</code>. It sets the <code>think</code> parameter on the chat request and is ignored by OpenAI-compatible providers. The default for new chats comes from <strong>Settings &rarr; Features &rarr; Thinking</strong>.</p>
+    <p>The Thinking row is always shown, but it only switches on for Ollama models whose capabilities include <code>thinking</code>. On other models it is disabled with <em>This model doesn&rsquo;t support a thinking step</em>; on OpenAI-compatible chats it is disabled and reads off. It sets the <code>think</code> parameter on the chat request.</p>
+    <p>The default comes from <strong>Settings → Features → Thinking</strong>, which is on out of the box; a per-model preference from the Models editor or this chat&rsquo;s toggle wins over it. Type <code>/thinking on</code> or <code>/thinking off</code> in the composer to flip it for the current chat without opening the panel.</p>
 
     <h2 id="low-vram">Low VRAM toggle</h2>
-    <p>Ollama-only. Forces smaller batches and a leaner KV cache — useful when you are tight on GPU memory. The per-chat toggle is overridden if <strong>Settings &rarr; Features &rarr; Low VRAM mode</strong> is enabled globally; in that case the panel shows the toggle pinned and disabled with a pointer back to the global setting. See <a href="low-vram.html">Low VRAM mode</a>.</p>
+    <p>Ollama-only. Forces smaller batches and a leaner KV cache - useful when you are tight on GPU memory. The per-chat toggle is overridden if <strong>Settings → Features → Low VRAM mode</strong> is enabled globally; in that case the panel shows the toggle pinned on and disabled with a pointer back to the global setting. See <a href="low-vram.html">Low VRAM mode</a>.</p>
 
-    <h2 id="system-prompt">Per-chat system prompt</h2>
-    <p>The textarea at the bottom of the Simple view sets a system prompt for this chat only. It overrides any global <a href="custom-instructions.html">custom instructions</a> and Space-level instructions for the chat it lives in.</p>
+    <h2 id="system-prompt">Per-chat instructions</h2>
+    <p>The <strong>Additional instructions (this chat)</strong> box at the bottom of the panel holds instructions for this chat only; it saves when you click away. They replace your global <a href="custom-instructions.html">custom instructions</a> for this chat. A new chat starts with a copy of the global instructions in this box, so editing the global ones later only reaches chats you start afterwards - empty the box to make an existing chat follow the current global instructions. In a <a href="spaces.html">Space</a> that has its own instructions, the Space&rsquo;s instructions are used instead and this box is ignored.</p>
+    <p>From the composer, <code>/instructions &lt;text&gt;</code> sets the box, a bare <code>/instructions</code> shows what&rsquo;s in it, and <code>/instructions clear</code> empties it.</p>
+    <p>After you <a href="context-compaction.html">compact</a> a chat, its summary is kept in this box between <code>[Loach: earlier conversation summary]</code> and <code>[End of Loach summary]</code> markers. The summary still reaches the model inside a Space and alongside your global instructions, and <code>/instructions</code> leaves it in place. Delete it only if you want the model to lose that context.</p>
     <div class="page-nav">
       <a href="model-management.html">
         <span class="label">Previous</span>

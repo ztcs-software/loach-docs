@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Search palette — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot the Loach search palette when Ctrl+K does nothing." />
+  <title>Search palette - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/search-palette.html" />
-  <meta property="og:title" content="Search palette — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot the Loach search palette when Ctrl+K does nothing." />
+  <meta property="og:title" content="Search palette - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Search palette — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot the Loach search palette when Ctrl+K does nothing." />
+  <meta name="twitter:title" content="Search palette - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Search palette — Troubleshooting",
+          "name": "Search palette - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/search-palette.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Search palette — Troubleshooting",
-      "description": "Troubleshoot the Loach search palette when Ctrl+K does nothing.",
+      "headline": "Search palette - Troubleshooting",
+      "description": "Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found.",
       "url": "https://docs.loach.dev/pages/troubleshooting/search-palette.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -261,11 +264,29 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>Search palette</h1>
-    <p class="lead">The global search shortcut is intentionally suppressed in a couple of modal contexts.</p>
+    <p class="lead">The search shortcuts are intentionally suppressed in a few modal contexts, and message search deliberately skips a few kinds of content.</p>
 
     <h2 id="shortcut-dead">Ctrl+K does nothing</h2>
     <p class="problem-statement">The shortcut doesn&rsquo;t open the global search.</p>
-    <p>The palette is suppressed while the <strong>onboarding wizard</strong> or the <strong>lock screen</strong> owns the window. Finish onboarding or unlock the app first.</p>
+    <p>The palette is suppressed while the <strong>onboarding wizard</strong>, the <strong>lock screen</strong> or <strong>Private Chat</strong> owns the window - the title-bar search pill is disabled or hidden then too. Finish onboarding, unlock the app or close Private Chat first.</p>
+
+    <h2 id="phrase-not-found">Search doesn&rsquo;t find a phrase I know I wrote</h2>
+    <p class="problem-statement">You remember the wording, but the palette returns nothing - or only chat titles.</p>
+    <p>Message search covers live transcripts, and deliberately skips several things:</p>
+<ul>
+  <li><strong>Archived chats.</strong> The archive has no search of its own - unarchive the chat from <strong>Settings &rarr; Archive</strong> to bring it back into scope.</li>
+  <li><strong>Private Chat.</strong> It never writes to the database, so nothing from it is searchable by design.</li>
+  <li><strong>Text inside an attachment or a fetched page.</strong> Those bodies are inlined into the message but not displayed in the bubble, so a hit there would jump nowhere. Open the attachment instead.</li>
+  <li><strong>A reply&rsquo;s thinking trace.</strong> Only the reply itself is searched.</li>
+  <li><strong>Imported turns you hid from the transcript.</strong> Expanding the collapsed card shows them, but there&rsquo;s no un-hide - they stay out of both this search and the in-chat finder. Re-import without <em>Hide from transcript</em> if you need them findable.</li>
+  <li><strong>System notices</strong>, which aren&rsquo;t conversation.</li>
+</ul>
+<p>Two more things to check: the query needs at least <strong>two characters</strong>, and case-insensitivity in message search is ASCII-only - a query with accented or non-Latin characters matches transcript text at its own case but not across cases. Try the exact casing you used.</p>
+<p>If titles crowd out what you want, narrow with the scope dropdown or type <code>in:messages</code> in the query - scoped to messages, transcript hits get the whole list instead of a reserved block at the bottom. See <a href="../features/search.html">Search</a>.</p>
+
+    <h2 id="find-dead">Ctrl+F does nothing</h2>
+    <p class="problem-statement">The in-chat finder doesn&rsquo;t open.</p>
+    <p>The finder searches the open chat&rsquo;s transcript, so it needs a chat with at least one message on screen - nothing happens on a new, empty chat or while the Spaces, Snippets or Models view is showing. Like the palette, it&rsquo;s unavailable in Private Chat, during onboarding and behind the lock screen. You can also open it with <strong>Search in chat</strong> in the chat header&rsquo;s <code>&hellip;</code> menu.</p>
 
     <div class="page-nav">
       <a href="appearance.html">

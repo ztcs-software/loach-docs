@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>Built-in tools - Loach Docs</title>
+  <meta name="description" content="Local utilities the model can call mid-answer - calculate, datetime, hash, uuid, json, unit_convert, PDF generation and more. Each toggles in Settings → Tools and all are off by default." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/built-in-tools.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/built-in-tools.html" />
+  <meta property="og:title" content="Built-in tools - Loach Docs" />
+  <meta property="og:description" content="Local utilities the model can call mid-answer - calculate, datetime, hash, uuid, json, unit_convert, PDF generation and more. Each toggles in Settings → Tools and all are off by default." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="Built-in tools - Loach Docs" />
+  <meta name="twitter:description" content="Local utilities the model can call mid-answer - calculate, datetime, hash, uuid, json, unit_convert, PDF generation and more. Each toggles in Settings → Tools and all are off by default." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "Built-in tools",
+          "item": "https://docs.loach.dev/pages/features/built-in-tools.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "Built-in tools",
+      "description": "Local utilities the model can call mid-answer - calculate, datetime, hash, uuid, json, unit_convert, PDF generation and more. Each toggles in Settings → Tools and all are off by default.",
+      "url": "https://docs.loach.dev/pages/features/built-in-tools.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/built-in-tools.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,57 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>Built-in tools</h1>
+    <p class="lead">A set of small, local utilities the model can call mid-answer through the same tool-call loop as <a href="mcp.html">MCP</a>. They run entirely in Rust on your machine - no network, and apart from the <a href="work-in-folders.html">file tools</a>, nothing that touches your files - so they also work inside <a href="private-chat.html">Private Chat</a>.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
+    <h2 id="how-it-works">How they work</h2>
+    <p>Each tool has its own switch in <strong>Settings &rarr; Tools</strong>, and every one is <strong>off by default</strong> - turn on only what you want a given model to reach for. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step proposes a <em>Recommended</em> set (everything except the four developer-only tools - <strong>Hash</strong>, <strong>UUID</strong>, <strong>Base64</strong> and <strong>IP / CIDR</strong> - and <strong>Workspace files</strong>, which switches itself on when you pick a folder) with <strong>All OFF</strong> / <strong>Recommended</strong> / <strong>All ON</strong> presets. <strong>Continue</strong> saves the switches exactly as shown; <strong>Skip</strong> saves only the ones you changed.</p>
+    <p>When the model uses a tool, the call shows up in a collapsible block above the answer - <strong>&ldquo;Called N tools&rdquo;</strong>, or <strong>&ldquo;Called calculate tool&rdquo;</strong> for a single call - where you can inspect its arguments and result. Built-in tools never ask before they run; the only exceptions are the file tools that change files (see below).</p>
+    <p>Loach offers the switched-on tools to whichever model you are chatting with, so the model has to support tool calling to use them. Many local models do, but not all - with Ollama, a model without tool support fails the request with an error saying it <a href="../troubleshooting/web-fetch-mcp.html#tools-unsupported">does not support tools</a>. Pick a different model, or switch the tools off.</p>
 
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="the-tools">The tools</h2>
+    <p>Each entry gives the switch&rsquo;s name in <strong>Settings &rarr; Tools</strong>, then the tool name the model sees.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
+      <li><strong class="feat-name">Calculator</strong> (<code>calculate</code>) - evaluate arithmetic, trigonometry (in radians), functions such as <code>sqrt</code>, <code>ln</code>, <code>log10</code> and <code>round</code>, and the constants <code>pi</code> and <code>e</code>. Operators group the way programming languages do (<code>100 / 5 * 2</code> is 40, <code>2^3^2</code> is 512), <code>%</code> is the remainder, and scientific notation such as <code>6.022e23</code> works.</li>
+      <li><strong class="feat-name">Date &amp; time</strong> (<code>datetime</code>) - parse, format and do arithmetic on dates and times, with DST-aware timezone conversion, weekday lookup and business-day counting (Saturdays and Sundays are skipped; holidays are not).</li>
+      <li><strong class="feat-name">Count</strong> (<code>count</code>) - count characters, bytes, words, lines or substring hits.</li>
+      <li><strong class="feat-name">Hash</strong> (<code>hash</code>) - SHA-224 / 256 / 384 / 512 over UTF-8, hex or base64 input.</li>
+      <li><strong class="feat-name">UUID</strong> (<code>uuid</code>) - generate v4 (random) or v7 (time-ordered) UUIDs, up to 100 per call.</li>
+      <li><strong class="feat-name">Base64</strong> (<code>base64</code>) - encode and decode with the standard or URL-safe alphabet.</li>
+      <li><strong class="feat-name">JSON</strong> (<code>json</code>) - validate, pretty-print, or pull values out by JSON Pointer.</li>
+      <li><strong class="feat-name">Unit conversion</strong> (<code>unit_convert</code>) - convert between units across nine categories: length, mass, volume, speed, time, area, energy, pressure and temperature, including less common units such as furlongs, troy ounces and parsecs.</li>
+      <li><strong class="feat-name">Text diff</strong> (<code>diff_text</code>) - unified diff between two strings, by line, word or character.</li>
+      <li><strong class="feat-name">Sort</strong> (<code>sort</code>) - sort lines lexically, naturally (<code>file2</code> before <code>file10</code>) or numerically, with reverse, unique and case-insensitive options.</li>
+      <li><strong class="feat-name">IP / CIDR</strong> (<code>ip</code>) - CIDR membership checks and subnet info (network, broadcast, first and last usable host, host count), for IPv4 and IPv6.</li>
+      <li><strong class="feat-name">PDF</strong> (<code>pdf</code>) - generate a downloadable PDF from a structured spec (see below).</li>
+      <li><strong class="feat-name">Workspace files</strong> - one switch for eight file tools that let the model work in a folder you pick for a chat. They are the only built-in tools that touch the disk, and they have <a href="work-in-folders.html">their own page</a>.</li>
     </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
+    <p><a href="web-fetch.html">Web fetch</a> has a switch on the same tab but is not a tool the model calls: Loach fetches the URLs in your message before the request goes out.</p>
+
+    <h2 id="pdf">PDF generation</h2>
+    <p>The <code>pdf</code> tool turns a structured spec - headings, paragraphs, bulleted and numbered lists, simple tables, horizontal rules and page breaks - into a real A4 PDF. The result lands in the chat as a previewable, savable <a href="attachments.html#previews">attachment</a>, so you can ask the model to draft a document and pull it straight out. The bundled font covers Latin text, European accents and common punctuation and currency symbols; characters outside it, such as CJK or emoji, come out as <code>?</code>. Images and merging existing PDFs are not supported.</p>
 
     <h2 id="limits">Limits</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
+      <li><strong class="feat-name">20 seconds per call</strong> - a built-in tool that runs longer is stopped and the model is told to try smaller input. The file tools that change files are the exception: they always run to the end.</li>
+      <li><strong class="feat-name">32 KB back to the model</strong> - a longer result is cut, with a note telling the model so; the tool-call block still shows the whole result.</li>
+      <li><strong class="feat-name">10 rounds per reply</strong> - tools can run in the first nine rounds with the model; the tenth goes out without tools so the model wraps up. See <a href="../troubleshooting/web-fetch-mcp.html#tool-turn-limit">&ldquo;Stopped after 10 tool-use turns&rdquo;</a>.</li>
     </ul>
 
-    <h2 id="safety">Safety guards</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
-    </ul>
-
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Local and private</div>
+        <p>Built-in tools never touch the network, and only the file tools touch your files. That is why they remain available inside <a href="private-chat.html">Private Chat</a>, where <a href="mcp.html">MCP</a> tools are blocked. The file tools are the one exception: Private Chat never gets a folder, so it never gets them either.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="mcp.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; MCP support</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="work-in-folders.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Work in folders &rarr;</span>
       </a>
     </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Local model management — Loach Docs</title>
+  <title>Local model management - Loach Docs</title>
   <meta name="description" content="Pull, copy, customize and delete local Ollama models without leaving Loach. The Models tab is a full UI over the Ollama HTTP API, with safe Modelfile editing built in." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/model-management.html" />
-  <meta property="og:title" content="Local model management — Loach Docs" />
+  <meta property="og:title" content="Local model management - Loach Docs" />
   <meta property="og:description" content="Pull, copy, customize and delete local Ollama models without leaving Loach. The Models tab is a full UI over the Ollama HTTP API, with safe Modelfile editing built in." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Local model management — Loach Docs" />
+  <meta name="twitter:title" content="Local model management - Loach Docs" />
   <meta name="twitter:description" content="Pull, copy, customize and delete local Ollama models without leaving Loach. The Models tab is a full UI over the Ollama HTTP API, with safe Modelfile editing built in." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -263,33 +266,34 @@
     <p class="lead">The <strong>Models</strong> sidebar tab is a full management surface for the local Ollama catalog, plus a read-only listing of the catalog reachable through your OpenAI-compatible endpoint.</p>
 
     <h2 id="library">The library</h2>
-    <p>Every installed model gets a tile showing its family, parameter size, on-disk size, quantization and capabilities (thinking, tool use, vision). The toolbar offers:</p>
+    <p>Every installed Ollama model gets a tile showing its name, family and on-disk size. Click a tile to open it in the Models editor, or use <strong>New chat</strong> on the tile to start a chat in that model. The header and each tile&rsquo;s <strong>⋯</strong> menu offer:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Pull</strong> — download a new model by tag. An inline progress chip shows percentage and current digest; you can cancel mid-pull.</li>
-      <li><strong class="feat-name">Refresh</strong> — re-query both provider catalogs.</li>
-      <li><strong class="feat-name">Search</strong> — substring match across model names.</li>
-      <li><strong class="feat-name">Open</strong> — jump into the Models editor for any installed Ollama model.</li>
+      <li><strong class="feat-name">Pull model</strong> - type a tag (browse them at <code>ollama.com/library</code>) and press <strong>Pull</strong> or <kbd>Enter</kbd>. Each download gets a progress chip with Ollama&rsquo;s status line and a progress bar; its ✕ stops the pull, then dismisses the chip once it has finished or failed. Several pulls can run at once.</li>
+      <li><strong class="feat-name">Refresh</strong> - re-query both provider catalogs. The tab also refreshes each time you open it.</li>
+      <li><strong class="feat-name">Customize</strong> - open the model in the Models editor, same as clicking the tile.</li>
+      <li><strong class="feat-name">Duplicate&hellip;</strong> - copy the model under a new tag (Loach suggests <code>&lt;name&gt;-copy</code>) without changes; the copy shares the same weights.</li>
+      <li><strong class="feat-name">Delete</strong> - after a confirmation, remove the model files from disk. Irreversible.</li>
     </ul>
+    <p>Below the Ollama tiles, an <strong>OpenAI</strong> section lists your endpoint&rsquo;s models read-only; it appears only when that listing returned something. If Ollama can&rsquo;t be reached, its error shows in a banner above the tiles.</p>
+    <p>A chat set to a model that is still downloading shows a progress banner above the message box (&ldquo;Downloading <code>&lt;tag&gt;</code> - ready to chat once it finishes.&rdquo;), and sending is held back with &ldquo;<code>&lt;tag&gt;</code> is still downloading (43%)&rdquo; rather than failing with a confusing not-found error.</p>
 
     <h2 id="editor">The Models editor</h2>
-    <p>Opening a model loads its full configuration in a form so you can:</p>
+    <p>Opening a model loads its configuration from Ollama into a form. The header shows its family, size, parameter count, quantization and format next to <strong>New chat</strong> and <strong>Delete</strong> buttons; <strong>All models</strong> takes you back. You can:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Inspect</strong> the Modelfile, system prompt, chat template, parsed PARAMETER block and capability tags.</li>
-      <li><strong class="feat-name">Edit</strong> any of those fields.</li>
-      <li><strong class="feat-name">Save as&hellip;</strong> — write a new <em>derived</em> model with your changes. Loach never overwrites the base model, so the original is always available to revert to.</li>
-      <li><strong class="feat-name">Copy model</strong> — duplicate under a new tag without changes.</li>
-      <li><strong class="feat-name">Delete model</strong> — remove the local copy. Irreversible.</li>
-      <li><strong class="feat-name">Thinking preference</strong> — a per-model override for the Thinking toggle, sitting between the Modelfile default and any per-chat override.</li>
-      <li><strong class="feat-name">Open chat</strong> — jump straight into a fresh chat pinned to this model.</li>
+      <li><strong class="feat-name">Inspect and edit</strong> the <strong>System prompt</strong> (baked in as <code>SYSTEM</code>; per-chat instructions still win at runtime), the <strong>Prompt template</strong> (Go-template syntax), the <strong>Parameters</strong> - grouped into Sampling, Length, Repetition, Performance and Reproducibility, each mapping to a <code>PARAMETER</code> line - and the <strong>Stop sequences</strong>. Blank fields inherit the base model&rsquo;s value. <strong>Show live Modelfile</strong> reveals the Modelfile Ollama has for the model.</li>
+      <li><strong class="feat-name">Save as new model</strong> - write your changes as a <em>derived</em> model under the <strong>New model tag</strong> you type (Loach suggests <code>&lt;name&gt;-custom</code>), built on the <strong>Base model (FROM)</strong>. <strong>Preview Modelfile</strong> shows exactly what will be sent. When it finishes, the editor switches to the new model. The base model is left untouched - unless you save under a tag that already exists, which Ollama replaces without asking, so pick an unused tag to keep the original. Models pulled from Hugging Face as <code>hf.co/user/repo:tag</code> can be saved this way too.</li>
+      <li><strong class="feat-name">Allow thinking step</strong> - a per-model default for the Thinking toggle, sitting between the Modelfile default and any per-chat override. <strong>Reset</strong> returns to the model&rsquo;s own default. Disabled for models that don&rsquo;t list a thinking capability, and remembered until Loach restarts.</li>
+      <li><strong class="feat-name">New chat</strong> - jump straight into a fresh chat in this model.</li>
+      <li><strong class="feat-name">Delete</strong> - remove the local copy. Irreversible.</li>
     </ul>
 
     <h2 id="modelfile-safety">Modelfile safety</h2>
-    <p>The <strong>Save as&hellip;</strong> form refuses to compile a Modelfile that would smuggle in extra directives via a malicious base tag, system block or template block. Base tags are checked against a conservative allowlist; system and template bodies are rejected if they contain delimiters that the Ollama parser would treat as an early end-of-block. You get a clear error rather than a quietly corrupted model.</p>
+    <p><strong>Save as new model</strong> refuses to compile a Modelfile that would smuggle in extra directives via a malicious base tag, system block or template block. The base tag may use letters, digits, <code>.</code>, <code>_</code> and <code>-</code> in any number of <code>/</code>-separated segments, plus one optional <code>:tag</code> - so <code>llama3.1:8b</code> and <code>hf.co/user/repo:Q4_K_M</code> both pass, while spaces, quotes and empty segments don&rsquo;t. System and template bodies are rejected if they contain <code>&quot;&quot;&quot;</code>, which the Ollama parser would treat as an early end-of-block. You get a clear error rather than a quietly corrupted model.</p>
 
     <div class="callout tip">
       <div class="callout-body">
         <div class="callout-title">Tip</div>
-        <p>For lightweight customisation, copying an existing model and tweaking just the system prompt is usually enough. Save under a tag like <code>qwen-coder:my-style</code> and that&rsquo;s the version that shows up in the chat picker.</p>
+        <p>For lightweight customisation, open a model, change just the system prompt and save it under a tag like <code>qwen-coder:my-style</code> - that&rsquo;s the version that shows up in the chat picker.</p>
       </div>
     </div>
     <div class="page-nav">

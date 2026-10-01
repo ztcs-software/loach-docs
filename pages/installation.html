@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Installation — Loach Docs</title>
-  <meta name="description" content="Install Loach from a pre-built package on Windows, Linux or macOS, or build from source." />
+  <title>Installation - Loach Docs</title>
+  <meta name="description" content="System requirements for Loach, and how to install it from a pre-built package on Windows, Linux or macOS, or build it from source." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/installation.html" />
-  <meta property="og:title" content="Installation — Loach Docs" />
-  <meta property="og:description" content="Install Loach from a pre-built package on Windows, Linux or macOS, or build from source." />
+  <meta property="og:title" content="Installation - Loach Docs" />
+  <meta property="og:description" content="System requirements for Loach, and how to install it from a pre-built package on Windows, Linux or macOS, or build it from source." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Installation — Loach Docs" />
-  <meta name="twitter:description" content="Install Loach from a pre-built package on Windows, Linux or macOS, or build from source." />
+  <meta name="twitter:title" content="Installation - Loach Docs" />
+  <meta name="twitter:description" content="System requirements for Loach, and how to install it from a pre-built package on Windows, Linux or macOS, or build it from source." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     {
       "@type": "Article",
       "headline": "Installation",
-      "description": "Install Loach from a pre-built package on Windows, Linux or macOS, or build from source.",
+      "description": "System requirements for Loach, and how to install it from a pre-built package on Windows, Linux or macOS, or build it from source.",
       "url": "https://docs.loach.dev/pages/installation.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -128,14 +128,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
@@ -143,82 +144,83 @@
               <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -232,13 +234,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
@@ -263,65 +266,90 @@
       <span class="chip">MIT licensed</span>
     </p>
 
-    <h2 id="prebuilt">Install from a pre-built package</h2>
-    <p>With every stable release the project publishes ready-to-install packages for each supported operating system:</p>
-    <ul>
-      <li><strong>Windows</strong> — <code>.exe</code> (NSIS installer)</li>
-      <li><strong>Linux</strong> — <code>.deb</code>, <code>.rpm</code> and <code>.AppImage</code></li>
-      <li><strong>macOS</strong> — <code>.dmg</code> (Apple Silicon only)</li>
-    </ul>
+    <h2 id="requirements">System requirements</h2>
+    <table>
+      <thead><tr><th>Platform</th><th>Supported</th><th>Packages</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Windows</strong></td><td>Windows 10 or 11, x86_64</td><td><code>.exe</code> (NSIS installer)</td></tr>
+        <tr><td><strong>Linux</strong></td><td>x86_64 with <strong>glibc 2.35</strong> or newer - Ubuntu 22.04, Debian 12 or later</td><td><code>.deb</code>, <code>.rpm</code> and <code>.AppImage</code></td></tr>
+        <tr><td><strong>macOS</strong></td><td>macOS 11 (Big Sur) or later, <strong>Apple Silicon</strong> only</td><td><code>.dmg</code></td></tr>
+      </tbody>
+    </table>
+    <p>Loach itself is light. What your machine needs depends on the local models you run - Ollama&rsquo;s own GPU and memory requirements apply. Remote OpenAI-compatible endpoints need nothing extra.</p>
 
-    <p>Head over to the GitHub releases page and download the file that matches your platform.</p>
+    <h2 id="prebuilt">Install from a pre-built package</h2>
+    <p>With every stable release the project publishes ready-to-install packages for each supported operating system. Head over to the GitHub releases page and download the file that matches your platform.</p>
     <p><a class="btn btn-primary" href="https://github.com/ztcs-software/loach/releases/latest" target="_blank" rel="noopener">Download the latest release →</a></p>
 
     <div class="callout note">
       <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <div class="callout-body">
         <div class="callout-title">Heads up</div>
-        <p>To use local models, make sure <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> is installed and running (<code>ollama serve</code>). If you don't have any models pulled yet, Loach will offer to install one during onboarding.</p>
+        <p>To use local models, make sure <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> is installed. If it isn't running, the model picker offers a <em>Start Ollama</em> button. If you don't have any models pulled yet, Loach will offer to install one during onboarding - sized against your GPU's VRAM (or system RAM when there is no discrete GPU) so the suggestion actually runs well on your machine.</p>
       </div>
     </div>
+
+    <p>The first time you open Loach, the <a href="features/onboarding.html">setup wizard</a> walks you through choosing a provider, pulling a model and picking your defaults.</p>
 
     <h3 id="windows">Windows</h3>
     <ol>
       <li>Download the <code>.exe</code> from the latest release.</li>
-      <li>Run the installer and follow the prompts.</li>
+      <li>Run the installer and follow the prompts. It installs for your user account, so it doesn&rsquo;t need administrator rights.</li>
       <li>Launch Loach from the Start menu.</li>
     </ol>
     <p>WebView2 is required and is pre-installed on Windows 11. On Windows 10 the installer will pull it in if it's missing.</p>
 
     <h3 id="linux">Linux</h3>
-    <p>Pick the package format for your distribution:</p>
+    <p>From the folder you downloaded the package to, pick the format for your distribution:</p>
     <pre><code># Debian / Ubuntu
-sudo apt install ./loach_*.deb
+sudo apt install ./Loach_*_amd64.deb
 
 # Fedora / RHEL
-sudo dnf install ./loach-*.rpm
+sudo dnf install ./Loach-*.x86_64.rpm
+
+# openSUSE
+sudo zypper install ./Loach-*.x86_64.rpm
 
 # Any distro
-chmod +x Loach-*.AppImage
-./Loach-*.AppImage</code></pre>
+chmod +x Loach_*_amd64.AppImage
+./Loach_*_amd64.AppImage</code></pre>
+    <p>Builds target <strong>glibc 2.35</strong>, which makes <strong>Ubuntu 22.04</strong> and <strong>Debian 12</strong> the oldest supported distributions. All three formats - <code>.AppImage</code>, <code>.deb</code> and <code>.rpm</code> - support <a href="features/ota-updates.html">in-app updates</a>; package installs download the signed package and elevate through <code>pkexec</code> so the package database stays consistent. There is no apt or yum repository, so <code>apt upgrade</code> won't see new versions.</p>
+    <p>Saving an API key or an app lock uses your desktop&rsquo;s Secret Service (GNOME Keyring or KWallet). Minimal setups without one can&rsquo;t store secrets - see <a href="troubleshooting/providers-connections.html#linux-secret-service">Key won&rsquo;t save on Linux</a>.</p>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Upgrading from v1.2.3 or earlier</div>
+        <p>If you installed <strong>v1.2.3 or earlier</strong> from a <code>.deb</code> or <code>.rpm</code>, that build hides the Updates panel. Download a newer package once from the releases page and in-app updates take over from there.</p>
+      </div>
+    </div>
 
     <h3 id="macos">macOS</h3>
     <ol>
       <li>Download the <code>.dmg</code> from the latest release.</li>
       <li>Open it and drag <strong>Loach</strong> into <strong>Applications</strong>.</li>
-      <li>The first time you launch Loach, macOS will show a Gatekeeper warning because the build is <strong>not Apple-notarized</strong>. Open <strong>System Settings &rarr; Privacy &amp; Security</strong>, scroll to the bottom and click <em>Open Anyway</em>. You only have to do this once.</li>
+      <li>On first launch macOS will block the app with a <em>&ldquo;Loach is damaged and can&rsquo;t be opened&rdquo;</em> or <em>&ldquo;Apple cannot verify&hellip;&rdquo;</em> warning, because the build is <strong>not Apple-notarized</strong>. Bypass it once and the app runs normally (see below).</li>
     </ol>
-    <p>Only <strong>Apple Silicon</strong> (M1 / M2 / M3 / M4) is supported. Intel Macs are not.</p>
+    <ul>
+      <li>For <em>&ldquo;Apple cannot verify&hellip;&rdquo;</em> on <strong>macOS 14 and earlier</strong>: <strong>right-click</strong> <code>Loach.app</code> in <strong>Applications</strong> &rarr; <strong>Open</strong> &rarr; click <strong>Open</strong> in the prompt.</li>
+      <li>For <em>&ldquo;Apple cannot verify&hellip;&rdquo;</em> on <strong>macOS 15 and later</strong>: try to open the app once, then click <strong>Open Anyway</strong> in <strong>System Settings &rarr; Privacy &amp; Security</strong>.</li>
+      <li>For either warning: run the command below in <strong>Terminal</strong>, then launch the app normally.</li>
+    </ul>
+<pre><code>xattr -cr /Applications/Loach.app</code></pre>
+    <p>Auto-updates are delivered through Loach&rsquo;s own signed updater (independent of Apple), so you only need to do this once on install. If a future update is blocked the same way, the same workaround applies.</p>
+    <p>Only <strong>Apple Silicon</strong> (M-series) Macs running <strong>macOS 11</strong> or later are supported. Intel Macs are not.</p>
 
     <h2 id="source">Build from source</h2>
     <p>If you want the bleeding edge or you're contributing patches, build from the repository.</p>
 
     <h3 id="prerequisites">Prerequisites</h3>
     <ul>
-      <li><strong>Node.js 20.19+</strong> (or 22.12+) and <strong>npm</strong> — Vite 7 won't run on older 20.x point releases.</li>
-      <li><strong>Rust</strong> stable toolchain via <a href="https://rustup.rs" target="_blank" rel="noopener">rustup</a>.</li>
-      <li>Platform build tooling — see the <a href="https://tauri.app/start/prerequisites/" target="_blank" rel="noopener">official Tauri prerequisites guide</a>.
+      <li><strong>Node.js 20.19+</strong> (or 22.12+) and <strong>npm</strong> - Vite 8 won't run on older 20.x point releases.</li>
+      <li><strong>Rust 1.88+</strong> via <a href="https://rustup.rs" target="_blank" rel="noopener">rustup</a> - the dependency tree's minimum; CI builds on 1.88.0.</li>
+      <li>Platform build tooling - see the <a href="https://tauri.app/start/prerequisites/" target="_blank" rel="noopener">official Tauri prerequisites guide</a>.
         <ul>
           <li><strong>Windows</strong>: Microsoft Visual Studio Build Tools, WebView2 runtime (pre-installed on Windows 11).</li>
-          <li><strong>Linux</strong>: <code>webkit2gtk-4.1</code>, <code>libayatana-appindicator3-dev</code>, <code>librsvg2-dev</code>, <code>build-essential</code>, <code>libssl-dev</code>, <code>pkg-config</code>, <code>libsecret-1-dev</code>.</li>
-          <li><strong>macOS</strong>: Xcode Command Line Tools (<code>xcode-select --install</code>). Apple Silicon only.</li>
+          <li><strong>Linux</strong>: <code>libwebkit2gtk-4.1-dev</code>, <code>libappindicator3-dev</code> (or <code>libayatana-appindicator3-dev</code>), <code>librsvg2-dev</code>, <code>build-essential</code>, <code>libssl-dev</code>, <code>pkg-config</code>. Bundling the <code>.AppImage</code> and <code>.rpm</code> also needs <code>patchelf</code>, <code>rpm</code>, <code>file</code>, <code>wget</code> and <code>desktop-file-utils</code>. No Secret Service headers are needed - the keyring backend is pure Rust.</li>
+          <li><strong>macOS</strong>: Xcode Command Line Tools (<code>xcode-select --install</code>).</li>
         </ul>
       </li>
     </ul>
@@ -336,25 +364,31 @@ npm install</code></pre>
     <p>The Vite dev server runs on <code>http://localhost:1420</code> and the Tauri shell embeds it.</p>
 
     <h3 id="prod">Build production installers</h3>
-<pre><code>npm run tauri build</code></pre>
-    <p>Outputs land in <code>src-tauri/target/release/bundle/</code>:</p>
+<pre><code>npm run tauri -- build --no-sign</code></pre>
+    <p><code>--no-sign</code> skips the signed updater artifacts, which need the release signing key (<code>TAURI_SIGNING_PRIVATE_KEY</code>). Without the flag and the key, the build fails after bundling. Outputs land in <code>src-tauri/target/release/bundle/</code>:</p>
     <ul>
       <li><strong>Windows</strong>: <code>.exe</code> (NSIS)</li>
       <li><strong>Linux</strong>: <code>.deb</code>, <code>.rpm</code> and <code>.AppImage</code></li>
-      <li><strong>macOS</strong>: <code>.dmg</code> and a <code>.app.tar.gz</code> bundle for the in-app updater (Apple Silicon)</li>
+      <li><strong>macOS</strong>: <code>.dmg</code> and <code>.app</code></li>
     </ul>
 
+    <h3 id="docker">Linux build in Docker</h3>
+    <p>The repository&rsquo;s <code>Dockerfile</code> builds the Linux <code>.deb</code> and <code>.AppImage</code> on Ubuntu 22.04 with the same Node.js and Rust versions CI uses, so the result runs on the oldest supported distributions. It only builds Loach; install the output on a Linux host.</p>
+<pre><code>docker build -t loach-build .
+docker run --rm -v "$PWD/dist-linux:/out" loach-build</code></pre>
+    <p>The packages land in <code>dist-linux/deb/</code> and <code>dist-linux/appimage/</code>. They are unsigned, like any <code>--no-sign</code> build.</p>
+
     <h2 id="updates">Updates</h2>
-    <p>We regularly update Loach to deliver new features, bug fixes, security improvements, and performance gains. When a new version is available, you can apply it directly from the app in Settings &rarr; Updates. See <a href="features/ota-updates.html">OTA updates</a> for details.</p>
+    <p>We regularly update Loach to deliver new features, bug fixes, security improvements, and performance gains. Every install format updates from inside the app: check manually in <strong>Settings &rarr; Updates</strong>, or switch on the opt-in auto-check and Loach tells you once per launch when a new version is out. Nothing downloads until you choose <em>Update now</em>. See <a href="features/ota-updates.html">OTA updates</a> for details.</p>
 
     <div class="page-nav">
       <a href="../index.html">
         <span class="label">Previous</span>
-        <span class="title">← Introduction</span>
+        <span class="title">&larr; Introduction</span>
       </a>
       <a href="getting-started.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Quick start →</span>
+        <span class="title">Quick start &rarr;</span>
       </a>
     </div>
 

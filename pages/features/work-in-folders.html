@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>Work in folders - Loach Docs</title>
+  <meta name="description" content="Give a chat a folder and the model can list, find, read and search its files, and with your approval write, edit, move and delete them. Sandboxed to that folder, with no shell." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/work-in-folders.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/work-in-folders.html" />
+  <meta property="og:title" content="Work in folders - Loach Docs" />
+  <meta property="og:description" content="Give a chat a folder and the model can list, find, read and search its files, and with your approval write, edit, move and delete them. Sandboxed to that folder, with no shell." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="Work in folders - Loach Docs" />
+  <meta name="twitter:description" content="Give a chat a folder and the model can list, find, read and search its files, and with your approval write, edit, move and delete them. Sandboxed to that folder, with no shell." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "Work in folders",
+          "item": "https://docs.loach.dev/pages/features/work-in-folders.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "Work in folders",
+      "description": "Give a chat a folder and the model can list, find, read and search its files, and with your approval write, edit, move and delete them. Sandboxed to that folder, with no shell.",
+      "url": "https://docs.loach.dev/pages/features/work-in-folders.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/work-in-folders.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,98 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>Work in folders</h1>
+    <p class="lead">Give a chat a folder and the model can work in it the way a coding assistant does - list, find, read and search the files, and, once you approve each change, write, edit, move and delete them. Everything stays inside that folder, and there is no shell.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
-
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="adding-a-folder">Adding a folder</h2>
+    <p>Click the <strong>+</strong> button next to the message box and choose <strong>Add directory</strong>, then pick a folder in the system dialog. The same menu&rsquo;s <strong>Add files</strong> is something else: it attaches file contents to one message (see <a href="attachments.html">Attachments</a>), while a directory gives the model tools over a folder for the rest of the chat.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
-    </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
-
-    <h2 id="limits">Limits</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
+      <li><strong class="feat-name">Start the chat first</strong> - a chat needs its first message before it can have a folder; until then the item reads <em>Send a message first to start this chat</em>.</li>
+      <li><strong class="feat-name">Not too wide</strong> - the picker refuses a whole drive (<code>C:\</code>, <code>/</code>) and Loach&rsquo;s own data folder, which holds every chat.</li>
+      <li><strong class="feat-name">Switches the tools on</strong> - picking a folder turns on <strong>Settings &rarr; Tools &rarr; Workspace files</strong> if it was off, and a notice says so. That one switch covers all eight file tools.</li>
     </ul>
 
-    <h2 id="safety">Safety guards</h2>
+    <h3 id="working-in">The &ldquo;Working in&rdquo; notice</h3>
+    <p>For the rest of the chat, the message box reads <strong>Working in <em>folder</em></strong> just above where you type, with the full path in its tooltip. Click the folder&rsquo;s name to open it in your file manager, or remove it with the <strong>&times;</strong> beside it; the <strong>+</strong> menu now offers <strong>Change directory</strong>. While a reply is running in the chat, the folder can&rsquo;t be changed or removed - that turn keeps the folder it started with.</p>
+    <p>The notice shows a <code>LOACHFILE.md</code> badge when the folder has <a href="#loachfile">project instructions</a>, and turns amber with <strong>tools off</strong> if you later switch <strong>Workspace files</strong> off: while it is off, the model gets neither the tools nor the folder&rsquo;s instructions.</p>
+    <p>Forking a chat carries its folder over. Backups and exports never include it - a path means nothing on another machine. If the folder is moved or deleted, the notice still shows it, but the model gets no file tools and no project instructions until you pick the folder again.</p>
+
+    <h2 id="the-tools">What the model can do</h2>
+    <p>Eight tools appear in the model&rsquo;s catalogue only while the chat has a folder; without one, the model never sees them. All paths are relative to the folder.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
+      <li><strong class="feat-name"><code>list_directory</code></strong> - a tree of a directory, two levels deep by default and at most eight. Dependency and build directories (<code>node_modules</code>, <code>target</code>, <code>dist</code>, <code>.git</code>, <code>.venv</code>, &hellip;) are listed but not descended into, and links are marked rather than followed. Stops at 500 entries.</li>
+      <li><strong class="feat-name"><code>find_files</code></strong> - find files by name with a glob, ignoring case: <code>*.rs</code> anywhere, or <code>src/**/*.test.ts</code> by path. Stops at 200 results.</li>
+      <li><strong class="feat-name"><code>read_file</code></strong> - a text file&rsquo;s contents with line numbers, for files up to 4&nbsp;MB. Long files come back a page at a time, saying which line to continue from, and lines past 2,000 characters are clipped.</li>
+      <li><strong class="feat-name"><code>search_files</code></strong> - regular-expression search across file contents, case-insensitive by default and optionally limited to some extensions, returning each match with its file and line number. Skips binaries and files over 512&nbsp;KB, and stops at 100 matches or 2,000 files.</li>
+      <li><strong class="feat-name"><code>write_file</code></strong> - create a file or replace one whole, up to 1&nbsp;MB, creating missing folders on the way.</li>
+      <li><strong class="feat-name"><code>edit_file</code></strong> - replace an exact snippet in a file of up to 4&nbsp;MB. A snippet that matches more than once is refused unless the model asks to replace every occurrence, which the approval card points out. One edit may grow a file by at most 1&nbsp;MB.</li>
+      <li><strong class="feat-name"><code>move_file</code></strong> - rename or move a file or directory, never overwriting anything. A rename that only changes case (<code>readme.md</code> &rarr; <code>README.md</code>) works on Windows and macOS too.</li>
+      <li><strong class="feat-name"><code>delete_file</code></strong> - remove one file, or one empty directory, per call; there is no recursive delete. Deletion is permanent: nothing goes to the Recycle Bin or Trash.</li>
+    </ul>
+    <p><code>find_files</code> and <code>search_files</code> go at most eight levels below where they start, and both give up after looking at 50,000 entries. Every tool that stops early says so, so the model can narrow its search rather than conclude a file isn&rsquo;t there. The skipped dependency and build directories can still be read or searched when the model names one directly.</p>
+    <p>Deliberately absent: a shell, a recursive delete, and any way to point the tools at a folder other than through the system picker. When something needs a command run - the tests, a build - the model can only tell you which one; the <a href="#loachfile">sample <code>LOACHFILE.md</code></a> asks it to do just that.</p>
+
+    <h2 id="approvals">Approving changes</h2>
+    <p>Listing, finding, reading and searching never ask. The four tools that change files - <code>write_file</code>, <code>edit_file</code>, <code>move_file</code> and <code>delete_file</code> - pause the reply and ask first, unless you&rsquo;ve allowed that tool for the chat. The card asks <strong>&ldquo;Allow the model to &hellip;?&rdquo;</strong> with the file&rsquo;s path inside the folder written out in full, and shows the change itself rather than raw arguments:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Write</strong> - the new contents, with their size in lines and bytes, and whether it creates a <em>new file</em> or <em>replaces the existing file</em> (with that file&rsquo;s size). A long write is cut at 20,000 characters in the card, with a <strong>Show all</strong> link.</li>
+      <li><strong class="feat-name">Edit</strong> - a <code>-</code>/<code>+</code> line diff with removed and added counts. Runs of unchanged lines fold down to three lines of context around each change, and a long diff is cut at 400 rows with a count of what&rsquo;s below and a <strong>Show all</strong> link. When an edit adds or removes the line break at the end of its text, the line is marked <em>(no line break after this)</em> - without one, the file&rsquo;s next line joins it.</li>
+      <li><strong class="feat-name">Move</strong> - <code>from &rarr; to</code>.</li>
+      <li><strong class="feat-name">Delete</strong> - a red card warning that the file is removed from disk and that this can&rsquo;t be undone from Loach.</li>
+    </ul>
+    <p>Characters that would otherwise display as nothing or reorder the text around them - zero-width spaces, text-direction marks, control characters - are drawn in paths and contents as visible <code>U+&hellip;</code> tags, so what you approve reads the way it will be written. Whatever the card cuts for length, the whole change is what gets applied, and the same preview stays in the reply&rsquo;s tool-call block afterwards.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Allow once</strong> - run this call.</li>
+      <li><strong class="feat-name">Allow <em>tool</em> for this chat</strong> - run it, and stop asking for that tool in this chat.</li>
+      <li><strong class="feat-name">Deny</strong> - the model is told you declined and carries on without it.</li>
+    </ul>
+    <p>A card left unanswered for 10 minutes isn&rsquo;t run, and <strong>Stop</strong> cancels the reply as usual - though a change already being written when you press it still finishes on disk, and its entry says it may or may not have completed.</p>
+
+    <h3 id="allow-for-this-chat">How far &ldquo;for this chat&rdquo; reaches</h3>
+    <p>The answer is kept in memory, never saved, and is tied to the folder it was given for. It ends when you change or remove the chat&rsquo;s folder, delete the chat, switch <strong>Workspace files</strong> off, or quit Loach. It covers only Loach&rsquo;s own tool - never an <a href="mcp.html">MCP</a> server&rsquo;s tool of the same name - and never anything inside a <code>.git</code> directory: a change there shows in no <code>git status</code> or diff, and a hook or setting there runs commands the next time you use git, so those always ask.</p>
+
+    <h2 id="sandbox">Staying inside the folder</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Relative paths only</strong> - absolute paths and <code>..</code> are refused up front.</li>
+      <li><strong class="feat-name">Links are checked</strong> - every path is resolved through symbolic links and checked against the folder again before it is used, so a link pointing elsewhere is refused. So is a link whose target doesn&rsquo;t exist, since writing through it would create that target wherever it points. Deleting or moving a link acts on the link itself, never on what it points to.</li>
+      <li><strong class="feat-name">Misleading names are refused</strong> - control characters and text-direction characters anywhere in a name (a right-to-left override can make <code>txt.exe</code> look like <code>exe.txt</code> on the approval card). On Windows also a <code>:</code> (a hidden data stream), a reserved device name (<code>CON</code>, <code>nul.txt</code>, <code>COM1</code>) and a name ending in a dot or a space, which Windows tools can&rsquo;t open or delete afterwards.</li>
     </ul>
 
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <h2 id="file-formats">Line endings and encodings</h2>
+    <p>Line endings are preserved: editing or overwriting a CRLF file keeps it CRLF. So is the text encoding. Files that aren&rsquo;t UTF-8 - Windows-1250 or another legacy code page, or UTF-16 with a byte-order mark (what PowerShell 5.1 writes by default) - are read, searched and edited in their own encoding and written back in it, byte-order mark included; only the edited text changes.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Best guess</strong> - a legacy encoding is recognised from the file&rsquo;s contents, and <code>read_file</code> tells the model which one it used.</li>
+      <li><strong class="feat-name">Nothing silently lost</strong> - a change the encoding can&rsquo;t store (an emoji in a Windows-1250 file) is refused rather than written as <code>?</code>, and a file that doesn&rsquo;t decode cleanly can be read but not edited. Binary files can&rsquo;t be read or edited at all.</li>
+      <li><strong class="feat-name">Safe replacement</strong> - a write or edit saves a new copy and swaps it in, rather than rewriting the file in place. A write that fails partway leaves the old file intact; a file also hard-linked from elsewhere (a pnpm or uv package store, say) gets its own copy while the other links keep the old contents. Permissions carry over, so a script stays executable, and a read-only file is refused.</li>
+    </ul>
+
+    <h2 id="loachfile">Project instructions (<code>LOACHFILE.md</code>)</h2>
+    <p>If the folder has a <code>LOACHFILE.md</code> at its root, its contents are added to the system prompt on every turn - the same idea as a <code>CLAUDE.md</code> or <code>AGENTS.md</code>: the project&rsquo;s own notes on how to work in it, such as how to run the tests, what not to touch and the house style. A <a href="https://github.com/ztcs-software/loach/blob/main/docs/LOACHFILE.md.sample" target="_blank" rel="noopener">sample</a> is available to start from.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Read fresh each turn</strong> - an edit, yours or one the model makes with <code>write_file</code>, applies on your next message.</li>
+      <li><strong class="feat-name">Visible</strong> - the &ldquo;Working in&rdquo; notice shows a <code>LOACHFILE.md</code> badge with the file&rsquo;s first line in the tooltip, and the <a href="context-compaction.html">context usage</a> popover lists it as <strong>Project instructions (LOACHFILE.md)</strong>.</li>
+      <li><strong class="feat-name">Keep it short</strong> - anything past 32&nbsp;KB is cut with a note, and local models follow short instruction files far better. A blank file counts as none.</li>
+      <li><strong class="feat-name">Sandboxed like the rest</strong> - a <code>LOACHFILE.md</code> that is a link out of the folder is ignored.</li>
+      <li><strong class="feat-name">The project&rsquo;s word, not yours</strong> - the file goes in ahead of your own instructions, fenced between clear start and end markers, and the model is told it comes from the folder rather than from you: it can&rsquo;t grant permissions, your instructions win when the two conflict, and anything in it asking to send files or data elsewhere is to be ignored unless you ask for that too. A folder you just cloned can say anything; the approval card on writes, moves and deletions remains the backstop.</li>
+    </ul>
+
+    <h2 id="privacy">Privacy and Private Chat</h2>
+    <p>The tools run inside Loach, but what they read becomes part of the conversation: with a cloud provider, those file contents are sent to it like any other message. The model is also told the folder&rsquo;s full path, so it knows which project it is working in. <a href="private-chat.html">Private Chat</a> never gets a folder or the file tools.</p>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">Choosing a model</div>
+        <p>The model has to support tool calling to use the folder at all. One reply gets at most 10 rounds with the model, so pointing it at the right files up front - or in <code>LOACHFILE.md</code> - saves rounds spent searching. See <a href="../troubleshooting/web-fetch-mcp.html#tool-turn-limit">&ldquo;Stopped after 10 tool-use turns&rdquo;</a>.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="built-in-tools.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; Built-in tools</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="default-model.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Default model selector &rarr;</span>
       </a>
     </div>
 

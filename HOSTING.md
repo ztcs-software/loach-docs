@@ -1,6 +1,6 @@
 # Hosting & deployment notes
 
-This site ships as plain static files — upload the directory tree to your
+This site ships as plain static files - upload the directory tree to your
 static host root. See [README.md](README.md) for the basics.
 
 ## Canonical production hostname
@@ -46,7 +46,7 @@ Don't forget to update the `https://docs.loach.dev` references in this
 file too if you change the canonical URL.
 
 Verify with `grep -c 'docs.loach.dev'` (or whatever the old hostname was)
-afterwards — every count should be `0`.
+afterwards - every count should be `0`.
 
 ## After deploy
 

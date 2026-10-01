@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>LaTeX math - Loach Docs</title>
+  <meta name="description" content="Assistant replies typeset with KaTeX: display and inline delimiters and math fences render out of the box. A single-dollar span only typesets when it reads as math, so currency stays prose. KaTeX ships inside the app and never touches the network." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/math.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/math.html" />
+  <meta property="og:title" content="LaTeX math - Loach Docs" />
+  <meta property="og:description" content="Assistant replies typeset with KaTeX: display and inline delimiters and math fences render out of the box. A single-dollar span only typesets when it reads as math, so currency stays prose. KaTeX ships inside the app and never touches the network." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="LaTeX math - Loach Docs" />
+  <meta name="twitter:description" content="Assistant replies typeset with KaTeX: display and inline delimiters and math fences render out of the box. A single-dollar span only typesets when it reads as math, so currency stays prose. KaTeX ships inside the app and never touches the network." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "LaTeX math",
+          "item": "https://docs.loach.dev/pages/features/math.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "LaTeX math",
+      "description": "Assistant replies typeset with KaTeX: display and inline delimiters and math fences render out of the box. A single-dollar span only typesets when it reads as math, so currency stays prose. KaTeX ships inside the app and never touches the network.",
+      "url": "https://docs.loach.dev/pages/features/math.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/math.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,44 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>LaTeX math</h1>
+    <p class="lead">Formulas in assistant replies are typeset with <strong>KaTeX</strong> - no setting to hunt for. Display and inline delimiters, <code>```math</code> fences and the loose TeX symbols models sprinkle into prose all render as you would expect, while a <code>$</code> that means money stays money.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
-
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="delimiters">What renders</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
+      <li><strong class="feat-name">Display math</strong> - <code>$$&hellip;$$</code> and <code>\[&hellip;\]</code>. A <code>$$&hellip;$$</code> written on a single line is promoted to a centred display block.</li>
+      <li><strong class="feat-name">Inline math</strong> - <code>\(&hellip;\)</code> and <code>$&hellip;$</code> (subject to the currency rule below).</li>
+      <li><strong class="feat-name">Math fences</strong> - a fenced code block tagged <code>math</code> renders as a display block instead of code. Other tags, such as <code>```latex</code>, stay code.</li>
+      <li><strong class="feat-name">Loose symbols</strong> - a common single TeX command in prose, such as <code>\rightarrow</code>, <code>\alpha</code> or <code>\sum</code>, is rewritten to the equivalent Unicode character (arrows, set and logic symbols, relations, operators and Greek letters); commands it doesn&rsquo;t know are left alone. This is always on, even in a reply with no formulas, and runs over the parsed document, so code blocks, inline code and anything already inside math delimiters are left byte-for-byte intact.</li>
     </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
+    <p>Rendering applies to assistant replies in regular chats and in <a href="private-chat.html">Private Chat</a>. Your own messages show the TeX exactly as you typed it, and release notes in the Updates panel never typeset math. TeX that does not parse degrades to showing its own source, with the parse error on hover, rather than flashing an error - which keeps a half-typed formula quiet while it is still streaming. Links inside a formula (<code>\href</code>, <code>\url</code>) render as inert text, and oversized lengths are capped so a formula can&rsquo;t blow out the layout.</p>
 
-    <h2 id="limits">Limits</h2>
+    <h2 id="currency">Currency-safe <code>$&hellip;$</code></h2>
+    <p><code>$</code> doubles as a currency sign, so a single-dollar span only typesets when it actually reads as math: the content must hug both delimiters, stay on one line and under 200 characters, not follow a word character and not be chased by a digit. In practice:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
+      <li><strong class="feat-name">Stays prose</strong> - &ldquo;it costs $5 and $10&rdquo;, &ldquo;between $5-$10&rdquo;, &ldquo;US$5&rdquo;.</li>
+      <li><strong class="feat-name">Renders</strong> - <code>$x^2$</code> or <code>$\frac{a}{b}$</code>, the delimiter most models actually emit for inline math.</li>
+      <li><strong class="feat-name">Always literal</strong> - <code>\$</code> is a dollar sign, never a delimiter.</li>
     </ul>
+    <p>If you need the ambiguous case typeset, ask the model for <code>$$&hellip;$$</code>, <code>\(&hellip;\)</code> or a <code>```math</code> fence.</p>
 
-    <h2 id="safety">Safety guards</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
-    </ul>
+    <h2 id="offline">Bundled, lazy and offline</h2>
+    <p>KaTeX ships inside the installer like the rest of the app - the script, its stylesheet and its fonts. <strong>Nothing is fetched over the network</strong>; the window&rsquo;s content-security policy would block it if anything tried. What is deferred is only <em>when</em> the engine is read from disk and parsed: it loads the first time a reply in that session looks like it contains math, so a launch that never renders a formula never pays for one. The deferral is per session, so the engine loads again after the next launch.</p>
 
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Code is never touched</div>
+        <p>Math never typesets inside fenced code blocks, indented code or inline code, so generated code containing <code>$</code> or backslashes stays exactly as the model wrote it - and <strong>Copy</strong>, <strong>Export</strong> and the canvas get it verbatim. If a formula shows as raw TeX, see <a href="../troubleshooting/messages.html#raw-tex">Troubleshooting &rarr; Sending &amp; receiving messages</a>.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="markdown.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; Markdown rendering</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="code-canvas.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Code blocks &amp; canvas &rarr;</span>
       </a>
     </div>
 

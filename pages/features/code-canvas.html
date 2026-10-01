@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Code blocks & canvas — Loach Docs</title>
+  <title>Code blocks & canvas - Loach Docs</title>
   <meta name="description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/code-canvas.html" />
-  <meta property="og:title" content="Code blocks &amp; canvas — Loach Docs" />
+  <meta property="og:title" content="Code blocks &amp; canvas - Loach Docs" />
   <meta property="og:description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Code blocks &amp; canvas — Loach Docs" />
+  <meta name="twitter:title" content="Code blocks &amp; canvas - Loach Docs" />
   <meta name="twitter:description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,41 +263,46 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Code blocks & canvas</h1>
-    <p class="lead">Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, the <strong>Open in canvas</strong> action gives you a wider, easier-to-read view alongside the conversation.</p>
+    <p class="lead">Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, its <strong>Open</strong> button pops the block into the code canvas - a wider, easier-to-read panel alongside the conversation.</p>
 
     <h2 id="inline-actions">Inline actions</h2>
-    <p>Hover over any code block and the toolbar exposes:</p>
+    <p>Each code block has a header showing its language (or <em>text</em> when the model didn&rsquo;t tag one) and three buttons:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Copy</strong> — put the snippet on the clipboard. Works for everything, even non-code (JSON, logs, plain prose in a fenced block).</li>
-      <li><strong class="feat-name">Export</strong> — save to a file via the native save dialog. The default filename uses a sensible extension based on the detected language (<code>snippet.ts</code>, <code>snippet.py</code>, <code>Dockerfile</code>, and so on).</li>
-      <li><strong class="feat-name">Open in canvas</strong> — pop the block out into the wide canvas panel.</li>
+      <li><strong class="feat-name">Open</strong> - pop the block out into the canvas panel (the tooltip reads <em>Open in canvas</em>).</li>
+      <li><strong class="feat-name">Export</strong> - save to a file via the native save dialog. The default filename comes from the block&rsquo;s language tag (<code>snippet.ts</code>, <code>snippet.py</code>, <code>Dockerfile</code>, and so on); untagged or unrecognised languages save as <code>snippet.txt</code>.</li>
+      <li><strong class="feat-name">Copy</strong> - put the snippet on the clipboard exactly as the model wrote it. Works for everything, even non-code (JSON, logs, plain prose in a fenced block).</li>
     </ul>
+    <p>While a reply is still streaming, the block being written shows as plain text; highlighting is applied once the reply finishes.</p>
 
     <h2 id="canvas-panel">The canvas panel</h2>
-    <p>The canvas opens in the right-hand slot of the window. It shows:</p>
+    <p>The canvas opens in the right-hand slot of the window and holds one snippet at a time - opening another block replaces it. It shows:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Title bar</strong> with the inferred language and a short title.</li>
-      <li><strong class="feat-name">Copy</strong> button mirroring the inline action.</li>
-      <li><strong class="feat-name">Export</strong> button with the same sensible-filename defaults.</li>
-      <li><strong class="feat-name">Read-only body</strong> with line numbers and language-aware highlighting. Unknown languages fall back to auto-detection.</li>
+      <li><strong class="feat-name">Header</strong> - a close button, the title (<em>Code Canvas</em>, <em>Text canvas</em> for plain text, or the file name when opened from an attachment) and a badge with the language.</li>
+      <li><strong class="feat-name">VS Code</strong> - write the snippet to a scratch file in Loach&rsquo;s cache folder and open it in VS Code. On Windows and Linux this goes through the <code>code</code> command; if it isn&rsquo;t on your PATH, a message tells you to run <strong>Shell Command: Install &lsquo;code&rsquo; command in PATH</strong> in VS Code rather than failing silently. On macOS Loach asks the system to open the file in Visual Studio Code directly. It sends a snapshot: a block that is still streaming doesn&rsquo;t keep updating in VS Code.</li>
+      <li><strong class="feat-name">Copy</strong> - mirrors the inline action.</li>
+      <li><strong class="feat-name">Export</strong> - same sensible-filename defaults; for an attachment, the default is the original file name.</li>
+      <li><strong class="feat-name">Read-only body</strong> with line numbers and language-aware highlighting. Unknown languages fall back to auto-detection, and snippets over 50,000 characters show as plain text to keep the window responsive.</li>
+      <li><strong class="feat-name">Live updates</strong> - open the canvas on a reply that is still streaming and it keeps mirroring the reply&rsquo;s latest code block as more tokens arrive, as plain text until the reply finishes.</li>
+      <li><strong class="feat-name">Resizable</strong> - drag the left edge to set the panel width (at least 320&nbsp;px, always leaving the transcript 420&nbsp;px); your choice is remembered.</li>
     </ul>
 
-    <p>The canvas is also where text and code <a href="attachments.html#previews">attachment previews</a> open — clicking a recognised code or text file chip in the transcript routes straight here, with the same highlighting and export controls.</p>
+    <p>The canvas is also where text and code <a href="attachments.html#previews">attachment previews</a> open - clicking a recognised code or text file chip routes straight here, with the same highlighting and export controls.</p>
 
     <div class="callout note">
       <div class="callout-body">
         <div class="callout-title">Heads up</div>
-        <p>The canvas and the <a href="parameters.html">parameters sidebar</a> share the same right-hand slot. Opening the canvas will close the parameters panel for that chat; closing the canvas brings it back.</p>
+        <p>The canvas and the <a href="parameters.html">parameters sidebar</a> share the same right-hand slot. While the canvas is open it takes the slot; close it and the parameters panel comes back if it was open. On windows narrower than 1080&nbsp;px, opening the canvas also folds the left sidebar to its icon rail so the transcript keeps a usable width - it returns when the canvas closes (see <a href="folders-labels.html#auto-collapse">the sidebar on narrow windows</a>).</p>
+        <p><a href="private-chat.html">Private Chat</a> has no canvas of its own: <strong>Open</strong> there loads the block into the main window&rsquo;s canvas, hidden behind the overlay and still open after you close Private Chat. Use <strong>Copy</strong> or <strong>Export</strong> instead.</p>
       </div>
     </div>
     <div class="page-nav">
-      <a href="markdown.html">
+      <a href="math.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Markdown rendering</span>
+        <span class="title">&larr; LaTeX math</span>
       </a>
-      <a href="concurrency.html" class="next">
+      <a href="slash-commands.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Concurrency & queue &rarr;</span>
+        <span class="title">Slash commands &rarr;</span>
       </a>
     </div>
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chat archive — Loach Docs</title>
-  <meta name="description" content="Move chats out of the sidebar without deleting them. Open archived chats read-only, unarchive to bring them back, or permanently delete from the archive view." />
+  <title>Chat archive - Loach Docs</title>
+  <meta name="description" content="Move chats out of the sidebar without deleting them, with an inline Undo if you mis-clicked. Open archived chats, unarchive them to bring them back, or delete them permanently from Settings → Archive." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/chat-archive.html" />
-  <meta property="og:title" content="Chat archive — Loach Docs" />
-  <meta property="og:description" content="Move chats out of the sidebar without deleting them. Open archived chats read-only, unarchive to bring them back, or permanently delete from the archive view." />
+  <meta property="og:title" content="Chat archive - Loach Docs" />
+  <meta property="og:description" content="Move chats out of the sidebar without deleting them, with an inline Undo if you mis-clicked. Open archived chats, unarchive them to bring them back, or delete them permanently from Settings → Archive." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Chat archive — Loach Docs" />
-  <meta name="twitter:description" content="Move chats out of the sidebar without deleting them. Open archived chats read-only, unarchive to bring them back, or permanently delete from the archive view." />
+  <meta name="twitter:title" content="Chat archive - Loach Docs" />
+  <meta name="twitter:description" content="Move chats out of the sidebar without deleting them, with an inline Undo if you mis-clicked. Open archived chats, unarchive them to bring them back, or delete them permanently from Settings → Archive." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Chat archive",
-      "description": "Move chats out of the sidebar without deleting them. Open archived chats read-only, unarchive to bring them back, or permanently delete from the archive view.",
+      "description": "Move chats out of the sidebar without deleting them, with an inline Undo if you mis-clicked. Open archived chats, unarchive them to bring them back, or delete them permanently from Settings → Archive.",
       "url": "https://docs.loach.dev/pages/features/chat-archive.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,31 +263,40 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Chat archive</h1>
-    <p class="lead">Some chats you want to keep but stop seeing every day. The <strong>archive</strong> moves them out of the sidebar without deleting anything — they stay searchable and you can pull them back at any time.</p>
+    <p class="lead">Some chats you want to keep but stop seeing every day. The <strong>archive</strong> moves them out of the sidebar without deleting anything, and you can pull them back at any time.</p>
 
     <h2 id="archiving">Archiving a chat</h2>
-    <p>Open the per-row menu in the sidebar (or right-click the row) and pick <em>Move to Archive</em>. The chat disappears from the main list immediately. The same option lives in the chat&rsquo;s own header menu.</p>
+    <p>Open the per-row menu in the sidebar (or right-click the row) and pick <strong>Move to archive</strong>. The same option lives in the chat&rsquo;s header menu and in a Space&rsquo;s chat list, and the <code>/archive</code> <a href="slash-commands.html">slash command</a> does the same. The chat disappears from the main list immediately.</p>
+    <p>Archiving also unpins the chat, stops a reply it is still generating (or takes it out of the queue), and closes it if it was open. Its folder and colour label stay with it.</p>
+    <p>Because a chat that vanishes with its only way back tucked away in Settings can read like a delete, archiving raises a <strong>Moved to archive</strong> notice naming the chat, with an inline <strong>Undo</strong>. It stays for seven seconds - longer while you hover it. <strong>Undo</strong> brings the chat back, but not its pin. Unarchiving gets no notice: its result is visible in the list.</p>
 
     <h2 id="archive-view">The archive view</h2>
-    <p>The archive lives at <strong>Settings &rarr; Archive</strong>. From there you can:</p>
+    <p>The archive lives at <strong>Settings → Archive</strong>. A quiet <strong>Archived</strong> row with a count also appears at the bottom of the sidebar whenever archived chats exist, and opens that tab, so nothing looks gone for good. The list shows the most recently archived chats first, each with the date it was archived and a <em>Space</em> tag for chats that belong to one. From the archive you can:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Open</strong> an archived chat read-only.</li>
-      <li><strong class="feat-name">Unarchive</strong> to bring it back into the main list.</li>
-      <li><strong class="feat-name">Permanently delete</strong> from the archive.</li>
-      <li><strong class="feat-name">Archive all</strong> — mass-park your current chats before starting fresh.</li>
-      <li><strong class="feat-name">Remove all</strong> — permanently delete every archived chat in one step. Guarded by a typed-confirm dialog because it is irreversible.</li>
+      <li><strong class="feat-name">Open</strong> an archived chat by clicking its title. It stays fully usable; the header shows an <strong>Archived</strong> pill so you know where you are, and its header menu offers <strong>Restore from archive</strong>.</li>
+      <li><strong class="feat-name">Unarchive</strong> to bring it back into the main list - under <em>Today</em>, or in its folder if it had one.</li>
+      <li><strong class="feat-name">Delete permanently</strong> from the row&rsquo;s <code>&hellip;</code> menu, after a confirmation.</li>
+      <li><strong class="feat-name">Remove all</strong> - permanently delete every archived chat in one step, behind a confirmation because it is irreversible.</li>
     </ul>
+    <p>To park everything at once, <strong>Archive all</strong> on <strong>Settings → Data</strong> moves every live chat to the archive before you start fresh. See <a href="data-management.html">Data management</a>.</p>
 
     <div class="callout note">
       <div class="callout-body">
         <div class="callout-title">Archive vs delete</div>
-        <p>Archiving keeps the conversation intact. If you want it gone for good, pick <em>Delete</em> from the chat&rsquo;s menu instead — or archive first and decide later.</p>
+        <p>Archiving keeps the conversation intact. If you want it gone for good, pick <strong>Delete</strong> from the chat&rsquo;s menu instead - or archive first and decide later.</p>
+      </div>
+    </div>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Archived chats are out of the way</div>
+        <p>The <a href="search.html">search palette</a> deliberately skips archived chats, titles and messages alike, and they drop out of their Space&rsquo;s chat list too. Unarchive a chat to bring it back into scope.</p>
       </div>
     </div>
     <div class="page-nav">
-      <a href="snippets.html">
+      <a href="folders-labels.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Snippets</span>
+        <span class="title">&larr; Chat folders &amp; labels</span>
       </a>
       <a href="search.html" class="next">
         <span class="label">Next</span>

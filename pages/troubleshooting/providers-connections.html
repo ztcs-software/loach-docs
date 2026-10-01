@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Providers & connections — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach provider connections: Ollama unreachable, OpenAI 401, Linux Secret Service, empty model lists." />
+  <title>Providers & connections - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/providers-connections.html" />
-  <meta property="og:title" content="Providers &amp; connections — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach provider connections: Ollama unreachable, OpenAI 401, Linux Secret Service, empty model lists." />
+  <meta property="og:title" content="Providers &amp; connections - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Providers &amp; connections — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach provider connections: Ollama unreachable, OpenAI 401, Linux Secret Service, empty model lists." />
+  <meta name="twitter:title" content="Providers &amp; connections - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Providers & connections — Troubleshooting",
+          "name": "Providers & connections - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/providers-connections.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Providers & connections — Troubleshooting",
-      "description": "Troubleshoot Loach provider connections: Ollama unreachable, OpenAI 401, Linux Secret Service, empty model lists.",
+      "headline": "Providers & connections - Troubleshooting",
+      "description": "Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists.",
       "url": "https://docs.loach.dev/pages/troubleshooting/providers-connections.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -264,34 +267,53 @@
     <p class="lead">Loach talks to providers over HTTP. When the model dropdown is empty or every request fails, the problem is almost always reachability, authentication or key storage.</p>
 
     <h2 id="ollama-unreachable">Ollama is installed but Loach can&rsquo;t see it</h2>
-    <p class="problem-statement">The Providers panel says Ollama isn&rsquo;t reachable, or the model dropdown is empty even though <code>ollama list</code> works in a terminal.</p>
+    <p class="problem-statement"><strong>Test connection</strong> in <strong>Settings &rarr; Providers</strong> says <strong>Connection failed</strong>, the model picker lists Ollama as <strong>Not running</strong>, or the model dropdown is empty even though <code>ollama list</code> works in a terminal.</p>
     <ol>
-  <li>Make sure <code>ollama serve</code> is running. On Windows, the Ollama tray icon needs to be active; on Linux, the <code>ollama</code> service must be started.</li>
-  <li>Open <strong>Settings &rarr; Providers &rarr; Ollama</strong> and check the <strong>Base URL</strong>. The default is <code>http://localhost:11434</code>. If you run Ollama on another machine or a custom port, change it here.</li>
-  <li>Click <strong>Refresh</strong> in the Models tab. The list re-queries Ollama&rsquo;s <code>/api/tags</code> endpoint.</li>
+  <li>Make sure Ollama is running. If it&rsquo;s installed on this computer, click <strong>Start Ollama</strong> in the model picker, or turn on <strong>Auto-launch Ollama</strong> in <strong>Settings &rarr; Providers</strong> so Loach starts it each time it opens. Otherwise: on Windows, the Ollama tray icon needs to be active; on Linux, the <code>ollama</code> service must be started; on macOS, launch the Ollama menu-bar app or run <code>ollama serve</code> from a terminal.</li>
+  <li>Open <strong>Settings &rarr; Providers</strong> and check the <strong>Ollama base URL</strong>. The default is <code>http://localhost:11434</code>. If you run Ollama on another machine or a custom port, change it here, then click <strong>Test connection</strong>.</li>
+  <li>Click <strong>Refresh</strong> in the Models tab (or the refresh button at the top of the model picker). The list re-queries Ollama&rsquo;s <code>/api/tags</code> endpoint.</li>
   <li>If Ollama runs on another host, make sure its firewall allows inbound connections on the chosen port and that <code>OLLAMA_HOST=0.0.0.0</code> is set on the server side (Ollama binds to localhost by default).</li>
 </ol>
 
+    <h2 id="start-ollama-fails">&ldquo;Start Ollama&rdquo; shows an error</h2>
+    <p class="problem-statement">Clicking <strong>Start Ollama</strong> in the model picker ends in a red message under the button.</p>
+    <ul>
+  <li><strong>&ldquo;Couldn&rsquo;t find the Ollama executable&rdquo;</strong> - Loach looks for <code>ollama</code> on your <code>PATH</code> and in Ollama&rsquo;s default install location. Install Ollama, or start it yourself with <code>ollama serve</code>.</li>
+  <li><strong>&ldquo;&hellip; Loach can only start Ollama on this computer&rdquo;</strong> - the base URL points at another machine. Start Ollama there; Loach connects as soon as it answers.</li>
+  <li><strong>&ldquo;Ollama exited immediately&rdquo;</strong> - usually something else is already listening on that port. Run <code>ollama serve</code> in a terminal to see the real error.</li>
+  <li><strong>&ldquo;Started Ollama, but it didn&rsquo;t respond &hellip; in time&rdquo;</strong> - the server didn&rsquo;t answer within 20 seconds. A slow first start can do this; wait a moment and use the picker&rsquo;s refresh button.</li>
+</ul>
+
     <h2 id="openai-401">OpenAI says &ldquo;invalid key&rdquo; or returns 401</h2>
-    <p class="problem-statement">You added an OpenAI-compatible API key but every request fails with 401.</p>
+    <p class="problem-statement">You added an OpenAI-compatible API key but every request fails with 401 (&ldquo;API key invalid or expired&rdquo;).</p>
     <ol>
-  <li>Re-enter the key in <strong>Settings &rarr; Providers &rarr; OpenAI</strong>. Keys are stored in the operating system&rsquo;s credential store, not on disk, so a copy-paste that picked up a trailing space will silently fail.</li>
-  <li>Confirm the key is active on your OpenAI dashboard and has not been rotated.</li>
-  <li>If you&rsquo;re using a custom OpenAI-compatible endpoint (vLLM, LM Studio, LiteLLM, OpenRouter, Groq), make sure the <strong>Base URL</strong> ends with <code>/v1</code> and that the endpoint accepts the same <code>Authorization: Bearer &hellip;</code> header the real OpenAI API uses.</li>
+  <li>Re-enter the key under <strong>OpenAI API key</strong> in <strong>Settings &rarr; Providers</strong> and click <strong>Save</strong>. Keys are stored in the operating system&rsquo;s credential store, not on disk. Leading and trailing spaces are trimmed before saving, so a sloppy copy-paste isn&rsquo;t the problem - a truncated one can be.</li>
+  <li>Confirm the key is active on your provider&rsquo;s dashboard and has not been rotated.</li>
+  <li>If you&rsquo;re using a custom OpenAI-compatible endpoint (vLLM, LM Studio, LiteLLM, OpenRouter, Groq), make sure the <strong>API base URL</strong> is the one its docs give - usually ending in <code>/v1</code> (LiteLLM&rsquo;s is <code>http://localhost:4000</code>; the presets dropdown at the end of the field fills in the common ones) - and that the endpoint accepts the same <code>Authorization: Bearer &hellip;</code> header the real OpenAI API uses.</li>
+  <li>A server on another machine reached over plain <code>http://</code> never gets the key: Loach only sends it over <code>https://</code>, or over <code>http://</code> to this computer, so it can&rsquo;t be read off the network. Put the server behind HTTPS, or turn off its key requirement if it&rsquo;s on a network you trust. In a chat, the error then says &ldquo;API key withheld because the base URL is http:// to another machine&rdquo; rather than &ldquo;API key invalid or expired&rdquo;; <strong>Test connection</strong> reports it as a plain 401.</li>
 </ol>
 
     <h2 id="linux-secret-service">Key won&rsquo;t save on Linux</h2>
-    <p class="problem-statement">The OpenAI-compatible API key field clears every time you reopen Settings, or saving the key throws an error.</p>
+    <p class="problem-statement">Saving the key shows a <em>Couldn&rsquo;t save API key</em> error, or when you reopen Settings the key field shows the <code>sk-&hellip;</code> placeholder instead of <code>•••••••• (stored)</code>. (The field itself is always blank - a saved key is never shown back.)</p>
     <p>Loach uses the system Secret Service to store secrets. On minimal Linux installs (server-style, some tiling window managers) there is no Secret Service running.</p>
 <ol>
-  <li>Install and start <strong>gnome-keyring</strong> or <strong>KWallet</strong> — whichever fits your desktop environment.</li>
+  <li>Install and start <strong>gnome-keyring</strong> or <strong>KWallet</strong> - whichever fits your desktop environment.</li>
   <li>Make sure a login session is unlocked so the keyring is available to user processes.</li>
   <li>Restart Loach and re-enter the key.</li>
 </ol>
+    <p>On a managed Windows machine, see <a href="platform.html#windows-credman">Windows - saving a key or the app lock fails</a>.</p>
 
     <h2 id="empty-model-list">Models list shows no models</h2>
     <p class="problem-statement">Ollama is reachable but the list is empty.</p>
-    <p>You haven&rsquo;t pulled any models yet. In the <strong>Models</strong> tab, click <strong>Pull a model</strong>, type a tag (for example <code>llama3.1:8b</code>), and wait for the download to finish. The list refreshes automatically.</p>
+    <p>You haven&rsquo;t pulled any models yet. In the <strong>Models</strong> tab, click <strong>Pull model</strong>, type a tag (for example <code>llama3.1:8b</code>), and wait for the download to finish. The Models tab refreshes on its own when the download completes; if the chat-header picker doesn&rsquo;t list the model yet, click the refresh button at the top of its menu.</p>
+
+    <h2 id="api-models-missing">The API models are missing from the picker</h2>
+    <p class="problem-statement">The <strong>API</strong> group in the model picker says <strong>Not connected</strong> or <strong>No models</strong>, it emptied after you cleared your key, or the model you want isn&rsquo;t listed.</p>
+    <ul>
+  <li>With the default OpenAI base URL, nothing is listed until a key is saved, and clearing the key empties the list on purpose - those models could only fail at send time. A base URL pointing at your own server is listed with or without a key.</li>
+  <li>Run <strong>Test connection</strong> under the key field to see the endpoint&rsquo;s own error.</li>
+  <li>The picker shows the first 30 models the endpoint returns. For one further down a long catalog (OpenRouter, say), type <code>/model &lt;name&gt;</code> in the composer, or pick it under <strong>Settings &rarr; General &rarr; Default model</strong>. Both use the full catalog the Models tab lists - press <strong>Refresh</strong> there if a model you just added is missing.</li>
+</ul>
 
     <div class="page-nav">
       <a href="../troubleshooting.html">

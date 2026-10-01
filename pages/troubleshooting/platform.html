@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Platform — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines." />
+  <title>Platform - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/platform.html" />
-  <meta property="og:title" content="Platform — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines." />
+  <meta property="og:title" content="Platform - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Platform — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines." />
+  <meta name="twitter:title" content="Platform - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Platform — Troubleshooting",
+          "name": "Platform - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/platform.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Platform — Troubleshooting",
-      "description": "Platform-specific Loach issues: macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines.",
+      "headline": "Platform - Troubleshooting",
+      "description": "Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines.",
       "url": "https://docs.loach.dev/pages/troubleshooting/platform.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -263,17 +266,28 @@
     <h1>Platform</h1>
     <p class="lead">A few problems are specific to a particular operating system or IT policy.</p>
 
-    <h2 id="macos-gatekeeper">macOS — &ldquo;Loach can&rsquo;t be opened&rdquo; on first launch</h2>
-    <p class="problem-statement">You opened Loach for the first time on macOS and macOS blocked it, saying it cannot be verified or comes from an unidentified developer.</p>
-    <p>The Loach build is <strong>not Apple-notarized</strong> (ZTCS doesn&rsquo;t subscribe to the Apple Developer Program), so Gatekeeper doesn&rsquo;t recognise it and shows a warning on first launch. Open <strong>System Settings &rarr; Privacy &amp; Security</strong>, scroll to the bottom and click <em>Open Anyway</em>. You only have to do this once; in-app updates afterwards do not re-prompt. (Update bundles themselves are cryptographically signed with the project&rsquo;s own Ed25519 key — a separate check that runs on every in-app update, regardless of notarization.)</p>
+    <h2 id="macos-gatekeeper">macOS - &ldquo;Loach is damaged and can&rsquo;t be opened&rdquo; on first launch</h2>
+    <p class="problem-statement">macOS refuses to open the app after install, showing either <em>&ldquo;Loach is damaged and can&rsquo;t be opened&rdquo;</em> or <em>&ldquo;Apple cannot verify Loach is free of malware&rdquo;</em>.</p>
+    <p>The macOS build is <strong>not Apple-notarized</strong> (ZTCS doesn&rsquo;t subscribe to the Apple Developer Program), so Gatekeeper blocks it on first launch. Bypass it once and the app runs normally afterwards:</p>
+<ul>
+  <li>For <em>&ldquo;Apple cannot verify&hellip;&rdquo;</em> on <strong>macOS 14 and earlier</strong>: <strong>right-click</strong> <code>Loach.app</code> in <strong>Applications</strong> &rarr; <strong>Open</strong> &rarr; click <strong>Open</strong> in the prompt.</li>
+  <li>For <em>&ldquo;Apple cannot verify&hellip;&rdquo;</em> on <strong>macOS 15 and later</strong>: try to open the app once, then click <strong>Open Anyway</strong> in <strong>System Settings &rarr; Privacy &amp; Security</strong>.</li>
+  <li>For either message: run <code>xattr -cr /Applications/Loach.app</code> in <strong>Terminal</strong> and launch normally.</li>
+</ul>
+<p>Auto-updates flow through Loach&rsquo;s own Ed25519-signed updater (independent of Apple), so this is a one-time install step. If a future update is blocked the same way, the same workaround applies.</p>
 
-    <h2 id="macos-intel">macOS — Intel Macs</h2>
-    <p class="problem-statement">You&rsquo;re on an Intel Mac and the <code>.dmg</code> won&rsquo;t run.</p>
-    <p>Only Apple Silicon (M1 and later) is supported. There&rsquo;s no Intel build.</p>
+    <h2 id="macos-intel">macOS - Intel Macs</h2>
+    <p class="problem-statement">You&rsquo;re on an Intel Mac and the <code>.dmg</code> won&rsquo;t install or run.</p>
+    <p>The macOS build is <strong>Apple Silicon (M-series) only</strong>, and needs <strong>macOS 11</strong> or later. Intel Macs aren&rsquo;t supported. Build from source if you need to run on Intel - see <a href="../installation.html#source">Build from source</a>.</p>
 
-    <h2 id="windows-credman">Windows: &ldquo;Credential Manager access denied&rdquo;</h2>
-    <p class="problem-statement">Saving keys or app-lock credentials fails on a managed Windows machine.</p>
+    <h2 id="linux-glibc">Linux - the app won&rsquo;t start on an older distribution</h2>
+    <p class="problem-statement">Launching Loach fails with an error such as <code>version `GLIBC_2.35' not found</code>.</p>
+    <p>Loach&rsquo;s Linux packages are built against <strong>glibc 2.35</strong>, so <strong>Ubuntu 22.04</strong> and <strong>Debian 12</strong> are the oldest supported distributions; anything with an older glibc can&rsquo;t run the pre-built <code>.deb</code>, <code>.rpm</code> or <code>.AppImage</code>. Upgrade the distribution, or <a href="../installation.html#source">build from source</a> on the machine itself.</p>
+
+    <h2 id="windows-credman">Windows - saving a key or the app lock fails on a managed machine</h2>
+    <p class="problem-statement">Saving keys or app-lock credentials fails on a managed Windows machine with a platform or storage error.</p>
     <p>Some corporate group policies block apps from writing to Credential Manager. Loach cannot store secrets without it. Ask your IT admin to allow Credential Manager writes for the Loach process, or use a personal machine.</p>
+    <p>On Linux, the equivalent problem is a missing Secret Service - see <a href="providers-connections.html#linux-secret-service">Key won&rsquo;t save on Linux</a>.</p>
 
     <div class="page-nav">
       <a href="search-palette.html">

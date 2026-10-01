@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Attachments — Loach Docs</title>
-  <meta name="description" content="Drop files into any chat — images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
+  <title>Attachments - Loach Docs</title>
+  <meta name="description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/attachments.html" />
-  <meta property="og:title" content="Attachments — Loach Docs" />
-  <meta property="og:description" content="Drop files into any chat — images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
+  <meta property="og:title" content="Attachments - Loach Docs" />
+  <meta property="og:description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Attachments — Loach Docs" />
-  <meta name="twitter:description" content="Drop files into any chat — images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
+  <meta name="twitter:title" content="Attachments - Loach Docs" />
+  <meta name="twitter:description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Attachments",
-      "description": "Drop files into any chat — images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context.",
+      "description": "Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context.",
       "url": "https://docs.loach.dev/pages/features/attachments.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,22 +263,38 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Attachments</h1>
-    <p class="lead">Drag and drop files into the composer, or click the <strong>+</strong> icon to open the native file picker. Loach parses each file and inlines its contents into the request — there is no separate upload step and nothing leaves your machine unless you are using a cloud provider.</p>
+    <p class="lead">Drop files onto the window, paste them, or pick them from the <strong>+</strong> menu next to the message box. Loach reads each file on your machine and adds its contents to your message - there is no separate upload step, and nothing leaves your machine unless you are using a cloud provider.</p>
+
+    <h2 id="adding-files">Adding files</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">+ menu</strong> - <strong>Add files</strong> opens the native file picker; pick as many files as you like. <kbd>Ctrl</kbd> + <kbd>U</kbd> opens the same picker.</li>
+      <li><strong class="feat-name">Drag and drop</strong> - drop files anywhere in the window while a message box is on screen. The box reads <strong>Drop files here to attach</strong> while you drag.</li>
+      <li><strong class="feat-name">Paste</strong> - <kbd>Ctrl</kbd> + <kbd>V</kbd> in the message box attaches any files on the clipboard, such as a screenshot or files copied in your file manager. Plain text pastes as text.</li>
+    </ul>
+    <p>Each file becomes a chip above the input, after any persona and tone chips. Click a chip&rsquo;s <em>&times;</em> to drop it before sending. You can send files without typing anything; the chips leave with the message.</p>
+    <p>The same menu&rsquo;s <strong>Add directory</strong> item (<strong>Change directory</strong> once the chat has a folder) does something different: instead of copying files into one message, it lets the model list, read and edit the files in a folder for the rest of the chat. It becomes available once the chat has its first message. See <a href="work-in-folders.html#adding-a-folder">Work in folders</a>.</p>
 
     <h2 id="supported-types">Supported file types</h2>
-    <p>Loach recognises three flavours of attachment:</p>
+    <p>Loach sorts every file into one of four kinds:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Images</strong> — PNG, JPEG, WEBP and GIF. Sent alongside the text turn to vision-capable models.</li>
-      <li><strong class="feat-name">Text and code</strong> — about fifty recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown, SQL, shell, and so on) plus anything served as a <code>text/*</code> MIME type. The contents are inlined into the prompt as a fenced code block tagged with the right language.</li>
-      <li><strong class="feat-name">Documents</strong> — PDF and DOCX. Loach extracts the readable text (and the PDF page count) and inlines that. Layout and embedded images are not preserved; everything becomes plain text that the model can reason about.</li>
+      <li><strong class="feat-name">Images</strong> - PNG, JPEG, WEBP and GIF. Sent to the model as images alongside your text, so they need a vision-capable model.</li>
+      <li><strong class="feat-name">Text and code</strong> - about seventy recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown, CSV, SQL, shell scripts, <code>Dockerfile</code>, <code>Makefile</code> and so on) plus anything with a <code>text/*</code> type. The file is read as UTF-8 text and added verbatim inside a code block.</li>
+      <li><strong class="feat-name">Documents</strong> - PDF and DOCX. Loach extracts the plain text and adds that; a PDF is read page by page, each page under a &ldquo;Page N&rdquo; header. Layout, formatting and embedded images are lost. A scanned PDF with no text layer has nothing to extract, and the model is told so.</li>
+      <li><strong class="feat-name">Everything else</strong> - legacy <code>.doc</code>, archives, binaries and other image formats such as BMP, TIFF, HEIC or SVG. These attach, but Loach can&rsquo;t read them; see <a href="#unknown-formats">below</a>.</li>
     </ul>
 
     <h2 id="how-it-works">How attachments enter the prompt</h2>
-    <p>Each attachment is rendered into the user turn as its own block, with the filename as a header so the model knows what it is looking at. Multiple files in one message work — Loach concatenates them in the order you dropped them, then appends your prompt at the bottom. The attachments stay with the message in the transcript, so re-running the conversation later replays the same context.</p>
+    <p>When you send, your typed prompt comes first, followed by one block per text file or document, in the order you added them. Each block opens with a header naming the file (&ldquo;Attached file&rdquo;, &ldquo;Attached PDF&rdquo; or &ldquo;Attached Word document&rdquo;), so the model knows what it is looking at. Pages pulled in by <a href="web-fetch.html">web fetch</a> come after the attachments.</p>
+    <p>Your bubble in the transcript shows only what you typed, with the files as chips, but the extracted text is stored with the message. It is sent again with the chat history on every later turn and counts toward the context window - the <a href="context-compaction.html#usage-bar">context usage popover</a> lists it as <strong>of which attachments</strong>.</p>
+    <p>Images work differently: they reach the model only with the message they are attached to, and again if you <a href="markdown.html#regenerate">regenerate</a> that reply. Later turns don&rsquo;t resend them, so attach the image again if you want the model to take another look.</p>
 
     <h2 id="caps-and-truncation">Caps and truncation</h2>
-    <p>To keep the prompt manageable, Loach applies sensible per-file and per-message limits. When a long PDF or DOCX exceeds its per-file budget, the file chip shows a truncation badge and a one-line note is added inline so the model is told <em>what</em> was cut.</p>
-    <p>If everything together still does not fit, files that could not be inlined are listed by name in a short trailing footer — so the model knows the file exists and can ask you for an excerpt.</p>
+    <p>To keep the prompt manageable, Loach applies three limits:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">20&nbsp;MB per file</strong> - a bigger file is refused, with &ldquo;<em>name</em> is larger than 20 MB.&rdquo; under the message box.</li>
+      <li><strong class="feat-name">200,000 characters per file</strong> - a longer text file, PDF or DOCX keeps only its first 200,000 characters. Its chip in the message box gets an amber <strong>truncated</strong> pill, and a note at the cut tells the model what was left out (for a PDF, how many of its pages it got).</li>
+      <li><strong class="feat-name">500,000 characters per message</strong> - counted across your prompt, every attachment and any fetched pages. Earlier attachments win: one that only partly fits is clipped with a note to the model, and files with no room left are listed by name in a short footer, so the model knows they exist and can ask you for an excerpt. Neither case shows a pill on the chip.</li>
+    </ul>
 
     <div class="callout tip">
       <div class="callout-body">
@@ -285,16 +304,23 @@
     </div>
 
     <h2 id="unknown-formats">Files Loach cannot decode</h2>
-    <p>Legacy <code>.doc</code> files, archives, binaries and other formats Loach does not parse are kept in the transcript and announced to the model by name, but no readable content is inlined. The model can still acknowledge that &ldquo;you attached <code>report.zip</code>&rdquo; and ask for a usable version.</p>
+    <p>Legacy <code>.doc</code> files, archives, binaries, unsupported image formats and anything else Loach does not parse still attach. The file is kept with the message and the model is told its name, but none of its content. The model can still acknowledge that &ldquo;you attached <code>report.zip</code>&rdquo; and ask for a usable version, and you can open the chip and <strong>Save</strong> the file back out.</p>
 
     <h2 id="previews">Previews</h2>
-    <p>Clicking an attachment chip opens a per-type preview without leaving the chat. Loach picks the right viewer based on what the file actually is:</p>
+    <p>Click a chip - in the message box or on a sent message - to preview it without leaving the chat. This covers files you attached, images returned by <a href="mcp.html">MCP tools</a> and PDFs produced by the built-in <a href="built-in-tools.html#pdf"><code>pdf</code> tool</a> alike. Loach picks the viewer based on what the file is:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Images</strong> — open in a lightbox with a <strong>Save</strong> button. Click the dim backdrop to close, matching standard lightbox behaviour.</li>
-      <li><strong class="feat-name">PDFs</strong> with original bytes retained — open as a multi-page rendered preview (lazy per-page rasterisation) with <strong>Save</strong>.</li>
-      <li><strong class="feat-name">Text and code</strong> — open in the <a href="code-canvas.html">Code canvas</a> with language-aware highlighting and export.</li>
-      <li><strong class="feat-name">DOCX, binaries, and older PDFs without raw bytes</strong> — open a file-info card with <strong>Save</strong>, so you can still pull the attachment back out even when Loach cannot render it inline.</li>
+      <li><strong class="feat-name">Images</strong> - open in a lightbox with a <strong>Save</strong> button. Click the dim backdrop or the <em>&times;</em> to close.</li>
+      <li><strong class="feat-name">PDFs</strong> - open as a scrollable preview that renders each page as you reach it, with <strong>Save</strong> writing the original file. This needs the PDF&rsquo;s original bytes, which Loach keeps for a PDF still in the message box and for PDFs from the <code>pdf</code> tool - not for a PDF you have already sent in a regular chat.</li>
+      <li><strong class="feat-name">Text and code</strong> - open in the <a href="code-canvas.html">code canvas</a> under the file&rsquo;s name, with highlighting, and with <strong>Export</strong> defaulting to the original file name.</li>
+      <li><strong class="feat-name">Everything else</strong> - DOCX files, files Loach can&rsquo;t decode, sent PDFs and any PDF that fails to render open a card reading <strong>Preview not available</strong>, with a <strong>Save</strong> button so you can still pull the file back out. For a PDF or DOCX that has already been sent, <strong>Save</strong> writes the extracted text as a <code>.txt</code> file, so keep your original.</li>
     </ul>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">In Private Chat</div>
+        <p><a href="private-chat.html">Private Chat</a> takes files from its own <strong>+</strong> button only. Dropping files is refused while it is open, so nothing lands in the regular chat behind it, and pasting a file doesn&rsquo;t attach it. Text and code chips open the file card instead of the canvas, and files on sent messages show as plain name labels.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="import-export.html">
         <span class="label">Previous</span>

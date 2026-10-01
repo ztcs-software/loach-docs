@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spaces & memory — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach Space memory: missing entries, bad facts, reference-file caps, instruction-cascade surprises." />
+  <title>Spaces & memory - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/spaces-memory.html" />
-  <meta property="og:title" content="Spaces &amp; memory — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach Space memory: missing entries, bad facts, reference-file caps, instruction-cascade surprises." />
+  <meta property="og:title" content="Spaces &amp; memory - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Spaces &amp; memory — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach Space memory: missing entries, bad facts, reference-file caps, instruction-cascade surprises." />
+  <meta name="twitter:title" content="Spaces &amp; memory - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Spaces & memory — Troubleshooting",
+          "name": "Spaces & memory - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/spaces-memory.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Spaces & memory — Troubleshooting",
-      "description": "Troubleshoot Loach Space memory: missing entries, bad facts, reference-file caps, instruction-cascade surprises.",
+      "headline": "Spaces & memory - Troubleshooting",
+      "description": "Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides.",
       "url": "https://docs.loach.dev/pages/troubleshooting/spaces-memory.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -261,33 +264,43 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>Spaces &amp; memory</h1>
-    <p class="lead">Spaces layer shared context over your chats. Memory is opt-in, extracted from completed turns, and has hard caps.</p>
+    <p class="lead">Spaces layer shared context over your chats. Memory is learned from completed replies - per Space (on by default) and globally (off until you turn it on) - and has hard caps.</p>
 
     <h2 id="memory-not-saved">Memories aren&rsquo;t being saved</h2>
-    <p class="problem-statement">You set up Space memory but nothing appears in the Memory tab.</p>
+    <p class="problem-statement">You expect memory to pick up facts, but nothing appears in the Space&rsquo;s Memory tab or the global memories list.</p>
     <ul>
   <li>Memory extraction only runs <strong>after a complete assistant reply</strong>. Cancelled or errored turns are skipped.</li>
-  <li>The toggle on the Space&rsquo;s Memory tab must be on.</li>
-  <li>Each candidate fact must be <strong>under 280 characters</strong>. Longer &ldquo;facts&rdquo; are dropped.</li>
-  <li>Memory uses the same provider/model the chat is using. Tiny models often return empty extractions; try a larger one.</li>
+  <li>In a Space, the switch on the Space&rsquo;s <strong>Memory</strong> tab must be on. Outside a Space, nothing is saved until you turn on <strong>Settings &rarr; Features &rarr; Global memories</strong>. Space chats never write to global memories, and <a href="../features/private-chat.html">Private Chat</a> never saves anything.</li>
+  <li>Only what you typed counts. Facts in attached files or fetched web pages are ignored, and so are requests (&ldquo;write me a script&rdquo;) - most turns produce nothing, and that&rsquo;s normal. To save something specific, use <code>/remember &lt;fact&gt;</code>.</li>
+  <li>A fact that repeats one you already have is dropped, and each fact the extractor saves must be <strong>at most 280 characters</strong>.</li>
+  <li>Memory uses the same provider and model the chat is using, and gives up after a minute. Tiny or slow models often return empty extractions; try a larger one.</li>
 </ul>
 
     <h2 id="bad-memory">Memory captured something wrong or private</h2>
     <p class="problem-statement">A bad fact landed in long-term memory.</p>
-    <p>Open the Space&rsquo;s <strong>Memory</strong> tab and click the row to edit or delete it. Turning the toggle off only stops <em>new</em> writes; existing memories still ride along until you remove them.</p>
+    <p>Right after it lands, click <strong>Undo</strong> on the <em>Saved to memory</em> toast. Later, open the Space&rsquo;s <strong>Memory</strong> tab - or, for global memories, <strong>Settings &rarr; Features &rarr; Manage global memories</strong> - and click the fact&rsquo;s text to edit it, or hover the row and click the trash icon to delete it. <code>/forget &lt;text&gt;</code> works too. If memory removed or rewrote a fact it shouldn&rsquo;t have, use <strong>Undo</strong> on the <em>Removed memory</em> or <em>Updated memory</em> toast.</p>
+    <p>Turning a Space&rsquo;s memory switch off only stops <em>new</em> facts; the ones already saved are still sent until you delete them. Turning off <strong>Global memories</strong> stops both saving and sending.</p>
 
-    <h2 id="reference-cap">Reference files won&rsquo;t add to a Space</h2>
-    <p class="problem-statement">Adding a file to a Space fails or silently does nothing.</p>
-    <p>Per-Space cap is <strong>200 MB</strong> total across all files. Remove older references, or move the content into a smaller text file.</p>
+    <h2 id="remember-off">&ldquo;Memory is off&rdquo; when using <code>/remember</code></h2>
+    <p class="problem-statement"><code>/remember</code> answers <em>Memory is off for &ldquo;&hellip;&rdquo;</em> or <em>Global memory is off</em> and saves nothing.</p>
+    <p><code>/remember</code> follows the same switches as automatic memory. In a Space chat, turn on the switch on the Space&rsquo;s <strong>Memory</strong> tab. Outside a Space, turn on <strong>Settings &rarr; Features &rarr; Global memories</strong>, or run the command in a chat inside a Space. The <strong>Add</strong> field in the memory editor is unavailable for the same reason.</p>
+
+    <h2 id="not-sent">A memory is marked &ldquo;not sent&rdquo;</h2>
+    <p class="problem-statement">The memory editor tags some older facts <em>not sent</em>, and the model doesn&rsquo;t seem to know them.</p>
+    <p>Each memory list sends only its newest facts, up to <strong>60 facts</strong> and about <strong>6,000 characters</strong>, so it can&rsquo;t crowd a small context window. Older facts are kept but not sent. Delete facts you no longer need (or shorten long ones you typed yourself) and the older ones move back into the prompt.</p>
+
+    <h2 id="reference-cap">Reference sources won&rsquo;t add to a Space</h2>
+    <p class="problem-statement">Adding a source to a Space fails or silently does nothing.</p>
+    <p>Each file can be at most <strong>20 MB</strong> (<em>&hellip; exceeds the 20 MB limit</em>), and a Space&rsquo;s sources at most <strong>200 MB</strong> in total (<em>&hellip; would exceed the 200 MB space limit</em>; at the limit, <strong>Add source</strong> is disabled). Remove older sources, or move the content into a smaller text file.</p>
+    <p>If a source was added but the model ignores it: formats Loach can&rsquo;t read (such as legacy <code>.doc</code> files or archives) are stored but never sent, and a scanned PDF has no text to extract - add its pages as images instead.</p>
 
     <h2 id="space-instructions">Space instructions seem to override my custom instructions</h2>
-    <p class="problem-statement">Your global Custom Instructions don&rsquo;t appear to apply in chats inside a Space.</p>
-    <p>This is by design. When a Space has its own instructions, they replace the global ones for chats in that Space. Either clear the Space&rsquo;s instructions, or repeat the relevant parts in them.</p>
-
+    <p class="problem-statement">Your global Custom Instructions, or a chat&rsquo;s own instructions, don&rsquo;t appear to apply in chats inside a Space.</p>
+    <p>This is by design. When a Space has its own instructions, they replace both the global ones and the chat&rsquo;s own <strong>Additional instructions</strong> for chats in that Space. Either clear the Space&rsquo;s instructions, or repeat the relevant parts in them. See <a href="../features/custom-instructions.html#precedence">Custom instructions: precedence</a>.</p>
     <div class="page-nav">
       <a href="web-fetch-mcp.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Web fetch &amp; MCP</span>
+        <span class="title">&larr; Tools, MCP &amp; folders</span>
       </a>
       <a href="app-lock.html" class="next">
         <span class="label">Next</span>

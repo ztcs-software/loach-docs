@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>Memory - Loach Docs</title>
+  <meta name="description" content="Loach remembers lasting facts about you: per-Space memory and opt-in global memories. Facts are learned after each reply, kept up to date, and every change can be undone." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/memory.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/memory.html" />
+  <meta property="og:title" content="Memory - Loach Docs" />
+  <meta property="og:description" content="Loach remembers lasting facts about you: per-Space memory and opt-in global memories. Facts are learned after each reply, kept up to date, and every change can be undone." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="Memory - Loach Docs" />
+  <meta name="twitter:description" content="Loach remembers lasting facts about you: per-Space memory and opt-in global memories. Facts are learned after each reply, kept up to date, and every change can be undone." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "Memory",
+          "item": "https://docs.loach.dev/pages/features/memory.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "Memory",
+      "description": "Loach remembers lasting facts about you: per-Space memory and opt-in global memories. Facts are learned after each reply, kept up to date, and every change can be undone.",
+      "url": "https://docs.loach.dev/pages/features/memory.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/memory.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,87 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>Memory</h1>
+    <p class="lead">Loach can remember lasting facts about you - your role, the projects you work on, how you like answers - and bring them into later chats. There are two kinds: <strong>Space memory</strong>, kept separately for each <a href="spaces.html">Space</a>, and <strong>global memories</strong>, which follow you into every chat. Facts stay in Loach&rsquo;s local database, and you can review, edit or undo every one of them.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
+    <h2 id="two-kinds">Space memory and global memories</h2>
+    <table>
+      <thead><tr><th></th><th>Space memory</th><th>Global memories</th></tr></thead>
+      <tbody>
+        <tr><td>Switched on with</td><td>The switch on the Space&rsquo;s <strong>Memory</strong> tab - on for every new Space</td><td><strong>Settings &rarr; Features &rarr; Global memories</strong>, or the <strong>Pick your defaults</strong> step of setup - off by default</td></tr>
+        <tr><td>Learns from</td><td>Chats inside that Space</td><td>Chats outside any Space</td></tr>
+        <tr><td>Sent with</td><td>Chats inside that Space</td><td>Every chat, inside or outside a Space</td></tr>
+        <tr><td>Edited in</td><td>The Space&rsquo;s <strong>Memory</strong> tab</td><td><strong>Settings &rarr; Features &rarr; Manage global memories</strong></td></tr>
+        <tr><td>Switched off</td><td>Stops learning; facts already saved are still sent</td><td>Stops learning <em>and</em> stops sending</td></tr>
+      </tbody>
+    </table>
+    <p>A chat in a Space gets both lists when global memories are on: the global facts, then the Space&rsquo;s, with a note to the model that the Space facts win when the two disagree. Space chats never write to the global list - their extractor sees the global facts as read-only, so it doesn&rsquo;t copy them into the Space.</p>
 
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="how-facts-are-captured">How facts are captured</h2>
+    <p>After each finished reply, Loach makes a second, hidden call to the same provider and model you&rsquo;re chatting with and asks it to pick out durable facts about you - things that would still be true, and worth knowing, in an unrelated chat a month from now. It runs in the background once the reply is done. If you send another message while it&rsquo;s still working, it stops so your reply isn&rsquo;t slowed down, and that turn is read together with the next one in the same chat (up to three turns per run).</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
-    </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
-
-    <h2 id="limits">Limits</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
-    </ul>
-
-    <h2 id="safety">Safety guards</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
+      <li><strong class="feat-name">Which chats</strong> - a chat in a Space whose memory is on writes to that Space; a chat outside any Space writes to global memories when they&rsquo;re on. <a href="private-chat.html">Private Chat</a> never does.</li>
+      <li><strong class="feat-name">Only complete replies</strong> - a reply you stopped, or one that ended in an error, is skipped. Turns still waiting to be read are held in memory, so quitting Loach drops them.</li>
+      <li><strong class="feat-name">Only what you typed</strong> - the extractor reads your message and the reply, not the files you attached or the pages Loach fetched for the turn. Text you didn&rsquo;t write isn&rsquo;t a fact about you, and it&rsquo;s exactly where an injected &ldquo;remember that I…&rdquo; would hide.</li>
+      <li><strong class="feat-name">Facts, not requests</strong> - what you ask for (&ldquo;write me a Python script&rdquo;) is a task, not a fact about you. The extractor is told to leave tasks out, and Loach also drops any fact that just reports a request (&ldquo;User requested a config file…&rdquo;). Most turns produce nothing, and that&rsquo;s expected.</li>
+      <li><strong class="feat-name">No duplicates</strong> - a new fact that only rephrases one you already have is dropped. Word order counts, so &ldquo;prefers A over B&rdquo; isn&rsquo;t mistaken for &ldquo;prefers B over A&rdquo;, and a negated fact is never treated as a copy of the positive one.</li>
     </ul>
 
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <h2 id="facts-that-change">Facts that change</h2>
+    <p>The extractor sees the facts it saved before, so when a turn shows one has changed - you moved city, reversed a preference, renamed a project - it <strong>rewrites</strong> that fact instead of adding a second one that contradicts it, and it <strong>removes</strong> a fact that no longer holds and has no replacement.</p>
+    <p>Facts you added yourself, in the editor or with <code>/remember</code>, are read-only to it: it avoids repeating them but never rewrites or removes them. Only you can change those.</p>
+    <p>One run saves at most five new facts and rewrites or removes at most three existing ones. A fact the extractor saves or rewrites is rejected if it&rsquo;s longer than 280 characters; facts you type yourself have no length limit.</p>
+
+    <h2 id="undo">Undo on every change</h2>
+    <p>Every change the extractor makes shows a toast with the fact and an <strong>Undo</strong> button, for about seven seconds:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Saved to memory</strong> - a new fact. <strong>Undo</strong> deletes it.</li>
+      <li><strong class="feat-name">Updated memory</strong> - a rewritten fact. <strong>Undo</strong> restores the previous wording.</li>
+      <li><strong class="feat-name">Removed memory</strong> - a retired fact. <strong>Undo</strong> puts it back where it was, with its original date.</li>
+    </ul>
+    <p>Rewrites and removals are shown last, so their <strong>Undo</strong> stays on screen even when the same run also saved new facts.</p>
+
+    <h2 id="editor">The memory editor</h2>
+    <p>A Space&rsquo;s <strong>Memory</strong> tab and the <strong>Global memories</strong> dialog (<strong>Settings &rarr; Features &rarr; Manage global memories</strong>, which shows the count in brackets) use the same editor:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Add a memory</strong> - type a fact and press <kbd>Enter</kbd> or click <strong>Add</strong>. Unavailable while that memory is switched off.</li>
+      <li><strong class="feat-name">Edit</strong> - click a fact&rsquo;s text. <kbd>Enter</kbd> or clicking away saves; <kbd>Esc</kbd> cancels.</li>
+      <li><strong class="feat-name">Delete</strong> - hover a row and click its trash icon. This is immediate, with no undo.</li>
+      <li><strong class="feat-name">Search</strong> - filter by text. The list shows the newest facts first.</li>
+      <li><strong class="feat-name">Saved date and source chat</strong> - each row shows when the fact was saved and, if it came from a chat that still exists, that chat&rsquo;s title. Click it to open the chat.</li>
+      <li><strong class="feat-name">Clear all</strong> - deletes every fact after a confirmation. With a search typed, the button reads <strong>Clear <em>N</em> shown</strong> and deletes only the matches. This can&rsquo;t be undone.</li>
+    </ul>
+    <p>Deleting a chat doesn&rsquo;t delete the facts learned from it; the row just loses its link.</p>
+
+    <h2 id="remember">Saving a fact yourself: <code>/remember</code></h2>
+    <p>Type <code>/remember &lt;fact&gt;</code> in the composer to save a fact directly. In a chat inside a Space it goes to that Space&rsquo;s memory, and so it does while a Space is active - one you&rsquo;re viewing or picked with <code>/space</code>; anywhere else it goes to global memories. It follows the same switches: if that Space&rsquo;s memory is off, or global memories are off, Loach tells you so and saves nothing.</p>
+    <p>Two related commands work on the same scope: <code>/list memories</code> shows the facts with a short id each, and <code>/forget &lt;id|query&gt;</code> removes one by its id or by matching text - when several facts match, it lists them so you can re-run it with an id. See <a href="slash-commands.html">Slash commands</a>.</p>
+
+    <h2 id="what-the-model-sees">What the model sees</h2>
+    <p>Facts go into the system prompt of each message as short bulleted lists: a <code>--- Global memory ---</code> block and, in a Space, a <code>--- Space memory ---</code> block, after your instructions. Each list sends the newest facts that fit within <strong>60 facts</strong> and about <strong>6,000 characters</strong> (roughly 1,500 tokens), so a long list can&rsquo;t crowd a small context window. Older facts stay in the editor, marked <em>not sent</em>, until newer ones are removed. The extractor is shown the same facts, so anything the model is told can still be corrected.</p>
+    <p>The <a href="context-compaction.html">context-usage bar</a> counts the facts in its <strong>Memories</strong> row.</p>
+
+    <h2 id="privacy">Privacy</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Stored locally</strong> - facts live in Loach&rsquo;s local database. They&rsquo;re included in a backup export and removed by <strong>Settings → Data → Erase…</strong> (<strong>Remove my data</strong> or <strong>Factory reset</strong>); see <a href="data-management.html">Data management</a>. Deleting a Space deletes its memory.</li>
+      <li><strong class="feat-name">Cloud providers</strong> - with an OpenAI-compatible provider, the extraction call (your message, the reply and the facts already saved) goes to that provider like any other request. Global memories go with every chat whichever provider it uses, so a fact learned while talking to a local model also reaches a cloud one.</li>
+      <li><strong class="feat-name">Private Chat</strong> - never reads or writes memory of either kind.</li>
+    </ul>
+
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">Pick a capable model</div>
+        <p>The extractor is the model you&rsquo;re chatting with. Very small models often return nothing, or save the wrong things - keep an eye on the toasts while you get a feel for it. If memory isn&rsquo;t behaving, see <a href="../troubleshooting/spaces-memory.html">Troubleshooting: Spaces &amp; memory</a>.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="spaces.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; Spaces</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="snippets.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Snippets &rarr;</span>
       </a>
     </div>
 

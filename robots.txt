@@ -1,4 +1,4 @@
-# Loach Docs — crawler directives
+# Loach Docs - crawler directives
 #
 # All content here is public-facing documentation and intended to be indexed.
 # Update the Sitemap URL below to match the production hostname.

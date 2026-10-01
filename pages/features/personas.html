@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Personas and tones — Loach Docs</title>
+  <title>Personas and tones - Loach Docs</title>
   <meta name="description" content="Two style layers that compose with the chat's system prompt: a persona (the role the model plays) and a tone (how it speaks). Pick from curated presets or layer them with custom instructions." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/personas.html" />
-  <meta property="og:title" content="Personas and tones — Loach Docs" />
+  <meta property="og:title" content="Personas and tones - Loach Docs" />
   <meta property="og:description" content="Two style layers that compose with the chat's system prompt: a persona (the role the model plays) and a tone (how it speaks). Pick from curated presets or layer them with custom instructions." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Personas and tones — Loach Docs" />
+  <meta name="twitter:title" content="Personas and tones - Loach Docs" />
   <meta name="twitter:description" content="Two style layers that compose with the chat's system prompt: a persona (the role the model plays) and a tone (how it speaks). Pick from curated presets or layer them with custom instructions." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -263,34 +266,41 @@
     <p class="lead">Personas and tones are two thin style layers that compose with the chat&rsquo;s system prompt at send time. A <em>persona</em> sets the role the model plays; a <em>tone</em> tweaks how it speaks. They&rsquo;re curated presets that play nicely with your own custom instructions rather than replacing them.</p>
 
     <h2 id="personas">Personas (role)</h2>
-    <p>Pick one from the composer&rsquo;s <strong>+</strong> menu or from the parameters sidebar. The selected persona pre-pends a short system prompt that frames the assistant&rsquo;s job.</p>
+    <p>Pick one from the <strong>Persona</strong> row of the chat&rsquo;s <a href="parameters.html">Parameters panel</a> (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>), or type <code>/persona &lt;name&gt;</code> - for example <code>/persona translator</code>, or <code>/persona none</code> to clear it. The selected persona adds a short system prompt that frames the assistant&rsquo;s job.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">None</strong> — no persona. Uses only your custom instructions.</li>
-      <li><strong class="feat-name">Code Reviewer</strong> — bug hunts, security checks, blunt PR feedback.</li>
-      <li><strong class="feat-name">Writing Editor</strong> — tighten prose without flattening voice.</li>
-      <li><strong class="feat-name">Brainstorm Partner</strong> — diverge first, converge later, pushes back.</li>
-      <li><strong class="feat-name">Explain Like I&rsquo;m 5</strong> — plain language and concrete analogies.</li>
-      <li><strong class="feat-name">Translator</strong> — accurate translation that preserves tone and idiom.</li>
+      <li><strong class="feat-name">None</strong> - no persona. Uses only your custom instructions.</li>
+      <li><strong class="feat-name">Code Reviewer</strong> - bug hunts, security checks, blunt PR feedback.</li>
+      <li><strong class="feat-name">Writing Editor</strong> - tightens prose and emails without flattening voice.</li>
+      <li><strong class="feat-name">Brainstorm Partner</strong> - diverges first, converges later, pushes back on weak ideas.</li>
+      <li><strong class="feat-name">Explain Like I&rsquo;m 5</strong> - plain language, concrete analogies, one idea per paragraph.</li>
+      <li><strong class="feat-name">Translator</strong> - accurate translation that preserves tone and idiom.</li>
     </ul>
-    <p>When a persona is active the composer shows a small chip with the persona name above the input box. Click the chip to swap personas or clear it. Personas are per-chat — switching chats does not change them. The seed prompt itself lives on the conversation, so a reload remembers it.</p>
+    <p>The active persona shows as an accent-tinted chip above the composer, sharing the row with the tone chip and any attachment chips. Hover it for a description; click its &times; to clear it. A persona belongs to one chat - switching chats doesn&rsquo;t carry it over. It isn&rsquo;t saved with the chat, either: the persona text is added at send time, so after you restart Loach you pick it again.</p>
 
     <h2 id="tones">Tones (style)</h2>
     <p>A tone is appended <em>after</em> the persona and your instructions, biasing the delivery without changing the role.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Default</strong> — the model&rsquo;s natural voice, no override.</li>
-      <li><strong class="feat-name">Direct</strong> — leads with the point; drops hedges and preamble. Replaces the old <em>Concise</em> tone.</li>
-      <li><strong class="feat-name">Detailed</strong> — thorough coverage with caveats and reasoning.</li>
-      <li><strong class="feat-name">Casual</strong> — plain English, conversational.</li>
-      <li><strong class="feat-name">Formal</strong> — business register.</li>
-      <li><strong class="feat-name">Encouraging</strong> — supportive framing for learners and first drafts.</li>
-      <li><strong class="feat-name">Playful</strong> — light wit and personality, humour in service of clarity.</li>
-      <li><strong class="feat-name">Skeptical</strong> — stress-tests claims, surfaces counterarguments and edge cases.</li>
-      <li><strong class="feat-name">Socratic</strong> — guides with questions instead of handing over answers; switches to direct answers when explicitly asked.</li>
+      <li><strong class="feat-name">Default</strong> - the model&rsquo;s natural voice, no override.</li>
+      <li><strong class="feat-name">Direct</strong> - leads with the point; drops hedges and preamble.</li>
+      <li><strong class="feat-name">Detailed</strong> - thorough coverage with caveats and reasoning.</li>
+      <li><strong class="feat-name">Casual</strong> - plain English, conversational.</li>
+      <li><strong class="feat-name">Formal</strong> - a professional register suitable for business writing.</li>
+      <li><strong class="feat-name">Encouraging</strong> - supportive framing for learners and first drafts.</li>
+      <li><strong class="feat-name">Playful</strong> - light wit and personality, humour in service of clarity.</li>
+      <li><strong class="feat-name">Skeptical</strong> - stress-tests claims, surfaces counterarguments and edge cases.</li>
+      <li><strong class="feat-name">Socratic</strong> - guides with questions instead of handing over answers; switches to direct answers when explicitly asked.</li>
     </ul>
-    <p>Set per chat from the parameters sidebar, or pick a default tone in <strong>Settings &rarr; General</strong> to apply to every new chat. The General tab has an expandable <em>&ldquo;What each tone does&rdquo;</em> drawer that shows the one-line summary for every tone, so the default-tone picker doubles as a reference.</p>
+    <p>Set a tone per chat from the <strong>Tone</strong> row of the Parameters panel, or pick a <strong>Default tone</strong> in <strong>Settings &rarr; General</strong> to apply to every chat that hasn&rsquo;t chosen its own. The General tab has an expandable <em>&ldquo;What each tone does&rdquo;</em> drawer that shows the one-line summary for every tone, so the default-tone picker doubles as a reference.</p>
+    <p>The tone in effect shows as a chip above the composer too - including your default tone, so it never applies invisibly; hover the chip to see whether it comes from your default or was set for this chat. Clearing it with the chip&rsquo;s &times; switches <em>this</em> chat to <strong>Default</strong> rather than unsetting it, so your default tone doesn&rsquo;t come straight back. Like personas, a per-chat tone lasts until you restart Loach; after that the chat follows your default tone again.</p>
 
     <h2 id="how-they-stack">How they stack</h2>
-    <p>At send time the model receives, in order: your custom instructions (resolved per the <a href="custom-instructions.html">precedence rules</a>), the persona&rsquo;s system prompt, and the tone modifier. The chat&rsquo;s own per-chat system prompt sits at the head of all of this and always wins on the points it cares about.</p>
+    <p>At send time the system prompt is assembled in this order:</p>
+    <ol>
+      <li><strong>Persona</strong> - the role, first.</li>
+      <li><strong>Your instructions</strong> - whichever applies: the Space&rsquo;s instructions, else the chat&rsquo;s own, else your global ones (see <a href="custom-instructions.html#precedence">precedence</a>), with the <a href="temporal-awareness.html">date preamble</a>, <a href="memory.html">memory</a> and any Space sources around them.</li>
+      <li><strong>Tone</strong> - the style modifier, last.</li>
+    </ol>
+    <p><a href="private-chat.html">Private Chat</a> has its own persona and tone pickers in its panel and layers them the same way: persona, then its own instructions, then tone.</p>
     <div class="page-nav">
       <a href="parameters.html">
         <span class="label">Previous</span>

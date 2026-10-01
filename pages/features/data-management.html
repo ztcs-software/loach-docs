@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data management — Loach Docs</title>
-  <meta name="description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <title>Data management - Loach Docs</title>
+  <meta name="description" content="A storage breakdown of what your chats, attachments, Spaces and local models weigh on disk, plus Export data, Import data, Archive all chats, Remove my data and Factory reset." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/data-management.html" />
-  <meta property="og:title" content="Data management — Loach Docs" />
-  <meta property="og:description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <meta property="og:title" content="Data management - Loach Docs" />
+  <meta property="og:description" content="A storage breakdown of what your chats, attachments, Spaces and local models weigh on disk, plus Export data, Import data, Archive all chats, Remove my data and Factory reset." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Data management — Loach Docs" />
-  <meta name="twitter:description" content="Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app." />
+  <meta name="twitter:title" content="Data management - Loach Docs" />
+  <meta name="twitter:description" content="A storage breakdown of what your chats, attachments, Spaces and local models weigh on disk, plus Export data, Import data, Archive all chats, Remove my data and Factory reset." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Data management",
-      "description": "Export everything, import a previous backup, wipe user data while keeping settings, or factory-reset the entire app.",
+      "description": "A storage breakdown of what your chats, attachments, Spaces and local models weigh on disk, plus Export data, Import data, Archive all chats, Remove my data and Factory reset.",
       "url": "https://docs.loach.dev/pages/features/data-management.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,27 +263,45 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Data management</h1>
-    <p class="lead"><strong>Settings &rarr; Data</strong> is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes — and you can take it with you.</p>
+    <p class="lead"><strong>Settings &rarr; Data</strong> is where backups, restores and cleanups live. Loach stores everything local-first, so you are the one who decides where your data goes - and you can take it with you.</p>
 
-    <h2 id="export">Export everything</h2>
-    <p>Produces a single JSON blob containing every chat, message, Space, file, memory, snippet, MCP server and setting. The native save dialog opens; the file is written from the app backend, so the renderer never sees the chosen path.</p>
-    <p>This is the canonical backup format. Keep one before you do anything risky — OS reinstall, machine swap, experimental settings.</p>
+    <h2 id="storage">Storage breakdown</h2>
+    <p>A read-only breakdown sits above the controls, so &ldquo;how big is this?&rdquo; is answered before you reach for a destructive one:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Database</strong> - total bytes on disk (the SQLite file plus its write-ahead log and shared-memory files) and its path, itemised into <strong>Chats</strong> (message text, with message and chat counts), <strong>Attachments</strong> (inlined into messages and Snippets), <strong>Spaces</strong> (with source counts) and <strong>Other</strong> - Snippets, snippet variables, global memories, MCP servers, settings, and each chat&rsquo;s title, instructions and parameters.</li>
+      <li><strong class="feat-name">Local models</strong> - how many Ollama models are installed and what they weigh, as reported by Ollama. Listed for context, not as something Loach can reclaim: they are stored by Ollama, outside the app-data folder.</li>
+    </ul>
+    <p>The four lines measure the text Loach stores, so they add up to less than the on-disk total. The file itself doesn&rsquo;t shrink when you delete things - SQLite keeps the freed space and reuses it for new data.</p>
 
-    <h2 id="import">Import</h2>
-    <p>Open a previously exported JSON file. Loach reports per-table row counts in a toast on success, so you can see at a glance what came back in. If app lock is configured, Import asks for your current credentials before running — an unauthorised renderer cannot trigger it.</p>
+    <h2 id="export">Export data</h2>
+    <p><strong>Export data</strong> writes a single JSON backup - <code>loach-export-YYYY-MM-DD.json</code> by default - with every chat (archived ones included), message, folder, Space with its sources and memories, <a href="memory.html">global memory</a>, Snippet, snippet variable and saved fill-in, MCP server and setting. The native save dialog opens and the app&rsquo;s backend writes the file; the panel then confirms the path it saved to. Backups larger than 256 MB are refused.</p>
+    <p>Some things are deliberately left out:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Secrets</strong> - MCP servers&rsquo; HTTP headers and environment variables are scrubbed, and so are passwords and tokens passed as command-line arguments. Your OpenAI-compatible API key and the <a href="app-lock.html">app lock</a> live in the OS credential manager and are never part of a backup.</li>
+      <li><strong class="feat-name">Working folders</strong> - a chat&rsquo;s <a href="work-in-folders.html">working folder</a> is a path on this machine, so chats come back without one.</li>
+      <li><strong class="feat-name">Local models</strong> - they belong to Ollama, not Loach.</li>
+    </ul>
+    <p>This is the canonical backup format. Keep one before you do anything risky - OS reinstall, machine swap, experimental settings.</p>
 
-    <h2 id="wipe">Wipe user data</h2>
-    <p>Drops chats, Spaces, Snippets, MCP servers and memories. <em>Keeps</em> app settings and the stored OpenAI-compatible API key, so the app remains usable immediately afterwards. Gated on app-lock credentials when a lock is configured.</p>
+    <h2 id="import">Import data</h2>
+    <p><strong>Import data</strong> restores a file made by Export data. It <strong>replaces</strong> everything in the database - chats, Spaces, Snippets, MCP servers and settings - so Loach first shows a confirmation, asks for your current credentials if <a href="app-lock.html">app lock</a> is on, and only then opens the file picker. Your stored OpenAI-compatible API key and the app lock aren&rsquo;t touched.</p>
+    <p>The file is checked before anything is written: it has to be a Loach backup, and every MCP server, message role and provider in it is re-validated, so a hand-edited file can&rsquo;t smuggle in a server pointing at a link-local address. Local (stdio) MCP servers arrive disabled - turning one on asks for your consent again - and so does any server whose host couldn&rsquo;t be resolved during the import. On success the panel lists what came in (chats, messages, Spaces, Snippets, variables, MCP servers) and Loach reloads.</p>
+
+    <h2 id="archive-all">Archive all chats</h2>
+    <p>Moves every live chat to the <a href="chat-archive.html">archive</a> after a confirmation, unpinning them on the way. Nothing is deleted - unarchive any of them later from <strong>Settings &rarr; Archive</strong>.</p>
+
+    <h2 id="wipe">Remove my data</h2>
+    <p>In the <strong>Erase &amp; Reset</strong> card, click <strong>Erase&hellip;</strong> and pick <strong>Remove my data</strong>. It deletes all chats and folders, Spaces (with their sources and memories), global memories, Snippets, snippet variables and saved fill-ins, and MCP servers. It <em>keeps</em> your settings, the stored OpenAI-compatible API key and the app lock, so the app remains usable immediately afterwards.</p>
     <p>Use this when you want a clean conversational slate but do not want to redo all your provider setup.</p>
 
     <h2 id="factory-reset">Factory reset</h2>
-    <p>Wipe user data <em>plus</em> clear all settings <em>plus</em> remove the OpenAI-compatible API key from the credential store. Re-runs <a href="onboarding.html">onboarding</a> on next launch. Irreversible.</p>
+    <p>The other option in the same dialog: everything Remove my data deletes, <em>plus</em> all settings, <em>plus</em> the OpenAI-compatible API key and the app lock from the credential store. Loach reloads straight into <a href="onboarding.html">onboarding</a>, like a fresh install. Irreversible.</p>
     <p>Use this when handing the machine to someone else, or as the last step in &ldquo;start completely over&rdquo;.</p>
 
     <div class="callout warn">
       <div class="callout-body">
         <div class="callout-title">All of this is destructive</div>
-        <p>Wipe and factory reset are immediate and cannot be undone by a button. Export everything first if there is any chance you might want it back.</p>
+        <p>Both erase options make you type <code>YES</code> - plus your current credentials when app lock is on - and run as soon as you press the red button; Import data overwrites everything the same way. None of them can be undone, so run Export data first if there is any chance you might want your data back.</p>
       </div>
     </div>
     <div class="page-nav">

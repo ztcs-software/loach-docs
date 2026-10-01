@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Performance & VRAM — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot Ollama out-of-memory crashes, sluggish UI, and slow first replies in Loach." />
+  <title>Performance & VRAM - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Ollama out-of-memory crashes, onboarding sizing your machine wrong, sluggish UI and slow first replies in Loach, and tune Ollama for faster generation." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/performance.html" />
-  <meta property="og:title" content="Performance &amp; VRAM — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Ollama out-of-memory crashes, sluggish UI, and slow first replies in Loach." />
+  <meta property="og:title" content="Performance &amp; VRAM - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Ollama out-of-memory crashes, onboarding sizing your machine wrong, sluggish UI and slow first replies in Loach, and tune Ollama for faster generation." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Performance &amp; VRAM — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Ollama out-of-memory crashes, sluggish UI, and slow first replies in Loach." />
+  <meta name="twitter:title" content="Performance &amp; VRAM - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Ollama out-of-memory crashes, onboarding sizing your machine wrong, sluggish UI and slow first replies in Loach, and tune Ollama for faster generation." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Performance & VRAM — Troubleshooting",
+          "name": "Performance & VRAM - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/performance.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Performance & VRAM — Troubleshooting",
-      "description": "Troubleshoot Ollama out-of-memory crashes, sluggish UI, and slow first replies in Loach.",
+      "headline": "Performance & VRAM - Troubleshooting",
+      "description": "Troubleshoot Ollama out-of-memory crashes, onboarding sizing your machine wrong, sluggish UI and slow first replies in Loach, and tune Ollama for faster generation.",
       "url": "https://docs.loach.dev/pages/troubleshooting/performance.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -261,27 +264,50 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>Performance &amp; VRAM</h1>
-    <p class="lead">When the GPU runs out of room or the UI feels heavy, there are a handful of dials that almost always fix it.</p>
+    <p class="lead">When the GPU runs out of room, the UI feels heavy, or generation is slower than the hardware should manage, there are a handful of dials that almost always fix it.</p>
 
     <h2 id="ollama-oom">Ollama crashes with &ldquo;out of memory&rdquo; or the model fails to load</h2>
-    <p class="problem-statement">A pull works but loading or chatting fails with a CUDA / VRAM error.</p>
+    <p class="problem-statement">A pull works, but the model fails to load or the reply fails with &ldquo;ran out of memory loading or running the model. Lower the context length or pick a smaller model.&rdquo;</p>
     <ol>
-  <li>Turn on <strong>Low VRAM mode</strong> in the Parameters sidebar (or globally in <strong>Settings &rarr; Features</strong>). This forces smaller batches and a leaner KV cache.</li>
-  <li>Lower <strong>num_ctx</strong> in the same panel — a smaller context window uses dramatically less VRAM.</li>
-  <li>Lower the <strong>GPU layer count</strong> to push more of the model onto CPU/RAM at the cost of speed.</li>
+  <li>Turn on <strong>Low VRAM</strong> in the parameters panel (or globally with <strong>Settings &rarr; Features &rarr; Low VRAM mode</strong>). This forces smaller batches and a leaner KV cache.</li>
+  <li>Lower <strong>Context Length</strong> in the same panel - a smaller context window uses dramatically less VRAM.</li>
+  <li>Set <strong>GPU Layers</strong> (Advanced view; blank means auto, <code>0</code> means CPU only) below the model&rsquo;s layer count to push more of it onto CPU/RAM at the cost of speed.</li>
   <li>Pick a smaller quantization (for example <code>q4_K_M</code> instead of <code>q8_0</code>) or a smaller parameter size.</li>
 </ol>
+
+    <h2 id="onboarding-sizing">Onboarding sized my machine wrong</h2>
+    <p class="problem-statement">The model recommendation calls a model too big (or too small) for what your hardware actually manages, or names a constraint you don&rsquo;t recognise.</p>
+    <p>The card names the number it used - &ldquo;Based on 8.0 GB VRAM · NVIDIA GeForce RTX 4060 · 120 GB free on disk&rdquo;, or a RAM figure when there&rsquo;s no usable GPU reading. Which one you get:</p>
+<ul>
+  <li><strong>Windows</strong> reads dedicated video memory directly, for any vendor.</li>
+  <li><strong>Linux</strong> reads <code>nvidia-smi</code>, then the amdgpu sysfs node. <strong>Intel Arc isn&rsquo;t covered</strong> and falls back to system RAM, which is usually more than the card holds - so the pick can overflow it. If Ollama runs on your Arc, choose a variant that fits its VRAM by hand.</li>
+  <li><strong>macOS</strong> deliberately uses system RAM: Apple Silicon shares it with the GPU, so a separate figure would double-count.</li>
+  <li>Adapters under 1 GB - and, on Windows, any adapter that reports unified memory - are treated as integrated graphics and ignored, since they carve out system RAM the RAM path already counts. With several GPUs, the one with the most VRAM is used.</li>
+</ul>
+<p>Any probe that fails falls back to RAM. Nothing here restricts you - every catalog entry stays pullable, and the custom-tag field takes any tag at all. The badges are advice, except <strong>Not enough disk space</strong>, which does disable that row&rsquo;s Pull button. If a model marked <strong>Runs slowly</strong> feels fine in practice, that&rsquo;s the expected direction of error for a rough estimate - Ollama publishes no runtime memory figures to size against.</p>
 
     <h2 id="sluggish-ui">The UI feels sluggish</h2>
     <p class="problem-statement">Scrolling, typing, or window resizing is choppy.</p>
     <ul>
-  <li>In <strong>Settings &rarr; Appearance</strong>, switch the theme from <strong>Aurora</strong> to <strong>Solid</strong>. Aurora&rsquo;s animated gradient is heavy on weak GPUs.</li>
-  <li>Close very long chats while testing — extremely long transcripts cost more to re-render on every token.</li>
+  <li>In <strong>Settings &rarr; Appearance</strong>, switch the theme from <strong>Aurora</strong> to <strong>Solid</strong>. Aurora&rsquo;s heavily blurred gradient and translucent panels are heavy on weak GPUs.</li>
+  <li>Long chats mount only their latest 50 messages; <strong>Show earlier messages</strong>, <strong>Search in chat</strong> or jumping to an old pinned response mounts more. Switch to another chat and back to collapse them again.</li>
 </ul>
 
     <h2 id="slow-first-reply">The first reply takes forever, even on a fast model</h2>
     <p class="problem-statement">Sending the first prompt of the day takes 10+ seconds before streaming starts; subsequent replies are instant.</p>
-    <p>Ollama loads the model into VRAM on first use. To preload at launch, turn on <strong>Settings &rarr; General &rarr; Default model preload</strong>. The first chat will start fast, at the cost of pinning VRAM as soon as Loach opens.</p>
+    <p>Ollama loads the model into VRAM on first use. To preload at launch, turn on <strong>Preload on startup</strong> under <strong>Settings &rarr; General &rarr; Default model</strong> (available when the default model is an Ollama model). Only that model is warmed, at the cost of pinning VRAM as soon as Loach opens - or as soon as you unlock it, if you use an app lock. It then stays loaded only as long as <strong>Settings &rarr; Features &rarr; Keep model loaded</strong> allows (5 minutes by default); raise it to keep the model resident between prompts. See <a href="../features/model-preloading.html">Model preloading</a>.</p>
+
+    <h2 id="ollama-faster">Making Ollama generate faster</h2>
+    <p class="problem-statement">Generation is slower than you&rsquo;d expect, or you want to squeeze more tokens/sec out of your hardware.</p>
+    <p>These are environment variables on the <strong>Ollama server</strong> (not Loach settings) - set them where <code>ollama serve</code> runs, then restart it. As of Ollama 0.5+:</p>
+<ul>
+  <li><strong><code>OLLAMA_FLASH_ATTENTION=1</code></strong> - enables flash attention, which lowers memory bandwidth and usually speeds up generation, especially at longer contexts. Newer builds enable it by default for some models on the new engine; setting it explicitly is harmless.</li>
+  <li><strong><code>OLLAMA_KV_CACHE_TYPE=q8_0</code></strong> - quantizes the KV cache to 8-bit, roughly halving its memory so you can run a bigger context (or a bigger model) in the same VRAM. Only takes effect <strong>with flash attention enabled</strong>. <code>q4_0</code> is smaller but lossier; <code>f16</code> (the default) is highest quality.</li>
+  <li><strong><code>OLLAMA_KEEP_ALIVE=30m</code></strong> (or <code>-1</code> for &ldquo;until unloaded&rdquo;) - how long Ollama keeps a model resident after a request, so a reply after a pause skips the cold reload. Loach also exposes this as <strong>Settings &rarr; Features &rarr; Keep model loaded</strong> (5 min, 30 min, 1 hour, Always). Until you pick an option there, Loach sends nothing and this env default applies - even though the control already shows <strong>5 min</strong> highlighted. Once you click any option, it&rsquo;s sent with every request and overrides the env default, and there&rsquo;s no way back to &ldquo;unset&rdquo;, so pick the one that matches your env var.</li>
+  <li><strong><code>OLLAMA_NUM_PARALLEL=1</code></strong> - caps concurrent requests per model. The default splits VRAM across parallel slots; pinning it to 1 gives a single chat the whole budget (and the largest usable context).</li>
+  <li><strong><code>OLLAMA_MAX_LOADED_MODELS=1</code></strong> - keeps only one model resident at a time. Useful on a single-GPU machine where a second model would evict the first or spill to system RAM.</li>
+</ul>
+<p>Setting environment variables for Ollama: on Windows, use <strong>System Properties &rarr; Environment Variables</strong> (or <code>setx OLLAMA_FLASH_ATTENTION 1</code>) and restart the Ollama tray app. On Linux with systemd, <code>systemctl edit ollama</code> (add a <code>[Service]</code> block of <code>Environment="OLLAMA_&hellip;=&hellip;"</code> lines) then <code>systemctl restart ollama</code>. On macOS, <code>launchctl setenv OLLAMA_FLASH_ATTENTION 1</code> and relaunch the Ollama app.</p>
 
     <div class="page-nav">
       <a href="messages.html">

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch & MCP — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach&rsquo;s web fetch (ignored URLs, blocked internal hosts, fetch failures) and MCP connection issues." />
+  <title>Tools, MCP & folders - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/web-fetch-mcp.html" />
-  <meta property="og:title" content="Web fetch &amp; MCP — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach&amp;rsquo;s web fetch (ignored URLs, blocked internal hosts, fetch failures) and MCP connection issues." />
+  <meta property="og:title" content="Tools, MCP &amp; folders - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch &amp; MCP — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach&amp;rsquo;s web fetch (ignored URLs, blocked internal hosts, fetch failures) and MCP connection issues." />
+  <meta name="twitter:title" content="Tools, MCP &amp; folders - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch & MCP — Troubleshooting",
+          "name": "Tools, MCP & folders - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/web-fetch-mcp.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch & MCP — Troubleshooting",
-      "description": "Troubleshoot Loach&rsquo;s web fetch (ignored URLs, blocked internal hosts, fetch failures) and MCP connection issues.",
+      "headline": "Tools, MCP & folders - Troubleshooting",
+      "description": "Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors.",
       "url": "https://docs.loach.dev/pages/troubleshooting/web-fetch-mcp.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -260,39 +263,102 @@
 
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
-    <h1>Web fetch &amp; MCP</h1>
-    <p class="lead">Outbound network features have hard safety guards. Most surprises trace back to one of those guards firing.</p>
+    <h1>Tools, MCP &amp; folders</h1>
+    <p class="lead">Web fetch, MCP servers and working folders all have hard safety guards. Most surprises trace back to one of those guards firing - or to a prompt waiting for your answer.</p>
 
     <h2 id="url-ignored">Pasted URL is ignored</h2>
     <p class="problem-statement">Your prompt has a link but the model only sees the bare URL, not the page content.</p>
     <ol>
-  <li>Web fetch is <strong>off by default</strong>. Turn it on in <strong>Settings &rarr; Tools &rarr; Web fetch</strong>.</li>
-  <li>Only <code>http://</code> and <code>https://</code> URLs are fetched.</li>
-  <li>Up to <strong>5 URLs per message</strong> are followed. Extras are ignored.</li>
-</ol>
+      <li><a href="../features/web-fetch.html">Web fetch</a> is <strong>off by default</strong>. Turn it on in <strong>Settings &rarr; Tools &rarr; Web fetch</strong>, or type <code>/web-fetch on</code>.</li>
+      <li>Only <code>http://</code> and <code>https://</code> URLs are fetched, and only those in the text you type - not links inside attached files or ones the model mentions.</li>
+      <li>Up to <strong>5 URLs per message</strong> are followed. Extras are ignored.</li>
+      <li><strong>Private Chat</strong> never fetches URLs, whatever the setting says.</li>
+    </ol>
 
-    <h2 id="url-blocked">&ldquo;URL blocked&rdquo; for <code>localhost</code>, <code>192.168.x</code>, or my office VPN</h2>
+    <h2 id="url-blocked">&ldquo;Refusing to fetch &hellip;&rdquo; for <code>localhost</code>, <code>192.168.x</code>, or my office VPN</h2>
     <p class="problem-statement">Loach refuses to fetch an internal URL.</p>
-    <p>This is intentional. The SSRF guard rejects any URL whose resolved IP lands on loopback, link-local, or private RFC1918 ranges, even if the hostname looks public but resolves there via DNS. To share internal content with a model, copy the page text and paste it into the chat instead.</p>
+    <p>This is intentional. The SSRF guard rejects <code>localhost</code> and any URL whose resolved IP lands on loopback, link-local, private RFC1918 ranges, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses) or IPv6 unique-local addresses (<code>fc00::/7</code>), even if the hostname looks public but resolves there via DNS. To share internal content with a model, copy the page text and paste it into the chat instead. (This guard is specific to web fetch - <a href="../features/mcp.html">MCP servers</a> on <code>localhost</code> or your LAN are allowed.)</p>
 
-    <h2 id="fetch-failed">A URL fetch silently produces a &ldquo;fetch failed&rdquo; stub</h2>
-    <p class="problem-statement">The model is told a URL was attempted but no content came back.</p>
-    <p>The fetch hit a limit:</p>
-<ul>
-  <li><strong>30 s</strong> total timeout or <strong>10 s</strong> connect timeout,</li>
-  <li><strong>5 MB</strong> body cap,</li>
-  <li>A non-2xx HTTP response.</li>
-</ul>
-<p>Try the URL in a browser. If it works there but not in Loach, the page is likely slow, large, or blocks non-browser user agents.</p>
+    <h2 id="fetch-failed">A URL fetch failed or came back cut short</h2>
+    <p class="problem-statement">The model is told a URL was attempted but no content came back - the reply&rsquo;s tool-call block shows a red warning - or only part of the page arrived.</p>
+    <p>Expand the tool-call block on the reply and open its <code>web_fetch</code> entry to read the reason. A fetch fails on:</p>
+    <ul>
+      <li>The <strong>30 s</strong> total timeout or the <strong>10 s</strong> connect timeout,</li>
+      <li>A non-2xx HTTP response,</li>
+      <li>More than <strong>10 redirects</strong>,</li>
+      <li>A DNS lookup failure or a TLS / certificate error,</li>
+      <li>The rate limit of <strong>60 URLs per 60 seconds</strong>, shared across all chats.</li>
+    </ul>
+    <p>A body over the <strong>5 MB</strong> cap isn&rsquo;t a failure: the page is cut off at the cap and the entry says &ldquo;truncated by Loach&rdquo; - as it does for a page whose extracted text runs past ~12,000 characters. If your message also carries large attachments, a fetched page may not fit the 500,000-character message budget and is listed by URL only. And because no JavaScript runs, a page that builds its content in the browser can come back nearly empty.</p>
+    <p>Type <code>/fetch &lt;url&gt;</code> to see what Loach extracts from a page without sending anything to the model. If the URL works in a browser but not in Loach, the page is likely slow, large, built by JavaScript, or blocks non-browser user agents.</p>
 
-    <h2 id="mcp-test-fail">MCP &ldquo;Test connection&rdquo; fails</h2>
-    <p class="problem-statement">An MCP server is configured but the test button reports an error.</p>
+    <h2 id="mcp-test-fail">MCP &ldquo;Test connection&rdquo; fails (HTTP)</h2>
+    <p class="problem-statement">An HTTP MCP server is configured but the test button reports an error.</p>
     <ol>
-  <li>Confirm the URL is the <strong>Streamable-HTTP</strong> endpoint. Loach does not support stdio or SSE MCP transports.</li>
-  <li>If the server requires auth, add an <code>Authorization</code> header in the server&rsquo;s row.</li>
-  <li>Check that the response body fits under <strong>4 MB</strong> — misconfigured servers that dump full schemas can exceed this.</li>
-  <li>Per-request timeout is <strong>30 s</strong>.</li>
-</ol>
+      <li>Confirm the URL is the <strong>Streamable HTTP</strong> endpoint. Loach does not support the legacy two-endpoint SSE transport. If the server is distributed as a command to run (<code>npx &hellip;</code>, <code>uvx &hellip;</code>), add it as a <strong>Local process (stdio)</strong> server instead.</li>
+      <li>If the server requires auth, open it in <strong>Settings &rarr; MCP</strong> and add an <code>Authorization: Bearer &hellip;</code> line under <strong>Headers</strong>.</li>
+      <li>&ldquo;DNS lookup failed&rdquo; means the host can&rsquo;t be resolved from this machine - check the address, or connect to the VPN it lives behind. <code>localhost</code> and private LAN addresses are fine for MCP (unlike web fetch); only link-local addresses are refused.</li>
+      <li>Check that the response body fits under <strong>4 MiB</strong> - misconfigured servers that dump full schemas can exceed this.</li>
+      <li>Per-request timeout is <strong>30 s</strong>.</li>
+    </ol>
+
+    <h2 id="stdio-wont-start">A local (stdio) MCP server won&rsquo;t start</h2>
+    <p class="problem-statement"><strong>Test connection</strong> on a stdio server fails, or a chat shows an error for it, with &ldquo;couldn&rsquo;t start&rdquo;, &ldquo;exited before replying&rdquo;, or &ldquo;did not reply &hellip; within 60s&rdquo;. (Saving doesn&rsquo;t start the server - it first runs when you test it, list tools with <code>/tools</code>, or send a message with it enabled.)</p>
+    <ol>
+      <li>Use <strong>Test connection</strong> in <strong>Settings &rarr; MCP</strong>: when the server process exits, it quotes the last lines the server wrote to its error output (<code>npm ERR! 404</code>, a Python traceback, &ldquo;command not found&rdquo;). That is usually the whole answer. An error in a chat stops short of that output, which can print anything - keys included - and would otherwise be sent to the model and saved with the chat. A timeout doesn&rsquo;t include it either; run the command in a terminal to see what it&rsquo;s waiting on.</li>
+      <li>Make sure the runtime the command needs is installed and on <code>PATH</code> for your user: Node.js for <code>npx</code>, <code>uv</code> for <code>uvx</code>. Loach hands the program the environment it read when it started - if you installed the runtime since, restart Loach. On macOS and Linux, Loach asks your login shell for its <code>PATH</code> once per launch, so tools installed through Homebrew, nvm, pyenv and the like are found even when Loach was started from the Dock or an app menu. If one still isn&rsquo;t - your shell took over 10 s to start, or sets <code>PATH</code> somewhere a login shell doesn&rsquo;t read - run <code>echo $PATH</code> in a terminal and add the result to the server&rsquo;s environment variables as <code>PATH=&hellip;</code>.</li>
+      <li>On Windows, <code>npx</code> is a <code>.cmd</code> shim (<code>uvx</code> an <code>.exe</code>). Loach finds either on <code>PATH</code> for you, but a full path also works.</li>
+      <li>First runs of <code>npx -y &hellip;</code> download the package. Startup is allowed <strong>60 s</strong>; a slow network can exceed that - run the command once in a terminal to warm the cache, then test again.</li>
+      <li>Put one argument per line. Don&rsquo;t quote arguments the way you would in a shell - Loach passes each line as one argument, spaces included (only leading and trailing whitespace is trimmed).</li>
+      <li>If you clicked <strong>Cancel</strong> on the &ldquo;Run MCP server &hellip;?&rdquo; system dialog - or pressed <kbd>Enter</kbd>, which picks Cancel - nothing was saved or started. Save again and click <strong>Start server</strong>.</li>
+      <li>&ldquo;This command line is too long to show for review&rdquo; means the program, arguments and shown environment exceed the dialog&rsquo;s 1,500 characters. Point the server at a config file instead of passing everything as arguments.</li>
+      <li>A tool call that times out doesn&rsquo;t stop the server; it may still be working. If every call times out, disable and re-enable the server to restart it.</li>
+    </ol>
+
+    <h2 id="mcp-import-disabled">A server imported from a backup is disabled and won&rsquo;t turn on</h2>
+    <p class="problem-statement">After <strong>Settings &rarr; Data &rarr; Import data</strong>, a stdio MCP server shows up switched off, and flipping the switch opens a system dialog.</p>
+    <p>That is deliberate: a backup can&rsquo;t prove <em>you</em> configured that command on this machine, so imported stdio servers arrive disabled and the first enable asks you to confirm the command line. Review it and choose <strong>Start server</strong> to enable the row; <strong>Cancel</strong> leaves it off. HTTP servers keep the on/off state they had in the backup - unless their host couldn&rsquo;t be looked up during the import (offline, off the VPN), in which case they arrive switched off too; turn them on once the host is reachable again.</p>
+    <p>Backups never contain MCP headers or environment variables, and a password in a connection URL or the value after a <code>--token</code>-style argument comes back as <code>REDACTED</code> - so after an import, re-enter any <code>Authorization</code> header, API-key variable or redacted argument a server needs.</p>
+
+    <h2 id="approval-waiting">The reply is stuck on &ldquo;Waiting for your approval&hellip;&rdquo;</h2>
+    <p class="problem-statement">The assistant bubble shows an approval card and nothing else happens.</p>
+    <p>The model asked to run an MCP tool, or to change a file in the chat&rsquo;s <a href="../features/work-in-folders.html">working folder</a>, and Loach is waiting for you - answer <strong>Allow once</strong>, <strong>Always allow</strong> (<strong>Allow &hellip; for this chat</strong> for a file change), or <strong>Deny</strong> on the card. A card left unanswered for 10 minutes isn&rsquo;t run - the call is marked <strong>No answer</strong> - and the Stop button cancels the reply.</p>
+    <p>Until you answer, replies in other chats queue behind this one. If the card is in a chat you aren&rsquo;t looking at, Loach shows a notice with an <strong>Open</strong> button, and the queued chat offers <strong>Go to it</strong>. To stop being asked for a server you trust, open it in <strong>Settings &rarr; MCP</strong> and turn off <strong>Ask before each tool call</strong>; to bring back prompts for tools you answered &ldquo;Always allow&rdquo; for, use <strong>Ask again for all</strong> in the same editor and save.</p>
+
+    <h2 id="tool-turn-limit">&ldquo;Stopped after 10 tool-use turns&rdquo;</h2>
+    <p class="problem-statement">A reply ends with this error while the model is still calling tools.</p>
+    <p>Each reply gets at most 10 rounds with the model, so a model stuck in a loop can&rsquo;t run forever: tools can run in the first nine, and the tenth is sent without tools so the model can wrap up. This error means it asked for them anyway, and those calls weren&rsquo;t run. Either it was stuck, or the task needs more steps than that. Send a follow-up (&ldquo;continue&rdquo;) to give it another 10 rounds, or break the task into smaller requests. With the file tools, pointing it at the right files up front - or putting that in <code>LOACHFILE.md</code> - saves rounds spent searching.</p>
+
+    <h2 id="tools-unsupported">&ldquo;&hellip; does not support tools&rdquo; after turning a tool on</h2>
+    <p class="problem-statement">Every message to a local model now fails with an Ollama error ending in &ldquo;does not support tools&rdquo;.</p>
+    <p>Loach sends the tools you switched on - <a href="../features/built-in-tools.html">built-in tools</a>, enabled <a href="../features/mcp.html">MCP servers</a>, a chat&rsquo;s <a href="../features/work-in-folders.html">working folder</a> - with every request, whatever the model. A model without tool calling can&rsquo;t take them, and Ollama refuses the request. Switch the chat to a model that supports tools (its page in the Ollama library lists them, and <code>ollama show &lt;model&gt;</code> prints <code>tools</code> under Capabilities), or turn the tools off in <strong>Settings &rarr; Tools</strong> and <strong>Settings &rarr; MCP</strong>. <a href="../features/web-fetch.html">Web fetch</a> doesn&rsquo;t count: it isn&rsquo;t a tool the model calls, so it works with any model.</p>
+
+    <h2 id="workspace-folder">Can&rsquo;t add a folder, or the model doesn&rsquo;t use it</h2>
+    <p class="problem-statement"><strong>Add directory</strong> is greyed out or refuses the folder, or the model says it has no file tools.</p>
+    <ul>
+      <li><em>Send a message first to start this chat</em> - a brand-new chat can&rsquo;t have a folder until its first message is sent.</li>
+      <li><em>Wait for the reply to finish</em> - the folder can&rsquo;t be changed or removed while a reply is running in the chat.</li>
+      <li>&ldquo;Pick a project folder rather than a whole drive&rdquo; or &ldquo;That&rsquo;s Loach&rsquo;s own data folder&rdquo; - those two are refused on purpose; pick the project&rsquo;s own folder.</li>
+      <li>The &ldquo;Working in&rdquo; notice is amber and says <strong>tools off</strong> - <strong>Settings &rarr; Tools &rarr; Workspace files</strong> was switched off. Turn it back on; while it&rsquo;s off, the model gets neither the tools nor <code>LOACHFILE.md</code>.</li>
+      <li>&ldquo;The folder no longer exists - pick it again&rdquo; - the folder was moved or deleted. Choose <strong>+ &rarr; Change directory</strong> and pick it again.</li>
+      <li>The model still ignores the folder - it has to support tool calling, and <strong>Private Chat</strong> never gets a folder.</li>
+    </ul>
+
+    <h2 id="windows-names">The model can&rsquo;t use a file or folder name on Windows</h2>
+    <p class="problem-statement">A file tool refuses a path with &ldquo;contains <code>:</code>&rdquo;, &ldquo;ends with a dot or a space&rdquo;, or &ldquo;is a device name Windows reserves&rdquo;.</p>
+    <p>Those names are refused on purpose: a <code>:</code> names a hidden data stream, and <code>CON</code>, <code>nul.txt</code> or a trailing dot would be created as files that Explorer and most tools can&rsquo;t open or delete. Ask the model to pick another name. (On every platform, a name with a control or text-direction character is refused too, because it can make the approval card show a different name than the one written.)</p>
+
+    <h2 id="workspace-edit-refused">A file write or edit is refused</h2>
+    <p class="problem-statement">The model&rsquo;s file change fails, and the tool-call entry shows why.</p>
+    <ul>
+      <li>&ldquo;<code>old_text</code> does not appear&rdquo; or &ldquo;appears N times&rdquo; - the snippet must match the file exactly once (or the model must ask to replace every occurrence). The model can re-read the file and try again with more context.</li>
+      <li>&ldquo;is stored as windows-1250, which has no way to write &hellip;&rdquo; (or another encoding) - files keep their encoding, and the new text has a character it can&rsquo;t store. Ask for plain characters, or convert the file to UTF-8 yourself.</li>
+      <li>&ldquo;doesn&rsquo;t decode cleanly&rdquo; - some of the file&rsquo;s bytes don&rsquo;t read correctly in the encoding Loach detected, so writing it back would corrupt them. It can still be read, just not edited.</li>
+      <li>&ldquo;the file is read-only&rdquo; - clear the read-only attribute if you want the model to change it.</li>
+      <li>&ldquo;resolves outside the workspace&rdquo; or &ldquo;a link that doesn&rsquo;t resolve&rdquo; - the path goes through a symbolic link that leaves the folder or points nowhere, which the sandbox refuses.</li>
+      <li>&ldquo;already exists - move_file never overwrites&rdquo; - delete or rename the target first.</li>
+      <li>Size limits - <code>read_file</code> and <code>edit_file</code> handle files up to 4 MB, a write may be at most 1 MB, and one edit may grow a file by at most 1 MB.</li>
+    </ul>
 
     <div class="page-nav">
       <a href="attachments.html">

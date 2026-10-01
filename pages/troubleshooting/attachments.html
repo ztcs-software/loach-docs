@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Attachments — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot file-too-large errors, empty scanned PDFs, legacy DOCX, truncation footers and vision-only images in Loach attachments." />
+  <title>Attachments - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/attachments.html" />
-  <meta property="og:title" content="Attachments — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot file-too-large errors, empty scanned PDFs, legacy DOCX, truncation footers and vision-only images in Loach attachments." />
+  <meta property="og:title" content="Attachments - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Attachments — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot file-too-large errors, empty scanned PDFs, legacy DOCX, truncation footers and vision-only images in Loach attachments." />
+  <meta name="twitter:title" content="Attachments - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Attachments — Troubleshooting",
+          "name": "Attachments - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/attachments.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Attachments — Troubleshooting",
-      "description": "Troubleshoot file-too-large errors, empty scanned PDFs, legacy DOCX, truncation footers and vision-only images in Loach attachments.",
+      "headline": "Attachments - Troubleshooting",
+      "description": "Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments.",
       "url": "https://docs.loach.dev/pages/troubleshooting/attachments.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -261,32 +264,47 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>Attachments</h1>
-    <p class="lead">Attachments inline into the message at send time. The most common surprises are size caps and file types Loach can&rsquo;t decode.</p>
+    <p class="lead">Files are read when you attach them and added to your message when you send. The most common surprises are size caps, file types Loach can&rsquo;t decode, and images the model doesn&rsquo;t see. See <a href="../features/attachments.html">Attachments</a> for how it all works.</p>
 
-    <h2 id="file-too-large">&ldquo;File too large&rdquo; when dropping a file</h2>
-    <p class="problem-statement">The composer refuses the file.</p>
-    <p>There&rsquo;s a <strong>20 MB</strong> cap per file. Split large logs, or paste the relevant section as text instead.</p>
+    <h2 id="file-too-large">&ldquo;&hellip; is larger than 20 MB&rdquo; when attaching a file</h2>
+    <p class="problem-statement">The message box refuses the file with that message under the input.</p>
+    <p>There&rsquo;s a <strong>20 MB</strong> cap per file, whether you drop, paste or pick it. Split large logs, or paste the relevant section as text instead.</p>
+
+    <h2 id="unreadable-file">&ldquo;Couldn&rsquo;t read &hellip;&rdquo; when attaching a file</h2>
+    <p class="problem-statement">The file doesn&rsquo;t attach, and the message box shows &ldquo;Couldn&rsquo;t read <em>name</em>:&rdquo; followed by a reason (in Private Chat, just &ldquo;Failed to read file&rdquo;).</p>
+    <p>Loach couldn&rsquo;t parse the file. The usual causes are a damaged file, a password-protected PDF or DOCX, or a file whose extension doesn&rsquo;t match its contents. Remove the password or re-export the document (for example with <strong>Print &rarr; Save as PDF</strong>), then attach it again.</p>
 
     <h2 id="empty-pdf">The PDF came in empty or with garbled text</h2>
     <p class="problem-statement">The model says it can&rsquo;t see the document, even though you attached a PDF.</p>
-    <p>Loach extracts text from PDFs, but <strong>scanned PDFs</strong> (image pages with no text layer) have no text to extract. Run the PDF through an OCR tool first, or paste the relevant pages as plain text.</p>
+    <p>Loach extracts text from PDFs, but <strong>scanned PDFs</strong> (image pages with no text layer) have no text to extract - the model only gets a note saying so. Run the PDF through an OCR tool first, paste the relevant pages as plain text, or export the pages as PNG or JPEG images and attach those to a vision-capable model.</p>
 
-    <h2 id="docx-rejected">The DOCX won&rsquo;t attach</h2>
-    <p class="problem-statement">The file picker rejects the document.</p>
-    <p>Only <code>.docx</code> is supported, not legacy <code>.doc</code>. Open the file in Word or LibreOffice and <strong>Save As &rarr; Word Document (.docx)</strong>.</p>
+    <h2 id="docx-rejected">The model can&rsquo;t read my Word document</h2>
+    <p class="problem-statement">A <code>.doc</code> file attached, but the model says it only knows the file&rsquo;s name.</p>
+    <p>Only <code>.docx</code> is extracted, not legacy <code>.doc</code>. A <code>.doc</code> still attaches, but as a file the model is told about by name only. Open it in Word or LibreOffice and <strong>Save As &rarr; Word Document (.docx)</strong>.</p>
 
-    <h2 id="content-truncated">A long document shows a &ldquo;content truncated&rdquo; footer</h2>
-    <p class="problem-statement">A long PDF or text file was attached but only part of it reached the model.</p>
-    <p>Per-file cap is <strong>200,000 characters</strong>; total inlined content per message is <strong>500,000 characters</strong>. Either:</p>
+    <h2 id="content-truncated">A long document&rsquo;s chip says &ldquo;truncated&rdquo;</h2>
+    <p class="problem-statement">A long PDF or text file was attached, its chip carries a <strong>truncated</strong> pill, and only part of it reached the model.</p>
+    <p>Per-file cap is <strong>200,000 characters</strong>; total inlined content per message is <strong>500,000 characters</strong>, counting your prompt and fetched pages too. Files past that per-message budget are clipped or left out without a <strong>truncated</strong> pill - only the model is told. Either:</p>
 <ul>
   <li>Trim the document to the parts you actually need, or</li>
   <li>Send several focused messages, each with a different excerpt.</li>
 </ul>
 
+    <h2 id="sent-pdf-no-preview">A PDF I sent shows &ldquo;Preview not available&rdquo;</h2>
+    <p class="problem-statement">Clicking a PDF chip on a sent message opens a file card instead of the pages, and <strong>Save</strong> gives you a <code>.txt</code> file.</p>
+    <p>In a regular chat, Loach keeps a PDF&rsquo;s original bytes only while it sits in the message box; the sent message stores the extracted text. Preview the PDF from its chip before you send, and keep your original file - <strong>Save</strong> on a sent PDF (or DOCX) writes the extracted text.</p>
+
+    <h2 id="private-chat-drop">Dropping a file onto Private Chat does nothing</h2>
+    <p class="problem-statement">The cursor shows a no-entry sign and nothing attaches.</p>
+    <p>Expected: dropping files is switched off while <a href="../features/private-chat.html">Private Chat</a> is open, so a file can&rsquo;t land in the regular chat behind it. Use the <strong>+</strong> button in Private Chat&rsquo;s message box instead.</p>
+
     <h2 id="vision-images">Images don&rsquo;t seem to be working</h2>
     <p class="problem-statement">You attached a PNG/JPEG but the model can&rsquo;t describe it.</p>
-    <p>The model needs <strong>vision capability</strong>. In the Models tab, the tile shows a &ldquo;vision&rdquo; badge when supported. Switch to a vision-capable model (Llava, Llama 3.2 Vision, GPT-4o, etc.) and re-send.</p>
-
+    <p>The model needs <strong>vision capability</strong> - check the model&rsquo;s page in the Ollama library or the capabilities that <code>ollama show &lt;model&gt;</code> lists. Switch to a vision-capable model (Llava, Llama 3.2 Vision, GPT-4o, etc.) and re-send. Also check that:</p>
+<ul>
+  <li>The image is PNG, JPEG, WEBP or GIF. Other formats (BMP, TIFF, HEIC, SVG) attach as files the model only knows by name; convert them first.</li>
+  <li>You attached it to <em>this</em> message. Images go to the model only with the message they are attached to, so for a follow-up question about the same picture, attach it again.</li>
+</ul>
     <div class="page-nav">
       <a href="performance.html">
         <span class="label">Previous</span>
@@ -294,7 +312,7 @@
       </a>
       <a href="web-fetch-mcp.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Web fetch &amp; MCP &rarr;</span>
+        <span class="title">Tools, MCP &amp; folders &rarr;</span>
       </a>
     </div>
 
