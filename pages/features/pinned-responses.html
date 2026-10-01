@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>Pinned responses - Loach Docs</title>
+  <meta name="description" content="Pin any assistant reply from its message menu and jump straight back to it from a Pinned bar under the chat header. Pins are bookmarks, stored with the chat, and survive restarts and data backups." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/pinned-responses.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/pinned-responses.html" />
+  <meta property="og:title" content="Pinned responses - Loach Docs" />
+  <meta property="og:description" content="Pin any assistant reply from its message menu and jump straight back to it from a Pinned bar under the chat header. Pins are bookmarks, stored with the chat, and survive restarts and data backups." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="Pinned responses - Loach Docs" />
+  <meta name="twitter:description" content="Pin any assistant reply from its message menu and jump straight back to it from a Pinned bar under the chat header. Pins are bookmarks, stored with the chat, and survive restarts and data backups." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "Pinned responses",
+          "item": "https://docs.loach.dev/pages/features/pinned-responses.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "Pinned responses",
+      "description": "Pin any assistant reply from its message menu and jump straight back to it from a Pinned bar under the chat header. Pins are bookmarks, stored with the chat, and survive restarts and data backups.",
+      "url": "https://docs.loach.dev/pages/features/pinned-responses.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/pinned-responses.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,37 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>Pinned responses</h1>
+    <p class="lead">Long chats bury good answers. Pin any assistant reply and it lands in a <strong>Pinned</strong> bar under the chat header, one click away no matter how far the conversation has scrolled on.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
+    <h2 id="pinning">Pinning a reply</h2>
+    <p>Open the <code>&hellip;</code> menu below any assistant message and pick <strong>Pin this response</strong>. A pin is a bookmark, not an edit - the message still reaches the model exactly like every other turn. <strong>Unpin this response</strong> lives in the same menu, and the bar disappears with the last pin. Replies imported with <strong>Hide from transcript</strong> can&rsquo;t be pinned, since they sit inside a collapsed card.</p>
 
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="pinned-bar">The Pinned bar</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
-    </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
-
-    <h2 id="limits">Limits</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
+      <li><strong class="feat-name">One chip per pin</strong> - each pinned reply shows as a one-line chip under the chat header, in conversation order; with many pins the row scrolls sideways. Click a chip to scroll that response back into view; the bubble flashes so you can spot it.</li>
+      <li><strong class="feat-name">Readable previews</strong> - chip text is the response with its markdown stripped, so a code-only answer previews as its first line of code. Hover a chip to see more of it, which is usually enough to tell two similar pins apart.</li>
+      <li><strong class="feat-name">Badge on the bubble</strong> - the pinned reply carries a small <em>Pinned</em> badge under its bubble.</li>
     </ul>
 
-    <h2 id="safety">Safety guards</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
-    </ul>
+    <h2 id="persistence">Where pins live</h2>
+    <p>Pins are stored with the chat, so they survive restarts and travel in <a href="data-management.html#export">data backups</a>. <a href="import-export.html#fork">Forking</a> a chat copies the pins on the replies the fork includes. <strong>Regenerate</strong> replaces the last reply with a new one, so a pin on that reply goes with it.</p>
+    <p>Pinning a <em>chat</em> (from the sidebar row, the chat header menu, or the <code>/pin</code> <a href="slash-commands.html">command</a>) is a different feature: that keeps the whole conversation at the top of the sidebar, while pinning a <em>response</em> bookmarks one answer inside it.</p>
 
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <div class="callout tip">
+      <div class="callout-body">
+        <div class="callout-title">Pins vs. Snippets</div>
+        <p>Pin a reply when you want to find it again in <em>this</em> chat. If you want to reuse text as a prompt elsewhere, keep it as a <a href="snippets.html">Snippet</a> instead - <strong>Save as Snippet</strong> in the <code>&hellip;</code> menu does that for your own prompts.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="context-compaction.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; Context &amp; compaction</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="concurrency.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Concurrency &amp; queue &rarr;</span>
       </a>
     </div>
 

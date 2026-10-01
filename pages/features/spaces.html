@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spaces — Loach Docs</title>
-  <meta name="description" content="A Space bundles instructions, reference files, a memory store and pinned model defaults around a project. Every chat created inside a Space inherits that context." />
+  <title>Spaces - Loach Docs</title>
+  <meta name="description" content="A Space bundles instructions, reference sources, a memory and a default model around a project. Every chat created inside a Space inherits that context." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/spaces.html" />
-  <meta property="og:title" content="Spaces — Loach Docs" />
-  <meta property="og:description" content="A Space bundles instructions, reference files, a memory store and pinned model defaults around a project. Every chat created inside a Space inherits that context." />
+  <meta property="og:title" content="Spaces - Loach Docs" />
+  <meta property="og:description" content="A Space bundles instructions, reference sources, a memory and a default model around a project. Every chat created inside a Space inherits that context." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Spaces — Loach Docs" />
-  <meta name="twitter:description" content="A Space bundles instructions, reference files, a memory store and pinned model defaults around a project. Every chat created inside a Space inherits that context." />
+  <meta name="twitter:title" content="Spaces - Loach Docs" />
+  <meta name="twitter:description" content="A Space bundles instructions, reference sources, a memory and a default model around a project. Every chat created inside a Space inherits that context." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Spaces",
-      "description": "A Space bundles instructions, reference files, a memory store and pinned model defaults around a project. Every chat created inside a Space inherits that context.",
+      "description": "A Space bundles instructions, reference sources, a memory and a default model around a project. Every chat created inside a Space inherits that context.",
       "url": "https://docs.loach.dev/pages/features/spaces.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,36 +263,50 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Spaces</h1>
-    <p class="lead">A <strong>Space</strong> is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference files, memory and pinned model defaults. Every chat created inside a Space inherits that context automatically.</p>
+    <p class="lead">A <strong>Space</strong> is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference sources, a memory and a default model. Every chat created inside a Space inherits that context automatically.</p>
 
     <h2 id="what-a-space-holds">What a Space holds</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Instructions</strong> — a system prompt that overrides the global <a href="custom-instructions.html">custom instructions</a> when set. The Space is the user explicitly opting in to space-level guidance.</li>
-      <li><strong class="feat-name">Reference files</strong> — text files and PDFs are inlined into the system prompt of every chat in the Space; images ride along with the user turn so vision-capable models can see them.</li>
-      <li><strong class="feat-name">Memory</strong> — optional auto-extracted one-line facts about the user (see below).</li>
-      <li><strong class="feat-name">Default provider and model</strong> — pinned per-Space, so a &ldquo;code review&rdquo; Space can always start in a different model than a &ldquo;writing&rdquo; Space.</li>
-      <li><strong class="feat-name">Default generation parameters</strong> — temperature, top-p and the rest, layered between model defaults and per-chat overrides.</li>
+      <li><strong class="feat-name">Instructions</strong> - a system prompt for every chat in the Space. When set, it replaces both your global <a href="custom-instructions.html">custom instructions</a> and the chat&rsquo;s own instructions.</li>
+      <li><strong class="feat-name">Reference sources</strong> - text files, PDFs and Word documents are inlined into the system prompt of every chat in the Space; images ride along with each message so vision-capable models can see them. See <a href="#sources">Reference sources</a> below.</li>
+      <li><strong class="feat-name">Memory</strong> - facts about you that Loach learns from the Space&rsquo;s chats. See <a href="memory.html">Memory</a>.</li>
+      <li><strong class="feat-name">Default model</strong> - the provider and model new chats in the Space start with, so a &ldquo;code review&rdquo; Space can always start in a different model than a &ldquo;writing&rdquo; Space.</li>
     </ul>
 
     <h2 id="lifecycle">Creating and editing</h2>
-    <p>Create a Space from the <strong>Spaces</strong> sidebar tab or from the in-app library tile. Each Space has a detail view with its own tabs for chats, instructions, files, memory and model defaults. Editing any field updates the context for every chat inside the Space the next time they are sent.</p>
-    <p>Chat rows in the Space&rsquo;s <em>Chats</em> tab expose the same per-row <code>&hellip;</code> menu as the main sidebar — <em>Pin / Unpin</em>, <em>Rename</em>, <em>Move to archive</em>, and <em>Delete</em> — so you can manage a Space&rsquo;s chats without leaving the Space view.</p>
-    <p>Deleting a Space cascades: the chats inside it, the reference files and the auto-saved memories all go with it. Move any chat you want to keep out of the Space first.</p>
-
-    <h2 id="memory">Space Memory</h2>
-    <p>Optional per-Space auto-memory. After every assistant reply in a Space, Loach fires a one-shot call against the same provider and model the user is chatting with and asks it to extract durable, single-sentence facts about the user from the new turn. The surviving facts are deduplicated and persisted as memories.</p>
-    <p>You will see a small <em>Saved to memory</em> pill briefly appear after every save, showing the new fact — so you always know what landed in long-term context.</p>
+    <p>Open the <strong>Spaces</strong> tab in the sidebar and click <strong>New space</strong>. Give it a name (up to 60 characters) and an optional description, then <strong>Save</strong> - Loach opens the new Space. The library shows every Space as a tile, most recently updated first, with its chat count, a <strong>New chat</strong> button and a <code>&hellip;</code> menu (<strong>Open / edit</strong>, <strong>Delete</strong>).</p>
+    <p>A Space&rsquo;s page shows its description, a row of chips summing it up (chats, sources, <em>Instructions on</em>, memories, model) and a composer: type there to start a new chat in the Space. Below it are five tabs:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Memory tab</strong> — review, edit or delete any auto-saved row. You can also add facts manually.</li>
-      <li><strong class="feat-name">Per-Space toggle</strong> — turn extraction off without wiping the existing rows. Stored memories keep riding along in every chat; only new writes stop.</li>
-      <li><strong class="feat-name">Cancelled or errored turns</strong> never trigger extraction, because the assistant&rsquo;s text is incomplete.</li>
+      <li><strong class="feat-name">Chats</strong> - the Space&rsquo;s chats, grouped by <em>Today</em>, <em>Yesterday</em>, <em>Earlier this week</em> and <em>Older</em>. Archived chats aren&rsquo;t listed. Each row&rsquo;s <code>&hellip;</code> menu (or a right-click) offers the same actions as the main sidebar: <em>Pin this chat</em> / <em>Unpin</em>, <em>Label</em>, <em>Rename</em>, <em>Move to archive</em> and <em>Delete</em>.</li>
+      <li><strong class="feat-name">Instructions</strong> - the Space&rsquo;s system prompt. It&rsquo;s saved when you click away from the field.</li>
+      <li><strong class="feat-name">Sources</strong> - add and remove reference sources.</li>
+      <li><strong class="feat-name">Memory</strong> - the Space&rsquo;s memory switch and its <a href="memory.html#editor">memory editor</a>.</li>
+      <li><strong class="feat-name">Models</strong> - the default model for new chats in the Space. Leave it empty (or pick <strong>Clear selection</strong>) to use your <a href="default-model.html">default model</a> from <strong>Settings &rarr; General</strong>. Switching model inside a chat still wins.</li>
     </ul>
-    <p>Memories are silently injected into the system prompt of every chat inside the Space as a short <code>--- Space memory ---</code> bulleted list.</p>
+    <p>Rename the Space or change its description from the <code>&hellip;</code> menu next to its title &rarr; <strong>Edit details</strong>. Changes to instructions, sources and memory reach every chat in the Space with its next message.</p>
+    <p>Besides the composer on the Space&rsquo;s page and the <strong>New chat</strong> button on its tile, you can type <code>/space &lt;name&gt;</code> to make a Space active, then <code>/new</code> to start a chat in it.</p>
+
+    <h3 id="deleting">Deleting a Space</h3>
+    <p>Pick <strong>Delete space</strong> from the <code>&hellip;</code> menu (or <strong>Delete</strong> on its library tile). The Space&rsquo;s instructions, sources and memory are deleted. Its chats are kept: they leave the Space and carry on as regular chats.</p>
+
+    <h2 id="sources">Reference sources</h2>
+    <p>Add files on the <strong>Sources</strong> tab with <strong>Add source</strong>. Every source is sent with every message in the Space:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Text and code files</strong> - inlined into the system prompt.</li>
+      <li><strong class="feat-name">PDFs and Word (.docx) documents</strong> - their text is extracted and inlined. A scanned PDF has no text to extract; add its pages as images instead.</li>
+      <li><strong class="feat-name">Images</strong> - PNG, JPEG, WebP and GIF are attached to each message for vision-capable models.</li>
+      <li><strong class="feat-name">Anything else</strong> - formats Loach can&rsquo;t read, such as legacy <code>.doc</code> files or archives, are stored but never sent to the model.</li>
+    </ul>
+    <p>Each file can be up to <strong>20 MB</strong>, and a Space&rsquo;s sources up to <strong>200 MB</strong> in total; the tab shows how much is used. A file&rsquo;s text is cut off after about 200,000 characters, with a note telling the model so. Because sources go out with every message, large ones use a lot of context on every turn. The <a href="context-compaction.html">context-usage bar</a> doesn&rsquo;t count them, so in a Space with big sources it reads lower than what the model actually gets.</p>
+
+    <h2 id="memory">Space memory</h2>
+    <p>Each Space has its own memory, on by default for a new Space. After every finished reply in the Space, Loach asks the chat&rsquo;s model to pick out lasting facts about you, saves them, and adds them to the system prompt of every chat in the Space as a <code>--- Space memory ---</code> list. A toast with an <strong>Undo</strong> button announces every change.</p>
+    <p>Turn memory off with the switch on the <strong>Memory</strong> tab: Loach stops saving new facts, but the ones already saved are still sent until you delete them. How capture, updates, limits and <a href="memory.html#remember"><code>/remember</code></a> work - and how Space memory combines with global memories - is covered on the <a href="memory.html">Memory</a> page.</p>
 
     <div class="callout tip">
       <div class="callout-body">
         <div class="callout-title">When to make a Space</div>
-        <p>Reach for a Space whenever you find yourself opening several chats that share the same reference files or the same custom instructions. The cost is one click; the upside is never re-pasting context again.</p>
+        <p>Reach for a Space whenever you find yourself opening several chats that share the same reference files or the same instructions. The cost is one click; the upside is never re-pasting context again.</p>
       </div>
     </div>
     <div class="page-nav">
@@ -297,9 +314,9 @@
         <span class="label">Previous</span>
         <span class="title">&larr; Private Chat</span>
       </a>
-      <a href="snippets.html" class="next">
+      <a href="memory.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Snippets &rarr;</span>
+        <span class="title">Memory &rarr;</span>
       </a>
     </div>
 

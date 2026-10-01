@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Storage &amp; privacy — Loach Docs</title>
-  <meta name="description" content="Where Loach stores its data, what stays local, and what (if anything) goes over the network." />
+  <title>Storage &amp; privacy - Loach Docs</title>
+  <meta name="description" content="Where Loach stores its data, how secrets are kept, what goes over the network and when, and what a remote provider receives." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/privacy.html" />
-  <meta property="og:title" content="Storage &amp;amp; privacy — Loach Docs" />
-  <meta property="og:description" content="Where Loach stores its data, what stays local, and what (if anything) goes over the network." />
+  <meta property="og:title" content="Storage &amp; privacy - Loach Docs" />
+  <meta property="og:description" content="Where Loach stores its data, how secrets are kept, what goes over the network and when, and what a remote provider receives." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Storage &amp;amp; privacy — Loach Docs" />
-  <meta name="twitter:description" content="Where Loach stores its data, what stays local, and what (if anything) goes over the network." />
+  <meta name="twitter:title" content="Storage &amp; privacy - Loach Docs" />
+  <meta name="twitter:description" content="Where Loach stores its data, how secrets are kept, what goes over the network and when, and what a remote provider receives." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -37,15 +37,15 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Storage &amp; privacy",
+          "name": "Storage & privacy",
           "item": "https://docs.loach.dev/pages/privacy.html"
         }
       ]
     },
     {
       "@type": "Article",
-      "headline": "Storage &amp; privacy",
-      "description": "Where Loach stores its data, what stays local, and what (if anything) goes over the network.",
+      "headline": "Storage & privacy",
+      "description": "Where Loach stores its data, how secrets are kept, what goes over the network and when, and what a remote provider receives.",
       "url": "https://docs.loach.dev/pages/privacy.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -128,14 +128,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
@@ -143,82 +144,83 @@
               <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -232,13 +234,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
@@ -254,61 +257,104 @@
 
   <main class="content">
     <h1>Storage &amp; privacy</h1>
-    <p class="lead">Loach is local-first. Your content lives on your machine, and only requests to <em>remote</em> providers ever leave it. Here's exactly what is stored, where, and what (if anything) goes over the network.</p>
+    <p class="lead">Loach is local-first. Your content lives on your machine, and nothing goes over the network unless you set up something that needs it - a remote provider, web fetch, an MCP server, the update check. Here&rsquo;s exactly what is stored, where, and what leaves your machine and when.</p>
 
     <h2 id="where">Where things live</h2>
     <table>
       <thead><tr><th>What</th><th>Where</th></tr></thead>
       <tbody>
-        <tr><td>Chats, messages, Spaces, Snippets, MCP servers, app settings</td><td>SQLite at <code>&lt;app-data-dir&gt;/loach.db</code></td></tr>
+        <tr><td>Chats and messages (with their tool calls and results), folders, labels, pinned responses, Spaces with their sources and memories, global memories, Snippets with their variables and saved fill-ins, MCP servers, app settings</td><td>SQLite at <code>&lt;app-data-dir&gt;/loach.db</code>, plus its <code>-wal</code> and <code>-shm</code> files</td></tr>
+        <tr><td>Attached files</td><td>Inside their message in <code>loach.db</code> - images and other files as base64, text and documents as their extracted text. There is no separate file store.</td></tr>
         <tr><td>OpenAI-compatible API key</td><td>OS credential manager (Windows Credential Manager / Linux Secret Service / macOS Keychain)</td></tr>
-        <tr><td>App-lock hash + hint</td><td>OS credential manager — same store, separate entry</td></tr>
-        <tr><td>Attached files (images, text)</td><td>Inlined into the message at send time — no separate file store</td></tr>
+        <tr><td>App-lock hash + hint</td><td>OS credential manager - same store, separate entry</td></tr>
+        <tr><td>MCP server headers and environment variables</td><td>In <code>loach.db</code> as plain text, with the rest of the server&rsquo;s settings - not in the credential manager</td></tr>
+        <tr><td>A chat&rsquo;s working folder</td><td>Only its path, on the chat. The files stay where they are; Loach doesn&rsquo;t copy them.</td></tr>
+        <tr><td>Code-canvas snippets opened in VS Code</td><td>Scratch files in <code>&lt;app-cache-dir&gt;/canvas</code></td></tr>
+        <tr><td>Layout preferences (canvas width, open sidebar folders, the parameters panel&rsquo;s view)</td><td>The app window&rsquo;s local storage</td></tr>
+        <tr><td>Local models</td><td>Stored by Ollama, outside Loach&rsquo;s folders</td></tr>
         <tr><td>App data dir on Windows</td><td><code>%APPDATA%\dev.loach.app\</code></td></tr>
         <tr><td>App data dir on Linux</td><td><code>~/.local/share/dev.loach.app/</code></td></tr>
+        <tr><td>App data dir on macOS</td><td><code>~/Library/Application Support/dev.loach.app/</code></td></tr>
+        <tr><td>App cache dir</td><td><code>%LOCALAPPDATA%\dev.loach.app\</code> on Windows, <code>~/.cache/dev.loach.app/</code> on Linux, <code>~/Library/Caches/dev.loach.app/</code> on macOS</td></tr>
+      </tbody>
+    </table>
+    <p>The database isn&rsquo;t encrypted: anyone who can read your app-data folder can read your chats, and any MCP credentials stored with your servers. Loach writes no log files.</p>
+
+    <h2 id="offline">Offline by default</h2>
+    <p>With a local Ollama, Loach launches and works completely offline. All of these need no network access:</p>
+    <ul>
+      <li>The <strong>Models</strong> library</li>
+      <li><strong>Spaces</strong>, <strong>Snippets</strong> and <a href="features/memory.html">memory</a></li>
+      <li>Search across chats, messages, Spaces and Snippets</li>
+      <li>The parameters panel</li>
+      <li>The app lock</li>
+      <li>Full chat history, and <a href="features/private-chat.html">Private Chat</a></li>
+      <li><a href="features/built-in-tools.html">Built-in tools</a>, <a href="features/work-in-folders.html">working folders</a> and <a href="features/math.html">LaTeX math</a> rendering - KaTeX ships inside the app</li>
+    </ul>
+    <p>Only chats with a <strong>remote</strong> endpoint (OpenAI, Groq, OpenRouter, …), web fetch, remote MCP servers, the update check and model downloads need an internet connection. An Ollama or OpenAI-compatible server elsewhere on your network needs that network, not the internet.</p>
+
+    <h2 id="no-telemetry">No telemetry</h2>
+    <p>Loach does not phone home. There is no account, no usage tracking, no analytics, no crash reporting service. The app window itself can&rsquo;t reach the internet: its content security policy allows no remote scripts, images or connections, and no inline scripts or <code>eval</code>, so every request goes through Loach&rsquo;s backend - and only for the reasons below. Nothing else happens in the background.</p>
+
+    <h2 id="network">What goes over the network, and when</h2>
+    <table>
+      <thead><tr><th>Destination</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td>Your Ollama base URL (<code>http://localhost:11434</code> by default)</td><td>At launch, to see whether Ollama is running and list its models; then for every chat, model preload and Models-tab action. Pulling a model makes Ollama download it from its library - that connection is Ollama&rsquo;s, not Loach&rsquo;s.</td></tr>
+        <tr><td>Your OpenAI-compatible endpoint</td><td>Its model list at launch and when the provider settings change - but only once you&rsquo;ve saved an API key or pointed the base URL away from the OpenAI default. Then every chat you run on it, and <strong>Test connection</strong>.</td></tr>
+        <tr><td>URLs in your prompt</td><td>Only with <a href="features/web-fetch.html">Web fetch</a> switched on (it&rsquo;s off by default), plus a page you fetch with <code>/fetch</code>. Addresses on your own machine or private network are refused.</td></tr>
+        <tr><td>Your MCP servers</td><td>An HTTP server whenever a chat needs its tool list or calls one of its tools. A local (stdio) server is a program on your machine; what it connects to is up to that program.</td></tr>
+        <tr><td>GitHub releases</td><td>When you press <strong>Check for updates</strong> in <strong>Settings → Updates</strong>, or once per launch if you switched on <strong>Auto-check for updates</strong> (off by default). An update is downloaded only when you confirm.</td></tr>
+        <tr><td>Your web browser</td><td>Links you click in a reply, the model-library links in onboarding and the <a href="features/share-message.html">share</a> buttons open in your default browser, which makes those requests itself.</td></tr>
       </tbody>
     </table>
 
-    <h2 id="offline">Offline by default</h2>
-    <p>Loach launches and works completely offline as long as you stick to local providers. The following are all available without any network access:</p>
+    <h2 id="remote-providers">What a remote provider receives</h2>
+    <p>A chat on a remote endpoint sends that provider everything the model needs for the turn:</p>
     <ul>
-      <li>The <strong>Models</strong> library</li>
-      <li><strong>Spaces</strong> and <strong>Snippets</strong></li>
-      <li>Search across chats / spaces / snippets</li>
-      <li>The parameter sidebar</li>
-      <li>The app lock</li>
-      <li>Full chat history</li>
+      <li><strong>The system prompt</strong> - the instructions that apply (the Space&rsquo;s, the chat&rsquo;s or your Custom instructions), the persona and tone, the date, weekday and timezone while <a href="features/temporal-awareness.html">Temporal awareness</a> is on, your name wherever <code>{{USER_NAME}}</code> appears, a Space&rsquo;s reference sources, and your memories.</li>
+      <li><strong>The conversation</strong> - your messages and its replies (a compacted chat sends its summary instead of the older turns), with attachments inlined and the text of any pages Web fetch downloaded.</li>
+      <li><strong>Tools</strong> - the definitions of the tools that are on, and every tool result: what MCP servers return, and the contents of files the model reads from the chat&rsquo;s <a href="features/work-in-folders.html">working folder</a>. The folder&rsquo;s full path and its <code>LOACHFILE.md</code> go in the system prompt.</li>
     </ul>
-    <p>Only chat generations against <strong>remote</strong> endpoints (OpenAI, Groq, OpenRouter, …) need an internet connection.</p>
-
-    <h2 id="no-telemetry">No telemetry</h2>
-    <p>Loach does not phone home. There is no usage tracking, no analytics, no crash reporting service. The only outbound traffic the app makes on its own is the update check (which can be disabled).</p>
+    <p>Two background requests go to the same provider and model: <a href="features/memory.html">memory</a> extraction after each reply while Space memory or global memories are on, and the summary when you <a href="features/context-compaction.html">compact</a> a chat. Global memories are sent with every chat, whichever provider it uses - a fact learned talking to a local model also reaches a cloud one. Private Chat talks to Ollama only and never uses memory.</p>
+    <p>The API key is sent only over <code>https://</code>, or over <code>http://</code> to this computer (<code>localhost</code>, <code>127.0.0.1</code>, <code>::1</code>). An <code>http://</code> server elsewhere on your network gets no key.</p>
 
     <h2 id="secrets">Secrets handling</h2>
-    <p>API keys and app-lock credentials are stored in your operating system's credential manager via the <a href="https://crates.io/crates/keyring" target="_blank" rel="noopener"><code>keyring</code></a> crate:</p>
+    <p>The API key and the app-lock credentials are stored in your operating system&rsquo;s credential manager via the <a href="https://crates.io/crates/keyring" target="_blank" rel="noopener"><code>keyring</code></a> crate, under the service name <code>dev.loach.app</code>:</p>
     <ul>
-      <li>On <strong>Windows</strong> — the <strong>Credential Manager</strong>.</li>
-      <li>On <strong>Linux</strong> — the <strong>Secret Service</strong> (GNOME Keyring / KWallet / equivalent).</li>
+      <li>On <strong>Windows</strong> - the <strong>Credential Manager</strong>.</li>
+      <li>On <strong>Linux</strong> - the <strong>Secret Service</strong> (GNOME Keyring / KWallet / equivalent). One has to be running and unlocked, or the key won&rsquo;t save.</li>
+      <li>On <strong>macOS</strong> - the <strong>Keychain</strong>.</li>
     </ul>
-    <p>App-lock secrets are hashed with <strong>Argon2id</strong> before they're stored; the plaintext is never written anywhere.</p>
+    <p>The key never reaches the database or the app window, and Settings never shows it back. App-lock secrets are hashed with <strong>Argon2id</strong> before they&rsquo;re stored; the plaintext is never written anywhere. The optional lock hint is stored as you typed it, in the same entry, because the lock screen shows it.</p>
+    <p>MCP credentials are the exception: a server&rsquo;s HTTP headers (an <code>Authorization</code> token, say) and a local server&rsquo;s environment variables are kept in <code>loach.db</code> as plain text. Exports leave them out.</p>
+
+    <h2 id="files-programs">Files and programs</h2>
+    <ul>
+      <li><strong>File access goes through Loach&rsquo;s backend.</strong> Saving an export or an attachment, importing a backup and picking a working folder all use native dialogs, and the backend does the reading and writing, so the app window can&rsquo;t read or overwrite a file you didn&rsquo;t pick.</li>
+      <li><strong>Working folders are sandboxed.</strong> The model reaches only the files inside the folder you picked for a chat - absolute paths, <code>..</code> and links pointing elsewhere are refused, a whole drive and Loach&rsquo;s own data folder can&rsquo;t be picked, and there is no shell. Before a file is written, edited, moved or deleted, Loach shows you the change and asks, unless you&rsquo;ve allowed that tool for the chat. See <a href="features/work-in-folders.html">Work in folders</a>.</li>
+      <li><strong>Local MCP servers need your consent.</strong> Testing, switching on or changing a local (stdio) MCP server raises a native system dialog that shows exactly what will run, with <strong>Cancel</strong> as the default button. Imported local servers arrive switched off.</li>
+      <li><strong>MCP tool calls ask first.</strong> By default every call pauses the reply and shows the server, the tool and its arguments: <strong>Allow once</strong>, <strong>Always allow</strong> that tool, or <strong>Deny</strong>. Turn <strong>Ask before each tool call</strong> off only for a server you trust. See <a href="features/mcp.html">MCP support</a>.</li>
+    </ul>
 
     <h2 id="backup">Backup, restore and wipe</h2>
-    <p>From <strong>Settings → Data management</strong> you can:</p>
+    <p>From <strong>Settings → Data</strong> you can:</p>
     <ul>
-      <li><strong>Export</strong> your full content (chats, Spaces, Snippets, settings) to a JSON file.</li>
-      <li><strong>Restore</strong> from a previously exported file.</li>
-      <li><strong>Permanently delete</strong> all stored data in a few clicks.</li>
+      <li><strong>Export data</strong> - save your full content (chats, folders, Spaces with their sources and memories, global memories, Snippets and variables, MCP servers, settings) to a single JSON file. MCP headers and environment variables are left out, and so are secrets in a server&rsquo;s arguments (a password in a URL, a <code>--token</code> value); chats leave out their working folder.</li>
+      <li><strong>Import data</strong> - restore a previously exported file. It replaces everything in the database but keeps the stored API key. Local MCP servers come in switched off.</li>
+      <li><strong>Erase &amp; Reset → Remove my data</strong> - delete chats, folders, Spaces, memories, Snippets and MCP servers, but keep settings, the API key and the app lock.</li>
+      <li><strong>Erase &amp; Reset → Factory reset</strong> - the same, plus all settings, and remove the API key and the app lock from the credential store. Loach then starts over with onboarding.</li>
     </ul>
-    <p>API keys are not part of the export — they live in the OS credential manager and stay there until you remove them.</p>
+    <p>Both erase options ask you to type <code>YES</code>; importing and erasing also ask for your current app-lock credentials when a lock is set. A storage breakdown above those controls shows what chats, attachments, Spaces and everything else weigh in the database, and what your local Ollama models take on disk. The API key and the app lock are never part of an export - they live in the OS credential manager and stay there until you remove them. See <a href="features/data-management.html">Data management</a>.</p>
 
     <div class="page-nav">
       <a href="features/keyboard.html">
         <span class="label">Previous</span>
-        <span class="title">← Keyboard shortcuts</span>
+        <span class="title">&larr; Keyboard shortcuts</span>
       </a>
       <a href="tech-stack.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Tech stack →</span>
+        <span class="title">Tech stack &rarr;</span>
       </a>
     </div>
 

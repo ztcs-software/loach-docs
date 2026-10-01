@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Updates — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach in-app updates: missing install buttons on Linux, stale &lsquo;up to date&rsquo; messages, signature failures." />
+  <title>Updates - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Loach in-app updates: missing install buttons on Linux, password prompts on .deb and .rpm updates, stale up-to-date messages, no update notice at launch, downloads that cannot be cancelled and signature failures." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/updates.html" />
-  <meta property="og:title" content="Updates — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach in-app updates: missing install buttons on Linux, stale &amp;lsquo;up to date&amp;rsquo; messages, signature failures." />
+  <meta property="og:title" content="Updates - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Loach in-app updates: missing install buttons on Linux, password prompts on .deb and .rpm updates, stale up-to-date messages, no update notice at launch, downloads that cannot be cancelled and signature failures." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Updates — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach in-app updates: missing install buttons on Linux, stale &amp;lsquo;up to date&amp;rsquo; messages, signature failures." />
+  <meta name="twitter:title" content="Updates - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Loach in-app updates: missing install buttons on Linux, password prompts on .deb and .rpm updates, stale up-to-date messages, no update notice at launch, downloads that cannot be cancelled and signature failures." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Updates — Troubleshooting",
+          "name": "Updates - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/updates.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Updates — Troubleshooting",
-      "description": "Troubleshoot Loach in-app updates: missing install buttons on Linux, stale &lsquo;up to date&rsquo; messages, signature failures.",
+      "headline": "Updates - Troubleshooting",
+      "description": "Troubleshoot Loach in-app updates: missing install buttons on Linux, password prompts on .deb and .rpm updates, stale up-to-date messages, no update notice at launch, downloads that cannot be cancelled and signature failures.",
       "url": "https://docs.loach.dev/pages/troubleshooting/updates.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -261,21 +264,42 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>Updates</h1>
-    <p class="lead">Loach&rsquo;s built-in updater patches certain install formats in place. When it doesn&rsquo;t, the cause is usually format-related or release timing.</p>
+    <p class="lead">Loach&rsquo;s built-in updater patches every install format in place. When it doesn&rsquo;t offer to, the cause is usually an old build, a development build, release timing, or the auto-check being off.</p>
 
     <h2 id="no-install-button-linux">No &ldquo;Install update&rdquo; button on Linux</h2>
-    <p class="problem-statement">You&rsquo;re on Linux and the Updates panel only shows a link to GitHub releases.</p>
-    <p>This is expected for <strong><code>.deb</code></strong> and <strong><code>.rpm</code></strong> installs — the Tauri updater can only patch AppImage installs on Linux. Your package manager owns updates instead. To get in-app updates, install the AppImage build from the releases page.</p>
+    <p class="problem-statement">You&rsquo;re on Linux and the Updates panel only says in-app updates aren&rsquo;t available for this install, with an <strong>Open releases</strong> button.</p>
+    <p>All three Linux formats - AppImage, <code>.deb</code> and <code>.rpm</code> - support in-app updates, so the panel should offer one. Two things hide it:</p>
+<ol>
+  <li><strong>You installed v1.2.3 or earlier from a <code>.deb</code> or <code>.rpm</code>.</strong> That build&rsquo;s check looked for an AppImage-only environment variable, so it reported &ldquo;unsupported&rdquo; on packages. Download a newer <code>.deb</code> / <code>.rpm</code> once from the releases page; in-app updates work from then on.</li>
+  <li><strong>You&rsquo;re running a development build</strong> (<code>npm run tauri dev</code> or <code>cargo run</code>). Package detection reads a marker the bundler writes at build time (an AppImage is recognised by the environment variable its runtime sets), which dev builds don&rsquo;t have. Install a packaged build.</li>
+</ol>
+<p>Note that updates are in-app only - there&rsquo;s no apt or yum repository, so <code>apt upgrade</code> won&rsquo;t pick up new versions either way.</p>
 
-    <h2 id="stale-up-to-date">&ldquo;Up to date&rdquo; but I see a newer version on GitHub</h2>
+    <h2 id="linux-password-prompt">The update asks for my password on Linux</h2>
+    <p class="problem-statement">Installing an update on a <code>.deb</code> / <code>.rpm</code> install pops a system authentication prompt.</p>
+    <p>Expected. Replacing a package-managed install means running <code>dpkg -i</code> / <code>rpm -U</code> as root, which Loach requests through <code>pkexec</code> (falling back to zenity or kdialog plus <code>sudo</code>). Going around the package manager instead would leave its database describing a version that&rsquo;s no longer on disk. AppImage installs replace themselves in place and never prompt.</p>
+
+    <h2 id="stale-up-to-date">&ldquo;You&rsquo;re on the latest version&rdquo; but I see a newer version on GitHub</h2>
     <p class="problem-statement">The updater says there&rsquo;s nothing new even though a newer release exists.</p>
-    <p>The updater only reads <strong>published</strong> releases, not drafts. Wait until the release is published, or download manually from GitHub.</p>
+    <p>The updater only sees the newest <strong>published stable</strong> release. Drafts aren&rsquo;t offered, and neither are pre-releases (versions with a suffix such as <code>-beta-1</code> or <code>-rc-1</code>) - download those from GitHub.</p>
+
+    <h2 id="no-launch-notice">No &ldquo;Update available&rdquo; notice at launch</h2>
+    <p class="problem-statement">A new version is out, but Loach never tells you when it starts.</p>
+    <ol>
+  <li>The launch check is <strong>off by default</strong>. Switch on <strong>Auto-check for updates</strong> in <strong>Settings &rarr; Updates</strong>. It takes effect from the next launch, not straight away.</li>
+  <li>The check is deliberately quiet: there&rsquo;s no notice when you&rsquo;re up to date, and a check that fails (offline, release server unreachable) is only logged. Use <strong>Check for updates</strong> in the same panel to see the result or the error.</li>
+  <li>With an app lock, the notice waits until you unlock; it also never appears during the onboarding wizard.</li>
+</ol>
+
+    <h2 id="cant-cancel">I can&rsquo;t cancel an update that&rsquo;s downloading</h2>
+    <p class="problem-statement">The <em>Update available</em> dialog won&rsquo;t close, or the Updates panel has no way to stop the download.</p>
+    <p>By design. Once you pick <strong>Update now</strong> or <strong>Install update</strong>, the download can&rsquo;t be stopped, and Loach restarts on its own when the update is installed - closing the dialog would only let the restart catch you by surprise. If you&rsquo;re not ready, choose <strong>Later</strong> instead and install from <strong>Settings &rarr; Updates</strong> when it suits you.</p>
 
     <h2 id="signature-fail">Update download or signature fails</h2>
-    <p class="problem-statement">The update starts but errors out before installing.</p>
+    <p class="problem-statement">The update starts but errors out before installing, showing <em>Update failed:</em> and a reason.</p>
     <ol>
-  <li>Re-run the check — transient network failures are common.</li>
-  <li>If the error mentions signature verification, the release is most likely mid-publish (assets uploaded but not yet signed). Wait a few minutes and retry.</li>
+  <li>Click <strong>Try again</strong> - transient network failures are common.</li>
+  <li>If the error mentions signature verification, the downloaded file didn&rsquo;t match what the release signed - usually a corrupted or intercepted download (a proxy or antivirus rewriting it). Retry, and if it keeps failing, install from the releases page.</li>
   <li>As a fallback, download the installer for your platform directly from the releases page.</li>
 </ol>
 

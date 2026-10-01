@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>App lock — Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock." />
+  <title>App lock - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/app-lock.html" />
-  <meta property="og:title" content="App lock — Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock." />
+  <meta property="og:title" content="App lock - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="App lock — Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock." />
+  <meta name="twitter:title" content="App lock - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,15 +43,15 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "App lock — Troubleshooting",
+          "name": "App lock - Troubleshooting",
           "item": "https://docs.loach.dev/pages/troubleshooting/app-lock.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "App lock — Troubleshooting",
-      "description": "Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock.",
+      "headline": "App lock - Troubleshooting",
+      "description": "Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen.",
       "url": "https://docs.loach.dev/pages/troubleshooting/app-lock.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
@@ -261,29 +264,49 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>App lock</h1>
-    <p class="lead">The app lock is a hard gate. Forgotten credentials can&rsquo;t be recovered, and several destructive commands ask for them again even after you&rsquo;ve unlocked.</p>
+    <p class="lead">The app lock is a hard gate. Forgotten credentials can&rsquo;t be recovered inside the app, and several destructive commands ask for them again even after you&rsquo;ve unlocked.</p>
 
     <h2 id="forgot-pin">I forgot my PIN or password</h2>
     <p class="problem-statement">You can&rsquo;t unlock the app.</p>
-    <p>There is <strong>no recovery path</strong>. The lock blob is hashed with Argon2id and stored in the OS credential store; Loach cannot read or decrypt it back. Your options are:</p>
+    <p>There is <strong>no recovery path inside the app</strong>. The lock is an Argon2id hash in your OS credential store; Loach cannot read or reverse it, and the in-app <strong>Factory reset</strong> asks for the credentials too. Your options are:</p>
 <ul>
-  <li>Try the optional hint shown on the lock screen (if you set one).</li>
-  <li><strong>Factory reset</strong> the install — this wipes every chat, Space, snippet, and setting. Close Loach, then delete the app data directory and reinstall:
+  <li>Try the optional hint - click <strong>Show hint</strong> on the lock screen (it only appears if you set one).</li>
+  <li>Remove the lock&rsquo;s entry from the credential store by hand. Loach stores it under the service <code>dev.loach.app</code> with the account <code>app_lock</code>:
     <ul>
-      <li>Windows: <code>%APPDATA%\dev.loach.app\</code></li>
-      <li>Linux: <code>~/.local/share/dev.loach.app/</code></li>
+      <li>Windows: open <strong>Credential Manager &rarr; Windows Credentials</strong> and, under <strong>Generic Credentials</strong>, remove the entry whose name contains <code>app_lock</code> and <code>dev.loach.app</code>.</li>
+      <li>Linux: delete it in your keyring app (Passwords and Keys, KWalletManager), or run <code>secret-tool clear service dev.loach.app username app_lock</code>.</li>
+      <li>macOS: in <strong>Keychain Access</strong>, delete the <code>dev.loach.app</code> item whose account is <code>app_lock</code>.</li>
     </ul>
+    Your chats and settings are untouched - only the lock is gone, and Loach starts unlocked the next time you open it.
   </li>
 </ul>
-<p>Set a hint when you create a lock — it&rsquo;s stored alongside in plain text for exactly this case.</p>
+<p>Deleting the app-data folder does <strong>not</strong> help: it wipes your chats but leaves the credential-store entry, so the lock screen comes straight back.</p>
+<p>Set a hint when you create a lock - it&rsquo;s stored alongside in plain text for exactly this case.</p>
 
-    <h2 id="too-many-attempts">&ldquo;Too many attempts&rdquo; — the unlock button is greyed out</h2>
-    <p class="problem-statement">After several wrong PINs, the unlock command refuses to run.</p>
-    <p>After 5 consecutive failed attempts, Loach starts an escalating cool-down (30 s &rarr; 60 s &rarr; 2 min &hellip; up to 2 h). Wait for the window to expire, or <strong>restart the app</strong> — the counter resets on restart and on a successful unlock.</p>
+    <h2 id="too-many-attempts">&ldquo;Too many failed attempts&rdquo; on the lock screen</h2>
+    <p class="problem-statement">After several wrong PINs, every unlock attempt is refused with <em>Too many failed attempts. Try again in N seconds.</em></p>
+    <p>After 5 consecutive failed attempts, Loach starts an escalating cool-down (30 s &rarr; 60 s &rarr; 2 min &hellip; up to 2 h). Wrong credentials typed into a re-authentication prompt count toward it too. Wait for the window to expire, or <strong>restart the app</strong> - the counter resets on restart and on a successful unlock.</p>
 
     <h2 id="reauth-prompts">Changing or removing the lock asks for my current password</h2>
     <p class="problem-statement">Even though the app is unlocked, changing the lock or running a destructive command prompts for the current credentials.</p>
-    <p>This is intentional. Re-authentication is required for changing or removing the lock, importing data, wiping user data, and factory resetting, so that a compromised UI process can&rsquo;t quietly disable the gate.</p>
+    <p>This is intentional. Re-authentication is required for changing or removing the lock, <strong>Import data</strong>, <strong>Remove my data</strong> and <strong>Factory reset</strong>, so that a compromised UI process can&rsquo;t quietly disable the gate. An error starting <em>Current credentials are required</em> or <em>Current app-lock credentials are required</em> means what you typed didn&rsquo;t match.</p>
+
+    <h2 id="keeps-locking">Loach keeps locking itself</h2>
+    <p class="problem-statement">The lock screen appears mid-session, not just at launch.</p>
+    <p>One of the two auto-lock triggers is on. Both live in the <strong>Auto-lock</strong> card in <strong>Settings &rarr; Security</strong>, which only appears once a lock is configured:</p>
+<ul>
+  <li><strong>Lock after inactivity</strong> - set it to <em>Off</em>, or to a longer interval, if a 1- or 5-minute timeout is catching you while you read a long reply. Typing, clicking, scrolling, touch and moving the mouse over Loach count as activity; watching a reply stream does not.</li>
+  <li><strong>Lock when minimized</strong> - turn it off if you routinely minimize Loach while it works. Native save / open dialogs don&rsquo;t trigger it, so exporting or attaching a file is safe either way.</li>
+</ul>
+<p>If neither is on, check you aren&rsquo;t hitting <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, which locks immediately. A reply already streaming keeps running behind the lock screen - unlocking returns you to it with the tokens that arrived meanwhile.</p>
+
+    <h2 id="lock-late">The lock fired later than the timeout I set</h2>
+    <p class="problem-statement">You picked 1 minute but it took closer to 75 seconds.</p>
+    <p>Expected. The idle deadline is re-checked periodically rather than driven by one long timer, so the lock lands up to 15 seconds after the interval. Erring late is deliberate: a timer that fires early on a throttled or suspended window is the worse failure. A machine that sleeps past the interval locks the moment it wakes.</p>
+
+    <h2 id="no-lock-screen">Loach opened without asking for my PIN</h2>
+    <p class="problem-statement">A lock is configured, but Loach started straight into your chats.</p>
+    <p>At launch Loach asks the OS credential store whether a lock is set. If that check fails or gets no answer within 5 seconds - no Secret Service running on Linux, or a keyring still waiting to be unlocked - Loach starts unlocked rather than stranding you on a lock screen it can&rsquo;t verify, and <strong>Settings &rarr; Security</strong> shows <em>App lock is off</em> for that session. Make sure your keyring is running and unlocked, then restart Loach. On a managed Windows machine, see <a href="platform.html">Platform</a> for Credential Manager restrictions.</p>
 
     <div class="page-nav">
       <a href="spaces-memory.html">

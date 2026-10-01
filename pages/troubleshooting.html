@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Troubleshooting — Loach Docs</title>
-  <meta name="description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP, app lock, models, updates, data and more." />
+  <title>Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting.html" />
-  <meta property="og:title" content="Troubleshooting — Loach Docs" />
-  <meta property="og:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP, app lock, models, updates, data and more." />
+  <meta property="og:title" content="Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Troubleshooting — Loach Docs" />
-  <meta name="twitter:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP, app lock, models, updates, data and more." />
+  <meta name="twitter:title" content="Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     {
       "@type": "Article",
       "headline": "Troubleshooting",
-      "description": "Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP, app lock, models, updates, data and more.",
+      "description": "Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform.",
       "url": "https://docs.loach.dev/pages/troubleshooting.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -128,14 +128,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
@@ -143,82 +144,83 @@
               <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -232,13 +234,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
@@ -254,25 +257,25 @@
 
   <main class="content">
     <h1>Troubleshooting</h1>
-    <p class="lead">Common problems and how to fix them. Pick a category below — each entry follows the same shape: a short description of what you&rsquo;re seeing, then what to do about it.</p>
+    <p class="lead">Common problems and how to fix them. Pick a category below - each entry follows the same shape: a short description of what you&rsquo;re seeing, then what to do about it.</p>
 
     <p>If your problem isn&rsquo;t here, the app version and a description of the steps that reproduce it are usually enough to file a useful bug report at <a href="https://github.com/ztcs-software/loach/issues" target="_blank" rel="noopener">github.com/ztcs-software/loach/issues</a>.</p>
 
     <h2 id="categories">Categories</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="troubleshooting/providers-connections.html"><span class="feature-card-title">Providers &amp; connections</span><span class="feature-card-desc">Ollama unreachable, OpenAI 401, empty model lists, Linux key storage issues.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/messages.html"><span class="feature-card-title">Sending &amp; receiving messages</span><span class="feature-card-desc">Stuck &ldquo;waiting&rdquo; chats, half-streamed replies, missing thinking traces or token counts, off-topic answers.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/performance.html"><span class="feature-card-title">Performance &amp; VRAM</span><span class="feature-card-desc">Out-of-memory crashes, sluggish UI, slow first reply after launch.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">File-too-large errors, empty scanned PDFs, legacy DOCX, truncation footers, vision-only images.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/web-fetch-mcp.html"><span class="feature-card-title">Web fetch &amp; MCP</span><span class="feature-card-desc">Ignored URLs, blocked internal hosts, failed fetches and MCP handshake errors.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/spaces-memory.html"><span class="feature-card-title">Spaces &amp; memory</span><span class="feature-card-desc">Missing memory entries, bad facts, reference file caps, Space-instruction overrides.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/models-editor.html"><span class="feature-card-title">Models editor</span><span class="feature-card-desc">Modelfile validation errors, stuck pulls, delete failures.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/updates.html"><span class="feature-card-title">Updates</span><span class="feature-card-desc">Missing install buttons on Linux, stale &ldquo;up to date&rdquo; messages, signature failures.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/data.html"><span class="feature-card-title">Data, import &amp; export</span><span class="feature-card-desc">Rejected JSON imports, scope of &ldquo;Wipe user data&rdquo; vs &ldquo;Factory reset&rdquo;.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/appearance.html"><span class="feature-card-title">Appearance &amp; window</span><span class="feature-card-desc">Aurora tearing on integrated GPUs, partial font-size scaling.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/search-palette.html"><span class="feature-card-title">Search palette</span><span class="feature-card-desc">Ctrl+K doing nothing during onboarding or lock screen.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/platform.html"><span class="feature-card-title">Platform</span><span class="feature-card-desc">macOS Gatekeeper warning on first launch, Credential Manager access denied on managed Windows machines.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/providers-connections.html"><span class="feature-card-title">Providers &amp; connections</span><span class="feature-card-desc">Ollama not running or failing to start, OpenAI 401s and keys withheld over plain <code>http://</code>, Linux key storage, empty model lists, API models missing from the picker.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/messages.html"><span class="feature-card-title">Sending &amp; receiving messages</span><span class="feature-card-desc">Stuck &ldquo;waiting&rdquo; chats, half-streamed replies, missing thinking traces, formulas shown as raw TeX, metrics that are missing or don&rsquo;t match your provider, <strong>Compact context</strong> greyed out, off-topic answers.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/performance.html"><span class="feature-card-title">Performance &amp; VRAM</span><span class="feature-card-desc">Out-of-memory errors, onboarding sizing your machine wrong, sluggish UI, slow first reply after launch, making Ollama generate faster.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">The 20 MB file limit, files Loach can&rsquo;t read, empty scanned PDFs, legacy <code>.doc</code> files, truncated documents, PDFs without a preview, drops onto Private Chat, images on models without vision.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/web-fetch-mcp.html"><span class="feature-card-title">Tools, MCP &amp; folders</span><span class="feature-card-desc">Ignored URLs, blocked internal hosts, failed fetches, MCP handshake errors, local (stdio) servers that won&rsquo;t start or arrive disabled after an import, replies waiting for a tool approval, the 10-tool-turn limit, and working folders, file names and edits that get refused.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/spaces-memory.html"><span class="feature-card-title">Spaces &amp; memory</span><span class="feature-card-desc">Space or global memories that aren&rsquo;t being saved, undoing or editing a wrong fact, &ldquo;Memory is off&rdquo; from <code>/remember</code>, facts marked &ldquo;not sent&rdquo;, reference-source size caps, Space instructions replacing your custom ones.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session or later than the timeout, or opening without asking for your PIN.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/models-editor.html"><span class="feature-card-title">Models editor</span><span class="feature-card-desc"><strong>Save as new model</strong> validation errors, stuck pulls, delete failures, a forgotten per-model Thinking preference.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/updates.html"><span class="feature-card-title">Updates</span><span class="feature-card-desc">Missing install buttons on Linux, password prompts on <code>.deb</code> / <code>.rpm</code> updates, &ldquo;latest version&rdquo; while GitHub shows something newer, no update notice at launch, downloads you can&rsquo;t cancel, signature failures.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/data.html"><span class="feature-card-title">Data, import &amp; export</span><span class="feature-card-desc">Rejected JSON imports, what&rsquo;s missing after a restore, what &ldquo;Remove my data&rdquo; keeps that &ldquo;Factory reset&rdquo; clears, a database that stays large after deleting chats.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/appearance.html"><span class="feature-card-title">Appearance &amp; window</span><span class="feature-card-desc">Aurora tearing on integrated GPUs, partial font-size scaling, missing animations, the sidebar collapsing on its own.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/search-palette.html"><span class="feature-card-title">Search palette</span><span class="feature-card-desc">Ctrl+K or Ctrl+F doing nothing (onboarding, the lock screen and Private Chat block the palette), phrases search can&rsquo;t find.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/platform.html"><span class="feature-card-title">Platform</span><span class="feature-card-desc">macOS &ldquo;damaged&rdquo; warning on first launch, Intel Macs, older Linux distributions, Credential Manager writes blocked on managed Windows machines.</span></a></li>
     </ul>
 
     <div class="page-nav">

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ — Loach Docs</title>
-  <meta name="description" content="Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more." />
+  <title>FAQ - Loach Docs</title>
+  <meta name="description" content="Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/faq.html" />
-  <meta property="og:title" content="FAQ — Loach Docs" />
-  <meta property="og:description" content="Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more." />
+  <meta property="og:title" content="FAQ - Loach Docs" />
+  <meta property="og:description" content="Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FAQ — Loach Docs" />
-  <meta name="twitter:description" content="Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more." />
+  <meta name="twitter:title" content="FAQ - Loach Docs" />
+  <meta name="twitter:description" content="Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -46,7 +46,7 @@
       "@type": "FAQPage",
       "url": "https://docs.loach.dev/pages/faq.html",
       "name": "FAQ",
-      "description": "Frequently asked questions about Loach: providers, models, privacy, troubleshooting and more.",
+      "description": "Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
@@ -57,7 +57,7 @@
           "name": "Is Loach free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Loach is open source under the MIT license. There are no subscriptions, paywalled features, or usage limits inside the app. If you connect to a paid endpoint (e.g. OpenAI), you pay them for tokens — Loach itself is free."
+            "text": "Yes. Loach is open source under the MIT license. There are no subscriptions, paywalled features, or usage limits inside the app. If you connect to a paid endpoint (e.g. OpenAI), you pay them for tokens - Loach itself is free."
           }
         },
         {
@@ -65,7 +65,7 @@
           "name": "Which platforms are supported?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Native desktop apps for Windows, Linux and macOS (Apple Silicon) are published with every release. The macOS build is not Apple-notarized, so first launch requires a one-time Gatekeeper bypass. Intel Macs are not supported."
+            "text": "Native desktop apps for Windows, Linux and macOS (Apple Silicon, macOS 11 or later) are published with every release. The macOS build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass - see Installation → macOS. Intel Macs are not supported."
           }
         },
         {
@@ -73,7 +73,23 @@
           "name": "Does Loach send my data anywhere?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are (a) generations against the remote provider you configured, and (b) update checks (which can be turned off). With a purely local provider like Ollama, Loach works fully offline. See Storage & privacy."
+            "text": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the remote provider you configured - including whatever goes into the prompt, such as your memories and files the model reads from a chat’s folder - model pulls you start, web fetches and MCP servers you turned on (the first run of an npx or uvx server downloads its package), and the update check - run manually from Settings → Updates, or once per launch if you opted into the auto-check. With a purely local provider like Ollama, Loach works fully offline. See Storage & privacy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Loach update itself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only when you ask. Settings → Updates has a manual Check for updates button and an opt-in Auto-check for updates switch that looks once per launch and shows an Update available dialog with the release notes. Nothing downloads until you pick Update now (or Install update in the panel). In-app updates work on Windows, all three Linux formats and macOS - see OTA updates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Linux distributions are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Builds target glibc 2.35, so Ubuntu 22.04 and Debian 12 are the oldest supported releases; anything newer works. Pick .deb, .rpm or .AppImage - all three update in-app."
           }
         },
         {
@@ -81,7 +97,7 @@
           "name": "Where does Loach store my chats?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In a SQLite database at <app-data-dir>/loach.db: Windows: %APPDATA%\\dev.loach.app\\loach.db Linux: ~/.local/share/dev.loach.app/loach.db"
+            "text": "In a SQLite database at <app-data-dir>/loach.db, attachments included: Windows: %APPDATA%\\dev.loach.app\\loach.db Linux: ~/.local/share/dev.loach.app/loach.db macOS: ~/Library/Application Support/dev.loach.app/loach.db"
           }
         },
         {
@@ -97,7 +113,7 @@
           "name": "Which local models can I run?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Anything supported by Ollama. Popular choices include Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and Llama derivatives. Use the in-app Models tab to pull and manage them."
+            "text": "Anything supported by Ollama. Popular choices include Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and Llama derivatives. Use the in-app Models tab to pull and manage them. If you have nothing pulled yet, the onboarding wizard recommends a model sized against your GPU’s VRAM (or system RAM when there’s no discrete GPU, and on Macs) and labels every option with how well it will run."
           }
         },
         {
@@ -105,7 +121,7 @@
           "name": "Can I use both a local and a remote provider?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — that's the point. Ollama and your OpenAI-compatible endpoint live side-by-side, and you switch between them from the chat header without changing anything else."
+            "text": "Yes - that’s the point. Ollama and your OpenAI-compatible endpoint live side-by-side, and you switch between them from the chat header without changing anything else."
           }
         },
         {
@@ -113,7 +129,7 @@
           "name": "Can I connect multiple OpenAI-compatible endpoints at once?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "One at a time. The base URL and API key are a single configuration in Settings → Providers. To switch from, say, Groq to OpenRouter, update the base URL and key — your existing chats are preserved."
+            "text": "One at a time. The base URL and API key are a single configuration in Settings → Providers. To switch from, say, Groq to OpenRouter, update the base URL and key - your existing chats are preserved."
           }
         },
         {
@@ -121,7 +137,63 @@
           "name": "I have very limited VRAM. Can I still use local models?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable Low VRAM mode globally or per-chat. This sends Ollama's low_vram flag with every request."
+            "text": "Yes - try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable Low VRAM mode globally or per-chat. This sends Ollama’s low_vram flag with every request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the model call tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if the model supports tool calling. Loach ships built-in tools that run locally - calculator, date/time, counting, hashing, UUIDs, base64, JSON, unit conversion, text diff, sorting, IP maths and PDF generation - each opt-in from Settings → Tools. Give a chat a folder and the model also gets tools to work with its files. You can register MCP servers, over HTTP or as local programs, for external tools, and turn on Web fetch to have pasted URLs downloaded into the prompt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the model read or edit my files? Is it sandboxed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only the files in a folder you give the chat: click + next to the message box and choose Add directory. The model can then list, find, read and search files in that folder, and write, edit, move or delete them - but each change is shown to you first (the new contents, a line-by-line diff, from → to, or a deletion warning) and waits for your approval, unless you’ve allowed that tool for the chat. It’s sandboxed to that folder: paths outside it, including links that point elsewhere, are refused; there’s no shell and no recursive delete; and the picker refuses a whole drive or Loach’s own data folder. Changes inside a .git directory always ask. Line endings and non-UTF-8 encodings are kept as they were. With a cloud provider, files the model reads are sent to it like any other message. Private Chat never gets a folder. See Work in folders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is LOACHFILE.md?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Markdown file at the root of a chat’s folder holding the project’s own instructions - how to run the tests, what not to touch, house style - the same idea as a CLAUDE.md or AGENTS.md. Loach adds it to the system prompt on every turn and reads it fresh each time, so an edit applies on your next message. Up to 32 KB of it reaches the model; keep it short, since local models follow brief instructions far better. The model is told the file is the project’s text, not yours: it can’t grant permissions, and your instructions win when the two conflict. While one is present, the “Working in” notice above where you type shows a LOACHFILE.md badge. There’s a sample to start from; see also Work in folders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a tool call ask for my approval?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "So nothing runs or changes behind your back. Two kinds of calls pause the reply and show an approval card: MCP tool calls, with the server, the tool and its arguments, and the file tools that change files, with the change itself. Answer Allow once, Always allow that tool (Allow … for this chat for a file change), or Deny; a card left unanswered for 10 minutes isn’t run. While it waits, other chats queue behind it. Asking is on by default for every MCP server, including ones you added before. To stop it for a server you trust, open it in Settings → MCP and turn off Ask before each tool call; Ask again for all in the same editor clears earlier Always allow answers. The other built-in tools, such as the calculator, never ask. See MCP support and Work in folders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run local MCP servers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. In Settings → MCP, add a server as Local process (stdio): a command (npx, uvx, node or a full path), one argument per line, and optional NAME=value environment variables. Before a local program starts - when you test it, save it switched on, change what it runs, or turn it on - a native system dialog shows exactly what will run, and only clicking Start server runs it. The runtime must be installed (Node.js for npx, uv for uvx), and startup - including a first-run package download - is allowed 60 seconds. Environment variables are stored in Loach’s database in plain text and left out of backups, and stdio servers restored from a backup arrive switched off. See MCP support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are global memories, and are they on by default?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They’re off by default. Turn on Settings → Features → Global memories (or the same switch in setup’s Pick your defaults step). After each reply in a chat outside a Space, Loach asks the chat’s own model to note lasting facts about you - updating or dropping ones that changed, with an Undo on every change - and adds them to every chat, Spaces included. Chats in a Space keep writing to that Space’s memory, which is on for every new Space and wins when the two conflict. Manage global memories opens a searchable editor, and switching the setting off stops both saving and sending them. The facts go to whichever provider a chat uses, so one learned with a local model can reach a cloud one. See Memory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Private Chat use memory or tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It never reads or writes memory of either kind, and it gets no MCP tools, no web fetch and no working folder. Built-in tools you’ve turned on in Settings → Tools still work, since they run entirely on your machine. Private Chat also offers only local Ollama models and leaves out your Custom instructions, Space context and the date preamble. See Private Chat."
           }
         },
         {
@@ -129,7 +201,7 @@
           "name": "Where are my API keys stored?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In your operating system's credential manager — Windows Credential Manager, the Linux Secret Service, or the macOS Keychain. Keys are never written to the SQLite database or to plain-text config."
+            "text": "Your OpenAI-compatible API key lives in your operating system’s credential manager - Windows Credential Manager, the Linux Secret Service, or the macOS Keychain - and is never written to the SQLite database or to plain-text config. It’s only sent over https://, or over http:// to this computer. MCP servers are the exception: their headers and environment variables, which often hold keys, are stored in the database in plain text and left out of backups."
           }
         },
         {
@@ -137,7 +209,7 @@
           "name": "How does the app lock work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Optional PIN, password, or both. Your credentials are hashed with Argon2id and stored in the OS credential manager (separately from API keys). The plaintext is never persisted. Configure it in Settings → App lock."
+            "text": "Optional PIN (4, 6 or 8 digits), password (at least 8 characters), or both. Your credentials are hashed with Argon2id and stored in the OS credential manager (separately from API keys). The plaintext is never persisted. Configure it in Settings → Security."
           }
         },
         {
@@ -145,7 +217,15 @@
           "name": "I forgot my app-lock PIN. Can I reset it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can clear the app lock by removing the corresponding entry from your OS credential manager (the entry is created and managed by the Loach app). Doing so unlocks the app but leaves the rest of your data intact."
+            "text": "Not from inside Loach. There is no recovery path by design: the lock is an Argon2id hash in the OS credential manager that Loach cannot reverse, and Factory reset itself asks for your credentials. Try the hint you set when creating the lock. Otherwise, delete the lock’s entry from the credential store by hand - service dev.loach.app, account app_lock - and Loach starts unlocked, with your chats and settings untouched. Deleting the app data folder doesn’t help: it wipes your chats but leaves the lock. See Troubleshooting → App lock."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Loach lock itself when I walk away?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Once an app lock is configured, Settings → Security offers Lock after inactivity (1, 5, 15 or 30 minutes) and Lock when minimized, both opt-in. Ctrl + Shift + L locks immediately from anywhere in the app. See App lock → Auto-lock."
           }
         },
         {
@@ -153,7 +233,7 @@
           "name": "How do I back up my chats?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Open Settings → Data management and use Export. You'll get a single JSON file containing chats, Spaces, Snippets and settings. API keys are not in the export — they live in the OS credential manager."
+            "text": "Open Settings → Data and use Export data. You’ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), global memories, Snippets and snippet variables, MCP servers and settings. API keys are not in the export - they live in the OS credential manager - and neither are MCP headers, environment variables, secrets passed as server arguments, or chats’ working folders. The same panel shows a storage breakdown, so you can see what your chats, attachments and Spaces weigh before you back them up."
           }
         },
         {
@@ -161,7 +241,7 @@
           "name": "How do I move Loach to a new machine?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Install Loach on the new machine, then use Restore in Settings → Data management with the JSON file you exported from the old one. You'll need to re-enter API keys on the new machine since those don't travel in the export."
+            "text": "Install Loach on the new machine, then use Import data in Settings → Data - or Restore from backup on the onboarding wizard’s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key and any MCP headers or environment variables, switch local (stdio) MCP servers back on - they arrive disabled - and pick chats’ working folders again; none of those travel in the export."
           }
         },
         {
@@ -169,7 +249,7 @@
           "name": "How do I delete everything?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Settings → Data management → Delete all data wipes the SQLite database. Remove the corresponding entries from your OS credential manager to delete API keys and the app-lock hash."
+            "text": "Settings → Data → Erase… opens Erase & Reset. Factory reset wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. Remove my data is the gentler option - it drops chats, folders, Spaces, memories, Snippets and MCP servers but keeps your settings and the key. Both need you to type YES, plus your current PIN or password when an app lock is set."
           }
         },
         {
@@ -177,7 +257,7 @@
           "name": "The model dropdown is empty.",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For Ollama: make sure ollama serve is running and at least one model is pulled. Loach probes http://localhost:11434 on launch — if Ollama is on another host or port, update the base URL in Settings → Providers. For an OpenAI-compatible provider: confirm the base URL, that the API key is set, and that the endpoint actually exposes a /models route. Some self-hosted servers require a non-standard model identifier — try typing it manually."
+            "text": "For Ollama: make sure the server is running and at least one model is pulled. When it isn’t running, the model picker shows Not running and a Start Ollama button, and Auto-launch Ollama in Settings → Providers starts it whenever Loach opens (both work only for an Ollama on this computer). Loach probes http://localhost:11434 on launch - if Ollama is on another host or port, update the base URL in Settings → Providers. For an OpenAI-compatible provider: confirm the base URL (the presets next to the field fill in the common ones), that the API key is set if the endpoint needs one, and that the endpoint exposes a /models route - the picker lists only what that route returns, and has no field for typing a model ID. Test connection in Settings → Providers reports the model count or a readable error."
           }
         },
         {
@@ -185,7 +265,15 @@
           "name": "Generations are very slow on my machine.",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Try a smaller model or a more aggressive quantization. Turn on Model preloading so the first request doesn't wait on a cold start. Enable Low VRAM mode if you're memory-constrained."
+            "text": "Try a smaller model or a more aggressive quantization. Turn on Model preloading so the first request doesn’t wait on a cold start, and raise Keep model loaded in Settings → Features so it stays resident between prompts. Enable Low VRAM mode if you’re memory-constrained. For Ollama-side levers such as flash attention and KV-cache quantization, see Performance & VRAM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A reply ends with “Stopped after 10 tool-use turns”.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each reply gets at most 10 rounds with the model, so a model stuck in a loop can’t run forever: tools can run in the first nine, and the last round goes out without tools so the model can wrap up. This error means it asked for tools anyway, and those calls weren’t run. Send a follow-up such as “continue” to give it another 10 rounds, or break the task into smaller requests. With a working folder, pointing the model at the right files up front - or in LOACHFILE.md - saves rounds spent searching."
           }
         },
         {
@@ -193,7 +281,15 @@
           "name": "Markdown / code blocks render badly.",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "That usually means the model output isn't well-formed Markdown. Lower the temperature, or add an explicit instruction like \"Reply in valid GitHub-flavoured Markdown\". Loach uses remark-gfm + rehype-highlight under the hood, so anything valid will render."
+            "text": "That usually means the model output isn’t well-formed Markdown. Lower the temperature, or add an explicit instruction like “Reply in valid GitHub-flavoured Markdown”. Loach uses remark-gfm + rehype-highlight under the hood, so anything valid will render."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A formula shows as raw TeX.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Single-dollar spans are treated as currency unless they clearly read as math, and TeX that doesn’t parse shows its own source on purpose. Ask the model for $$…$$, \\(…\\) or a ```math fence. See LaTeX math and Troubleshooting."
           }
         },
         {
@@ -271,14 +367,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
@@ -286,82 +383,83 @@
               <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -375,13 +473,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
@@ -404,31 +503,46 @@
     <details class="faq-item">
       <summary>Is Loach free?</summary>
       <div class="faq-body">
-        <p>Yes. Loach is open source under the MIT license. There are no subscriptions, paywalled features, or usage limits inside the app. If you connect to a paid endpoint (e.g. OpenAI), you pay <em>them</em> for tokens — Loach itself is free.</p>
+        <p>Yes. Loach is open source under the MIT license. There are no subscriptions, paywalled features, or usage limits inside the app. If you connect to a paid endpoint (e.g. OpenAI), you pay <em>them</em> for tokens - Loach itself is free.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Which platforms are supported?</summary>
       <div class="faq-body">
-        <p>Native desktop apps for <strong>Windows</strong>, <strong>Linux</strong> and <strong>macOS</strong> (Apple Silicon) are published with every release. The macOS build is <strong>not Apple-notarized</strong>, so first launch needs a one-time Gatekeeper bypass — see <a href="installation.html#macos">Installation &rarr; macOS</a>. Intel Macs are not supported.</p>
+        <p>Native desktop apps for <strong>Windows</strong>, <strong>Linux</strong> and <strong>macOS</strong> (Apple Silicon, macOS 11 or later) are published with every release. The macOS build is <strong>not Apple-notarized</strong>, so first launch needs a one-time Gatekeeper bypass - see <a href="installation.html#macos">Installation &rarr; macOS</a>. Intel Macs are not supported.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Does Loach send my data anywhere?</summary>
       <div class="faq-body">
-        <p>No, not on its own. There is no telemetry. The only outbound requests Loach initiates are (a) generations against the <em>remote</em> provider you configured, and (b) update checks (which can be turned off). With a purely local provider like Ollama, Loach works fully offline. See <a href="privacy.html">Storage &amp; privacy</a>.</p>
+        <p>No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the <em>remote</em> provider you configured - including whatever goes into the prompt, such as your memories and files the model reads from a chat&rsquo;s folder - model pulls you start, <a href="features/web-fetch.html">web fetches</a> and <a href="features/mcp.html">MCP servers</a> you turned on (the first run of an <code>npx</code> or <code>uvx</code> server downloads its package), and the update check - run manually from <strong>Settings → Updates</strong>, or once per launch if you opted into the auto-check. With a purely local provider like Ollama, Loach works fully offline. See <a href="privacy.html">Storage &amp; privacy</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Does Loach update itself?</summary>
+      <div class="faq-body">
+        <p>Only when you ask. <strong>Settings → Updates</strong> has a manual <strong>Check for updates</strong> button and an opt-in <strong>Auto-check for updates</strong> switch that looks once per launch and shows an <strong>Update available</strong> dialog with the release notes. Nothing downloads until you pick <strong>Update now</strong> (or <strong>Install update</strong> in the panel). In-app updates work on Windows, all three Linux formats and macOS - see <a href="features/ota-updates.html">OTA updates</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Which Linux distributions are supported?</summary>
+      <div class="faq-body">
+        <p>Builds target <strong>glibc 2.35</strong>, so <strong>Ubuntu 22.04</strong> and <strong>Debian 12</strong> are the oldest supported releases; anything newer works. Pick <code>.deb</code>, <code>.rpm</code> or <code>.AppImage</code> - all three update in-app.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Where does Loach store my chats?</summary>
       <div class="faq-body">
-        <p>In a SQLite database at <code>&lt;app-data-dir&gt;/loach.db</code>:</p>
+        <p>In a SQLite database at <code>&lt;app-data-dir&gt;/loach.db</code>, attachments included:</p>
         <ul>
           <li><strong>Windows</strong>: <code>%APPDATA%\dev.loach.app\loach.db</code></li>
           <li><strong>Linux</strong>: <code>~/.local/share/dev.loach.app/loach.db</code></li>
+          <li><strong>macOS</strong>: <code>~/Library/Application Support/dev.loach.app/loach.db</code></li>
         </ul>
       </div>
     </details>
@@ -445,28 +559,84 @@
     <details class="faq-item">
       <summary>Which local models can I run?</summary>
       <div class="faq-body">
-        <p>Anything supported by Ollama. Popular choices include Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and Llama derivatives. Use the in-app <strong>Models</strong> tab to pull and manage them.</p>
+        <p>Anything supported by Ollama. Popular choices include Qwen, Gemma, DeepSeek, GPT-OSS, Mistral and Llama derivatives. Use the in-app <strong>Models</strong> tab to pull and manage them. If you have nothing pulled yet, the <a href="features/onboarding.html#model-recommendation">onboarding wizard</a> recommends a model sized against your GPU&rsquo;s VRAM (or system RAM when there&rsquo;s no discrete GPU, and on Macs) and labels every option with how well it will run.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Can I use both a local and a remote provider?</summary>
       <div class="faq-body">
-        <p>Yes — that's the point. Ollama and your OpenAI-compatible endpoint live side-by-side, and you switch between them from the chat header without changing anything else.</p>
+        <p>Yes - that&rsquo;s the point. Ollama and your OpenAI-compatible endpoint live side-by-side, and you switch between them from the chat header without changing anything else.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Can I connect multiple OpenAI-compatible endpoints at once?</summary>
       <div class="faq-body">
-        <p>One at a time. The base URL and API key are a single configuration in <strong>Settings → Providers</strong>. To switch from, say, Groq to OpenRouter, update the base URL and key — your existing chats are preserved.</p>
+        <p>One at a time. The base URL and API key are a single configuration in <strong>Settings → Providers</strong>. To switch from, say, Groq to OpenRouter, update the base URL and key - your existing chats are preserved.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>I have very limited VRAM. Can I still use local models?</summary>
       <div class="faq-body">
-        <p>Yes — try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable <a href="features/low-vram.html">Low VRAM mode</a> globally or per-chat. This sends Ollama's <code>low_vram</code> flag with every request.</p>
+        <p>Yes - try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable <a href="features/low-vram.html">Low VRAM mode</a> globally or per-chat. This sends Ollama&rsquo;s <code>low_vram</code> flag with every request.</p>
+      </div>
+    </details>
+
+    <h2 id="tools">Tools &amp; folders</h2>
+
+    <details class="faq-item">
+      <summary>Can the model call tools?</summary>
+      <div class="faq-body">
+        <p>Yes, if the model supports tool calling. Loach ships <a href="features/built-in-tools.html">built-in tools</a> that run locally - calculator, date/time, counting, hashing, UUIDs, base64, JSON, unit conversion, text diff, sorting, IP maths and PDF generation - each opt-in from <strong>Settings → Tools</strong>. Give a chat a <a href="features/work-in-folders.html">folder</a> and the model also gets tools to work with its files. You can register <a href="features/mcp.html">MCP servers</a>, over HTTP or as local programs, for external tools, and turn on <a href="features/web-fetch.html">Web fetch</a> to have pasted URLs downloaded into the prompt.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can the model read or edit my files? Is it sandboxed?</summary>
+      <div class="faq-body">
+        <p>Only the files in a folder you give the chat: click <strong>+</strong> next to the message box and choose <strong>Add directory</strong>. The model can then list, find, read and search files in that folder, and write, edit, move or delete them - but each change is shown to you first (the new contents, a line-by-line diff, <code>from → to</code>, or a deletion warning) and waits for your approval, unless you&rsquo;ve allowed that tool for the chat.</p>
+        <p>It&rsquo;s sandboxed to that folder: paths outside it, including links that point elsewhere, are refused; there&rsquo;s no shell and no recursive delete; and the picker refuses a whole drive or Loach&rsquo;s own data folder. Changes inside a <code>.git</code> directory always ask. Line endings and non-UTF-8 encodings are kept as they were. With a cloud provider, files the model reads are sent to it like any other message. Private Chat never gets a folder. See <a href="features/work-in-folders.html">Work in folders</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>What is LOACHFILE.md?</summary>
+      <div class="faq-body">
+        <p>A Markdown file at the root of a chat&rsquo;s folder holding the project&rsquo;s own instructions - how to run the tests, what not to touch, house style - the same idea as a <code>CLAUDE.md</code> or <code>AGENTS.md</code>. Loach adds it to the system prompt on every turn and reads it fresh each time, so an edit applies on your next message. Up to 32 KB of it reaches the model; keep it short, since local models follow brief instructions far better. The model is told the file is the project&rsquo;s text, not yours: it can&rsquo;t grant permissions, and your instructions win when the two conflict. While one is present, the &ldquo;Working in&rdquo; notice above where you type shows a <code>LOACHFILE.md</code> badge. There&rsquo;s a <a href="https://github.com/ztcs-software/loach/blob/main/docs/LOACHFILE.md.sample" target="_blank" rel="noopener">sample</a> to start from; see also <a href="features/work-in-folders.html#loachfile">Work in folders</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Why does a tool call ask for my approval?</summary>
+      <div class="faq-body">
+        <p>So nothing runs or changes behind your back. Two kinds of calls pause the reply and show an approval card: <strong>MCP tool calls</strong>, with the server, the tool and its arguments, and the file tools that <strong>change files</strong>, with the change itself. Answer <strong>Allow once</strong>, <strong>Always allow</strong> that tool (<strong>Allow … for this chat</strong> for a file change), or <strong>Deny</strong>; a card left unanswered for 10 minutes isn&rsquo;t run. While it waits, other chats queue behind it.</p>
+        <p>Asking is on by default for every MCP server, including ones you added before. To stop it for a server you trust, open it in <strong>Settings → MCP</strong> and turn off <strong>Ask before each tool call</strong>; <strong>Ask again for all</strong> in the same editor clears earlier <strong>Always allow</strong> answers. The other built-in tools, such as the calculator, never ask. See <a href="features/mcp.html">MCP support</a> and <a href="features/work-in-folders.html">Work in folders</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I run local MCP servers?</summary>
+      <div class="faq-body">
+        <p>Yes. In <strong>Settings → MCP</strong>, add a server as <strong>Local process (stdio)</strong>: a command (<code>npx</code>, <code>uvx</code>, <code>node</code> or a full path), one argument per line, and optional <code>NAME=value</code> environment variables. Before a local program starts - when you test it, save it switched on, change what it runs, or turn it on - a native system dialog shows exactly what will run, and only clicking <strong>Start server</strong> runs it. The runtime must be installed (Node.js for <code>npx</code>, <code>uv</code> for <code>uvx</code>), and startup - including a first-run package download - is allowed 60 seconds. Environment variables are stored in Loach&rsquo;s database in plain text and left out of backups, and stdio servers restored from a backup arrive switched off. See <a href="features/mcp.html">MCP support</a>.</p>
+      </div>
+    </details>
+
+    <h2 id="memory">Memory &amp; Private Chat</h2>
+
+    <details class="faq-item">
+      <summary>What are global memories, and are they on by default?</summary>
+      <div class="faq-body">
+        <p>They&rsquo;re off by default. Turn on <strong>Settings → Features → Global memories</strong> (or the same switch in setup&rsquo;s <strong>Pick your defaults</strong> step). After each reply in a chat outside a Space, Loach asks the chat&rsquo;s own model to note lasting facts about you - updating or dropping ones that changed, with an <strong>Undo</strong> on every change - and adds them to every chat, Spaces included. Chats in a Space keep writing to that Space&rsquo;s memory, which is on for every new Space and wins when the two conflict.</p>
+        <p><strong>Manage global memories</strong> opens a searchable editor, and switching the setting off stops both saving and sending them. The facts go to whichever provider a chat uses, so one learned with a local model can reach a cloud one. See <a href="features/memory.html">Memory</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Does Private Chat use memory or tools?</summary>
+      <div class="faq-body">
+        <p>It never reads or writes memory of either kind, and it gets no MCP tools, no web fetch and no working folder. Built-in tools you&rsquo;ve turned on in <strong>Settings → Tools</strong> still work, since they run entirely on your machine. Private Chat also offers only local Ollama models and leaves out your Custom instructions, Space context and the date preamble. See <a href="features/private-chat.html">Private Chat</a>.</p>
       </div>
     </details>
 
@@ -475,21 +645,28 @@
     <details class="faq-item">
       <summary>Where are my API keys stored?</summary>
       <div class="faq-body">
-        <p>In your operating system's credential manager — <strong>Windows Credential Manager</strong>, the Linux <strong>Secret Service</strong>, or the <strong>macOS Keychain</strong>. Keys are never written to the SQLite database or to plain-text config.</p>
+        <p>Your OpenAI-compatible API key lives in your operating system&rsquo;s credential manager - <strong>Windows Credential Manager</strong>, the Linux <strong>Secret Service</strong>, or the <strong>macOS Keychain</strong> - and is never written to the SQLite database or to plain-text config. It&rsquo;s only sent over <code>https://</code>, or over <code>http://</code> to this computer. MCP servers are the exception: their headers and environment variables, which often hold keys, are stored in the database in plain text and left out of backups.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>How does the app lock work?</summary>
       <div class="faq-body">
-        <p>Optional PIN, password, or both. Your credentials are hashed with <strong>Argon2id</strong> and stored in the OS credential manager (separately from API keys). The plaintext is never persisted. Configure it in <strong>Settings → App lock</strong>.</p>
+        <p>Optional PIN (4, 6 or 8 digits), password (at least 8 characters), or both. Your credentials are hashed with <strong>Argon2id</strong> and stored in the OS credential manager (separately from API keys). The plaintext is never persisted. Configure it in <strong>Settings → Security</strong>.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>I forgot my app-lock PIN. Can I reset it?</summary>
       <div class="faq-body">
-        <p>You can clear the app lock by removing the corresponding entry from your OS credential manager (the entry is created and managed by the Loach app). Doing so unlocks the app but leaves the rest of your data intact.</p>
+        <p>Not from inside Loach. There is no recovery path by design: the lock is an Argon2id hash in the OS credential manager that Loach cannot reverse, and <strong>Factory reset</strong> itself asks for your credentials. Try the hint you set when creating the lock. Otherwise, delete the lock&rsquo;s entry from the credential store by hand - service <code>dev.loach.app</code>, account <code>app_lock</code> - and Loach starts unlocked, with your chats and settings untouched. Deleting the app data folder doesn&rsquo;t help: it wipes your chats but leaves the lock. See <a href="troubleshooting/app-lock.html#forgot-pin">Troubleshooting → App lock</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can Loach lock itself when I walk away?</summary>
+      <div class="faq-body">
+        <p>Yes. Once an app lock is configured, <strong>Settings → Security</strong> offers <strong>Lock after inactivity</strong> (1, 5, 15 or 30 minutes) and <strong>Lock when minimized</strong>, both opt-in. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> locks immediately from anywhere in the app. See <a href="features/app-lock.html#auto-lock">App lock → Auto-lock</a>.</p>
       </div>
     </details>
 
@@ -498,21 +675,21 @@
     <details class="faq-item">
       <summary>How do I back up my chats?</summary>
       <div class="faq-body">
-        <p>Open <strong>Settings → Data management</strong> and use <em>Export</em>. You'll get a single JSON file containing chats, Spaces, Snippets and settings. API keys are <em>not</em> in the export — they live in the OS credential manager.</p>
+        <p>Open <strong>Settings → Data</strong> and use <strong>Export data</strong>. You&rsquo;ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), global memories, Snippets and snippet variables, MCP servers and settings. API keys are <em>not</em> in the export - they live in the OS credential manager - and neither are MCP headers, environment variables, secrets passed as server arguments, or chats&rsquo; working folders. The same panel shows a storage breakdown, so you can see what your chats, attachments and Spaces weigh before you back them up.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>How do I move Loach to a new machine?</summary>
       <div class="faq-body">
-        <p>Install Loach on the new machine, then use <em>Restore</em> in <strong>Settings → Data management</strong> with the JSON file you exported from the old one. You'll need to re-enter API keys on the new machine since those don't travel in the export.</p>
+        <p>Install Loach on the new machine, then use <strong>Import data</strong> in <strong>Settings → Data</strong> - or <strong>Restore from backup</strong> on the onboarding wizard&rsquo;s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key and any MCP headers or environment variables, switch local (stdio) MCP servers back on - they arrive disabled - and pick chats&rsquo; working folders again; none of those travel in the export.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>How do I delete everything?</summary>
       <div class="faq-body">
-        <p><strong>Settings → Data management → Delete all data</strong> wipes the SQLite database. Remove the corresponding entries from your OS credential manager to delete API keys and the app-lock hash.</p>
+        <p><strong>Settings → Data → Erase…</strong> opens <strong>Erase &amp; Reset</strong>. <strong>Factory reset</strong> wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. <strong>Remove my data</strong> is the gentler option - it drops chats, folders, Spaces, memories, Snippets and MCP servers but keeps your settings and the key. Both need you to type <code>YES</code>, plus your current PIN or password when an app lock is set.</p>
       </div>
     </details>
 
@@ -521,22 +698,36 @@
     <details class="faq-item">
       <summary>The model dropdown is empty.</summary>
       <div class="faq-body">
-        <p>For <strong>Ollama</strong>: make sure <code>ollama serve</code> is running and at least one model is pulled. Loach probes <code>http://localhost:11434</code> on launch — if Ollama is on another host or port, update the base URL in <strong>Settings → Providers</strong>.</p>
-        <p>For an <strong>OpenAI-compatible</strong> provider: confirm the base URL, that the API key is set, and that the endpoint actually exposes a <code>/models</code> route. Some self-hosted servers require a non-standard model identifier — try typing it manually.</p>
+        <p>For <strong>Ollama</strong>: make sure the server is running and at least one model is pulled. When it isn&rsquo;t running, the model picker shows <strong>Not running</strong> and a <strong>Start Ollama</strong> button, and <strong>Auto-launch Ollama</strong> in <strong>Settings → Providers</strong> starts it whenever Loach opens (both work only for an Ollama on this computer). Loach probes <code>http://localhost:11434</code> on launch - if Ollama is on another host or port, update the base URL in <strong>Settings → Providers</strong>.</p>
+        <p>For an <strong>OpenAI-compatible</strong> provider: confirm the base URL (the presets next to the field fill in the common ones), that the API key is set if the endpoint needs one, and that the endpoint exposes a <code>/models</code> route - the picker lists only what that route returns, and has no field for typing a model ID. <strong>Test connection</strong> in <strong>Settings → Providers</strong> reports the model count or a readable error.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Generations are very slow on my machine.</summary>
       <div class="faq-body">
-        <p>Try a smaller model or a more aggressive quantization. Turn on <a href="features/model-preloading.html">Model preloading</a> so the first request doesn't wait on a cold start. Enable <a href="features/low-vram.html">Low VRAM mode</a> if you're memory-constrained.</p>
+        <p>Try a smaller model or a more aggressive quantization. Turn on <a href="features/model-preloading.html">Model preloading</a> so the first request doesn&rsquo;t wait on a cold start, and raise <strong>Keep model loaded</strong> in <strong>Settings → Features</strong> so it stays resident between prompts. Enable <a href="features/low-vram.html">Low VRAM mode</a> if you&rsquo;re memory-constrained. For Ollama-side levers such as flash attention and KV-cache quantization, see <a href="troubleshooting/performance.html#ollama-faster">Performance &amp; VRAM</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>A reply ends with &ldquo;Stopped after 10 tool-use turns&rdquo;.</summary>
+      <div class="faq-body">
+        <p>Each reply gets at most 10 rounds with the model, so a model stuck in a loop can&rsquo;t run forever: tools can run in the first nine, and the last round goes out without tools so the model can wrap up. This error means it asked for tools anyway, and those calls weren&rsquo;t run. Send a follow-up such as &ldquo;continue&rdquo; to give it another 10 rounds, or break the task into smaller requests. With a working folder, pointing the model at the right files up front - or in <code>LOACHFILE.md</code> - saves rounds spent searching.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Markdown / code blocks render badly.</summary>
       <div class="faq-body">
-        <p>That usually means the model output isn't well-formed Markdown. Lower the temperature, or add an explicit instruction like "Reply in valid GitHub-flavoured Markdown". Loach uses <code>remark-gfm</code> + <code>rehype-highlight</code> under the hood, so anything valid will render.</p>
+        <p>That usually means the model output isn&rsquo;t well-formed Markdown. Lower the temperature, or add an explicit instruction like &ldquo;Reply in valid GitHub-flavoured Markdown&rdquo;. Loach uses <code>remark-gfm</code> + <code>rehype-highlight</code> under the hood, so anything valid will render.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>A formula shows as raw TeX.</summary>
+      <div class="faq-body">
+        <p>Single-dollar spans are treated as currency unless they clearly read as math, and TeX that doesn&rsquo;t parse shows its own source on purpose. Ask the model for <code>$$…$$</code>, <code>\(…\)</code> or a <code>```math</code> fence. See <a href="features/math.html">LaTeX math</a> and <a href="troubleshooting/messages.html#raw-tex">Troubleshooting</a>.</p>
       </div>
     </details>
 
@@ -550,11 +741,11 @@
     <div class="page-nav">
       <a href="tech-stack.html">
         <span class="label">Previous</span>
-        <span class="title">← Tech stack</span>
+        <span class="title">&larr; Tech stack</span>
       </a>
       <a href="troubleshooting.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Troubleshooting →</span>
+        <span class="title">Troubleshooting &rarr;</span>
       </a>
     </div>
 

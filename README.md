@@ -1,8 +1,8 @@
 # loach-docs
 
-Documentation website for [Loach](https://github.com/ztcs-software/loach) — a native, local-first AI workspace. 
+Documentation website for [Loach](https://github.com/ztcs-software/loach) - a native, local-first AI workspace. 
 
-This is a plain HTML/CSS/JS site. **No build step, no framework, no package manager** — the files in this repo are exactly what's served.
+This is a plain HTML/CSS/JS site. **No build step, no framework, no package manager** - the files in this repo are exactly what's served.
 
 **👉 LIVE: [docs.loach.dev](https://docs.loach.dev)**
 
@@ -21,10 +21,10 @@ loach-docs/
 │   ├── tech-stack.html
 │   ├── faq.html
 │   ├── troubleshooting.html            # Overview that links to troubleshooting/*.html
-│   ├── features/                       # 28 per-feature subpages
+│   ├── features/                       # 38 per-feature subpages
 │   │   ├── app-lock.html
 │   │   ├── attachments.html
-│   │   ├── … (26 more)
+│   │   ├── … (36 more)
 │   │   └── web-fetch.html
 │   └── troubleshooting/                # 13 per-topic troubleshooting subpages
 │       ├── app-lock.html
@@ -51,7 +51,7 @@ loach-docs/
 python -m http.server 8080
 ```
 
-Then open <http://localhost:8080>. The site is also designed to work over `file://` — double-click `index.html` and it'll load with the same functionality.
+Then open <http://localhost:8080>. The site is also designed to work over `file://` - double-click `index.html` and it'll load with the same functionality.
 
 ## Deploy
 

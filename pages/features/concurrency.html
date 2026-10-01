@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Concurrency & queue — Loach Docs</title>
+  <title>Concurrency & queue - Loach Docs</title>
   <meta name="description" content="Loach runs one generation at a time across all chats, with a FIFO queue and a Respond now action for jumping the line. Cancelled streams keep what was written." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/concurrency.html" />
-  <meta property="og:title" content="Concurrency &amp; queue — Loach Docs" />
+  <meta property="og:title" content="Concurrency &amp; queue - Loach Docs" />
   <meta property="og:description" content="Loach runs one generation at a time across all chats, with a FIFO queue and a Respond now action for jumping the line. Cancelled streams keep what was written." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Concurrency &amp; queue — Loach Docs" />
+  <meta name="twitter:title" content="Concurrency &amp; queue - Loach Docs" />
   <meta name="twitter:description" content="Loach runs one generation at a time across all chats, with a FIFO queue and a Respond now action for jumping the line. Cancelled streams keep what was written." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,26 +263,37 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Concurrency & queue</h1>
-    <p class="lead">Only one model generation runs at a time across all of your chats. Everything else waits in a FIFO queue — and you can always jump the line when you need to.</p>
+    <p class="lead">Only one model generation runs at a time across all of your chats. Everything else waits in a FIFO queue - and you can always jump the line when you need to.</p>
 
     <h2 id="one-at-a-time">One generation at a time</h2>
-    <p>Local models are heavy on hardware: most of the time only one prompt can stream at once without thrashing VRAM or pinning the CPU. Loach enforces this at the application level, regardless of which chats or providers are involved. The benefit is predictable performance — no two chats fighting for the same GPU — and a clear mental model of what is happening.</p>
-    <p>Inside a single chat the rule is even simpler: only one in-flight request per chat. Pressing send while a reply is already streaming in the same chat is a no-op.</p>
+    <p>Local models are heavy on hardware: most of the time only one prompt can stream at once without thrashing VRAM or pinning the CPU. Loach enforces this at the application level, regardless of which chats or providers are involved. The benefit is predictable performance - no two chats fighting for the same GPU - and a clear mental model of what is happening.</p>
+    <p>Inside a single chat the rule is even simpler: one request per chat. While a reply streams, the send button becomes a stop button and the message box reads <em>Replying - press the Stop button to cancel and ask again&hellip;</em>. While the chat waits in the queue, the box reads <em>This chat is waiting in the queue&hellip;</em> and sending stays disabled until its prompt runs or you cancel it.</p>
 
     <h2 id="the-queue">The queue</h2>
-    <p>Send a prompt while another chat is busy and your request is parked. The chat&rsquo;s row in the sidebar shows a spinner so you can see at a glance which chats are waiting. The queue is strictly first-in, first-out — earlier requests run before later ones.</p>
-    <p>You can keep typing in any chat while you wait, switch around the sidebar, browse Spaces or Snippets, or just close the window — the queue survives until the runner finishes.</p>
+    <p>Send a prompt while another chat is busy and your request is parked. The chat&rsquo;s row in the sidebar shows a spinner so you can see at a glance which chats are waiting, and the chat itself shows a <strong>Waiting for other chats to finish&hellip;</strong> card under your message. The queue is strictly first-in, first-out - earlier requests run before later ones.</p>
+    <p>You can keep typing in other chats while you wait, switch around the sidebar, or browse Spaces and Snippets - the queue keeps running in the background, also while the window is hidden with <strong>Hide to tray</strong> from the tray icon&rsquo;s menu. Closing the window quits Loach, so anything still waiting in the queue doesn&rsquo;t run.</p>
 
     <h2 id="respond-now">Respond now</h2>
-    <p>If a chat is waiting and you do not want to wait any more, the chat header offers a <strong>Respond now</strong> action. It cancels whatever generation is currently running (preserving its partial output, see below) and immediately starts yours.</p>
-    <p>This is the right tool when the in-flight reply has gone off the rails, or when you are switching contexts and the queued chat is the one you actually care about.</p>
+    <p>The waiting card in a queued chat has two buttons:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Respond now</strong> - stops whatever generation is currently running (keeping its partial output, see below), moves this chat to the front of the queue and starts it immediately.</li>
+      <li><strong class="feat-name">Cancel</strong> - takes this prompt out of the queue. Your message stays in the transcript, and no reply is generated for it.</li>
+    </ul>
+    <p><strong>Respond now</strong> is the right tool when the in-flight reply has gone off the rails, or when you are switching contexts and the queued chat is the one you actually care about.</p>
+
+    <h2 id="tool-approvals">Replies waiting for your approval</h2>
+    <p>When a reply pauses on a tool approval card - an <a href="mcp.html">MCP</a> tool call, or a change to a file in the chat&rsquo;s <a href="work-in-folders.html#approvals">folder</a> - it keeps its turn, so other chats queue behind it until you answer. If the card is in a chat you aren&rsquo;t looking at, Loach shows a notice with an <strong>Open</strong> button, and a queued chat&rsquo;s card reads <strong>Waiting for your approval of a tool call in &ldquo;&hellip;&rdquo;</strong> with a <strong>Go to it</strong> button. <strong>Respond now</strong> still works there: it cancels the reply that was waiting for approval. See <a href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders troubleshooting</a> if a reply seems stuck.</p>
+
+    <h2 id="private-chat">While Private Chat is open</h2>
+    <p>Opening <a href="private-chat.html">Private Chat</a> stops any regular reply that is streaming and holds the queue: nothing waiting in your regular chats starts until you close the overlay, and then the queue picks up where it left off.</p>
 
     <h2 id="cancel-and-error">Cancelling and errors</h2>
-    <p>Whether you stop a stream manually (the send button becomes a stop button while streaming) or the runner is pre-empted by <strong>Respond now</strong>, the partial output is kept in the transcript along with a short error tail so the message bubble is never silently empty. The same applies if the provider drops the connection — you can see how far it got, decide what to do, and retry without losing context.</p>
+    <p>Whether you stop a stream yourself (the send button becomes a stop button while streaming) or <strong>Respond now</strong> pre-empts it, whatever was written so far stays in the transcript. If the provider fails or drops the connection mid-reply, the partial output is kept too, and an italic <em>&#9888;</em> error line is added at the end so a failed reply is never silently empty - you can see how far it got, decide what to do, and retry without losing context. Stopped and failed replies don&rsquo;t get a <a href="generation-stats.html">metrics chip</a>.</p>
+    <p>Archiving or deleting a chat also stops its reply, or takes it out of the queue if it was still waiting.</p>
     <div class="page-nav">
-      <a href="code-canvas.html">
+      <a href="pinned-responses.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Code blocks & canvas</span>
+        <span class="title">&larr; Pinned responses</span>
       </a>
       <a href="private-chat.html" class="next">
         <span class="label">Next</span>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snippets — Loach Docs</title>
-  <meta name="description" content="Save reusable prompts with an optional pinned model. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
+  <title>Snippets - Loach Docs</title>
+  <meta name="description" content="Save reusable prompts with an optional pinned model and fill-in variables. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/snippets.html" />
-  <meta property="og:title" content="Snippets — Loach Docs" />
-  <meta property="og:description" content="Save reusable prompts with an optional pinned model. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
+  <meta property="og:title" content="Snippets - Loach Docs" />
+  <meta property="og:description" content="Save reusable prompts with an optional pinned model and fill-in variables. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Snippets — Loach Docs" />
-  <meta name="twitter:description" content="Save reusable prompts with an optional pinned model. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
+  <meta name="twitter:title" content="Snippets - Loach Docs" />
+  <meta name="twitter:description" content="Save reusable prompts with an optional pinned model and fill-in variables. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Snippets",
-      "description": "Save reusable prompts with an optional pinned model. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending.",
+      "description": "Save reusable prompts with an optional pinned model and fill-in variables. Run a snippet to open a fresh chat with the prompt primed and ready to edit before sending.",
       "url": "https://docs.loach.dev/pages/features/snippets.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,27 +263,47 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Snippets</h1>
-    <p class="lead">A <strong>Snippet</strong> is a saved prompt with an optional pinned provider and model. Snippets live in their own sidebar tab and exist for the kind of prompt you reach for over and over — &ldquo;summarise this in three bullets&rdquo;, &ldquo;review this diff for security issues&rdquo;, &ldquo;translate to formal Polish&rdquo;.</p>
+    <p class="lead">A <strong>Snippet</strong> is a saved prompt with an optional pinned provider and model. Snippets live in their own sidebar tab and exist for the kind of prompt you reach for over and over - &ldquo;summarise this in three bullets&rdquo;, &ldquo;review this diff for security issues&rdquo;, &ldquo;translate to formal Polish&rdquo;.</p>
 
     <h2 id="creating">Creating</h2>
-    <p>Create a Snippet with a title and the prompt body. Optionally pin it to a specific provider and model so <strong>Run</strong> always starts a chat there. Pinning is a nice fit for prompts that genuinely need a particular model — a vision-capable model for image work, a coding-tuned model for review.</p>
+    <p>Open the <strong>Snippets</strong> tab in the sidebar and click <strong>New snippet</strong>. Give it a title (up to 80 characters) and the prompt body. Optionally pick a default model from the model menu so <strong>Run</strong> always starts a chat there; <strong>Clear</strong> removes the pin. Pinning is a nice fit for prompts that genuinely need a particular model - a vision-capable model for image work, a coding-tuned model for review.</p>
 
     <h2 id="running">Running</h2>
-    <p>Hit <strong>Run</strong> on a Snippet to open a fresh chat (with the pinned model if any) and prime the composer with the snippet&rsquo;s prompt. You can edit the prompt before sending — Snippets are a starting point, not a one-shot button.</p>
+    <p>Hit <strong>Run</strong> on a Snippet to open a fresh chat (outside any Space, with the pinned model if there is one) and put the prompt in the composer. You can edit it before sending - Snippets are a starting point, not a one-shot button. There are three ways to run one:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">From the library</strong> - the <strong>Run</strong> button on a tile, or <strong>Run</strong> in its <code>&hellip;</code> menu.</li>
+      <li><strong class="feat-name">From search</strong> - press <kbd>Ctrl</kbd> + <kbd>K</kbd>, type part of the title or prompt (add <code>in:snippets</code> to search only Snippets) and pick the result. It runs just like the library button. See <a href="search.html">Search</a>.</li>
+      <li><strong class="feat-name">With <code>/snippet &lt;name&gt;</code></strong> - puts the snippet into the composer of the chat you&rsquo;re in, without opening a new chat or changing its model. <code>/list snippets</code> lists them. See <a href="slash-commands.html">Slash commands</a>.</li>
+    </ul>
 
-    <h2 id="bookmark-replies">Bookmark assistant replies as Snippets</h2>
-    <p>Right-click any assistant message and pick <em>Save as snippet</em>. Loach pre-fills the editor with that text so you can turn a good reply into a reusable prompt without copy-pasting.</p>
+    <h2 id="bookmark-replies">Save a prompt you already sent</h2>
+    <p>Each message you sent has a <code>&hellip;</code> menu just below it (hover the message, or <kbd>Tab</kbd> to it). Pick <strong>Save as Snippet</strong> and Loach opens the editor with that text filled in, ready for a title. The action is on your own messages only - not on assistant replies, and not in the right-click menu.</p>
 
     <h2 id="library">The library</h2>
-    <p>The Snippets tab shows a tile grid sorted by recency, with a search field at the top. Each tile has a <code>&hellip;</code> menu for edit and delete.</p>
+    <p>The Snippets tab shows a tile grid, most recently created or edited first. Each tile shows the start of the prompt, the pinned model (or <em>Default model</em>) and when it was last changed. Click a tile to edit it; its <code>&hellip;</code> menu has <strong>Run</strong>, <strong>Edit</strong> and <strong>Delete</strong>. Deleting asks for confirmation and can&rsquo;t be undone. The library has no search box of its own - use the search palette to find a snippet by its text.</p>
+
+    <h2 id="variables">Snippet variables</h2>
+    <p>Snippet bodies can contain <code>{{PLACEHOLDER}}</code> variables that get filled in when the snippet runs. A placeholder name is uppercase letters, digits and underscores inside double braces; anything else in braces, such as <code>{{name}}</code>, is left as typed.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Static variables</strong> - reusable values you define once in the <strong>Variables</strong> panel above the snippet grid (for example <code>{{TEAM_NAME}}</code> &rarr; &ldquo;Engineering&rdquo;). They&rsquo;re substituted automatically every time a snippet that uses them runs.</li>
+      <li><strong class="feat-name">Built-in variables</strong> - <code>{{USER_NAME}}</code> and the <code>{{CURRENT_*}}</code> date and time <a href="custom-instructions.html#template-variables">template variables</a> are filled in at the moment the snippet runs, so the composer receives the actual name and date.</li>
+      <li><strong class="feat-name">Prompt-on-use placeholders</strong> - any placeholder still unresolved after that opens a small fill-in dialog when you run the snippet. Your answers are remembered per snippet for next time.</li>
+    </ul>
+
+    <h3 id="static-variables">Defining static variables</h3>
+    <p>In the <strong>Variables</strong> panel, click <strong>New</strong> and fill in a <strong>Key</strong>, a <strong>Value</strong> and an optional <strong>Description</strong>. Keys are converted to uppercase as you type; they can use letters, digits and underscores, can&rsquo;t start with a digit, and can be up to 64 characters. The built-in names (<code>USER_NAME</code> and the <code>CURRENT_*</code> ones) are reserved. Use the pencil and trash icons on a row to edit or delete a variable.</p>
+    <p>A value can itself contain other placeholders, which are expanded in turn; a loop (a variable that ends up referring to itself) is left as literal text. An empty value substitutes nothing rather than prompting. Deleting a variable turns its placeholders into prompt-on-use ones until you define it again.</p>
+
+    <h3 id="fill-in">Filling in placeholders</h3>
+    <p>When a snippet still has placeholders after the static pass, the <strong>Fill in snippet variables</strong> dialog lists one field per placeholder, in the order they appear. Every field needs a value. <kbd>Enter</kbd> moves to the next field and, on the last one, runs the snippet - as does <strong>Run snippet</strong>. <strong>Cancel</strong> leaves the composer as it was.</p>
     <div class="page-nav">
-      <a href="spaces.html">
+      <a href="memory.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Spaces</span>
+        <span class="title">&larr; Memory</span>
       </a>
-      <a href="chat-archive.html" class="next">
+      <a href="folders-labels.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Chat archive &rarr;</span>
+        <span class="title">Chat folders &amp; labels &rarr;</span>
       </a>
     </div>
 

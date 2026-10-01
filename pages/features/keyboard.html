@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keyboard shortcuts — Loach Docs</title>
-  <meta name="description" content="Loach keyboard reference: global search palette, find within a chat, send and newline behaviour in the composer, and palette navigation." />
+  <title>Keyboard shortcuts - Loach Docs</title>
+  <meta name="description" content="Loach keyboard reference: search, new chat, find in chat, attach files, delete chat, sidebar and parameters toggles, lock now, the in-app cheat sheet, and the keys for the composer, palettes, in-chat finder and dialogs." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/keyboard.html" />
-  <meta property="og:title" content="Keyboard shortcuts — Loach Docs" />
-  <meta property="og:description" content="Loach keyboard reference: global search palette, find within a chat, send and newline behaviour in the composer, and palette navigation." />
+  <meta property="og:title" content="Keyboard shortcuts - Loach Docs" />
+  <meta property="og:description" content="Loach keyboard reference: search, new chat, find in chat, attach files, delete chat, sidebar and parameters toggles, lock now, the in-app cheat sheet, and the keys for the composer, palettes, in-chat finder and dialogs." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Keyboard shortcuts — Loach Docs" />
-  <meta name="twitter:description" content="Loach keyboard reference: global search palette, find within a chat, send and newline behaviour in the composer, and palette navigation." />
+  <meta name="twitter:title" content="Keyboard shortcuts - Loach Docs" />
+  <meta name="twitter:description" content="Loach keyboard reference: search, new chat, find in chat, attach files, delete chat, sidebar and parameters toggles, lock now, the in-app cheat sheet, and the keys for the composer, palettes, in-chat finder and dialogs." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Keyboard shortcuts",
-      "description": "Loach keyboard reference: global search palette, find within a chat, send and newline behaviour in the composer, and palette navigation.",
+      "description": "Loach keyboard reference: search, new chat, find in chat, attach files, delete chat, sidebar and parameters toggles, lock now, the in-app cheat sheet, and the keys for the composer, palettes, in-chat finder and dialogs.",
       "url": "https://docs.loach.dev/pages/features/keyboard.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,30 +263,78 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Keyboard shortcuts</h1>
-    <p class="lead">Loach is keyboard-friendly. The shortcuts below work everywhere unless something modal is on top, like the lock screen or the onboarding wizard.</p>
+    <p class="lead">Loach is keyboard-friendly. Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to open an in-app cheat sheet of the nine app-wide shortcuts below; the dialog and the handler read the same table, so the keys listed there are the keys the app actually listens for. The composer, palette and finder keys further down aren&rsquo;t in it. On macOS, <kbd>&#8984;</kbd> stands in for <kbd>Ctrl</kbd> throughout, and the cheat sheet shows <kbd>&#8679;</kbd> for <kbd>Shift</kbd>.</p>
 
-    <h2 id="global">Global</h2>
+    <h2 id="navigation">Navigation</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Ctrl&nbsp;+&nbsp;K</strong> — open the search palette. Cross-searches chats, Spaces and Snippets.</li>
-      <li><strong class="feat-name">Ctrl&nbsp;+&nbsp;F</strong> — find within the current chat transcript. Browser-style match highlighting.</li>
-      <li><strong class="feat-name">Esc</strong> — dismiss the active menu, dialog or panel. In the search palette it first clears a non-empty query, then closes.</li>
+      <li><strong class="feat-name">Ctrl + K</strong> - open the <a href="search.html">search palette</a> across chats, messages, Spaces and Snippets.</li>
+      <li><strong class="feat-name">Ctrl + N</strong> - start a new chat outside any Space.</li>
+    </ul>
+
+    <h2 id="chat">Chat</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Ctrl + F</strong> - find within the current chat transcript, with browser-style match highlighting and a match counter. Does nothing unless a chat with at least one message is on screen.</li>
+      <li><strong class="feat-name">Ctrl + U</strong> - attach files to the current chat (opens the file picker).</li>
+      <li><strong class="feat-name">Ctrl + Shift + Backspace</strong> (or <strong>Delete</strong>) - delete the current chat, after a confirmation.</li>
+    </ul>
+
+    <h2 id="layout">Layout</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Ctrl + Shift + S</strong> - show or hide the left sidebar.</li>
+      <li><strong class="feat-name">Ctrl + Shift + P</strong> - show or hide the <a href="parameters.html">parameters panel</a> while a chat is open.</li>
+    </ul>
+
+    <h2 id="security">Security</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Ctrl + Shift + L</strong> - lock Loach now, when an <a href="app-lock.html">app lock</a> is configured. It works in Private Chat and during onboarding too.</li>
+    </ul>
+
+    <h2 id="help">Help</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Ctrl + /</strong> - open the keyboard-shortcuts cheat sheet, or close it again.</li>
     </ul>
 
     <h2 id="composer">In the composer</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Enter</strong> — send the message.</li>
-      <li><strong class="feat-name">Shift&nbsp;+&nbsp;Enter</strong> — insert a newline without sending. Use this for multi-paragraph prompts.</li>
+      <li><strong class="feat-name">Enter</strong> - send the message, or run the typed slash command.</li>
+      <li><strong class="feat-name">Shift&nbsp;+&nbsp;Enter</strong> - insert a newline without sending. Use this for multi-paragraph prompts.</li>
+      <li><strong class="feat-name">/</strong> - typed as the first character, opens the <a href="slash-commands.html">slash-command palette</a>.</li>
+    </ul>
+
+    <h2 id="slash-palette">In the slash-command palette</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">&uarr; / &darr;</strong> - move through the filtered command list. The selection wraps around at either end.</li>
+      <li><strong class="feat-name">Tab</strong> - complete the highlighted command.</li>
+      <li><strong class="feat-name">Enter</strong> - run a fully-typed command, or complete a partial one.</li>
+      <li><strong class="feat-name">Esc</strong> - dismiss the palette for the current draft. Anything that isn&rsquo;t a recognised command is sent as an ordinary message.</li>
     </ul>
 
     <h2 id="search-palette">In the search palette</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">&uarr; / &darr;</strong> — move between results.</li>
-      <li><strong class="feat-name">Enter</strong> — open the highlighted result. A chat opens the conversation; a Space opens its detail view; a Snippet starts a fresh chat with the snippet&rsquo;s prompt primed in the composer.</li>
-      <li><strong class="feat-name">Esc</strong> — clear the query, then close the palette on a second press.</li>
+      <li><strong class="feat-name">&uarr; / &darr;</strong> - move between results.</li>
+      <li><strong class="feat-name">Enter</strong> - open the highlighted result. A chat opens the conversation; a message opens its chat and jumps to that turn; a Space opens its detail view; a Snippet starts a fresh chat with the snippet&rsquo;s prompt primed in the composer.</li>
+      <li><strong class="feat-name">Tab</strong> - move between the palette&rsquo;s controls. Focus stays inside the palette until you close it.</li>
+      <li><strong class="feat-name">Esc</strong> - clear the query, then close the palette on a second press.</li>
+    </ul>
+
+    <h2 id="in-chat-find">In the in-chat finder</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Enter</strong> or <strong>&darr;</strong> - jump to the next match.</li>
+      <li><strong class="feat-name">Shift&nbsp;+&nbsp;Enter</strong> or <strong>&uarr;</strong> - jump to the previous match. Both directions wrap around.</li>
+      <li><strong class="feat-name">Esc</strong> - close the finder and clear the highlights.</li>
+    </ul>
+
+    <h2 id="fields-dialogs">In fields and dialogs</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Enter</strong> - save a rename (a chat in the sidebar, the chat header or a Space&rsquo;s chat list); <kbd>Esc</kbd> cancels it.</li>
+      <li><strong class="feat-name">Enter</strong> - in the memory editor, add or save a fact (<kbd>Shift</kbd> + <kbd>Enter</kbd> for a newline while editing); <kbd>Esc</kbd> cancels an edit.</li>
+      <li><strong class="feat-name">Enter</strong> - in a Snippet&rsquo;s fill-in dialog, move to the next blank; on the last one, put the filled-in prompt in the composer.</li>
+      <li><strong class="feat-name">Enter</strong> or <strong>Space</strong> - open a focused chat row, folder, Space, Snippet or model tile, or attachment chip.</li>
+      <li><strong class="feat-name">Enter</strong> / <strong>Esc</strong> - in a confirmation dialog, confirm or cancel. The confirm button has focus when the dialog opens - including for deletions.</li>
     </ul>
 
     <h2 id="system">Where shortcuts do not apply</h2>
-    <p>The search palette and global shortcuts are suppressed while the <a href="app-lock.html">app lock</a> screen or the <a href="onboarding.html">onboarding wizard</a> owns the window — both are deliberate gates that cannot be bypassed by keyboard.</p>
+    <p>The app lock screen blocks every shortcut and the search palette. While the onboarding wizard or <a href="private-chat.html">Private Chat</a> owns the window, the app-wide shortcuts and the search palette are off too - except <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, which locks Loach from anywhere. <kbd>Esc</kbd> still dismisses menus and dialogs, and exits onboarding (with a confirm on the provider step). It does not close Private Chat: only the <strong>&times;</strong> in its header does, so a stray key can&rsquo;t wipe the conversation. The web view&rsquo;s own find bar (<kbd>Ctrl</kbd> + <kbd>G</kbd>, <kbd>F3</kbd>) is switched off - use <kbd>Ctrl</kbd> + <kbd>F</kbd>.</p>
     <div class="page-nav">
       <a href="onboarding.html">
         <span class="label">Previous</span>

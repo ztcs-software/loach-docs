@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web fetch - Loach Docs</title>
-  <meta name="description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <title>Slash commands - Loach Docs</title>
+  <meta name="description" content="Type / at the start of the composer to open a command palette and run chat actions - fork, regenerate, compact, switch model and more - without leaving the keyboard." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
-  <link rel="canonical" href="https://docs.loach.dev/pages/features/web-fetch.html" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/features/slash-commands.html" />
   <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://docs.loach.dev/pages/features/web-fetch.html" />
-  <meta property="og:title" content="Web fetch - Loach Docs" />
-  <meta property="og:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta property="og:url" content="https://docs.loach.dev/pages/features/slash-commands.html" />
+  <meta property="og:title" content="Slash commands - Loach Docs" />
+  <meta property="og:description" content="Type / at the start of the composer to open a command palette and run chat actions - fork, regenerate, compact, switch model and more - without leaving the keyboard." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Web fetch - Loach Docs" />
-  <meta name="twitter:description" content="Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools." />
+  <meta name="twitter:title" content="Slash commands - Loach Docs" />
+  <meta name="twitter:description" content="Type / at the start of the composer to open a command palette and run chat actions - fork, regenerate, compact, switch model and more - without leaving the keyboard." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -43,22 +43,22 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Web fetch",
-          "item": "https://docs.loach.dev/pages/features/web-fetch.html"
+          "name": "Slash commands",
+          "item": "https://docs.loach.dev/pages/features/slash-commands.html"
         }
       ]
     },
     {
       "@type": "TechArticle",
-      "headline": "Web fetch",
-      "description": "Drop a URL into a message and Loach downloads the page, strips it to readable text and inlines it. Off by default; opt in from Settings → Tools.",
-      "url": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "headline": "Slash commands",
+      "description": "Type / at the start of the composer to open a command palette and run chat actions - fork, regenerate, compact, switch model and more - without leaving the keyboard.",
+      "url": "https://docs.loach.dev/pages/features/slash-commands.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
       },
-      "mainEntityOfPage": "https://docs.loach.dev/pages/features/web-fetch.html",
+      "mainEntityOfPage": "https://docs.loach.dev/pages/features/slash-commands.html",
       "publisher": {
         "@type": "Organization",
         "name": "ZTCS",
@@ -262,50 +262,127 @@
   </aside>
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
-    <h1>Web fetch</h1>
-    <p class="lead">Drop an <code>http://</code> or <code>https://</code> URL into a prompt and Loach downloads the page, strips the markup to readable text and appends it to your message as a fenced block. The model sees the contents of the page alongside your question, no separate browser extension needed.</p>
+    <h1>Slash commands</h1>
+    <p class="lead">Type <code>/</code> as the first character in the composer to open the <strong>command palette</strong> - a floating list that filters as you type. It is the fastest way to run chat actions, switch model or persona, manage memory, fetch a URL and more without lifting your hands off the keyboard.</p>
 
-    <h2 id="opt-in">Off by default</h2>
-    <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
-
-    <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <h2 id="palette">The command palette</h2>
+    <p>The palette opens whenever the composer text starts with <code>/</code> and narrows to the commands whose names begin with what you type - <code>/re</code> leaves <code>/rename</code>, <code>/regenerate</code> and <code>/remember</code>. Each row shows the command, its arguments and a one-line description, under the same group headers <code>/help</code> uses (the headers appear once the list spans more than one group). A command with a fixed set of arguments lists them as rows of their own once you&rsquo;ve typed its full name: <code>/list</code> offers <code>/list models</code>, <code>/list snippets</code> and the rest, and <code>/instructions</code> offers <code>/instructions clear</code>. <kbd>Enter</kbd> then completes the highlighted row, so to run a bare <code>/instructions</code>, press <kbd>Esc</kbd> to hide the palette first.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
-      <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
-      <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
+      <li><strong class="feat-name">&uarr; / &darr;</strong> - move the selection through the filtered list. It wraps around at either end.</li>
+      <li><strong class="feat-name">Tab</strong> - complete the highlighted command without running it.</li>
+      <li><strong class="feat-name">Enter</strong> - complete a partial command, or run one that is already fully typed. <kbd>Shift</kbd> + <kbd>Enter</kbd> still inserts a newline.</li>
+      <li><strong class="feat-name">Esc</strong> - hide the palette for the current draft. It comes back once you delete the leading <code>/</code> and type it again.</li>
     </ul>
-    <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
+    <p>Clicking a row completes it, like <kbd>Tab</kbd>. Anything that isn&rsquo;t a recognised command is sent as an ordinary message, so a prompt that happens to start with <code>/</code> is never swallowed. Commands run even while a reply is streaming; the few that can&rsquo;t, such as <code>/regenerate</code>, say so. <a href="private-chat.html">Private Chat</a> has no command palette - a leading <code>/</code> there is just text.</p>
 
-    <h2 id="limits">Limits</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
-      <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
-      <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
-    </ul>
+    <h2 id="results">Where the results appear</h2>
+    <p>A command that does something confirms with a short toast (<em>Renamed chat</em>, <em>Switched model</em>). One that fails says why in a <strong>Command failed</strong> toast - for example <em>No active chat. Start one with /new first.</em> when a command needs an open chat and none is open. Commands that return a list - <code>/list</code>, <code>/tools</code>, <code>/fetch</code>, <code>/stats</code>, a bare <code>/instructions</code>, or a name that matches several things - show it in a panel just above the composer. Close the panel with its <strong>&times;</strong>; sending your next message clears it too.</p>
 
-    <h2 id="safety">Safety guards</h2>
-    <ul class="feature-list">
-      <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
-      <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
-      <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
-      <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>
-    </ul>
+    <h2 id="commands">The commands</h2>
+    <p>Commands are grouped the way <code>/help</code> lists them. <code>&lt;arg&gt;</code> is required, <code>[arg]</code> optional. Most act on the chat that is open.</p>
 
-    <h2 id="on-the-reply">Shown on the reply</h2>
-    <p>Each URL Loach fetched for a turn appears as a <code>web_fetch</code> entry in the collapsible tool-call block above the assistant&rsquo;s answer, so you can see exactly which pages fed into it. Expand an entry to see the page title and size, the final URL after redirects, whether Loach truncated it - or, for a failed fetch, the reason, marked in red.</p>
+    <h3 id="cmd-chat">Chat</h3>
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/new</code></td><td>Start a new chat. It lands in the active Space when there is one (the Space you&rsquo;re viewing, or one picked with <code>/space</code>).</td></tr>
+        <tr><td><code>/clear</code></td><td>Delete every message in the current chat, after a confirmation. A reply still streaming in that chat is stopped first.</td></tr>
+        <tr><td><code>/rename &lt;title&gt;</code></td><td>Rename the current chat. The whole rest of the line is the title.</td></tr>
+        <tr><td><code>/pin</code></td><td>Pin the current chat, or unpin it if it&rsquo;s pinned.</td></tr>
+        <tr><td><code>/archive</code></td><td>Move the current chat to the <a href="chat-archive.html">archive</a>, with an <strong>Undo</strong> in the toast.</td></tr>
+        <tr><td><code>/delete</code></td><td>Delete the current chat permanently, after a confirmation.</td></tr>
+        <tr><td><code>/fork</code></td><td><a href="import-export.html#fork">Fork</a> the chat into a new copy and open it.</td></tr>
+        <tr><td><code>/regenerate</code></td><td>Re-stream the last assistant reply. Refused when the last turn isn&rsquo;t an assistant reply, the reply was imported, the chat has no model, or the chat is still busy.</td></tr>
+        <tr><td><code>/copy [N]</code></td><td>Copy the latest assistant reply to the clipboard, or the Nth-latest - <code>/copy 2</code> is the one before it. Only assistant replies count, and <code>N</code> must be a positive whole number.</td></tr>
+        <tr><td><code>/export</code></td><td>Open the <a href="import-export.html">Export context</a> dialog for this chat.</td></tr>
+        <tr><td><code>/stats</code></td><td>Show the chat&rsquo;s message counts, total tokens and average tokens/sec across replies, the last reply&rsquo;s numbers, and the model.</td></tr>
+        <tr><td><code>/compact</code></td><td>Summarise older messages to free context - see <a href="context-compaction.html">Context &amp; compaction</a>. Only one chat compacts at a time.</td></tr>
+        <tr><td><code>/private</code></td><td>Open <a href="private-chat.html">Private Chat</a>. A reply streaming in a regular chat is stopped first.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="cmd-model-persona">Model &amp; persona</h3>
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/model &lt;name&gt;</code></td><td>Switch the current chat&rsquo;s model. An exact model id or display name wins; otherwise every model whose id or name contains what you typed matches, and several matches are listed so you can be more specific.</td></tr>
+        <tr><td><code>/persona &lt;name&gt;</code></td><td>Apply one of the built-in <a href="personas.html">personas</a> to the current chat, matched the same way by name. <code>/persona none</code> clears it.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="cmd-listings">Listings</h3>
+    <table>
+      <thead><tr><th>Command</th><th>What it lists</th></tr></thead>
+      <tbody>
+        <tr><td><code>/list models</code></td><td>Every model from both providers, with its provider.</td></tr>
+        <tr><td><code>/list personas</code></td><td>The built-in personas and what each does.</td></tr>
+        <tr><td><code>/list spaces</code></td><td>Your Spaces, marking the active one.</td></tr>
+        <tr><td><code>/list snippets</code></td><td>Your Snippets, with any pinned model and the start of the prompt.</td></tr>
+        <tr><td><code>/list mcp</code></td><td>Your MCP servers, enabled or disabled, and how each connects.</td></tr>
+        <tr><td><code>/list providers</code></td><td>The Ollama and OpenAI-compatible base URLs, and whether an API key is saved.</td></tr>
+        <tr><td><code>/list memories</code></td><td>The memories <code>/remember</code> and <code>/forget</code> work on (see below), each with the short id <code>/forget</code> accepts.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="cmd-prompts">Prompts</h3>
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/instructions &lt;text&gt;</code></td><td>Set the current chat&rsquo;s own instructions - the <strong>Additional instructions</strong> in the <a href="parameters.html">parameters panel</a>. Line breaks are kept.</td></tr>
+        <tr><td><code>/instructions clear</code></td><td>Clear them.</td></tr>
+        <tr><td><code>/instructions</code></td><td>On its own, show the chat&rsquo;s current instructions. A <a href="context-compaction.html">compaction</a> summary stored with them is kept whichever form you use.</td></tr>
+        <tr><td><code>/snippet &lt;name&gt;</code></td><td>Put a saved <a href="snippets.html">Snippet</a> into the composer, matched by title, with its variables filled in. Any blanks left open the fill-in dialog first. Unlike a Snippet&rsquo;s <strong>Run</strong>, it stays in the current chat and doesn&rsquo;t switch model.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="cmd-memory-spaces">Memory &amp; spaces</h3>
+    <p>The memory commands work on one list: the open chat&rsquo;s Space; for a chat outside any Space, the active Space if there is one; otherwise your global memories. See <a href="spaces.html">Spaces</a> and <a href="memory.html">Memory</a>.</p>
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/remember &lt;fact&gt;</code></td><td>Save a fact to that list. Refused when the Space&rsquo;s memory is switched off - or, outside a Space, while <strong>Settings → Features → Global memories</strong> is off.</td></tr>
+        <tr><td><code>/forget &lt;id|query&gt;</code></td><td>Remove a memory by its id (at least the eight characters <code>/list memories</code> shows) or by text it contains. When several match the text, they&rsquo;re listed so you can re-run with an id.</td></tr>
+        <tr><td><code>/space &lt;name&gt;</code></td><td>Make a Space active, matched by name. <code>/new</code> then starts its chat there, and the memory commands use that Space outside a Space chat.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="cmd-tools-web">Tools &amp; web</h3>
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/tools</code></td><td>List the tools exposed by your enabled <a href="mcp.html">MCP servers</a>, server by server; a server that can&rsquo;t be reached shows its error. Built-in tools aren&rsquo;t listed.</td></tr>
+        <tr><td><code>/web-fetch on|off</code></td><td>Turn <a href="web-fetch.html">Web fetch</a> on or off for every chat - the same switch as in <strong>Settings → Tools</strong>.</td></tr>
+        <tr><td><code>/fetch &lt;url&gt;</code></td><td>Fetch one page now and show its final URL, title, size and the first 200 characters of its text - a quick way to see what Web fetch would get. It works with the Web fetch switch off and goes through the same safety checks.</td></tr>
+        <tr><td><code>/thinking on|off</code></td><td>Turn the current chat&rsquo;s <strong>Thinking</strong> toggle on or off (Ollama models that can reason).</td></tr>
+      </tbody>
+    </table>
+
+    <h3 id="cmd-app">App</h3>
+    <table>
+      <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><code>/settings [tab]</code></td><td>Open Settings, optionally on a tab: <code>general</code>, <code>providers</code>, <code>features</code>, <code>tools</code>, <code>appearance</code>, <code>mcp</code>, <code>archive</code>, <code>data</code>, <code>security</code>, <code>updates</code> or <code>about</code>.</td></tr>
+        <tr><td><code>/help</code></td><td>Open the <strong>Slash commands</strong> reference, with every command grouped as above.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="recent">Recent commands</h2>
+    <p>Above those groups sits a <strong>Recent</strong> group: up to four of the commands you ran last that match what you&rsquo;ve typed, hoisted out of their normal groups. Loach keeps the last six command names in its settings rather than per session, so the group is useful on the first <code>/</code> after a restart instead of only once you have already run a command that launch. A command counts even if it failed - you&rsquo;re likely to retry it - while text that isn&rsquo;t a command is never recorded. Argument rows such as <code>/list models</code> stay where they are.</p>
+
+    <div class="callout note">
+      <div class="callout-body">
+        <div class="callout-title">Destructive commands confirm first</div>
+        <p><code>/clear</code> and <code>/delete</code> route through a confirmation dialog before they run, so a mistyped command can&rsquo;t wipe a conversation by accident. The dialog&rsquo;s confirm button has focus, so <kbd>Enter</kbd> confirms and <kbd>Esc</kbd> cancels. <code>/archive</code> doesn&rsquo;t ask - it offers <strong>Undo</strong> instead.</p>
+      </div>
+    </div>
     <div class="page-nav">
-      <a href="voice-dictation.html">
+      <a href="code-canvas.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Voice dictation</span>
+        <span class="title">&larr; Code blocks &amp; canvas</span>
       </a>
-      <a href="share-message.html" class="next">
+      <a href="context-compaction.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Share a message &rarr;</span>
+        <span class="title">Context &amp; compaction &rarr;</span>
       </a>
     </div>
 

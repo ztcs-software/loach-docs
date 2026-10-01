@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Import and export context — Loach Docs</title>
-  <meta name="description" content="Export the full transcript of a chat to JSON or Markdown, and paste exported data — or any plain text — back into another chat to extend its context." />
+  <title>Import and export context - Loach Docs</title>
+  <meta name="description" content="Copy a chat as Markdown, verbatim or as a model-written summary, paste exported context or any text into another chat, and fork a chat into a new branch." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -14,12 +14,12 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/import-export.html" />
-  <meta property="og:title" content="Import and export context — Loach Docs" />
-  <meta property="og:description" content="Export the full transcript of a chat to JSON or Markdown, and paste exported data — or any plain text — back into another chat to extend its context." />
+  <meta property="og:title" content="Import and export context - Loach Docs" />
+  <meta property="og:description" content="Copy a chat as Markdown, verbatim or as a model-written summary, paste exported context or any text into another chat, and fork a chat into a new branch." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Import and export context — Loach Docs" />
-  <meta name="twitter:description" content="Export the full transcript of a chat to JSON or Markdown, and paste exported data — or any plain text — back into another chat to extend its context." />
+  <meta name="twitter:title" content="Import and export context - Loach Docs" />
+  <meta name="twitter:description" content="Copy a chat as Markdown, verbatim or as a model-written summary, paste exported context or any text into another chat, and fork a chat into a new branch." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Import and export context",
-      "description": "Export the full transcript of a chat to JSON or Markdown, and paste exported data — or any plain text — back into another chat to extend its context.",
+      "description": "Copy a chat as Markdown, verbatim or as a model-written summary, paste exported context or any text into another chat, and fork a chat into a new branch.",
       "url": "https://docs.loach.dev/pages/features/import-export.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -134,14 +134,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="parameters.html">Per-chat parameters</a></li>
@@ -149,82 +150,83 @@
               <li><a class="sidebar-sublink" href="custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -238,13 +240,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="../faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="../troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
@@ -260,19 +263,26 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Import and export context</h1>
-    <p class="lead">Chats are not locked into Loach. You can move a conversation in or out as either structured JSON or human-readable Markdown, and re-import context into any other chat.</p>
+    <p class="lead">Chats are not locked into Loach. You can copy a conversation out as Markdown, paste context into any chat, and fork a chat to branch it. For a full backup of everything, see <a href="data-management.html">Data management</a>.</p>
 
-    <h2 id="export">Export</h2>
-    <p>From the chat header, pick <strong>Export &rarr; JSON</strong> or <strong>Export &rarr; Markdown</strong>. The native save dialog opens; the chosen path is owned by the app backend, not the renderer.</p>
-    <ul class="feature-list">
-      <li><strong class="feat-name">JSON</strong> — full structured export with messages, roles, timestamps and attachments-by-name. Ideal for piping into another tool or re-importing into Loach.</li>
-      <li><strong class="feat-name">Markdown</strong> — human-readable transcript with role headers and code-fenced blocks. Drop it into a notes app, a doc, or commit it alongside your code.</li>
-    </ul>
-    <p><strong>Copy as Markdown</strong>, also in the chat header, puts the same Markdown rendering on your clipboard without a file dialog.</p>
+    <h2 id="export">Export context</h2>
+    <p>From the chat header&rsquo;s <code>&hellip;</code> menu, pick <strong>Export context</strong> (or type <code>/export</code>). A dialog shows the conversation as Markdown - the chat&rsquo;s title, provider and model, its own instructions, then a <code>## You</code>, <code>## Assistant</code> or <code>## System</code> section per message - with a <strong>Copy</strong> button. Nothing is written to disk: paste it into a notes app, a doc, another tool or another Loach chat.</p>
+    <p>The <strong>Compact context</strong> toggle swaps the verbatim transcript for a summary written by the chat&rsquo;s model - handy when you want to hand another tool the gist without the full back-and-forth. It needs at least six messages, costs one model request, and leaves your actual chat unchanged. To shrink the live chat instead, see <a href="context-compaction.html">Context compaction</a>.</p>
+    <p>The verbatim export leaves out imported messages you hid from the transcript (see below), so you don&rsquo;t unknowingly share context you tucked away. The compact summary is written from everything the model sees, hidden imports included.</p>
 
     <h2 id="import">Import context</h2>
-    <p>From any chat&rsquo;s header, pick <strong>Import context</strong> and paste exported JSON, exported Markdown or just plain text. Loach parses what you give it into messages and appends them to the current chat. The previous conversation is preserved — imported content sits at the end as new turns.</p>
+    <p>From the same menu, pick <strong>Import context</strong> and paste exported Markdown, JSON or just plain text. Loach detects the format as you paste and shows how many messages it will add before you click <strong>Import</strong>:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Markdown</strong> - <code>## You</code>, <code>## Assistant</code> and <code>## System</code> sections, the shape Export context produces. Anything above the first section, such as the title and instructions, is skipped.</li>
+      <li><strong class="feat-name">JSON</strong> - <code>{ "messages": [{ "role": "user", "content": "&hellip;" }, &hellip;] }</code>, a bare array of messages, or a single message object. Common role names (<code>user</code>, <code>assistant</code>, <code>you</code>, <code>ai</code>, <code>bot</code>, <code>model</code>) and text content blocks are understood.</li>
+      <li><strong class="feat-name">Plain text</strong> - anything else becomes one user message. A compacted export has no message sections, so it arrives this way too.</li>
+    </ul>
+    <p>The messages are appended to the end of the current chat as new turns; the previous conversation is preserved. Imported <code>system</code> turns are kept too, brought in as user turns so the model still sees them. Import context is unavailable while a reply is still streaming.</p>
     <p>This is the right tool for stitching together two related threads, picking up where another tool left off, or re-using a long transcript as the seed for a new line of questioning.</p>
+    <p>A <strong>Hide from transcript</strong> toggle folds the imported messages into a single collapsed <strong>Imported context</strong> card instead of listing them inline - either way the model still receives them in full, so the toggle only changes what <em>you</em> see. Expand the card to read them, or remove the whole batch from the chat with the card&rsquo;s remove button. Hidden turns stay out of <a href="search.html">search</a> and the in-chat finder.</p>
+
+    <h2 id="fork">Fork a chat</h2>
+    <p><strong>Fork this chat</strong> clones a conversation into a brand-new chat - same title, model, Space, sidebar folder, <a href="work-in-folders.html">working folder</a>, instructions and parameters - so you can branch a tangent without disturbing the original. Fork it from the chat header&rsquo;s <code>&hellip;</code> menu, with <strong>Fork from here</strong> in an assistant reply&rsquo;s <code>&hellip;</code> menu (which copies the conversation up to and including that reply), or with the <code>/fork</code> <a href="slash-commands.html">slash command</a>. The new chat carries a <strong>&ldquo;Forked from &hellip;&rdquo;</strong> badge in its header that jumps back to the source; the badge disappears if you delete the original.</p>
     <div class="page-nav">
       <a href="search.html">
         <span class="label">Previous</span>

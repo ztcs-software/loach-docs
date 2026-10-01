@@ -1,5 +1,5 @@
 /* ===========================================
-   Loach Docs — Theme tokens
+   Loach Docs - Theme tokens
    =========================================== */
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -475,14 +475,30 @@ img { max-width: 100%; }
   margin: 1px 0;
 }
 
-/* Top-level group toggle (Features, Troubleshooting): a single full-width
-   anchor styled like .sidebar-link with the chevron on the right — matches
-   the visual treatment of the nested .sidebar-category-toggle below. Click
-   navigates to the overview page; main.js auto-opens the group on arrival. */
+/* Top-level group toggle (Features, Troubleshooting): a full-width <button>
+   styled like .sidebar-link with the chevron on the right. It only expands
+   and collapses the tree - the overview page is the tree's first link
+   ("All features" / "All topics"). Font size and padding come from
+   .sidebar-link, so the button rule below only resets UA button styling. */
 .sidebar-toplevel-toggle {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+button.sidebar-toplevel-toggle {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-left: 2px solid transparent;
+  font-family: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+/* The tree holding the current page: label in full text colour. */
+.sidebar-group.has-active > .sidebar-toplevel-toggle {
+  color: var(--text);
+  font-weight: 600;
 }
 .sidebar-toplevel-toggle span {
   flex: 1;
@@ -496,9 +512,6 @@ img { max-width: 100%; }
 }
 .sidebar-toplevel-toggle:hover svg {
   color: var(--text);
-}
-.sidebar-toplevel-toggle.active svg {
-  color: var(--accent);
 }
 .sidebar-group.open > .sidebar-toplevel-toggle svg {
   transform: rotate(180deg);
@@ -614,6 +627,15 @@ img { max-width: 100%; }
 }
 .sidebar-group--category.open > .sidebar-category-toggle svg {
   transform: rotate(180deg);
+}
+/* "All features" sits among the category buttons: line its text up with
+   theirs (sublink offset is -1px margin + 2px border + padding). */
+.sidebar-submenu--categories > li > .sidebar-overview-link { padding-left: 9px; }
+
+/* The category holding the current page. */
+.sidebar-group--category.has-active > .sidebar-category-toggle {
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* Per-feature list inside a category (the only level with a tree-line) */
@@ -748,6 +770,55 @@ img { max-width: 100%; }
   font-weight: 600;
 }
 
+/* Collapsible "On this page" under the intro, for widths where the side TOC
+   is hidden (main.js adds it on pages with 3+ sections). */
+.toc-inline { display: none; }
+@media (max-width: 1280px) {
+  .toc-inline {
+    display: block;
+    margin: 0 0 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+  }
+  .toc-inline > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    border-radius: var(--radius);
+  }
+  .toc-inline > summary::-webkit-details-marker { display: none; }
+  .toc-inline > summary::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin-right: 4px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform var(--transition);
+  }
+  .toc-inline[open] > summary::after { transform: translateY(2px) rotate(-135deg); }
+  .toc-inline[open] > summary { border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+  /* Beat .content ul / .content li, which would indent and space the list. */
+  .content .toc-inline ul { margin: 0; padding-left: 12px; }
+  .content .toc-inline > .toc-list { padding: 10px 8px 12px; }
+  .content .toc-inline li { margin: 0; }
+}
+@media (max-width: 980px) {
+  /* Finger-sized rows. */
+  .toc-inline .toc-link { padding: 9px 12px; font-size: 15px; }
+}
+
 /* ===========================================
    Typography in content
    =========================================== */
@@ -844,6 +915,7 @@ kbd {
   text-align: left;
   padding: 10px 14px;
   border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere; /* long paths and code in cells must not widen the page on phones */
 }
 .content th {
   background: var(--bg-subtle);
@@ -894,7 +966,7 @@ kbd {
   margin: -4px 0 14px;
 }
 
-/* Example list — stacked quote-style boxes for verbatim samples */
+/* Example list - stacked quote-style boxes for verbatim samples */
 .example-list {
   list-style: none;
   padding: 0;
@@ -1146,20 +1218,34 @@ footer.site-footer {
     position: fixed;
     top: var(--topbar-h);
     left: 0;
-    /* Explicit height — `height: auto` with top + bottom collapses to
+    /* Explicit height - `height: auto` with top + bottom collapses to
        content height in practice, leaving the sidebar's bottom pushed
        off-screen and `overflow-y: auto` with nothing to scroll. */
     height: calc(100vh - var(--topbar-h));
-    /* Wider on mobile so links aren't cramped — caps so tablets don't
+    /* dvh follows the visible viewport, so the last links don't end up
+       behind a phone browser's toolbar (100vh ignores it). */
+    height: calc(100dvh - var(--topbar-h));
+    /* Wider on mobile so links aren't cramped - caps so tablets don't
        end up with a comically wide drawer. */
     width: min(380px, 88vw);
     background: var(--bg);
     transform: translateX(-100%);
-    transition: transform 220ms ease;
+    /* Hidden (not just off-screen) while closed, so Tab and screen readers
+       skip its links; visibility flips after the slide-out finishes. */
+    visibility: hidden;
+    transition: transform 220ms ease, visibility 0s linear 220ms;
     z-index: 95;
-    padding: 20px 12px 80px 16px;
+    padding: 20px 12px calc(32px + env(safe-area-inset-bottom, 0px)) 16px;
   }
-  .sidebar.open { transform: translateX(0); }
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 220ms ease, visibility 0s;
+  }
+  /* Lock the page behind the open drawer (main.js sets the class). */
+  html.sidebar-open,
+  html.sidebar-open body { overflow: hidden; }
+  .sidebar-overlay { touch-action: none; }
 
   /* Bigger tap targets and readable text on touch devices. */
   .sidebar-link {
@@ -1179,6 +1265,7 @@ footer.site-footer {
     padding: 10px 12px;
     font-size: 15px;
   }
+  .sidebar-submenu--categories > li > .sidebar-overview-link { padding-left: 11px; }
   .sidebar-section-title {
     font-size: 12px;
     padding: 8px 14px;
@@ -1200,7 +1287,7 @@ footer.site-footer {
 }
 
 /* ===========================================
-   Focus rings — keep the default outline for keyboard users.
+   Focus rings - keep the default outline for keyboard users.
    Mouse focus still suppressed; the :focus-visible spec handles that.
    =========================================== */
 :focus-visible {
@@ -1222,7 +1309,7 @@ footer.site-footer {
 .search-input:focus-visible { outline: none; }
 
 /* ===========================================
-   Reduced motion — opt out of the bigger transitions / smooth scroll.
+   Reduced motion - opt out of the bigger transitions / smooth scroll.
    =========================================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

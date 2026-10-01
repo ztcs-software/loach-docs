@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Providers — Loach Docs</title>
+  <title>Providers - Loach Docs</title>
   <meta name="description" content="Configure Ollama or any OpenAI-compatible endpoint as your model provider in Loach." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
@@ -14,11 +14,11 @@
   <meta property="og:site_name" content="Loach Docs" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/providers.html" />
-  <meta property="og:title" content="Providers — Loach Docs" />
+  <meta property="og:title" content="Providers - Loach Docs" />
   <meta property="og:description" content="Configure Ollama or any OpenAI-compatible endpoint as your model provider in Loach." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Providers — Loach Docs" />
+  <meta name="twitter:title" content="Providers - Loach Docs" />
   <meta name="twitter:description" content="Configure Ollama or any OpenAI-compatible endpoint as your model provider in Loach." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
@@ -128,14 +128,15 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Reference</div>
       <div class="sidebar-group" data-group="features">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="features.html"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu sidebar-submenu--categories">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="features.html">All features</a></li>
           <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Chat experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Chat experience</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
               <li><a class="sidebar-sublink" href="features/provider-selection.html">Provider selection</a></li>
               <li><a class="sidebar-sublink" href="features/model-management.html">Local model management</a></li>
               <li><a class="sidebar-sublink" href="features/parameters.html">Per-chat parameters</a></li>
@@ -143,82 +144,83 @@
               <li><a class="sidebar-sublink" href="features/custom-instructions.html">Custom instructions</a></li>
               <li><a class="sidebar-sublink" href="features/generation-stats.html">Generation stats</a></li>
               <li><a class="sidebar-sublink" href="features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="features/math.html">LaTeX math</a></li>
               <li><a class="sidebar-sublink" href="features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="features/pinned-responses.html">Pinned responses</a></li>
               <li><a class="sidebar-sublink" href="features/concurrency.html">Concurrency &amp; queue</a></li>
               <li><a class="sidebar-sublink" href="features/private-chat.html">Private Chat</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-organization">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Organization</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
               <li><a class="sidebar-sublink" href="features/search.html">Search</a></li>
               <li><a class="sidebar-sublink" href="features/import-export.html">Import and export context</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Input &amp; output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Input &amp; output</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-input-output">
               <li><a class="sidebar-sublink" href="features/attachments.html">Attachments</a></li>
               <li><a class="sidebar-sublink" href="features/voice-dictation.html">Voice dictation</a></li>
               <li><a class="sidebar-sublink" href="features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="features/share-message.html">Share a message</a></li>
               <li><a class="sidebar-sublink" href="features/temporal-awareness.html">Temporal awareness</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Advanced</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-advanced">
               <li><a class="sidebar-sublink" href="features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="features/work-in-folders.html">Work in folders</a></li>
               <li><a class="sidebar-sublink" href="features/default-model.html">Default model selector</a></li>
               <li><a class="sidebar-sublink" href="features/model-preloading.html">Model preloading</a></li>
               <li><a class="sidebar-sublink" href="features/low-vram.html">Low VRAM mode</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Security &amp; data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Security &amp; data</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-security-data">
               <li><a class="sidebar-sublink" href="features/app-lock.html">App lock</a></li>
               <li><a class="sidebar-sublink" href="features/data-management.html">Data management</a></li>
             </ul>
           </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-appearance">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Appearance">
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Appearance</span>
+              <span>Appearance &amp; updates</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
               <li><a class="sidebar-sublink" href="features/themes.html">Themes</a></li>
-            </ul>
-          </li>
-          <li class="sidebar-group sidebar-group--category" data-group="features-updates">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Updates">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-              <span>Updates</span>
-            </button>
-            <ul class="sidebar-submenu">
               <li><a class="sidebar-sublink" href="features/ota-updates.html">OTA updates</a></li>
             </ul>
           </li>
           <li class="sidebar-group sidebar-group--category" data-group="features-reference">
-            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-label="Expand Reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
               <span>Reference</span>
             </button>
-            <ul class="sidebar-submenu">
+            <ul class="sidebar-submenu" id="sb-features-reference">
               <li><a class="sidebar-sublink" href="features/onboarding.html">Onboarding wizard</a></li>
               <li><a class="sidebar-sublink" href="features/keyboard.html">Keyboard shortcuts</a></li>
             </ul>
@@ -232,13 +234,14 @@
       <div class="sidebar-section-title">Help</div>
       <a class="sidebar-link" href="faq.html">FAQ</a>
       <div class="sidebar-group" data-group="troubleshooting">
-        <a class="sidebar-link sidebar-toplevel-toggle" href="troubleshooting.html"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <ul class="sidebar-submenu">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="troubleshooting.html">All topics</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/providers-connections.html">Providers &amp; connections</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/messages.html">Sending &amp; receiving messages</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/performance.html">Performance &amp; VRAM</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
-          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Web fetch &amp; MCP</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
@@ -254,16 +257,16 @@
 
   <main class="content">
     <h1>Providers</h1>
-    <p class="lead">Loach doesn't ship with built-in models. It connects to a provider you choose — local or remote. Both kinds are available side-by-side; switch from the chat header.</p>
+    <p class="lead">Loach doesn&rsquo;t ship with built-in models. It connects to a provider you choose - local or remote. Both kinds are available side-by-side; switch from the chat header.</p>
 
     <h2 id="ollama">Ollama (local)</h2>
-    <p><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> is the easiest way to run open-weight models on your machine. Loach probes <code>http://localhost:11434</code> on launch; any models you've pulled appear in the chat header automatically.</p>
+    <p><a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a> is the easiest way to run open-weight models on your machine. Loach probes the Ollama base URL (<code>http://localhost:11434</code> by default) as soon as it starts; any models you&rsquo;ve pulled appear in the chat-header model picker without a refresh.</p>
 
     <h3 id="ollama-setup">Setup</h3>
     <ol>
       <li>Install Ollama from <a href="https://ollama.com/download" target="_blank" rel="noopener">ollama.com/download</a>.</li>
-      <li>Start the server: <code>ollama serve</code> (or just open the Ollama app — it runs in the background).</li>
-      <li>Pull at least one model: <code>ollama pull gemma3:4b</code>.</li>
+      <li>Start the server: <code>ollama serve</code> (or just open the Ollama app - it runs in the background). Loach can also start it for you - see <a href="#ollama-start">below</a>.</li>
+      <li>Pull at least one model: <code>ollama pull gemma4:e4b</code>. If you skip this, the onboarding wizard recommends one sized to your machine.</li>
       <li>Open Loach. The model appears in the chat-header dropdown.</li>
     </ol>
 
@@ -271,21 +274,36 @@
     <p>The <strong>Models</strong> tab inside Loach is a full UI on top of the Ollama HTTP API. From there you can:</p>
     <ul>
       <li>Pull new tags by name.</li>
-      <li>Copy a model under a new name.</li>
-      <li>Customize an existing model with a <em>Modelfile</em> (system prompt, parameters, templates).</li>
+      <li>Duplicate a model under a new tag.</li>
+      <li>Customize an existing model - system prompt, prompt template, parameters - and save the result as a new model.</li>
       <li>Delete models you no longer need.</li>
     </ul>
+    <p>See <a href="features/model-management.html">Local model management</a> for the details.</p>
+
+    <h3 id="ollama-start">Starting Ollama from Loach</h3>
+    <p>You don&rsquo;t have to run <code>ollama serve</code> yourself. When nothing is answering, the model picker in the chat header lists Ollama as <strong>Not running</strong> and offers a <strong>Start Ollama</strong> button that launches the server and swaps in the model list once it responds. <strong>Settings → Providers → Auto-launch Ollama</strong> does the same thing every time Loach opens - off by default, and only for an Ollama whose base URL points at this computer. Loach looks for the <code>ollama</code> program on your <code>PATH</code> and in Ollama&rsquo;s default install location, and a server it started keeps running after you quit Loach.</p>
+    <p><strong>Settings → Features → Keep model loaded</strong> controls how long Ollama keeps a model resident after a reply (<strong>5 min</strong>, <strong>30 min</strong>, <strong>1 hour</strong> or <strong>Always</strong>), so a reply after a pause skips the cold reload.</p>
 
     <h3 id="ollama-remote">Pointing at a remote Ollama</h3>
-    <p>If Ollama is running on another machine on your network, change the base URL in <strong>Settings → Providers → Ollama</strong>. Make sure the remote server is reachable from your machine and listening on a routable interface.</p>
+    <p>If Ollama is running on another machine on your network, change the <strong>Ollama base URL</strong> in <strong>Settings → Providers</strong>. Make sure the remote server is reachable from your machine and listening on a routable interface (<code>OLLAMA_HOST=0.0.0.0</code> on the server). <strong>Test connection</strong> under the field queries the server and reports how many models it lists, or a readable error, so you can confirm a custom base URL works without opening a chat. <strong>Start Ollama</strong> and <strong>Auto-launch Ollama</strong> only work for this computer - a remote server is yours to start.</p>
+    <p>For any provider, Loach refuses a base URL on a link-local address (<code>169.254.x.x</code>, <code>fe80::</code>), the range where cloud-metadata services live.</p>
 
     <h2 id="openai">OpenAI-compatible endpoints</h2>
-    <p>Anything that speaks the OpenAI Chat Completions protocol works. Configure it in <strong>Settings → Providers</strong>:</p>
+    <p>Anything that speaks the OpenAI Chat Completions protocol works - the real OpenAI API, llama.cpp&rsquo;s <code>llama-server</code>, LM Studio, vLLM, LiteLLM, OpenRouter, Groq and other proxies. Configure it in <strong>Settings → Providers</strong>:</p>
     <ol>
-      <li>Paste the <strong>API key</strong> (stored in your OS credential manager — never in plain text on disk).</li>
-      <li>Set the <strong>base URL</strong> for the endpoint.</li>
-      <li>Save. The provider becomes selectable from the chat header.</li>
+      <li>Set the <strong>API base URL</strong>, or pick one from the presets dropdown at the end of the field. It&rsquo;s saved as you type. Loach appends <code>/chat/completions</code> and <code>/models</code> to it, so include the <code>/v1</code> (or other prefix) the server&rsquo;s docs give.</li>
+      <li>Paste the <strong>OpenAI API key</strong> and click <strong>Save</strong>. It&rsquo;s stored in your OS credential manager (Windows Credential Manager, macOS Keychain or the Linux Secret Service) - never in plain text on disk - and the field stays blank afterwards, showing <code>•••••••• (stored)</code>. <strong>Clear</strong> removes it. Local servers such as llama.cpp, LM Studio and vLLM usually need no key at all.</li>
+      <li>Use <strong>Test connection</strong> to verify the base URL and key before opening a chat - it lists the endpoint&rsquo;s models and reports the count, or a readable error if something is off. Save a typed key first; the button waits for it.</li>
+      <li>Pick a model from the <strong>API</strong> group in the chat-header model picker.</li>
     </ol>
+    <p>With the default OpenAI base URL, Loach lists models only once a key is saved - so clearing the key empties the API list in the model pickers instead of leaving models that could only fail at send time. A base URL of your own is listed with or without a key.</p>
+
+    <div class="callout warn">
+      <div class="callout-body">
+        <div class="callout-title">No keys over plain HTTP to another machine</div>
+        <p>Loach sends the API key only over <code>https://</code>, or over <code>http://</code> to this computer (<code>localhost</code>, <code>127.0.0.1</code>, <code>::1</code>). A server elsewhere on your network reached over plain <code>http://</code> gets requests without the key, so one that requires it answers 401 - and the chat error says &ldquo;API key withheld because the base URL is http:// to another machine&rdquo;. Put that server behind HTTPS, or turn off its key requirement if it&rsquo;s on a network you trust.</p>
+      </div>
+    </div>
 
     <h3 id="endpoints">Common base URLs</h3>
     <table>
@@ -296,7 +314,7 @@
         <tr><td>OpenAI</td><td><code>https://api.openai.com/v1</code> <em>(default)</em></td></tr>
         <tr><td>vLLM</td><td><code>http://localhost:8000/v1</code></td></tr>
         <tr><td>LM Studio</td><td><code>http://localhost:1234/v1</code></td></tr>
-        <tr><td>LiteLLM</td><td><code>http://localhost:4000/v1</code></td></tr>
+        <tr><td>LiteLLM</td><td><code>http://localhost:4000</code></td></tr>
         <tr><td>llama.cpp <code>llama-server</code></td><td><code>http://localhost:8080/v1</code></td></tr>
         <tr><td>Groq</td><td><code>https://api.groq.com/openai/v1</code></td></tr>
         <tr><td>OpenRouter</td><td><code>https://openrouter.ai/api/v1</code></td></tr>
@@ -306,32 +324,34 @@
       </tbody>
     </table>
 
+    <p>The <strong>presets</strong> dropdown at the end of the base-URL field fills in the documented endpoint for OpenAI, llama.cpp (<code>llama-server</code>), LM Studio, vLLM and LiteLLM in one click. The table above is the fuller reference for the providers that aren&rsquo;t in that dropdown.</p>
+
     <div class="callout note">
       <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <div class="callout-body">
         <div class="callout-title">One endpoint at a time</div>
-        <p>Only one OpenAI-compatible endpoint is active at a time. To switch providers (say, from Groq to OpenRouter) change the base URL and key in Settings — your chats with the previous endpoint are preserved.</p>
+        <p>Only one OpenAI-compatible endpoint is active at a time. To switch providers (say, from Groq to OpenRouter) change the base URL and key in Settings. Your chats with the previous endpoint keep their history, but from then on every API chat goes to the new endpoint - pick one of its models from the chat header if the old model name isn&rsquo;t served there.</p>
       </div>
     </div>
 
     <h2 id="default-model">Default model</h2>
-    <p>Pick the model new chats should open with — independently for each provider. New conversations honour the default; you can still change the model per-chat from the header.</p>
+    <p><strong>Settings → General → Default model</strong> picks the model new chats open with: whichever you used most recently, the last model you used on a given provider, or one specific model. You can still change the model per chat from the header. See <a href="features/default-model.html">Default model selector</a>.</p>
 
     <h2 id="preload">Preloading and Low VRAM</h2>
     <p>Two settings worth knowing about for local providers:</p>
     <ul>
-      <li><strong>Model preloading</strong> — optionally warm your default local model into VRAM at launch, so the first message streams faster.</li>
-      <li><strong>Low VRAM mode</strong> — a global or per-chat toggle that sends Ollama's <code>low_vram</code> flag with every request. Useful on lower-spec devices.</li>
+      <li><strong><a href="features/model-preloading.html">Model preloading</a></strong> - <strong>Preload on startup</strong>, under the default-model picker, warms your default Ollama model into VRAM at launch so the first message streams faster.</li>
+      <li><strong><a href="features/low-vram.html">Low VRAM mode</a></strong> - a global or per-chat toggle that sends Ollama&rsquo;s <code>low_vram</code> flag with every request. Useful on lower-spec devices.</li>
     </ul>
 
     <div class="page-nav">
       <a href="concepts.html">
         <span class="label">Previous</span>
-        <span class="title">← Core concepts</span>
+        <span class="title">&larr; Core concepts</span>
       </a>
       <a href="features.html" class="next">
         <span class="label">Next</span>
-        <span class="title">Features →</span>
+        <span class="title">Features &rarr;</span>
       </a>
     </div>
 
