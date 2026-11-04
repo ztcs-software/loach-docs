@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spaces & memory - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides." />
+  <meta name="description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space uploads that are refused or ignored, and instruction overrides." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/spaces-memory.html" />
   <meta property="og:title" content="Spaces &amp; memory - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides." />
+  <meta property="og:description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space uploads that are refused or ignored, and instruction overrides." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Spaces &amp; memory - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides." />
+  <meta name="twitter:description" content="Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space uploads that are refused or ignored, and instruction overrides." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Spaces & memory - Troubleshooting",
-      "description": "Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space source limits and instruction overrides.",
+      "description": "Troubleshoot Loach Spaces and memory: facts not saved, wrong facts, /remember saying memory is off, memories marked not sent, Space uploads that are refused or ignored, and instruction overrides.",
       "url": "https://docs.loach.dev/pages/troubleshooting/spaces-memory.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -269,9 +271,10 @@
     <h2 id="memory-not-saved">Memories aren&rsquo;t being saved</h2>
     <p class="problem-statement">You expect memory to pick up facts, but nothing appears in the Space&rsquo;s Memory tab or the global memories list.</p>
     <ul>
-  <li>Memory extraction only runs <strong>after a complete assistant reply</strong>. Cancelled or errored turns are skipped.</li>
-  <li>In a Space, the switch on the Space&rsquo;s <strong>Memory</strong> tab must be on. Outside a Space, nothing is saved until you turn on <strong>Settings &rarr; Features &rarr; Global memories</strong>. Space chats never write to global memories, and <a href="../features/private-chat.html">Private Chat</a> never saves anything.</li>
+  <li>Memory extraction only runs <strong>after a complete assistant reply</strong>. Cancelled or errored turns are skipped. It also waits until the model is free - no other reply running or queued - so facts can turn up a little later; turns still waiting are kept if you quit, and picked up on the next launch.</li>
+  <li>In a Space, <strong>Memory</strong> must be on in the Space&rsquo;s <strong>Settings</strong> tab. Outside a Space, nothing is saved until you turn on <strong>Settings &rarr; Features &rarr; Global memories</strong>. Space chats never write to global memories, and <a href="../features/private-chat.html">Private Chat</a> never saves anything.</li>
   <li>Only what you typed counts. Facts in attached files or fetched web pages are ignored, and so are requests (&ldquo;write me a script&rdquo;) - most turns produce nothing, and that&rsquo;s normal. To save something specific, use <code>/remember &lt;fact&gt;</code>.</li>
+  <li>Passwords, PINs, API keys and other credentials are never saved, even ones you share about yourself - memory is stored as plain text and sent to models. Facts you add yourself aren&rsquo;t filtered.</li>
   <li>A fact that repeats one you already have is dropped, and each fact the extractor saves must be <strong>at most 280 characters</strong>.</li>
   <li>Memory uses the same provider and model the chat is using, and gives up after a minute. Tiny or slow models often return empty extractions; try a larger one.</li>
 </ul>
@@ -283,7 +286,7 @@
 
     <h2 id="remember-off">&ldquo;Memory is off&rdquo; when using <code>/remember</code></h2>
     <p class="problem-statement"><code>/remember</code> answers <em>Memory is off for &ldquo;&hellip;&rdquo;</em> or <em>Global memory is off</em> and saves nothing.</p>
-    <p><code>/remember</code> follows the same switches as automatic memory. In a Space chat, turn on the switch on the Space&rsquo;s <strong>Memory</strong> tab. Outside a Space, turn on <strong>Settings &rarr; Features &rarr; Global memories</strong>, or run the command in a chat inside a Space. The <strong>Add</strong> field in the memory editor is unavailable for the same reason.</p>
+    <p><code>/remember</code> follows the same switches as automatic memory. In a Space chat, turn on <strong>Memory</strong> in the Space&rsquo;s <strong>Settings</strong> tab (the <strong>Change in Settings</strong> link on its Memory tab goes there). Outside a Space, turn on <strong>Settings &rarr; Features &rarr; Global memories</strong>, or run the command in a chat inside a Space. The <strong>Add</strong> field in the memory editor is unavailable for the same reason.</p>
 
     <h2 id="not-sent">A memory is marked &ldquo;not sent&rdquo;</h2>
     <p class="problem-statement">The memory editor tags some older facts <em>not sent</em>, and the model doesn&rsquo;t seem to know them.</p>
@@ -291,8 +294,9 @@
 
     <h2 id="reference-cap">Reference sources won&rsquo;t add to a Space</h2>
     <p class="problem-statement">Adding a source to a Space fails or silently does nothing.</p>
-    <p>Each file can be at most <strong>20 MB</strong> (<em>&hellip; exceeds the 20 MB limit</em>), and a Space&rsquo;s sources at most <strong>200 MB</strong> in total (<em>&hellip; would exceed the 200 MB space limit</em>; at the limit, <strong>Add source</strong> is disabled). Remove older sources, or move the content into a smaller text file.</p>
-    <p>If a source was added but the model ignores it: formats Loach can&rsquo;t read (such as legacy <code>.doc</code> files or archives) are stored but never sent, and a scanned PDF has no text to extract - add its pages as images instead.</p>
+    <p>Each upload can be at most <strong>20 MB</strong> (<em>&hellip; exceeds the 20 MB limit</em>), and a Space&rsquo;s uploads at most <strong>200 MB</strong> in total (<em>&hellip; would exceed the 200 MB space limit</em>; at the limit, the Sources tab reads <em>Reached the 200 MB upload limit</em> and <strong>Upload</strong> is disabled). Library items linked with <strong>From Library</strong> don&rsquo;t count toward that limit. Remove older uploads, or move the content into a smaller text file - or into your <a href="../features/library.html">Library</a>, and link it from there.</p>
+    <p>Each file is read on its own, so one that fails doesn&rsquo;t stop the rest, and the error lists each failed file on its own line. A scanned PDF, an empty Word document or an empty text file is refused with <em>&hellip; no readable text</em> (<em>- it may be a scanned PDF</em> for a scan): add its pages as images instead, or a text version.</p>
+    <p>If a source was added but the model ignores it: a source switched off on the Sources tab isn&rsquo;t sent, and formats Loach can&rsquo;t read (spreadsheets, archives, legacy <code>.doc</code> files) are kept but marked <strong>unreadable</strong> and never sent - see <a href="library.html#unreadable-upload">A Space upload says &ldquo;unreadable&rdquo;</a>. A long source may reach the model only as excerpts - see <a href="library.html#source-ignored">The model ignored my source</a>.</p>
 
     <h2 id="space-instructions">Space instructions seem to override my custom instructions</h2>
     <p class="problem-statement">Your global Custom Instructions, or a chat&rsquo;s own instructions, don&rsquo;t appear to apply in chats inside a Space.</p>
@@ -302,9 +306,9 @@
         <span class="label">Previous</span>
         <span class="title">&larr; Tools, MCP &amp; folders</span>
       </a>
-      <a href="app-lock.html" class="next">
+      <a href="library.html" class="next">
         <span class="label">Next</span>
-        <span class="title">App lock &rarr;</span>
+        <span class="title">Library &rarr;</span>
       </a>
     </div>
 

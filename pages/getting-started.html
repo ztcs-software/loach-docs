@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -281,19 +283,19 @@ ollama pull gemma4:e4b      # or any other tag</code></pre>
     <h2 id="openai">Using with an OpenAI-compatible endpoint</h2>
     <p>Open <strong>Settings → Providers</strong>, paste your API key (stored safely in your OS credential manager), and point the base URL to a compatible endpoint. Local servers such as LM Studio, vLLM or llama.cpp usually need no key at all. The menu next to the base URL field fills in the common ones:</p>
 
-    <table>
+    <div class="table-wrap"><table>
       <thead>
         <tr><th>Provider</th><th>Base URL</th></tr>
       </thead>
       <tbody>
         <tr><td>OpenAI</td><td><code>https://api.openai.com/v1</code> <em>(default)</em></td></tr>
-        <tr><td>vLLM</td><td><code>http://localhost:8000/v1</code></td></tr>
-        <tr><td>LM Studio</td><td><code>http://localhost:1234/v1</code></td></tr>
-        <tr><td>LiteLLM</td><td><code>http://localhost:4000</code></td></tr>
         <tr><td>llama.cpp <code>llama-server</code></td><td><code>http://localhost:8080/v1</code></td></tr>
+        <tr><td>LM Studio</td><td><code>http://localhost:1234/v1</code></td></tr>
+        <tr><td>vLLM</td><td><code>http://localhost:8000/v1</code></td></tr>
+        <tr><td>LiteLLM</td><td><code>http://localhost:4000</code></td></tr>
         <tr><td>Other</td><td>per their docs</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <p>Only one OpenAI-compatible endpoint is active at a time - switch the base URL in Settings whenever you want to point to a different provider.</p>
 
@@ -308,9 +310,10 @@ ollama pull gemma4:e4b      # or any other tag</code></pre>
 
     <h2 id="next-steps">Next steps</h2>
     <ul>
-      <li>Read <a href="concepts.html">Core concepts</a> to understand chats, Spaces, Snippets and parameters.</li>
+      <li>Read <a href="concepts.html">Core concepts</a> to understand chats, Spaces, the Library, Snippets and parameters.</li>
       <li>Skim <a href="features.html">Features</a> to see what else is available - built-in tools, MCP servers, web fetch, code canvas, LaTeX math and more.</li>
       <li>Let the model <a href="features/work-in-folders.html">work in a folder</a> - add one from the <strong>+</strong> menu next to the message box.</li>
+      <li>Save notes, documents and web pages to the <a href="features/library.html">Library</a> once, then attach them to any chat with <strong>+</strong> &rarr; <strong>From Library</strong> or by typing <code>#</code>.</li>
       <li>Turn on <a href="features/memory.html">Global memories</a> in <strong>Settings → Features</strong> so Loach remembers lasting facts about you across chats.</li>
       <li>Learn the <a href="features/keyboard.html">keyboard shortcuts</a> - <kbd>Ctrl</kbd> + <kbd>/</kbd> shows them in-app.</li>
       <li>Lock the app behind a PIN or password - see <a href="features/app-lock.html">App lock</a>.</li>

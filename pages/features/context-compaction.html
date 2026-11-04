@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -268,14 +270,15 @@
     <h2 id="usage-bar">The context-usage bar</h2>
     <p>The bar appears once a chat has messages. It reports <code>used / total</code> tokens and a percentage, and turns amber from 70% and red from 90%. Click it for a popover that breaks the estimate down:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">System prompt</strong> - this chat&rsquo;s own instructions (or your global Custom instructions), including any compaction summary.</li>
+      <li><strong class="feat-name">System prompt</strong> - the instructions the chat sends: its <a href="spaces.html">Space&rsquo;s</a> instructions in a Space, otherwise this chat&rsquo;s own (or your global Custom instructions), including any compaction summary.</li>
       <li><strong class="feat-name">Project instructions (LOACHFILE.md)</strong> - shown when the chat has a <a href="work-in-folders.html#loachfile">folder</a> with a <code>LOACHFILE.md</code> and <strong>Workspace files</strong> is on.</li>
       <li><strong class="feat-name">Memories</strong> - the global and Space <a href="memory.html#what-the-model-sees">memory</a> facts that ride along with each turn, when there are any.</li>
-      <li><strong class="feat-name">Messages</strong> - the back-and-forth so far, with a count. <em>Of which attachments</em> calls out how much of that is attached files.</li>
+      <li><strong class="feat-name">Sources</strong> - what the next message will spend on the chat&rsquo;s text sources: its own <a href="library.html#using-sources">Library sources</a> plus those it gets from its Space. The row reads <em>Sources (N)</em>, or <em>Sources (N, excerpts)</em> when they&rsquo;re searched rather than sent in full (see <a href="library.html#source-modes">source modes</a>), and shows only when the chat has any.</li>
+      <li><strong class="feat-name">Messages</strong> - the back-and-forth so far, with a count. A muted <em>of which attachments</em> row calls out how much of that is attached files.</li>
       <li><strong class="feat-name">Window</strong> and <strong>Remaining</strong> - the chat&rsquo;s context length and what&rsquo;s left of it.</li>
     </ul>
-    <p>It&rsquo;s an estimate - about four characters per token - so actual counts vary by model. A Space&rsquo;s own instructions and reference files aren&rsquo;t counted, and neither are the persona and tone. The window is the chat&rsquo;s <a href="parameters.html#ref-length">Context Length</a> setting; an OpenAI-compatible server picks its own window, so on those chats treat the percentage as a rough guide.</p>
-    <p><strong>Expand context window</strong> at the bottom of the popover doubles this chat&rsquo;s Context Length - for example from 8K to 16K. On Ollama a bigger window uses more VRAM.</p>
+    <p>It&rsquo;s an estimate, so actual counts vary by model. Messages and attachments are counted at about four characters per token; the system prompt, project instructions, memories and sources at about four per token for Latin-script text and about one per character for Chinese, Japanese and Korean. A reply&rsquo;s thinking isn&rsquo;t counted, since it&rsquo;s never sent back to the model, and neither are the persona and tone. The window is the chat&rsquo;s <a href="parameters.html#ref-length">Context Length</a> setting. An OpenAI-compatible server picks its own window, so on those chats the bar measures against an assumed 32,768 tokens (<em>33k</em> on the bar) unless the chat or its Space sets a Context Length - set it to your model&rsquo;s window, and treat the percentage as a rough guide.</p>
+    <p><strong>Expand context window</strong> at the bottom of the popover doubles this chat&rsquo;s Context Length - for example from 8K to 16K - and a bigger window uses more VRAM. It&rsquo;s offered on Ollama chats only, since an OpenAI-compatible server decides its window itself.</p>
 
     <h2 id="compact">Compact context</h2>
     <p>Press <strong>Compact context</strong> in the bar&rsquo;s popover, or use the <code>/compact</code> <a href="slash-commands.html">slash command</a>. Loach asks the chat&rsquo;s own model to summarise the older turns as short bullet points - your goals, decisions, key facts and open threads - and keeps that summary with the chat&rsquo;s instructions. The four most recent messages stay as they are; everything before them is replaced, for the model, by the summary.</p>
@@ -290,7 +293,8 @@
     </ul>
 
     <h3 id="summary-and-instructions">Where the summary lives</h3>
-    <p>The summary is stored with the chat&rsquo;s own instructions, so you can read - and edit - it in the <a href="parameters.html#system-prompt">Additional instructions</a> box of the parameters panel, between <code>[Loach: earlier conversation summary]</code> markers. It doesn&rsquo;t count as an instruction, though: it rides along with whichever instructions apply - a Space&rsquo;s, the chat&rsquo;s own, or your global <a href="custom-instructions.html">Custom instructions</a> - so compacting a chat never switches those off. Setting or clearing instructions with <code>/instructions</code> keeps the summary in place.</p>
+    <p>The summary is stored with the chat&rsquo;s own instructions, so you can read - and edit - it in the <a href="parameters.html#system-prompt">Additional instructions</a> box of the parameters panel, between the <code>[Loach: earlier conversation summary]</code> and <code>[End of Loach summary]</code> markers. It doesn&rsquo;t count as an instruction, though: it rides along with whichever instructions apply - a Space&rsquo;s, the chat&rsquo;s own, or your global <a href="custom-instructions.html">Custom instructions</a> - so compacting a chat never switches those off. Setting or clearing instructions with <code>/instructions</code> keeps the summary in place.</p>
+    <p>Emptying the chat with <code>/clear</code> removes the summary along with the messages and keeps your own instructions; it isn&rsquo;t allowed while the chat is being compacted. A <a href="import-export.html#fork">fork</a> keeps the summary, unless you fork from a reply before the last compacted turn: then the fork drops the summary and sends the turns it copied in full again.</p>
 
     <div class="callout note">
       <div class="callout-body">

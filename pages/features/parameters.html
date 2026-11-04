@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Per-chat parameters - Loach Docs</title>
-  <meta name="description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
+  <meta name="description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM, image scaling and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/parameters.html" />
   <meta property="og:title" content="Per-chat parameters - Loach Docs" />
-  <meta property="og:description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
+  <meta property="og:description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM, image scaling and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Per-chat parameters - Loach Docs" />
-  <meta name="twitter:description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
+  <meta name="twitter:description" content="Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM, image scaling and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Per-chat parameters",
-      "description": "Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides.",
+      "description": "Every chat has a parameters panel for temperature, top-p, top-k, context length, thinking, Low VRAM, image scaling and a per-chat system prompt. Values cascade from app defaults all the way down to per-chat overrides.",
       "url": "https://docs.loach.dev/pages/features/parameters.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -269,26 +271,27 @@
     <h2 id="simple-advanced">Simple and Advanced modes</h2>
     <p>The panel has two views:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Simple</strong> - the Thinking toggle, Context Length, the Low VRAM toggle, persona, tone and the per-chat <strong>Additional instructions</strong> box. Deliberately terse so the common knobs are reachable without scrolling.</li>
+      <li><strong class="feat-name">Simple</strong> - the Thinking toggle, Context Length, the Low VRAM toggle, image scaling, persona, tone and the per-chat <strong>Additional instructions</strong> box. Deliberately terse so the common knobs are reachable without scrolling.</li>
       <li><strong class="feat-name">Advanced</strong> - adds Temperature, Top-P, Top-K, Min-P, Max Tokens, Repeat Penalty, Frequency and Presence Penalty, GPU Layers and Seed.</li>
     </ul>
     <p>Switch between them at the top of the panel; Loach remembers the view you used last. Values you set in one view stay set in the other. Just below the switch, a short line says where the values come from - the model&rsquo;s Modelfile defaults, the app defaults, or <em>Custom - adjusted for this chat</em> once you have changed something.</p>
-    <p><a href="private-chat.html">Private Chat</a> has its own copy of the Simple view (there is no Advanced view there), and it is wiped along with the rest of the overlay.</p>
+    <p><a href="private-chat.html">Private Chat</a> has its own copy of the Simple view (there is no Advanced view there, and no Images section - its images follow the app setting), and it is wiped along with the rest of the overlay.</p>
 
     <h2 id="cascade">How the values cascade</h2>
     <p>What a chat actually sends to the model is a merge of several layers. From broadest to narrowest, with later layers winning:</p>
     <ol>
       <li><strong>App defaults</strong> - a universal fallback: temperature 0.7, top-p 0.95, top-k 40, min-p 0.05, max tokens 4096, context length 8K, repeat penalty 1.1, no frequency or presence penalty, and a random seed.</li>
       <li><strong>Global Thinking default</strong> - the <strong>Settings → Features → Thinking</strong> switch (Ollama only).</li>
-      <li><strong>Model defaults</strong> - the <code>PARAMETER</code> lines of the Ollama model&rsquo;s Modelfile (temperature, top-p, top-k, min-p, <code>num_predict</code>, <code>num_ctx</code>, <code>num_gpu</code>, the penalties and seed). Read from Ollama when the chat uses the model, and cached while Loach runs.</li>
-      <li><strong>Per-model Thinking preference</strong> - the toggle you set in the <a href="model-management.html">Models editor</a>. It lasts until Loach restarts.</li>
+      <li><strong>Model defaults</strong> - the <code>PARAMETER</code> lines of the Ollama model&rsquo;s Modelfile (temperature, top-p, top-k, min-p, <code>num_predict</code>, <code>num_ctx</code>, <code>num_gpu</code>, the penalties and seed). Read from Ollama when you open or send in a chat with the model, and cached while Loach runs; a read that fails - say, before Ollama has started - is tried again next time. A value a chat can&rsquo;t send, such as <code>num_predict -1</code>, is skipped, so the app default applies.</li>
+      <li><strong>Per-model Thinking preference</strong> - the toggle you set in the <a href="model-management.html">Models editor</a>, remembered on this device.</li>
       <li><strong>Per-chat overrides</strong> - what you change in <em>this</em> panel (or with <code>/thinking on|off</code>).</li>
       <li><strong>Global Low VRAM pin</strong> - <strong>Settings → Features → Low VRAM mode</strong> forces <code>low_vram: true</code> on every Ollama request and beats the per-chat toggle.</li>
     </ol>
-    <p>Changing any value saves the whole set you see as this chat&rsquo;s overrides, so switching the chat to another model later doesn&rsquo;t quietly shift them. The <strong>Reset to defaults</strong> button below the sliders - labelled <strong>Reset to model defaults</strong> when the model ships Modelfile defaults - drops the chat&rsquo;s overrides and falls back to the layers above. It stays greyed out until something has been overridden.</p>
+    <p>Changing any value saves the whole set you see as this chat&rsquo;s overrides, so switching the chat to another model later doesn&rsquo;t quietly shift them. The <strong>Reset to defaults</strong> button below the sliders - labelled <strong>Reset to model defaults</strong> when the model ships Modelfile defaults - drops the chat&rsquo;s overrides and falls back to the layers above. It stays greyed out until something has been overridden. If a change can&rsquo;t be saved, a <strong>Couldn&rsquo;t save parameters</strong> toast says why and the chat keeps its previous values.</p>
+    <p>From the composer, <code>/set &lt;param&gt; &lt;value&gt;</code> changes one value - for example <code>/set temperature 0.4</code> - but saves just that one as an override, not the whole set you see (<code>/thinking on|off</code> works the same way), and <code>/set reset</code> does what the reset button does. It takes <code>temperature</code>, <code>top_p</code>, <code>top_k</code>, <code>min_p</code>, <code>num_ctx</code>, <code>max_tokens</code>, <code>repeat_penalty</code>, <code>frequency_penalty</code>, <code>presence_penalty</code>, <code>num_gpu</code> and <code>seed</code>, within the panel&rsquo;s own ranges (<code>num_ctx</code> must be one of the slider&rsquo;s stops). See <a href="slash-commands.html">Slash commands</a>.</p>
 
     <h2 id="settings-reference">Settings reference</h2>
-    <p>A short description of every knob the panel exposes, grouped the way the panel groups them. Anything tagged <em>Ignored by OpenAI providers</em> is sent to Ollama only - OpenAI-compatible endpoints decide that knob server-side, and the panel dims it on those chats. Temperature, Top-P, Max Tokens, both penalties and Seed are sent to either kind of provider.</p>
+    <p>A short description of every knob the panel exposes, grouped the way the panel groups them. Anything tagged <em>Ignored by OpenAI providers</em> is sent to Ollama only - OpenAI-compatible endpoints decide that knob server-side, and the panel dims it on those chats. Temperature, Top-P, Max Tokens, both penalties and Seed are sent to either kind of provider (when a reasoning model refuses one, Loach adjusts the request and sends it again - see <a href="provider-selection.html#cloud-openai">Provider selection</a>).</p>
 
     <h3 id="ref-thinking">Thinking</h3>
     <ul class="feature-list">
@@ -297,7 +300,7 @@
 
     <h3 id="ref-sampling">Sampling</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Temperature <code>0&ndash;1</code></strong> - controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that.</li>
+      <li><strong class="feat-name">Temperature <code>0&ndash;1</code></strong> - controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that. A Modelfile can still set more - the readout then shows the real value, such as 1.2, with the slider at its end.</li>
       <li><strong class="feat-name">Top-P <code>0&ndash;1</code></strong> - nucleus sampling. The model picks from the smallest set of tokens whose probabilities sum to this value. Lower = more on-track; higher = more variety.</li>
       <li><strong class="feat-name">Top-K <code>0&ndash;200</code></strong> - only consider the K most likely tokens at each step. Lower is more focused; <code>0</code> disables the cap. Ignored by OpenAI providers.</li>
       <li><strong class="feat-name">Min-P <code>0&ndash;0.5</code></strong> - drops any token whose probability is below this fraction of the top token&rsquo;s. A robust alternative to tuning Top-P/Top-K. Ignored by OpenAI providers.</li>
@@ -305,7 +308,7 @@
 
     <h3 id="ref-length">Length</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Context Length</strong> (<code>num_ctx</code>) - how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K &rarr; 1M). Ignored by OpenAI providers - the server decides. The <a href="context-compaction.html">context-usage bar</a> measures against this value, and its <strong>Expand context window</strong> button doubles it.</li>
+      <li><strong class="feat-name">Context Length</strong> (<code>num_ctx</code>) - how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K &rarr; 1M); a Modelfile value off the stops, such as 2048, still reads as is. Not sent to OpenAI providers - the server decides - but Loach sizes <a href="library.html#source-modes">Library sources</a> and the context bar by it there too, assuming 32K until you set it, so set it to your model&rsquo;s window. The <a href="context-compaction.html">context-usage bar</a> measures against this value, and on Ollama chats its <strong>Expand context window</strong> button doubles it.</li>
       <li><strong class="feat-name">Max Tokens <code>128&ndash;32768</code></strong> - hard cap on the length of a single reply. Generation stops here even if the model isn&rsquo;t finished.</li>
     </ul>
 
@@ -318,13 +321,18 @@
 
     <h3 id="ref-performance">Performance</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">GPU Layers</strong> (<code>num_gpu</code>) - how many model layers to offload to the GPU. Blank = Ollama auto-detects; <code>0</code> = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). The clear button next to the field goes back to auto-detect. Ignored by OpenAI providers.</li>
+      <li><strong class="feat-name">GPU Layers</strong> (<code>num_gpu</code>) - how many model layers to offload to the GPU. Blank = the model&rsquo;s default when its Modelfile sets one, otherwise Ollama auto-detects; <code>0</code> = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). The clear button next to the field goes back to that default. Ignored by OpenAI providers.</li>
       <li><strong class="feat-name">Low VRAM</strong> - trades throughput for footprint (smaller batches, leaner KV cache). Flip on when you&rsquo;re hitting OOMs and <code>num_gpu</code> alone isn&rsquo;t enough. Can be pinned on globally in <strong>Settings → Features</strong>, which forces the per-chat toggle on. Ignored by OpenAI providers.</li>
     </ul>
 
     <h3 id="ref-reproducibility">Reproducibility</h3>
     <ul class="feature-list">
-      <li><strong class="feat-name">Seed</strong> - a fixed integer makes the model&rsquo;s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place, and the clear button goes back to random.</li>
+      <li><strong class="feat-name">Seed</strong> - a fixed integer makes the model&rsquo;s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place, and the clear button goes back to random. Only whole numbers are accepted, below 2<sup>53</sup> either way; anything else reverts to the seed in effect.</li>
+    </ul>
+
+    <h3 id="ref-images">Images</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Image scaling</strong> - how images are scaled down before they reach the model in this chat: <strong>Default</strong> follows the chat&rsquo;s Space, or else the app setting (<strong>Settings &rarr; Features &rarr; Image scaling</strong>; Library images check <strong>Settings &rarr; Library</strong> first); <strong>Scale down</strong> caps the longest side in pixels or shrinks to a percentage; <strong>Original</strong> sends them as they are. The image stored in the chat stays the original. Shown in both views, below the reset button, and not cleared by it. See <a href="attachments.html#image-scaling">Image scaling</a>.</li>
     </ul>
 
     <h3 id="ref-prompt-layering">Prompt layering</h3>
@@ -335,7 +343,7 @@
     </ul>
 
     <h2 id="thinking">Thinking toggle</h2>
-    <p>The Thinking row is always shown, but it only switches on for Ollama models whose capabilities include <code>thinking</code>. On other models it is disabled with <em>This model doesn&rsquo;t support a thinking step</em>; on OpenAI-compatible chats it is disabled and reads off. It sets the <code>think</code> parameter on the chat request.</p>
+    <p>The Thinking row is always shown, but it only switches on for Ollama models whose capabilities include <code>thinking</code>. On other models it is disabled with <em>This model doesn&rsquo;t support a thinking step</em>; on OpenAI-compatible chats it is disabled and reads off. It sets the <code>think</code> parameter on the chat request, which Loach sends only to models that list the capability - any other model, or one whose capabilities couldn&rsquo;t be read, uses its own default.</p>
     <p>The default comes from <strong>Settings → Features → Thinking</strong>, which is on out of the box; a per-model preference from the Models editor or this chat&rsquo;s toggle wins over it. Type <code>/thinking on</code> or <code>/thinking off</code> in the composer to flip it for the current chat without opening the panel.</p>
 
     <h2 id="low-vram">Low VRAM toggle</h2>

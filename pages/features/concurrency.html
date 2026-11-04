@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -267,29 +269,30 @@
 
     <h2 id="one-at-a-time">One generation at a time</h2>
     <p>Local models are heavy on hardware: most of the time only one prompt can stream at once without thrashing VRAM or pinning the CPU. Loach enforces this at the application level, regardless of which chats or providers are involved. The benefit is predictable performance - no two chats fighting for the same GPU - and a clear mental model of what is happening.</p>
-    <p>Inside a single chat the rule is even simpler: one request per chat. While a reply streams, the send button becomes a stop button and the message box reads <em>Replying - press the Stop button to cancel and ask again&hellip;</em>. While the chat waits in the queue, the box reads <em>This chat is waiting in the queue&hellip;</em> and sending stays disabled until its prompt runs or you cancel it.</p>
+    <p>Inside a single chat the rule is even simpler: one request per chat. While a reply streams, the send button becomes a stop button and the message box reads <em>Replying - press the Stop button to cancel and ask again&hellip;</em>. While the chat waits in the queue, the box reads <em>This chat is waiting in the queue&hellip;</em> and sending stays disabled until its prompt runs or you cancel it. Sending again while a message is still being prepared does nothing and keeps your draft.</p>
 
     <h2 id="the-queue">The queue</h2>
     <p>Send a prompt while another chat is busy and your request is parked. The chat&rsquo;s row in the sidebar shows a spinner so you can see at a glance which chats are waiting, and the chat itself shows a <strong>Waiting for other chats to finish&hellip;</strong> card under your message. The queue is strictly first-in, first-out - earlier requests run before later ones.</p>
-    <p>You can keep typing in other chats while you wait, switch around the sidebar, or browse Spaces and Snippets - the queue keeps running in the background, also while the window is hidden with <strong>Hide to tray</strong> from the tray icon&rsquo;s menu. Closing the window quits Loach, so anything still waiting in the queue doesn&rsquo;t run.</p>
+    <p>You can keep typing in other chats while you wait, switch around the sidebar, or browse Spaces and Snippets - the queue keeps running in the background, also while the window is hidden with <strong>Hide to tray</strong> from the tray icon&rsquo;s menu. On Windows and Linux closing the window quits Loach, so anything still waiting in the queue doesn&rsquo;t run; on macOS closing only hides the window, and the queue keeps going.</p>
 
     <h2 id="respond-now">Respond now</h2>
     <p>The waiting card in a queued chat has two buttons:</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Respond now</strong> - stops whatever generation is currently running (keeping its partial output, see below), moves this chat to the front of the queue and starts it immediately.</li>
-      <li><strong class="feat-name">Cancel</strong> - takes this prompt out of the queue. Your message stays in the transcript, and no reply is generated for it.</li>
+      <li><strong class="feat-name">Cancel</strong> - takes this prompt out of the queue. Your message stays in the transcript, and no reply is generated for it. The <code>/stop</code> <a href="slash-commands.html">slash command</a> does the same.</li>
     </ul>
     <p><strong>Respond now</strong> is the right tool when the in-flight reply has gone off the rails, or when you are switching contexts and the queued chat is the one you actually care about.</p>
 
     <h2 id="tool-approvals">Replies waiting for your approval</h2>
-    <p>When a reply pauses on a tool approval card - an <a href="mcp.html">MCP</a> tool call, or a change to a file in the chat&rsquo;s <a href="work-in-folders.html#approvals">folder</a> - it keeps its turn, so other chats queue behind it until you answer. If the card is in a chat you aren&rsquo;t looking at, Loach shows a notice with an <strong>Open</strong> button, and a queued chat&rsquo;s card reads <strong>Waiting for your approval of a tool call in &ldquo;&hellip;&rdquo;</strong> with a <strong>Go to it</strong> button. <strong>Respond now</strong> still works there: it cancels the reply that was waiting for approval. See <a href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders troubleshooting</a> if a reply seems stuck.</p>
+    <p>When a reply pauses on a tool approval card - an <a href="mcp.html">MCP</a> tool call, or a change to a file in the chat&rsquo;s <a href="work-in-folders.html#approvals">folder</a> - it keeps its turn, so other chats queue behind it until you answer - or until the card times out unanswered after 10 minutes. If the card is in a chat you aren&rsquo;t looking at, Loach shows a notice with an <strong>Open</strong> button, and a queued chat&rsquo;s card reads <strong>Waiting for your approval of a tool call in &ldquo;&hellip;&rdquo;</strong> with a <strong>Go to it</strong> button. <strong>Respond now</strong> still works there: it cancels the reply that was waiting for approval. See <a href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders troubleshooting</a> if a reply seems stuck.</p>
 
     <h2 id="private-chat">While Private Chat is open</h2>
-    <p>Opening <a href="private-chat.html">Private Chat</a> stops any regular reply that is streaming and holds the queue: nothing waiting in your regular chats starts until you close the overlay, and then the queue picks up where it left off.</p>
+    <p>Opening <a href="private-chat.html">Private Chat</a> stops any regular reply that is streaming and holds the queue: nothing waiting in your regular chats starts until you close the overlay (or Loach locks, which ends the Private Chat session), and then the queue picks up where it left off.</p>
 
     <h2 id="cancel-and-error">Cancelling and errors</h2>
-    <p>Whether you stop a stream yourself (the send button becomes a stop button while streaming) or <strong>Respond now</strong> pre-empts it, whatever was written so far stays in the transcript. If the provider fails or drops the connection mid-reply, the partial output is kept too, and an italic <em>&#9888;</em> error line is added at the end so a failed reply is never silently empty - you can see how far it got, decide what to do, and retry without losing context. Stopped and failed replies don&rsquo;t get a <a href="generation-stats.html">metrics chip</a>.</p>
-    <p>Archiving or deleting a chat also stops its reply, or takes it out of the queue if it was still waiting.</p>
+    <p>Whether you stop a stream yourself (the send button becomes a stop button while streaming, or type <code>/stop</code>) or <strong>Respond now</strong> pre-empts it, whatever was written so far stays in the transcript. If the provider fails or drops the connection mid-reply, the partial output is kept too, and an italic <em>&#9888;</em> error line is added at the end so a failed reply is never silently empty - you can see how far it got, decide what to do, and retry without losing context. Stopped and failed replies don&rsquo;t get a <a href="generation-stats.html">metrics chip</a>.</p>
+    <p>Archiving or deleting a chat also stops its reply, or takes it out of the queue if it was still waiting. The same holds for a message still being prepared - while Loach fetches its links or reads its sources, before it streams or joins the queue: <code>/stop</code>, archiving, deleting or <code>/clear</code> then keeps its reply from starting at all.</p>
+    <p>If Loach can&rsquo;t create the reply at all, a <strong>Couldn&rsquo;t start the reply</strong> notice names the chat and the reason, and a chat you aren&rsquo;t looking at gets its unread dot, so a message is never left silently unanswered.</p>
     <div class="page-nav">
       <a href="pinned-responses.html">
         <span class="label">Previous</span>

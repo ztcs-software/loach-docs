@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -268,7 +270,7 @@
     <h2 id="adding-a-folder">Adding a folder</h2>
     <p>Click the <strong>+</strong> button next to the message box and choose <strong>Add directory</strong>, then pick a folder in the system dialog. The same menu&rsquo;s <strong>Add files</strong> is something else: it attaches file contents to one message (see <a href="attachments.html">Attachments</a>), while a directory gives the model tools over a folder for the rest of the chat.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Start the chat first</strong> - a chat needs its first message before it can have a folder; until then the item reads <em>Send a message first to start this chat</em>.</li>
+      <li><strong class="feat-name">Start the chat first on a Space&rsquo;s page</strong> - the message box on a Space&rsquo;s page starts a new chat, so it has no chat to give a folder to yet: the item is greyed out and reads <em>Send a message first to start this chat</em>. Send the first message, then add the folder in the chat that opens. A new chat started anywhere else can get a folder before its first message.</li>
       <li><strong class="feat-name">Not too wide</strong> - the picker refuses a whole drive (<code>C:\</code>, <code>/</code>) and Loach&rsquo;s own data folder, which holds every chat.</li>
       <li><strong class="feat-name">Switches the tools on</strong> - picking a folder turns on <strong>Settings &rarr; Tools &rarr; Workspace files</strong> if it was off, and a notice says so. That one switch covers all eight file tools.</li>
     </ul>
@@ -283,11 +285,11 @@
     <ul class="feature-list">
       <li><strong class="feat-name"><code>list_directory</code></strong> - a tree of a directory, two levels deep by default and at most eight. Dependency and build directories (<code>node_modules</code>, <code>target</code>, <code>dist</code>, <code>.git</code>, <code>.venv</code>, &hellip;) are listed but not descended into, and links are marked rather than followed. Stops at 500 entries.</li>
       <li><strong class="feat-name"><code>find_files</code></strong> - find files by name with a glob, ignoring case: <code>*.rs</code> anywhere, or <code>src/**/*.test.ts</code> by path. Stops at 200 results.</li>
-      <li><strong class="feat-name"><code>read_file</code></strong> - a text file&rsquo;s contents with line numbers, for files up to 4&nbsp;MB. Long files come back a page at a time, saying which line to continue from, and lines past 2,000 characters are clipped.</li>
+      <li><strong class="feat-name"><code>read_file</code></strong> - a text file&rsquo;s contents with line numbers, for files up to 4&nbsp;MB. A bigger file - a log that grows past the limit while it is being read included - is refused with a pointer to <code>search_files</code>. Long files come back a page at a time, saying which line to continue from, and lines past 2,000 characters are clipped.</li>
       <li><strong class="feat-name"><code>search_files</code></strong> - regular-expression search across file contents, case-insensitive by default and optionally limited to some extensions, returning each match with its file and line number. Skips binaries and files over 512&nbsp;KB, and stops at 100 matches or 2,000 files.</li>
       <li><strong class="feat-name"><code>write_file</code></strong> - create a file or replace one whole, up to 1&nbsp;MB, creating missing folders on the way.</li>
       <li><strong class="feat-name"><code>edit_file</code></strong> - replace an exact snippet in a file of up to 4&nbsp;MB. A snippet that matches more than once is refused unless the model asks to replace every occurrence, which the approval card points out. One edit may grow a file by at most 1&nbsp;MB.</li>
-      <li><strong class="feat-name"><code>move_file</code></strong> - rename or move a file or directory, never overwriting anything. A rename that only changes case (<code>readme.md</code> &rarr; <code>README.md</code>) works on Windows and macOS too.</li>
+      <li><strong class="feat-name"><code>move_file</code></strong> - rename or move a file or directory, never overwriting anything. A rename that only changes case (<code>readme.md</code> &rarr; <code>README.md</code>) works on Windows and macOS too; on a case-sensitive filesystem it is refused when the new name is a separate entry, such as a link.</li>
       <li><strong class="feat-name"><code>delete_file</code></strong> - remove one file, or one empty directory, per call; there is no recursive delete. Deletion is permanent: nothing goes to the Recycle Bin or Trash.</li>
     </ul>
     <p><code>find_files</code> and <code>search_files</code> go at most eight levels below where they start, and both give up after looking at 50,000 entries. Every tool that stops early says so, so the model can narrow its search rather than conclude a file isn&rsquo;t there. The skipped dependency and build directories can still be read or searched when the model names one directly.</p>
@@ -307,24 +309,25 @@
       <li><strong class="feat-name">Allow <em>tool</em> for this chat</strong> - run it, and stop asking for that tool in this chat.</li>
       <li><strong class="feat-name">Deny</strong> - the model is told you declined and carries on without it.</li>
     </ul>
-    <p>A card left unanswered for 10 minutes isn&rsquo;t run, and <strong>Stop</strong> cancels the reply as usual - though a change already being written when you press it still finishes on disk, and its entry says it may or may not have completed.</p>
+    <p>A card left unanswered for 10 minutes isn&rsquo;t run, and <strong>Stop</strong> cancels the reply as usual - though a write, edit, move or delete already running when you press it is let finish, and its real result is recorded before the reply stops.</p>
 
     <h3 id="allow-for-this-chat">How far &ldquo;for this chat&rdquo; reaches</h3>
-    <p>The answer is kept in memory, never saved, and is tied to the folder it was given for. It ends when you change or remove the chat&rsquo;s folder, delete the chat, switch <strong>Workspace files</strong> off, or quit Loach. It covers only Loach&rsquo;s own tool - never an <a href="mcp.html">MCP</a> server&rsquo;s tool of the same name - and never anything inside a <code>.git</code> directory: a change there shows in no <code>git status</code> or diff, and a hook or setting there runs commands the next time you use git, so those always ask.</p>
+    <p>The answer is kept in memory, never saved, and is tied to the folder it was given for. It ends when you change or remove the chat&rsquo;s folder, delete the chat, switch <strong>Workspace files</strong> off, or quit Loach. It covers only Loach&rsquo;s own tool - never an <a href="mcp.html">MCP</a> server&rsquo;s tool of the same name - and never anything git takes commands from: a <code>.git</code> directory (where a change also shows in no <code>git status</code> or diff), the <code>.husky</code> and <code>.githooks</code> hook folders, a <code>.pre-commit-config.yaml</code>, or a folder laid out as a bare repository (<code>HEAD</code> beside <code>objects</code> and <code>refs</code>), including the change that would complete one. A hook or setting there runs commands the next time you use git, so those always ask.</p>
 
     <h2 id="sandbox">Staying inside the folder</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Relative paths only</strong> - absolute paths and <code>..</code> are refused up front.</li>
       <li><strong class="feat-name">Links are checked</strong> - every path is resolved through symbolic links and checked against the folder again before it is used, so a link pointing elsewhere is refused. So is a link whose target doesn&rsquo;t exist, since writing through it would create that target wherever it points. Deleting or moving a link acts on the link itself, never on what it points to.</li>
       <li><strong class="feat-name">Misleading names are refused</strong> - control characters and text-direction characters anywhere in a name (a right-to-left override can make <code>txt.exe</code> look like <code>exe.txt</code> on the approval card). On Windows also a <code>:</code> (a hidden data stream), a reserved device name (<code>CON</code>, <code>nul.txt</code>, <code>COM1</code>) and a name ending in a dot or a space, which Windows tools can&rsquo;t open or delete afterwards.</li>
+      <li><strong class="feat-name">Full names only</strong> - on Windows, a path that reaches a file by its 8.3 short name (<code>IMPORT~1.MD</code> for <code>important-notes.md</code>) is refused, since the approval card would name a different file from the one changed; the model is told to use the full name. A file really called something like <code>backup~1.txt</code> still works.</li>
     </ul>
 
     <h2 id="file-formats">Line endings and encodings</h2>
     <p>Line endings are preserved: editing or overwriting a CRLF file keeps it CRLF. So is the text encoding. Files that aren&rsquo;t UTF-8 - Windows-1250 or another legacy code page, or UTF-16 with a byte-order mark (what PowerShell 5.1 writes by default) - are read, searched and edited in their own encoding and written back in it, byte-order mark included; only the edited text changes.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Best guess</strong> - a legacy encoding is recognised from the file&rsquo;s contents, and <code>read_file</code> tells the model which one it used.</li>
+      <li><strong class="feat-name">Best guess</strong> - a legacy encoding is recognised from the file&rsquo;s contents - all of it, up to 4&nbsp;MB, so an accent that first appears deep in the file still counts - and <code>read_file</code> tells the model which one it used.</li>
       <li><strong class="feat-name">Nothing silently lost</strong> - a change the encoding can&rsquo;t store (an emoji in a Windows-1250 file) is refused rather than written as <code>?</code>, and a file that doesn&rsquo;t decode cleanly can be read but not edited. Binary files can&rsquo;t be read or edited at all.</li>
-      <li><strong class="feat-name">Safe replacement</strong> - a write or edit saves a new copy and swaps it in, rather than rewriting the file in place. A write that fails partway leaves the old file intact; a file also hard-linked from elsewhere (a pnpm or uv package store, say) gets its own copy while the other links keep the old contents. Permissions carry over, so a script stays executable, and a read-only file is refused.</li>
+      <li><strong class="feat-name">Safe replacement</strong> - a write or edit saves a new copy and swaps it in, rather than rewriting the file in place. A write that fails partway leaves the old file intact; a file also hard-linked from elsewhere (a pnpm or uv package store, say) gets its own copy while the other links keep the old contents. Permissions carry over, so a script stays executable, and a read-only file is refused. The new copy has them from the start, so a private <code>.env</code> is never readable by others mid-write. On Windows, a file with its own access rules keeps them, and if they can&rsquo;t be copied the write fails rather than widen who can read the file.</li>
     </ul>
 
     <h2 id="loachfile">Project instructions (<code>LOACHFILE.md</code>)</h2>

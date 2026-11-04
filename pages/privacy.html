@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -257,73 +259,79 @@
 
   <main class="content">
     <h1>Storage &amp; privacy</h1>
-    <p class="lead">Loach is local-first. Your content lives on your machine, and nothing goes over the network unless you set up something that needs it - a remote provider, web fetch, an MCP server, the update check. Here&rsquo;s exactly what is stored, where, and what leaves your machine and when.</p>
+    <p class="lead">Loach is local-first. Your content lives on your machine, and nothing goes over the network unless you set up something that needs it - a remote provider, web fetch, a Library link, an MCP server, the update check. Here&rsquo;s exactly what is stored, where, and what leaves your machine and when.</p>
 
     <h2 id="where">Where things live</h2>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>What</th><th>Where</th></tr></thead>
       <tbody>
-        <tr><td>Chats and messages (with their tool calls and results), folders, labels, pinned responses, Spaces with their sources and memories, global memories, Snippets with their variables and saved fill-ins, MCP servers, app settings</td><td>SQLite at <code>&lt;app-data-dir&gt;/loach.db</code>, plus its <code>-wal</code> and <code>-shm</code> files</td></tr>
+        <tr><td>Chats and messages (with their tool calls and results), folders, labels, pinned responses, Spaces with their sources and memories, the <a href="features/library.html">Library</a> (texts, files, links and datasets) and its search index, global memories, Snippets with their variables and saved fill-ins, MCP servers, app settings</td><td>SQLite at <code>&lt;app-data-dir&gt;/loach.db</code>, plus its <code>-wal</code> and <code>-shm</code> files</td></tr>
         <tr><td>Attached files</td><td>Inside their message in <code>loach.db</code> - images and other files as base64, text and documents as their extracted text. There is no separate file store.</td></tr>
         <tr><td>OpenAI-compatible API key</td><td>OS credential manager (Windows Credential Manager / Linux Secret Service / macOS Keychain)</td></tr>
         <tr><td>App-lock hash + hint</td><td>OS credential manager - same store, separate entry</td></tr>
+        <tr><td>App-lock marker (whether a lock is set, its method, the PIN length and whether it has a hint - no hashes) and the failed-unlock count</td><td><code>app_lock.json</code> and <code>app_lock_attempts.json</code> next to <code>loach.db</code></td></tr>
         <tr><td>MCP server headers and environment variables</td><td>In <code>loach.db</code> as plain text, with the rest of the server&rsquo;s settings - not in the credential manager</td></tr>
         <tr><td>A chat&rsquo;s working folder</td><td>Only its path, on the chat. The files stay where they are; Loach doesn&rsquo;t copy them.</td></tr>
         <tr><td>Code-canvas snippets opened in VS Code</td><td>Scratch files in <code>&lt;app-cache-dir&gt;/canvas</code></td></tr>
-        <tr><td>Layout preferences (canvas width, open sidebar folders, the parameters panel&rsquo;s view)</td><td>The app window&rsquo;s local storage</td></tr>
+        <tr><td>Layout preferences (canvas width, open sidebar folders, the parameters panel&rsquo;s view, the Library&rsquo;s last tab), each model&rsquo;s Thinking default, and turns waiting for memory extraction (chat and message IDs only, no text)</td><td>The app window&rsquo;s local storage</td></tr>
         <tr><td>Local models</td><td>Stored by Ollama, outside Loach&rsquo;s folders</td></tr>
         <tr><td>App data dir on Windows</td><td><code>%APPDATA%\dev.loach.app\</code></td></tr>
         <tr><td>App data dir on Linux</td><td><code>~/.local/share/dev.loach.app/</code></td></tr>
         <tr><td>App data dir on macOS</td><td><code>~/Library/Application Support/dev.loach.app/</code></td></tr>
         <tr><td>App cache dir</td><td><code>%LOCALAPPDATA%\dev.loach.app\</code> on Windows, <code>~/.cache/dev.loach.app/</code> on Linux, <code>~/Library/Caches/dev.loach.app/</code> on macOS</td></tr>
       </tbody>
-    </table>
-    <p>The database isn&rsquo;t encrypted: anyone who can read your app-data folder can read your chats, and any MCP credentials stored with your servers. Loach writes no log files.</p>
+    </table></div>
+    <p>The database isn&rsquo;t encrypted: anyone who can read your app-data folder can read your chats, your Library, and any MCP credentials stored with your servers. Loach writes no log files.</p>
 
     <h2 id="offline">Offline by default</h2>
     <p>With a local Ollama, Loach launches and works completely offline. All of these need no network access:</p>
     <ul>
       <li>The <strong>Models</strong> library</li>
       <li><strong>Spaces</strong>, <strong>Snippets</strong> and <a href="features/memory.html">memory</a></li>
-      <li>Search across chats, messages, Spaces and Snippets</li>
+      <li>The <a href="features/library.html">Library</a> and its search - by keyword, and by meaning with an embedding model on your Ollama</li>
+      <li>Search across chats, messages, Spaces, Snippets and the Library</li>
       <li>The parameters panel</li>
       <li>The app lock</li>
       <li>Full chat history, and <a href="features/private-chat.html">Private Chat</a></li>
       <li><a href="features/built-in-tools.html">Built-in tools</a>, <a href="features/work-in-folders.html">working folders</a> and <a href="features/math.html">LaTeX math</a> rendering - KaTeX ships inside the app</li>
     </ul>
-    <p>Only chats with a <strong>remote</strong> endpoint (OpenAI, Groq, OpenRouter, …), web fetch, remote MCP servers, the update check and model downloads need an internet connection. An Ollama or OpenAI-compatible server elsewhere on your network needs that network, not the internet.</p>
+    <p>Only chats with a <strong>remote</strong> endpoint (OpenAI, Groq, OpenRouter, …), web fetch and Library links, an embedding model on a remote endpoint, remote MCP servers (and the first start of an <code>npx</code> or <code>uvx</code> one, which downloads its package), the update check and model downloads need an internet connection. An Ollama or OpenAI-compatible server elsewhere on your network needs that network, not the internet.</p>
 
     <h2 id="no-telemetry">No telemetry</h2>
     <p>Loach does not phone home. There is no account, no usage tracking, no analytics, no crash reporting service. The app window itself can&rsquo;t reach the internet: its content security policy allows no remote scripts, images or connections, and no inline scripts or <code>eval</code>, so every request goes through Loach&rsquo;s backend - and only for the reasons below. Nothing else happens in the background.</p>
+    <p>The one place inline scripts run is the code canvas&rsquo;s <a href="features/code-canvas.html#html-preview">HTML preview</a>, inside a sandboxed frame with a policy of its own: it loads nothing from outside the page and can&rsquo;t reach the network or Loach&rsquo;s commands.</p>
 
     <h2 id="network">What goes over the network, and when</h2>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Destination</th><th>When</th></tr></thead>
       <tbody>
-        <tr><td>Your Ollama base URL (<code>http://localhost:11434</code> by default)</td><td>At launch, to see whether Ollama is running and list its models; then for every chat, model preload and Models-tab action. Pulling a model makes Ollama download it from its library - that connection is Ollama&rsquo;s, not Loach&rsquo;s.</td></tr>
-        <tr><td>Your OpenAI-compatible endpoint</td><td>Its model list at launch and when the provider settings change - but only once you&rsquo;ve saved an API key or pointed the base URL away from the OpenAI default. Then every chat you run on it, and <strong>Test connection</strong>.</td></tr>
+        <tr><td>Your Ollama base URL (<code>http://<wbr>localhost:11434</code> by default)</td><td>At launch, to see whether Ollama is running and list its models; then for every chat, model preload and Models-tab action - and, when the Library&rsquo;s embedding model runs on Ollama, to embed your sources in the background and every message that searches them. Pulling a model makes Ollama download it from its library - that connection is Ollama&rsquo;s, not Loach&rsquo;s. So is a chat with an Ollama cloud model (a tag ending in <code>cloud</code>, such as <code>gpt-oss:120b-cloud</code>): Ollama runs it on ollama.com.</td></tr>
+        <tr><td>Your OpenAI-compatible endpoint</td><td>Its model list at launch and when the provider settings change - but only once you&rsquo;ve saved an API key or pointed the base URL away from the OpenAI default. Then every chat you run on it, and <strong>Test connection</strong>. When the Library&rsquo;s embedding model runs there, also your sources&rsquo; text, embedded in the background, and every message that searches them - in chats with a local model too.</td></tr>
         <tr><td>URLs in your prompt</td><td>Only with <a href="features/web-fetch.html">Web fetch</a> switched on (it&rsquo;s off by default), plus a page you fetch with <code>/fetch</code>. Addresses on your own machine or private network are refused.</td></tr>
+        <tr><td>Library links</td><td>A web page when you add it to the <a href="features/library.html">Library</a> or refresh it - never on its own. Addresses on your own machine or private network are refused, and a user name or password in the link is removed before it&rsquo;s fetched or stored.</td></tr>
         <tr><td>Your MCP servers</td><td>An HTTP server whenever a chat needs its tool list or calls one of its tools. A local (stdio) server is a program on your machine; what it connects to is up to that program.</td></tr>
         <tr><td>GitHub releases</td><td>When you press <strong>Check for updates</strong> in <strong>Settings → Updates</strong>, or once per launch if you switched on <strong>Auto-check for updates</strong> (off by default). An update is downloaded only when you confirm.</td></tr>
         <tr><td>Your web browser</td><td>Links you click in a reply, the model-library links in onboarding and the <a href="features/share-message.html">share</a> buttons open in your default browser, which makes those requests itself.</td></tr>
       </tbody>
-    </table>
+    </table></div>
+    <p>Web fetch, Library links and HTTP MCP servers always connect directly, never through a proxy: a proxy looks addresses up itself, which would slip past Loach&rsquo;s check for private ones. Requests to Ollama and your OpenAI-compatible endpoint go through a proxy when your environment or system settings name one.</p>
 
     <h2 id="remote-providers">What a remote provider receives</h2>
     <p>A chat on a remote endpoint sends that provider everything the model needs for the turn:</p>
     <ul>
-      <li><strong>The system prompt</strong> - the instructions that apply (the Space&rsquo;s, the chat&rsquo;s or your Custom instructions), the persona and tone, the date, weekday and timezone while <a href="features/temporal-awareness.html">Temporal awareness</a> is on, your name wherever <code>{{USER_NAME}}</code> appears, a Space&rsquo;s reference sources, and your memories.</li>
-      <li><strong>The conversation</strong> - your messages and its replies (a compacted chat sends its summary instead of the older turns), with attachments inlined and the text of any pages Web fetch downloaded.</li>
+      <li><strong>The system prompt</strong> - the instructions that apply (the Space&rsquo;s, the chat&rsquo;s or your Custom instructions), the persona and tone, the date, weekday and timezone while <a href="features/temporal-awareness.html">Temporal awareness</a> is on, your name wherever <code>{{USER_NAME}}</code> appears, the sources that go in full - a Space&rsquo;s uploads and the <a href="features/library.html">Library</a> items linked to the Space or the chat - and your memories.</li>
+      <li><strong>The conversation</strong> - your messages and its replies (a compacted chat sends its summary instead of the older turns), with attachments inlined, the text of any pages Web fetch downloaded, and the excerpts searched from your sources for each message. Images, attached or from your sources, are <a href="features/attachments.html#image-scaling">scaled down</a> first unless you chose otherwise.</li>
       <li><strong>Tools</strong> - the definitions of the tools that are on, and every tool result: what MCP servers return, and the contents of files the model reads from the chat&rsquo;s <a href="features/work-in-folders.html">working folder</a>. The folder&rsquo;s full path and its <code>LOACHFILE.md</code> go in the system prompt.</li>
     </ul>
-    <p>Two background requests go to the same provider and model: <a href="features/memory.html">memory</a> extraction after each reply while Space memory or global memories are on, and the summary when you <a href="features/context-compaction.html">compact</a> a chat. Global memories are sent with every chat, whichever provider it uses - a fact learned talking to a local model also reaches a cloud one. Private Chat talks to Ollama only and never uses memory.</p>
+    <p>Two background requests go to the same provider and model: <a href="features/memory.html">memory</a> extraction after each reply while Space memory or global memories are on, and the summary when you <a href="features/context-compaction.html">compact</a> a chat or export its context compacted. Global memories are sent with every chat, whichever provider it uses - a fact learned talking to a local model also reaches a cloud one. The extractor is told never to save a password, key or other credential, and Loach drops a new fact that looks like one; facts you add yourself are kept as you typed them. Private Chat talks to Ollama only and never uses memory, tools or the Library.</p>
+    <p>An <a href="features/library.html#search">embedding model</a> for the Library is a separate destination: with one on an OpenAI-compatible endpoint, your sources&rsquo; text and every message that searches them go there, whichever provider the chat itself uses.</p>
     <p>The API key is sent only over <code>https://</code>, or over <code>http://</code> to this computer (<code>localhost</code>, <code>127.0.0.1</code>, <code>::1</code>). An <code>http://</code> server elsewhere on your network gets no key.</p>
 
     <h2 id="secrets">Secrets handling</h2>
     <p>The API key and the app-lock credentials are stored in your operating system&rsquo;s credential manager via the <a href="https://crates.io/crates/keyring" target="_blank" rel="noopener"><code>keyring</code></a> crate, under the service name <code>dev.loach.app</code>:</p>
     <ul>
       <li>On <strong>Windows</strong> - the <strong>Credential Manager</strong>.</li>
-      <li>On <strong>Linux</strong> - the <strong>Secret Service</strong> (GNOME Keyring / KWallet / equivalent). One has to be running and unlocked, or the key won&rsquo;t save.</li>
+      <li>On <strong>Linux</strong> - the <strong>Secret Service</strong> (GNOME Keyring / KWallet / equivalent). One has to be running and unlocked, or the key won&rsquo;t save; one that starts after Loach is picked up on the next try.</li>
       <li>On <strong>macOS</strong> - the <strong>Keychain</strong>.</li>
     </ul>
     <p>The key never reaches the database or the app window, and Settings never shows it back. App-lock secrets are hashed with <strong>Argon2id</strong> before they&rsquo;re stored; the plaintext is never written anywhere. The optional lock hint is stored as you typed it, in the same entry, because the lock screen shows it.</p>
@@ -340,12 +348,12 @@
     <h2 id="backup">Backup, restore and wipe</h2>
     <p>From <strong>Settings → Data</strong> you can:</p>
     <ul>
-      <li><strong>Export data</strong> - save your full content (chats, folders, Spaces with their sources and memories, global memories, Snippets and variables, MCP servers, settings) to a single JSON file. MCP headers and environment variables are left out, and so are secrets in a server&rsquo;s arguments (a password in a URL, a <code>--token</code> value); chats leave out their working folder.</li>
-      <li><strong>Import data</strong> - restore a previously exported file. It replaces everything in the database but keeps the stored API key. Local MCP servers come in switched off.</li>
-      <li><strong>Erase &amp; Reset → Remove my data</strong> - delete chats, folders, Spaces, memories, Snippets and MCP servers, but keep settings, the API key and the app lock.</li>
+      <li><strong>Export data</strong> - save your full content (chats, folders, Spaces with their sources and memories, the Library, global memories, Snippets and variables, MCP servers, settings) to a single JSON file, tagged <code>loach/v2</code> - Loach 1.5 and older can&rsquo;t restore it. MCP headers and environment variables are left out, and so are secrets in a server&rsquo;s arguments (a password or token in a URL, a <code>--token</code> value, a <code>GITHUB_TOKEN=…</code> setting, an <code>Authorization:</code> header) and the credentials and query values in an HTTP server&rsquo;s address; chats leave out their working folder. The Library&rsquo;s search index isn&rsquo;t exported either - it&rsquo;s rebuilt after a restore.</li>
+      <li><strong>Import data</strong> - restore a previously exported file. It replaces everything in the database, the Library included, but keeps the stored API key - and, while a key is stored, your current OpenAI-compatible base URL, so a backup can&rsquo;t send the key somewhere else. Local MCP servers come in switched off.</li>
+      <li><strong>Erase &amp; Reset → Remove my data</strong> - delete chats, folders, Spaces, the Library, memories, Snippets and MCP servers, but keep settings, the API key and the app lock.</li>
       <li><strong>Erase &amp; Reset → Factory reset</strong> - the same, plus all settings, and remove the API key and the app lock from the credential store. Loach then starts over with onboarding.</li>
     </ul>
-    <p>Both erase options ask you to type <code>YES</code>; importing and erasing also ask for your current app-lock credentials when a lock is set. A storage breakdown above those controls shows what chats, attachments, Spaces and everything else weigh in the database, and what your local Ollama models take on disk. The API key and the app lock are never part of an export - they live in the OS credential manager and stay there until you remove them. See <a href="features/data-management.html">Data management</a>.</p>
+    <p>Both erase options ask you to type <code>YES</code>; importing and erasing also ask for your current app-lock credentials when a lock is set. A storage breakdown above those controls shows what chats, attachments, Spaces, the Library with its search index and everything else weigh in the database, and what your local Ollama models take on disk. The API key and the app lock are never part of an export - they live in the OS credential manager and stay there until you remove them. See <a href="features/data-management.html">Data management</a>.</p>
 
     <div class="page-nav">
       <a href="features/keyboard.html">

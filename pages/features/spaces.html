@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -263,45 +265,78 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Spaces</h1>
-    <p class="lead">A <strong>Space</strong> is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference sources, a memory and a default model. Every chat created inside a Space inherits that context automatically.</p>
+    <p class="lead">A <strong>Space</strong> is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference sources, a memory and a default model. Every chat in a Space - started there or moved in later - inherits that context automatically.</p>
 
     <h2 id="what-a-space-holds">What a Space holds</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Instructions</strong> - a system prompt for every chat in the Space. When set, it replaces both your global <a href="custom-instructions.html">custom instructions</a> and the chat&rsquo;s own instructions.</li>
-      <li><strong class="feat-name">Reference sources</strong> - text files, PDFs and Word documents are inlined into the system prompt of every chat in the Space; images ride along with each message so vision-capable models can see them. See <a href="#sources">Reference sources</a> below.</li>
+      <li><strong class="feat-name">Reference sources</strong> - files uploaded to the Space, plus texts, files, links and datasets linked from your <a href="library.html">Library</a>. Every chat in the Space can use them: the model gets their full text or the most relevant excerpts, and images go along with each message so vision-capable models can see them. See <a href="#sources">Reference sources</a> below.</li>
       <li><strong class="feat-name">Memory</strong> - facts about you that Loach learns from the Space&rsquo;s chats. See <a href="memory.html">Memory</a>.</li>
       <li><strong class="feat-name">Default model</strong> - the provider and model new chats in the Space start with, so a &ldquo;code review&rdquo; Space can always start in a different model than a &ldquo;writing&rdquo; Space.</li>
     </ul>
 
     <h2 id="lifecycle">Creating and editing</h2>
-    <p>Open the <strong>Spaces</strong> tab in the sidebar and click <strong>New space</strong>. Give it a name (up to 60 characters) and an optional description, then <strong>Save</strong> - Loach opens the new Space. The library shows every Space as a tile, most recently updated first, with its chat count, a <strong>New chat</strong> button and a <code>&hellip;</code> menu (<strong>Open / edit</strong>, <strong>Delete</strong>).</p>
-    <p>A Space&rsquo;s page shows its description, a row of chips summing it up (chats, sources, <em>Instructions on</em>, memories, model) and a composer: type there to start a new chat in the Space. Below it are five tabs:</p>
+    <p>Open the <strong>Spaces</strong> tab in the sidebar and click <strong>New Space</strong>. Give it a <strong>Name</strong> (up to 60 characters) and an optional <strong>Description</strong>, then <strong>Create</strong> - Loach opens the new Space. <kbd>Enter</kbd> in the name creates it, and so does <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in the description; closing the dialog with something typed asks before discarding it.</p>
+    <p>The Spaces page shows every Space as a tile, most recently updated first, with its chat count, a <strong>New chat</strong> button and a <code>&hellip;</code> menu (<strong>Open</strong>, <strong>New chat</strong>, <strong>Delete</strong>). A <strong>Search Spaces</strong> box above the tiles filters them by name or description.</p>
+    <p>A Space&rsquo;s page shows its description, a row of chips summing it up (chats, sources, <em>Instructions on</em>, memories, model) and a composer: every message sent from it starts a new chat in the Space, even if one of the Space&rsquo;s chats was open before. Below it are five tabs, and each Space remembers the one you left it on until you quit Loach, so coming back from one of its chats lands you there again:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Chats</strong> - the Space&rsquo;s chats, grouped by <em>Today</em>, <em>Yesterday</em>, <em>Earlier this week</em> and <em>Older</em>. Archived chats aren&rsquo;t listed. Each row&rsquo;s <code>&hellip;</code> menu (or a right-click) offers the same actions as the main sidebar: <em>Pin this chat</em> / <em>Unpin</em>, <em>Label</em>, <em>Rename</em>, <em>Move to archive</em> and <em>Delete</em>.</li>
-      <li><strong class="feat-name">Instructions</strong> - the Space&rsquo;s system prompt. It&rsquo;s saved when you click away from the field.</li>
-      <li><strong class="feat-name">Sources</strong> - add and remove reference sources.</li>
-      <li><strong class="feat-name">Memory</strong> - the Space&rsquo;s memory switch and its <a href="memory.html#editor">memory editor</a>.</li>
-      <li><strong class="feat-name">Models</strong> - the default model for new chats in the Space. Leave it empty (or pick <strong>Clear selection</strong>) to use your <a href="default-model.html">default model</a> from <strong>Settings &rarr; General</strong>. Switching model inside a chat still wins.</li>
+      <li><strong class="feat-name">Chats</strong> - the Space&rsquo;s chats, grouped by <em>Today</em>, <em>Yesterday</em>, <em>This week</em> and <em>Older</em>. Archived chats aren&rsquo;t listed. Each row&rsquo;s <code>&hellip;</code> menu (or a right-click) offers <em>Pin this chat</em> / <em>Unpin</em>, <em>Label</em>, <em>Move to Space</em>, <em>Rename</em>, <em>Move to archive</em> and <em>Delete</em>.</li>
+      <li><strong class="feat-name">Instructions</strong> - the Space&rsquo;s system prompt. As the hint under it says - <em>Saves when you click away</em> - it&rsquo;s saved when you click away from the field, and also when you leave the page some other way, such as a keyboard shortcut or the app lock.</li>
+      <li><strong class="feat-name">Sources</strong> - the Space&rsquo;s uploads and Library sources. See <a href="#sources">Reference sources</a> below.</li>
+      <li><strong class="feat-name">Memory</strong> - the Space&rsquo;s <a href="memory.html#editor">memory editor</a>, under a line saying whether auto-save is on, with a <strong>Change in Settings</strong> link.</li>
+      <li><strong class="feat-name">Settings</strong> - the Space&rsquo;s default model, memory switch, source mode and image scaling. See <a href="#settings">The Settings tab</a> below.</li>
     </ul>
-    <p>Rename the Space or change its description from the <code>&hellip;</code> menu next to its title &rarr; <strong>Edit details</strong>. Changes to instructions, sources and memory reach every chat in the Space with its next message.</p>
-    <p>Besides the composer on the Space&rsquo;s page and the <strong>New chat</strong> button on its tile, you can type <code>/space &lt;name&gt;</code> to make a Space active, then <code>/new</code> to start a chat in it.</p>
+    <p>Rename the Space or change its description from the <code>&hellip;</code> menu next to its title &rarr; <strong>Edit details</strong>, which opens the <strong>Edit Space</strong> dialog; closing it with unsaved edits asks first. Changes to instructions, sources, memory and settings reach every chat in the Space with its next message.</p>
+    <p>Besides the composer on the Space&rsquo;s page and the <strong>New chat</strong> button on its tile, you can type <code>/space &lt;name&gt;</code> to make a Space active, then <code>/new</code> to start a chat in it. On a Space&rsquo;s page, <code>/new</code> starts the chat in that Space and opens it; commands that act on a chat, such as <code>/clear</code> or <code>/model</code>, need one of the Space&rsquo;s chats open.</p>
+
+    <h3 id="settings">The Settings tab</h3>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Default model</strong> - the model new chats in the Space start with. Pick <strong>Default model</strong> at the top of the list to use your <a href="default-model.html">default model</a> from <strong>Settings &rarr; General</strong>. Switching model inside a chat still wins.</li>
+      <li><strong class="feat-name">Memory</strong> - whether new facts from the Space&rsquo;s chats are saved. See <a href="#memory">Space memory</a>.</li>
+      <li><strong class="feat-name">How sources reach the model</strong> - <strong>Auto</strong>, <strong>Full text</strong> or <strong>Excerpts</strong>. See <a href="#source-mode">below</a>.</li>
+      <li><strong class="feat-name">Image scaling</strong> - <strong>Default</strong>, <strong>Scale down</strong> or <strong>Original</strong>: how images are scaled down before they reach the model in the Space&rsquo;s chats - attached ones, the Space&rsquo;s own and its Library images. On <strong>Default</strong>, images follow the app&rsquo;s setting and Library images the Library&rsquo;s; a chat can still set its own. See <a href="attachments.html#image-scaling">Image scaling</a>.</li>
+    </ul>
+
+    <h3 id="moving-chats">Moving chats in and out</h3>
+    <p>A chat can join a Space after it started: pick <strong>Move to Space</strong> in its <code>&hellip;</code> menu - in the sidebar, the chat header or a Space&rsquo;s <strong>Chats</strong> tab - and choose a Space (the current one has a check mark). <strong>Remove from Space</strong>, at the bottom of the same submenu, takes it out. From its next message the chat uses its new Space&rsquo;s instructions, sources and memory, or no Space&rsquo;s once it&rsquo;s out. Its messages and model stay as they are, and it keeps its place in the sidebar.</p>
 
     <h3 id="deleting">Deleting a Space</h3>
-    <p>Pick <strong>Delete space</strong> from the <code>&hellip;</code> menu (or <strong>Delete</strong> on its library tile). The Space&rsquo;s instructions, sources and memory are deleted. Its chats are kept: they leave the Space and carry on as regular chats.</p>
+    <p>Pick <strong>Delete Space</strong> from the <code>&hellip;</code> menu next to its title (or <strong>Delete</strong> in its tile&rsquo;s menu on the Spaces page). The Space&rsquo;s instructions, memories and uploaded files are deleted for good. Library sources stay in your Library, and its chats are kept: they leave the Space and carry on as regular chats.</p>
 
     <h2 id="sources">Reference sources</h2>
-    <p>Add files on the <strong>Sources</strong> tab with <strong>Add source</strong>. Every source is sent with every message in the Space:</p>
+    <p>The <strong>Sources</strong> tab holds two kinds of reference material, listed together:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Text and code files</strong> - inlined into the system prompt.</li>
-      <li><strong class="feat-name">PDFs and Word (.docx) documents</strong> - their text is extracted and inlined. A scanned PDF has no text to extract; add its pages as images instead.</li>
-      <li><strong class="feat-name">Images</strong> - PNG, JPEG, WebP and GIF are attached to each message for vision-capable models.</li>
-      <li><strong class="feat-name">Anything else</strong> - formats Loach can&rsquo;t read, such as legacy <code>.doc</code> files or archives, are stored but never sent to the model.</li>
+      <li><strong class="feat-name">Uploads</strong> - files you add with <strong>Upload</strong>. They belong to the Space: they&rsquo;re stored only there and deleted with it.</li>
+      <li><strong class="feat-name">Library sources</strong> - datasets, texts, files and links added with <strong>From Library</strong>. They stay in your <a href="library.html">Library</a>, so an edit there reaches the Space&rsquo;s chats with their next message. See <a href="library.html#in-a-space">Library: in a Space</a>.</li>
     </ul>
-    <p>Each file can be up to <strong>20 MB</strong>, and a Space&rsquo;s sources up to <strong>200 MB</strong> in total; the tab shows how much is used. A file&rsquo;s text is cut off after about 200,000 characters, with a note telling the model so. Because sources go out with every message, large ones use a lot of context on every turn. The <a href="context-compaction.html">context-usage bar</a> doesn&rsquo;t count them, so in a Space with big sources it reads lower than what the model actually gets.</p>
+    <p>Uploads are read like <a href="attachments.html">attachments</a>, one file at a time, so one bad file doesn&rsquo;t stop the rest:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Text and code files</strong> - read as text.</li>
+      <li><strong class="feat-name">PDFs and Word (.docx) documents</strong> - their text is extracted. A scanned PDF, an empty document or an empty text file has no text to read, so it isn&rsquo;t added; the tab lists each file it turned away. Add a scanned document&rsquo;s pages as images instead.</li>
+      <li><strong class="feat-name">Images</strong> - PNG, JPEG, WebP and GIF go with each message to vision-capable models, scaled as set on the <strong>Settings</strong> tab.</li>
+      <li><strong class="feat-name">Anything else</strong> - formats Loach can&rsquo;t read, such as legacy <code>.doc</code> files or archives, are stored but marked <strong>unreadable</strong>, and never sent to the model.</li>
+    </ul>
+    <p>Each upload can be up to <strong>20 MB</strong>, and a Space&rsquo;s uploads up to <strong>200 MB</strong> in total; Library sources don&rsquo;t count toward that. The tab shows how much is used, as <em>12.4 MB of 200 MB uploaded &middot; 3 from Library</em>. A file&rsquo;s text is cut off after about 200,000 characters, with a note telling the model so.</p>
+    <p>Every source has a switch: turn one off to keep it in the Space without using it. Click a source to preview it (a dataset opens its page in the Library). Its <code>&hellip;</code> menu has:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">A Library source</strong> - <strong>Preview</strong> (<strong>Open dataset</strong> for a dataset) and <strong>Remove from Space</strong>, which only unlinks it.</li>
+      <li><strong class="feat-name">An upload</strong> - <strong>Preview</strong>, <strong>Save to Library</strong> (not for unreadable files) and <strong>Delete</strong>. Deleting asks first, since the file is gone for good - save it to the Library first to keep a copy.</li>
+    </ul>
+    <p>The source count on the Space&rsquo;s page, and on the <em>Space sources</em> chip in its chats, counts what the model can get: switched-on sources, with a dataset counted as its items and unreadable uploads left out.</p>
+
+    <h3 id="source-mode">How sources reach the model</h3>
+    <p>The Space&rsquo;s <strong>Settings</strong> tab sets how its chats use the sources:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Auto</strong> - the full text while the sources fit in half the context window, the most relevant excerpts once they don&rsquo;t.</li>
+      <li><strong class="feat-name">Full text</strong> - always the whole text, cut short with a note if it can&rsquo;t fit.</li>
+      <li><strong class="feat-name">Excerpts</strong> - always search the sources and give the model only the parts relevant to each message.</li>
+    </ul>
+    <p>New Spaces start on <strong>Auto</strong>. Spaces created before Loach 1.6, and Spaces restored from an older backup, start on <strong>Full text</strong> - every source in full with every message, as they always worked - until you switch them. A chat in the Space follows this setting unless it picks its own. See <a href="library.html#source-modes">How sources reach the model</a> for the details.</p>
+    <p>The <strong>Sources</strong> tab shows the current mode with a <strong>Change in Settings</strong> link and, once there are sources, a gauge of their estimated tokens against the context window: whether the model reads them in full or gets excerpts, and a marker where Auto switches to excerpts. Full text uses a lot of context on every turn; the <a href="context-compaction.html#usage-bar">context-usage bar</a> counts the sources in its <strong>Sources</strong> row.</p>
 
     <h2 id="memory">Space memory</h2>
     <p>Each Space has its own memory, on by default for a new Space. After every finished reply in the Space, Loach asks the chat&rsquo;s model to pick out lasting facts about you, saves them, and adds them to the system prompt of every chat in the Space as a <code>--- Space memory ---</code> list. A toast with an <strong>Undo</strong> button announces every change.</p>
-    <p>Turn memory off with the switch on the <strong>Memory</strong> tab: Loach stops saving new facts, but the ones already saved are still sent until you delete them. How capture, updates, limits and <a href="memory.html#remember"><code>/remember</code></a> work - and how Space memory combines with global memories - is covered on the <a href="memory.html">Memory</a> page.</p>
+    <p>Turn memory off with the <strong>Memory</strong> switch on the Space&rsquo;s <strong>Settings</strong> tab: Loach stops saving new facts, but the ones already saved are still sent until you delete them. The <strong>Memory</strong> tab says which way it&rsquo;s set. How capture, updates, limits and <a href="memory.html#remember"><code>/remember</code></a> work - and how Space memory combines with global memories - is covered on the <a href="memory.html">Memory</a> page.</p>
 
     <div class="callout tip">
       <div class="callout-body">

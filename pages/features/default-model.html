@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -269,15 +271,16 @@
     <ul class="feature-list">
       <li><strong class="feat-name">Use most recent</strong> (default) - pick up wherever you left off. New chats open in the last model you picked from a chat&rsquo;s model dropdown (or the one you chose during setup).</li>
       <li><strong class="feat-name">Pin to provider</strong> - <strong>Use last Ollama model</strong> or <strong>Use last OpenAI model</strong>: the model of your most recently active chat on that provider. Useful if you bounce between Ollama and a hosted endpoint but always want one of them for new chats. With no chats on that provider yet, it falls back to your most recent model if that one is on the same provider; otherwise a new chat opens with no model selected until you pick one from the header.</li>
-      <li><strong class="feat-name">A specific model</strong> - choose one from the <strong>Ollama models</strong> or <strong>OpenAI models</strong> lists in the same menu to always start in that exact model, regardless of what you used last. The lists show the models Loach can currently see, so start Ollama or save your API key first if a section is missing.</li>
+      <li><strong class="feat-name">A specific model</strong> - choose one from the <strong>Ollama models</strong> or <strong>OpenAI models</strong> lists in the same menu to always start in that exact model, regardless of what you used last. The lists show the models Loach last loaded - at launch, or when you open or refresh the <a href="model-management.html">Models page</a> - so if a section is missing, start Ollama or save your API key, then open the Models page to load them.</li>
     </ul>
+    <p>Deleting a model on the <a href="model-management.html">Models page</a> unpins it: a specific-model setting goes back to <strong>Use most recent</strong>, and if it was also your most recent model, new chats open with no model selected until you pick one.</p>
     <p>The <a href="model-preloading.html">Preload on startup</a> switch sits right under the picker and warms the model this setting resolves to, when that is an Ollama model.</p>
 
     <h2 id="overrides">What can override it</h2>
     <p>The global default is the last word for plain new chats. But:</p>
     <ul class="feature-list">
-      <li>Chats started inside a <a href="spaces.html">Space</a> use the Space&rsquo;s pinned model when one is set.</li>
-      <li>Chats started by <em>Run</em> on a <a href="snippets.html">Snippet</a> - from the Snippets library or the search palette - use that Snippet&rsquo;s pinned model when set.</li>
+      <li>Chats started inside a <a href="spaces.html">Space</a> use the Space&rsquo;s own model when one is set - the <strong>Default model</strong> card on the Space&rsquo;s <strong>Settings</strong> tab. Its picker (the same one Snippets use) starts with a <strong>Default model</strong> entry, &ldquo;from Settings&rdquo;, which unpins it so the Space follows this setting. Deleting the pinned model also unpins it.</li>
+      <li>Chats started by <em>Run</em> on a <a href="snippets.html">Snippet</a> - from the Snippets library or the search palette - use that Snippet&rsquo;s pinned model when set. <strong>Run in Space</strong> starts the chat in a Space you choose, and the Snippet&rsquo;s pinned model still beats that Space&rsquo;s.</li>
       <li><strong>New chat</strong> on a model&rsquo;s tile or in the Models editor opens a chat in that model.</li>
       <li>Switching the model in the chat header always wins for that conversation onwards.</li>
     </ul>

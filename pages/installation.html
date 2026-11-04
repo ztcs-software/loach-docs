@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -267,14 +269,14 @@
     </p>
 
     <h2 id="requirements">System requirements</h2>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Platform</th><th>Supported</th><th>Packages</th></tr></thead>
       <tbody>
         <tr><td><strong>Windows</strong></td><td>Windows 10 or 11, x86_64</td><td><code>.exe</code> (NSIS installer)</td></tr>
         <tr><td><strong>Linux</strong></td><td>x86_64 with <strong>glibc 2.35</strong> or newer - Ubuntu 22.04, Debian 12 or later</td><td><code>.deb</code>, <code>.rpm</code> and <code>.AppImage</code></td></tr>
-        <tr><td><strong>macOS</strong></td><td>macOS 11 (Big Sur) or later, <strong>Apple Silicon</strong> only</td><td><code>.dmg</code></td></tr>
+        <tr><td><strong>macOS</strong></td><td>macOS 11 (Big Sur) or later with <strong>Safari 16.4</strong> or later, <strong>Apple Silicon</strong> only</td><td><code>.dmg</code></td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>Loach itself is light. What your machine needs depends on the local models you run - Ollama&rsquo;s own GPU and memory requirements apply. Remote OpenAI-compatible endpoints need nothing extra.</p>
 
     <h2 id="prebuilt">Install from a pre-built package</h2>
@@ -290,6 +292,7 @@
     </div>
 
     <p>The first time you open Loach, the <a href="features/onboarding.html">setup wizard</a> walks you through choosing a provider, pulling a model and picking your defaults.</p>
+    <p>Loach runs as a single instance. Launching it again - from the Start menu, a desktop file or the app icon - brings the running window forward, out of the tray too, instead of starting a second copy.</p>
 
     <h3 id="windows">Windows</h3>
     <ol>
@@ -336,15 +339,16 @@ chmod +x Loach_*_amd64.AppImage
     </ul>
 <pre><code>xattr -cr /Applications/Loach.app</code></pre>
     <p>Auto-updates are delivered through Loach&rsquo;s own signed updater (independent of Apple), so you only need to do this once on install. If a future update is blocked the same way, the same workaround applies.</p>
-    <p>Only <strong>Apple Silicon</strong> (M-series) Macs running <strong>macOS 11</strong> or later are supported. Intel Macs are not.</p>
+    <p>Only <strong>Apple Silicon</strong> (M-series) Macs running <strong>macOS 11</strong> or later are supported, and they need <strong>Safari 16.4</strong> or later. Loach&rsquo;s window runs on the system&rsquo;s WebKit, which follows the installed Safari rather than the macOS version, so a Big Sur or Monterey Mac still on Safari 14 or 15 has to update Safari first. Intel Macs are not supported.</p>
+    <p>Like other Mac apps, Loach stays running when you close its window (the red button or <kbd>&#8984;</kbd> + <kbd>W</kbd>): click its Dock icon to bring it back, and quit with <kbd>&#8984;</kbd> + <kbd>Q</kbd> or <strong>Quit</strong> in its menu-bar icon. With an <a href="features/app-lock.html">app lock</a> set, closing the window also locks it.</p>
 
     <h2 id="source">Build from source</h2>
     <p>If you want the bleeding edge or you're contributing patches, build from the repository.</p>
 
     <h3 id="prerequisites">Prerequisites</h3>
     <ul>
-      <li><strong>Node.js 20.19+</strong> (or 22.12+) and <strong>npm</strong> - Vite 8 won't run on older 20.x point releases.</li>
-      <li><strong>Rust 1.88+</strong> via <a href="https://rustup.rs" target="_blank" rel="noopener">rustup</a> - the dependency tree's minimum; CI builds on 1.88.0.</li>
+      <li><strong>Node.js 22.13+</strong> (or 24 / 26+) and <strong>npm</strong> - the locked pdfjs-dist 6 needs 22.13, and Vitest 5 runs only on Node 22, 24 and 26+.</li>
+      <li><strong>Rust 1.90+</strong> via <a href="https://rustup.rs" target="_blank" rel="noopener">rustup</a> - the dependency tree's minimum; CI builds on 1.90.0.</li>
       <li>Platform build tooling - see the <a href="https://tauri.app/start/prerequisites/" target="_blank" rel="noopener">official Tauri prerequisites guide</a>.
         <ul>
           <li><strong>Windows</strong>: Microsoft Visual Studio Build Tools, WebView2 runtime (pre-installed on Windows 11).</li>

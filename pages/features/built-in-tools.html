@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -263,7 +265,7 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Built-in tools</h1>
-    <p class="lead">A set of small, local utilities the model can call mid-answer through the same tool-call loop as <a href="mcp.html">MCP</a>. They run entirely in Rust on your machine - no network, and apart from the <a href="work-in-folders.html">file tools</a>, nothing that touches your files - so they also work inside <a href="private-chat.html">Private Chat</a>.</p>
+    <p class="lead">A set of small, local utilities the model can call mid-answer through the same tool-call loop as <a href="mcp.html">MCP</a>. They run entirely in Rust on your machine - no network, and apart from the <a href="work-in-folders.html">file tools</a>, nothing that touches your files.</p>
 
     <h2 id="how-it-works">How they work</h2>
     <p>Each tool has its own switch in <strong>Settings &rarr; Tools</strong>, and every one is <strong>off by default</strong> - turn on only what you want a given model to reach for. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step proposes a <em>Recommended</em> set (everything except the four developer-only tools - <strong>Hash</strong>, <strong>UUID</strong>, <strong>Base64</strong> and <strong>IP / CIDR</strong> - and <strong>Workspace files</strong>, which switches itself on when you pick a folder) with <strong>All OFF</strong> / <strong>Recommended</strong> / <strong>All ON</strong> presets. <strong>Continue</strong> saves the switches exactly as shown; <strong>Skip</strong> saves only the ones you changed.</p>
@@ -273,16 +275,16 @@
     <h2 id="the-tools">The tools</h2>
     <p>Each entry gives the switch&rsquo;s name in <strong>Settings &rarr; Tools</strong>, then the tool name the model sees.</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Calculator</strong> (<code>calculate</code>) - evaluate arithmetic, trigonometry (in radians), functions such as <code>sqrt</code>, <code>ln</code>, <code>log10</code> and <code>round</code>, and the constants <code>pi</code> and <code>e</code>. Operators group the way programming languages do (<code>100 / 5 * 2</code> is 40, <code>2^3^2</code> is 512), <code>%</code> is the remainder, and scientific notation such as <code>6.022e23</code> works.</li>
-      <li><strong class="feat-name">Date &amp; time</strong> (<code>datetime</code>) - parse, format and do arithmetic on dates and times, with DST-aware timezone conversion, weekday lookup and business-day counting (Saturdays and Sundays are skipped; holidays are not).</li>
-      <li><strong class="feat-name">Count</strong> (<code>count</code>) - count characters, bytes, words, lines or substring hits.</li>
-      <li><strong class="feat-name">Hash</strong> (<code>hash</code>) - SHA-224 / 256 / 384 / 512 over UTF-8, hex or base64 input.</li>
+      <li><strong class="feat-name">Calculator</strong> (<code>calculate</code>) - evaluate arithmetic, trigonometry (in radians), functions such as <code>sqrt</code>, <code>ln</code>, <code>log10</code> and <code>round</code>, and the constants <code>pi</code> and <code>e</code>. Operators group the way programming languages do (<code>100 / 5 * 2</code> is 40, <code>2^3^2</code> is 512), <code>%</code> is the remainder, and scientific notation such as <code>6.022e23</code> or <code>-1e-3</code> works. Results carry 12 significant digits, in scientific notation when very small or very large (<code>5.1e-12</code>).</li>
+      <li><strong class="feat-name">Date &amp; time</strong> (<code>datetime</code>) - parse, format and do arithmetic on dates and times, with DST-aware timezone conversion, weekday lookup and business-day counting (Saturdays and Sundays are skipped; holidays are not). When converting between timezones, a time without an offset is read as UTC unless the model names the zone it is in. Differences count whole periods elapsed (Jan 15 to Feb 14 is 0 months) and days as calendar days in the chosen zone, and a result that lands in an hour skipped by a DST change is an error rather than a guess.</li>
+      <li><strong class="feat-name">Count</strong> (<code>count</code>) - count characters, bytes, words, lines or substring hits. Characters can be counted as Unicode code points or as graphemes - the characters a reader sees, so a flag or a skin-toned emoji counts as one.</li>
+      <li><strong class="feat-name">Hash</strong> (<code>hash</code>) - SHA-224 / 256 / 384 / 512 over UTF-8, hex or base64 input (standard or URL-safe, padding optional).</li>
       <li><strong class="feat-name">UUID</strong> (<code>uuid</code>) - generate v4 (random) or v7 (time-ordered) UUIDs, up to 100 per call.</li>
-      <li><strong class="feat-name">Base64</strong> (<code>base64</code>) - encode and decode with the standard or URL-safe alphabet.</li>
-      <li><strong class="feat-name">JSON</strong> (<code>json</code>) - validate, pretty-print, or pull values out by JSON Pointer.</li>
-      <li><strong class="feat-name">Unit conversion</strong> (<code>unit_convert</code>) - convert between units across nine categories: length, mass, volume, speed, time, area, energy, pressure and temperature, including less common units such as furlongs, troy ounces and parsecs.</li>
-      <li><strong class="feat-name">Text diff</strong> (<code>diff_text</code>) - unified diff between two strings, by line, word or character.</li>
-      <li><strong class="feat-name">Sort</strong> (<code>sort</code>) - sort lines lexically, naturally (<code>file2</code> before <code>file10</code>) or numerically, with reverse, unique and case-insensitive options.</li>
+      <li><strong class="feat-name">Base64</strong> (<code>base64</code>) - encode and decode with the standard or URL-safe alphabet. Decoding ignores spaces and line breaks, so wrapped PEM or MIME text works.</li>
+      <li><strong class="feat-name">JSON</strong> (<code>json</code>) - validate, pretty-print, or pull values out by JSON Pointer (<code>/users/0/name</code>; the leading <code>/</code> can be left off), keeping keys in their original order. A JSONPath such as <code>$.users[0].name</code> is refused with a hint on writing it as a pointer.</li>
+      <li><strong class="feat-name">Unit conversion</strong> (<code>unit_convert</code>) - convert between units across nine categories: length, mass, volume, speed, time, area, energy, pressure and temperature, including less common units such as furlongs, troy ounces and parsecs. Unit names ignore case except where it matters: a capital <code>M</code> is mega and a small <code>m</code> milli (<code>ML</code> and <code>mL</code>, <code>MPa</code> and <code>mPa</code>), and <code>Cal</code> is the food Calorie, a kcal. Degree signs (<code>&deg;C</code>) and plurals (<code>kilograms</code>) work, a temperature below absolute zero is refused, and results carry 12 significant digits.</li>
+      <li><strong class="feat-name">Text diff</strong> (<code>diff_text</code>) - unified diff between two strings, by line, word or character. Identical inputs give <code>(no differences)</code>.</li>
+      <li><strong class="feat-name">Sort</strong> (<code>sort</code>) - sort lines lexically, naturally (<code>file2</code> before <code>file10</code>) or numerically, with reverse, unique and case-insensitive options. In a numeric sort, lines that aren&rsquo;t numbers go last, reversed or not, and a case-insensitive unique sort keeps one of <code>Apple</code> and <code>apple</code>.</li>
       <li><strong class="feat-name">IP / CIDR</strong> (<code>ip</code>) - CIDR membership checks and subnet info (network, broadcast, first and last usable host, host count), for IPv4 and IPv6.</li>
       <li><strong class="feat-name">PDF</strong> (<code>pdf</code>) - generate a downloadable PDF from a structured spec (see below).</li>
       <li><strong class="feat-name">Workspace files</strong> - one switch for eight file tools that let the model work in a folder you pick for a chat. They are the only built-in tools that touch the disk, and they have <a href="work-in-folders.html">their own page</a>.</li>
@@ -290,7 +292,7 @@
     <p><a href="web-fetch.html">Web fetch</a> has a switch on the same tab but is not a tool the model calls: Loach fetches the URLs in your message before the request goes out.</p>
 
     <h2 id="pdf">PDF generation</h2>
-    <p>The <code>pdf</code> tool turns a structured spec - headings, paragraphs, bulleted and numbered lists, simple tables, horizontal rules and page breaks - into a real A4 PDF. The result lands in the chat as a previewable, savable <a href="attachments.html#previews">attachment</a>, so you can ask the model to draft a document and pull it straight out. The bundled font covers Latin text, European accents and common punctuation and currency symbols; characters outside it, such as CJK or emoji, come out as <code>?</code>. Images and merging existing PDFs are not supported.</p>
+    <p>The <code>pdf</code> tool turns a structured spec - headings, paragraphs, bulleted and numbered lists, simple tables, horizontal rules and page breaks - into a real A4 PDF. The result lands in the chat as a previewable, savable <a href="attachments.html#previews">attachment</a>, so you can ask the model to draft a document and pull it straight out. The bundled font covers Latin-script text only - European accents included - plus common punctuation and currency symbols. Cyrillic, Greek, CJK, emoji and anything else outside it print as <code>?</code>, and the tool tells the model how many characters were replaced so it can let you know. A document can run to 200 pages, counted as they print. The title becomes the file name, keeping its letters in any script. Images and merging existing PDFs are not supported.</p>
 
     <h2 id="limits">Limits</h2>
     <ul class="feature-list">
@@ -302,7 +304,7 @@
     <div class="callout note">
       <div class="callout-body">
         <div class="callout-title">Local and private</div>
-        <p>Built-in tools never touch the network, and only the file tools touch your files. That is why they remain available inside <a href="private-chat.html">Private Chat</a>, where <a href="mcp.html">MCP</a> tools are blocked. The file tools are the one exception: Private Chat never gets a folder, so it never gets them either.</p>
+        <p>Built-in tools never touch the network, and only the file tools touch your files. Even so, <a href="private-chat.html">Private Chat</a> doesn&rsquo;t offer them: like <a href="mcp.html">MCP</a> tools, they are left out there, because its window has nowhere to show a tool call, its result or a PDF the model makes.</p>
       </div>
     </div>
     <div class="page-nav">

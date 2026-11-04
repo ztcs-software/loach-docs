@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -272,7 +274,7 @@
     <h2 id="start-ollama">Starting Ollama from Loach</h2>
     <p>You do not have to run <code>ollama serve</code> by hand:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Start Ollama</strong> - when the daemon is not answering, the model picker in the chat header shows a <strong>Start Ollama</strong> button. It finds the <code>ollama</code> program (on your <code>PATH</code> or in Ollama&rsquo;s default install location), starts it on the host and port of your base URL, waits up to 20 seconds for it to answer, then swaps in the model list. Errors - Ollama not installed, a base URL on another machine, a server that exits straight away - show in the menu itself.</li>
+      <li><strong class="feat-name">Start Ollama</strong> - when the daemon is not answering, the model picker in the chat header shows a <strong>Start Ollama</strong> button. It finds the <code>ollama</code> program (on your <code>PATH</code> or in Ollama&rsquo;s default install location), starts it on the host and port of your base URL (port 80 or 443 when the URL names none, matching where Loach connects), waits up to 20 seconds for it to answer, then swaps in the model list. Errors - Ollama not installed, a base URL on another machine, a server that exits straight away - show in the menu itself.</li>
       <li><strong class="feat-name">Auto-launch Ollama</strong> - an opt-in switch in <strong>Settings &rarr; Providers</strong> does the same thing every time Loach opens, if nothing is already running. It is off by default (starting a background service is your call) and limited to a base URL that points at this computer - a remote Ollama is not Loach&rsquo;s to start. The button above has the same limit.</li>
       <li><strong class="feat-name">Left running</strong> - an Ollama that Loach started keeps running after you quit Loach, since other apps may be using it.</li>
       <li><strong class="feat-name">Keep model loaded</strong> - <strong>Settings &rarr; Features</strong> sets how long Ollama keeps a model resident after a reply: <strong>5 min</strong>, <strong>30 min</strong>, <strong>1 hour</strong> or <strong>Always</strong>. Until you click one, Loach sends nothing and Ollama&rsquo;s own default applies (<code>OLLAMA_KEEP_ALIVE</code>, or 5 minutes), even though <strong>5 min</strong> shows as selected. Once you pick one, it&rsquo;s sent with every request and overrides the daemon&rsquo;s default. OpenAI-compatible providers ignore it.</li>
@@ -282,7 +284,13 @@
     <p>Any endpoint that implements the OpenAI <code>/chat/completions</code> API works. That includes the real OpenAI API, plus vLLM, LM Studio, LiteLLM, OpenRouter, Groq and other proxies. Set the <strong>API base URL</strong> and <strong>OpenAI API key</strong> in <strong>Settings &rarr; Providers</strong>; the key is optional for local servers such as llama.cpp, LM Studio and vLLM.</p>
     <p>A <strong>presets dropdown</strong> at the end of the base URL field one-clicks the URL to the documented endpoint for OpenAI, llama.cpp (<code>llama-server</code>), LM Studio, vLLM, or LiteLLM - handy when you switch between local proxies and hosted services.</p>
     <p>The catalog is fetched with the saved key - or without one when the base URL points somewhere other than the OpenAI default, since local servers accept keyless requests. With the default URL and no key, Loach skips the catalog request instead of collecting 401s, and clearing the key empties the API model list so the pickers never offer a model that can only fail at send time.</p>
-    <p>API keys are saved into the OS credential store (Windows Credential Manager, macOS Keychain or the Linux Secret Service), not written into the SQLite database, and never handed to the app&rsquo;s web view - the Settings field only shows whether a key is stored. The key is sent only over <code>https://</code>, or over <code>http://</code> to this computer; an <code>http://</code> server elsewhere on your network gets requests without it.</p>
+    <p>API keys are saved into the OS credential store (Windows Credential Manager, macOS Keychain or the Linux Secret Service), not written into the SQLite database, and never handed to the app&rsquo;s web view - the Settings field only shows whether a key is stored. The key is sent only over <code>https://</code>, or over <code>http://</code> to this computer; an <code>http://</code> server elsewhere on your network gets requests without it. Windows Credential Manager can&rsquo;t hold a key longer than 1,280 characters, so Loach refuses one up front (&ldquo;OpenAI API key is unusually long &hellip; - refusing to store&rdquo;). On Linux, a Secret Service that wasn&rsquo;t running yet when Loach first needed it is connected on the next save or read, without a restart; until then a local server&rsquo;s catalog is still listed, as if no key were stored.</p>
+    <p>Some servers need special handling, which Loach does on its own:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Reasoning models</strong> - OpenAI&rsquo;s o-series and GPT-5 refuse <code>max_tokens</code> and any non-default <code>temperature</code>. When a server turns a request down with a 400 that names a field Loach set itself, Loach resends it with <code>max_completion_tokens</code> in place of <code>max_tokens</code>, or without the refused field (temperature, top-p, the penalties or the seed). Each field is retried once per reply and remembered only for that reply, so every new message goes through the refusal again before the answer starts.</li>
+      <li><strong class="feat-name">Reasoning text</strong> - reasoning a server streams as <code>reasoning_content</code>, or as <code>reasoning</code> (Ollama&rsquo;s <code>/v1</code>, OpenRouter, newer vLLM), shows as the reply&rsquo;s thinking block, even though the Thinking toggle stays off on these chats.</li>
+      <li><strong class="feat-name">Context window</strong> - these servers don&rsquo;t report their window and ignore <code>num_ctx</code>, so Loach assumes 32K (32,768 tokens) unless the chat sets a <a href="parameters.html#ref-length">Context Length</a>. The figure only sizes <a href="library.html#source-modes">Library sources</a> and the <a href="context-compaction.html#usage-bar">context bar</a>; it&rsquo;s never sent.</li>
+    </ul>
 
     <h2 id="test-connection">Test connection</h2>
     <p>Each provider section exposes a one-click probe so you can verify a base URL (and API key) <em>before</em> opening a chat:</p>
@@ -290,16 +298,16 @@
       <li><strong class="feat-name">Ollama</strong> - queries <code>/api/tags</code> and reports <strong>Connected</strong> with the number of models available, or <strong>Connection failed</strong> with the error.</li>
       <li><strong class="feat-name">OpenAI-compatible</strong> - calls the endpoint&rsquo;s <code>/models</code> listing with the stored key and reports the model count or the error. Disabled while there is an unsaved key still in the input (&ldquo;Save the key first, then test.&rdquo;).</li>
     </ul>
-    <p>A failed test adds a hint under the raw error when it recognises the cause: an unreachable server, a URL that doesn&rsquo;t parse, an unauthorized key, a <code>/models</code> path that wasn&rsquo;t found, or a blocked link-local address.</p>
+    <p>A failed test adds a hint under the raw error when it recognises the cause: an unreachable server, a URL that doesn&rsquo;t parse, an unauthorized key, a <code>/models</code> path that wasn&rsquo;t found, or a blocked link-local address. The Ollama test sends no credentials, so there a 401 or 403 points at a proxy in front of Ollama that asks for a login (aim Loach at Ollama directly), and a 404 means <code>/api/tags</code> wasn&rsquo;t found - use the server&rsquo;s address without a path, such as <code>http://localhost:11434</code> rather than <code>&hellip;/v1</code> or <code>&hellip;/api</code>.</p>
 
     <h2 id="model-picker">The model picker</h2>
-    <p>Every chat has a model dropdown in its header, labelled with the current model and provider. It lists both providers&rsquo; catalogs grouped by provider: <strong>Ollama</strong>, with a green tick when it&rsquo;s running or an amber warning when it isn&rsquo;t, and <strong>API</strong>, which shows the first 30 models the endpoint returns (or <strong>Not connected</strong> when there is no key). With no Ollama models and no API key, a <strong>Configure providers&hellip;</strong> entry opens <strong>Settings &rarr; Providers</strong>. Picking a model:</p>
+    <p>Every chat has a model dropdown in its header, labelled with the current model and provider. It lists both providers&rsquo; catalogs grouped by provider: <strong>Ollama</strong>, with a green tick when it&rsquo;s running or an amber warning when it isn&rsquo;t, and <strong>API</strong>, which lists every model the endpoint returns (or <strong>Not connected</strong> when there is no key). A long list scrolls, and typing a model&rsquo;s first letters jumps to it. With no Ollama models and no API key, a <strong>Configure providers&hellip;</strong> entry opens <strong>Settings &rarr; Providers</strong>. Picking a model:</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Persists onto the chat</strong> - reloading the app remembers which model that chat last used.</li>
       <li><strong class="feat-name">Updates the &ldquo;most recent&rdquo; pair</strong> - used by <a href="default-model.html">Default model &rarr; Use most recent</a> when starting fresh chats.</li>
       <li><strong class="feat-name">Unloads the old model</strong> - for Ollama, the previous model is released from VRAM and the new one&rsquo;s parameter cache is warmed for the parameters sidebar.</li>
     </ul>
-    <p>You can also switch from the composer: <code>/model &lt;name&gt;</code> takes an exact name or a unique part of one, and <code>/list models</code> shows what&rsquo;s available.</p>
+    <p>You can also switch from the composer: <code>/model &lt;name&gt;</code> takes an exact name or a unique part of one - write <code>ollama/&lt;name&gt;</code> or <code>openai/&lt;name&gt;</code> when both providers serve the same id - a bare <code>/model</code> opens this picker, and <code>/list models</code> shows what&rsquo;s available. <code>/unload</code> frees the chat&rsquo;s Ollama model from memory; it loads again with your next message. See <a href="slash-commands.html">Slash commands</a>.</p>
 
     <div class="callout note">
       <div class="callout-body">
@@ -316,6 +324,7 @@
       <li><strong class="feat-name">Authentication</strong> - &ldquo;API key invalid or expired&rdquo; (401) or &ldquo;API key not authorized for this endpoint or model&rdquo; (403).</li>
       <li><strong class="feat-name">Reachability</strong> - the endpoint could not be reached, the host name didn&rsquo;t resolve, the request timed out, or the HTTPS certificate is broken.</li>
       <li><strong class="feat-name">Server answers</strong> - endpoint or model not found (404), rate limited (429), an upstream server error (5xx), or a conversation too long for the model&rsquo;s context window.</li>
+      <li><strong class="feat-name">Cut off mid-reply</strong> - when the server fails partway through (an Ollama runner that crashes or runs out of memory, an error from vLLM or llama-server, OpenRouter ending the reply with an error), the text so far stays and the reply ends with the warning - for example &ldquo;Ollama stopped mid-reply: &hellip;&rdquo; or &ldquo;OpenAI stream stopped mid-reply: &hellip;&rdquo; - instead of looking finished.</li>
     </ul>
     <p>Anything else is shown as the provider&rsquo;s own error text.</p>
 

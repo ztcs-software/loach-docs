@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tech stack - Loach Docs</title>
-  <meta name="description" content="The technology stack behind Loach - desktop shell, frontend, storage, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets." />
+  <meta name="description" content="The technology stack behind Loach - desktop shell, frontend, storage, Library search, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/tech-stack.html" />
   <meta property="og:title" content="Tech stack - Loach Docs" />
-  <meta property="og:description" content="The technology stack behind Loach - desktop shell, frontend, storage, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets." />
+  <meta property="og:description" content="The technology stack behind Loach - desktop shell, frontend, storage, Library search, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tech stack - Loach Docs" />
-  <meta name="twitter:description" content="The technology stack behind Loach - desktop shell, frontend, storage, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets." />
+  <meta name="twitter:description" content="The technology stack behind Loach - desktop shell, frontend, storage, Library search, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     {
       "@type": "Article",
       "headline": "Tech stack",
-      "description": "The technology stack behind Loach - desktop shell, frontend, storage, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets.",
+      "description": "The technology stack behind Loach - desktop shell, frontend, storage, Library search, secrets, HTTP, document parsing, tools, MCP, updates and bundle targets.",
       "url": "https://docs.loach.dev/pages/tech-stack.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -260,34 +262,36 @@
     <p class="lead">For the curious, here&rsquo;s the stack behind Loach at a glance.</p>
 
     <h2 id="stack">Stack at a glance</h2>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Layer</th><th>Choice</th></tr></thead>
       <tbody>
-        <tr><td>Desktop shell</td><td>Tauri 2.x (Rust)</td></tr>
+        <tr><td>Desktop shell</td><td>Tauri 2.x (Rust), currently 2.12, with <code>tauri-plugin-single-instance</code> so a second launch brings the running window forward</td></tr>
         <tr><td>Frontend</td><td>React 19 + Vite 8 + TypeScript</td></tr>
         <tr><td>Styling</td><td>Tailwind CSS 3 + shadcn/ui (Radix primitives) + <code>tailwindcss-animate</code> + <code>@tailwindcss/typography</code></td></tr>
         <tr><td>Icons</td><td><code>lucide-react</code></td></tr>
         <tr><td>State</td><td>Zustand (in-memory; SQLite-backed where appropriate)</td></tr>
         <tr><td>Storage</td><td>SQLite via <code>rusqlite</code> (bundled - no system dependency)</td></tr>
+        <tr><td>Library search</td><td>SQLite FTS5 keyword index + optional embeddings (Ollama or an OpenAI-compatible endpoint), merged by reciprocal-rank fusion</td></tr>
         <tr><td>Secrets</td><td><code>keyring</code> crate &rarr; Windows Credential Manager / Linux Secret Service / macOS Keychain</td></tr>
-        <tr><td>Hashing</td><td><code>argon2</code> + <code>rand_core</code> (app-lock)</td></tr>
+        <tr><td>Hashing</td><td><code>argon2</code> (app-lock)</td></tr>
         <tr><td>HTTP</td><td><code>reqwest</code> with streaming + <code>rustls-tls</code></td></tr>
         <tr><td>Markdown</td><td><code>react-markdown</code> + <code>remark-gfm</code> + <code>rehype-highlight</code> (highlight.js)</td></tr>
         <tr><td>Math</td><td><code>remark-math</code> + <code>rehype-katex</code> + KaTeX, lazy-loaded from the bundle on first use</td></tr>
         <tr><td>Document parsing</td><td><code>pdfjs-dist</code> (PDF) + <code>mammoth</code> (DOCX)</td></tr>
-        <tr><td>PDF generation</td><td><code>printpdf</code> 0.12 with bundled Liberation Sans fonts, subset at render time (Unicode-capable output)</td></tr>
-        <tr><td>Built-in tools</td><td>In-process Rust: <code>exmex</code> (calculator), <code>chrono-tz</code> (time zones), <code>sha2</code>, <code>similar</code> (text diff), <code>natord</code> (natural sort), <code>ipnet</code></td></tr>
+        <tr><td>PDF generation</td><td><code>printpdf</code> 0.12 with bundled Liberation Sans fonts, subset at render time (Latin-script text; other characters print as <code>?</code>)</td></tr>
+        <tr><td>Built-in tools</td><td>In-process Rust: <code>exmex</code> (calculator), <code>chrono-tz</code> (time zones), <code>sha2</code>, <code>similar</code> (text diff), <code>natord</code> (natural sort), <code>unicode-segmentation</code> (grapheme counts), <code>ipnet</code></td></tr>
         <tr><td>Work in folders</td><td><code>walkdir</code> + <code>glob</code> + <code>regex</code> (no backtracking); <code>encoding_rs</code> + <code>chardetng</code> to edit non-UTF-8 files in their own encoding</td></tr>
         <tr><td>MCP</td><td>Built-in client: Streamable HTTP over <code>reqwest</code>, or a local stdio process - on Windows in a job object, on macOS / Linux in its own process group, so stopping a server stops everything it started</td></tr>
         <tr><td>Hardware detection</td><td><code>sysinfo</code> (RAM, free disk) + DXGI on Windows / <code>nvidia-smi</code> or amdgpu sysfs on Linux (VRAM), for the onboarding model recommendation</td></tr>
+        <tr><td>HTML preview</td><td>A sandboxed frame served from its own <code>loach-sandbox</code> scheme, with its own content security policy: offline, with no access to the app or its commands</td></tr>
         <tr><td>Updates</td><td>Tauri updater plugin with Ed25519 (minisign) signature verification</td></tr>
         <tr><td>System tray</td><td>Tauri 2 built-in (<code>tray-icon</code> feature)</td></tr>
         <tr><td>Bundle targets</td><td>NSIS <code>.exe</code> on Windows; <code>.deb</code> / <code>.rpm</code> / <code>.AppImage</code> on Linux; <code>.dmg</code> + <code>.app</code> on macOS (Apple Silicon)</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h2 id="toolchain">Toolchain</h2>
-    <p>Building from source needs <strong>Node.js 20.19+</strong> (or 22.12+) and <strong>Rust 1.88+</strong> - the minimum the dependency tree allows; CI and the Docker build pin Rust 1.88.0 and Node.js 22. Linux builds target <strong>glibc 2.35</strong>, so Ubuntu 22.04 and Debian 12 are the oldest supported distributions. See <a href="installation.html#source">Build from source</a>.</p>
+    <p>Building from source needs <strong>Node.js 22.13+</strong> (or 24 / 26+) and <strong>Rust 1.90+</strong> - the minimum the dependency tree allows; CI and the Docker build pin Rust 1.90.0 and Node.js 22. Linux builds target <strong>glibc 2.35</strong>, so Ubuntu 22.04 and Debian 12 are the oldest supported distributions. See <a href="installation.html#source">Build from source</a>.</p>
 
     <div class="page-nav">
       <a href="privacy.html">

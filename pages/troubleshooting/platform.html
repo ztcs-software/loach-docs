@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Platform - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines." />
+  <meta name="description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs and older Safari, closing the window and shortcuts on macOS, older Linux distributions (glibc), Credential Manager failures on managed Windows machines, startup failures and a second launch." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/platform.html" />
   <meta property="og:title" content="Platform - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines." />
+  <meta property="og:description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs and older Safari, closing the window and shortcuts on macOS, older Linux distributions (glibc), Credential Manager failures on managed Windows machines, startup failures and a second launch." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Platform - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines." />
+  <meta name="twitter:description" content="Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs and older Safari, closing the window and shortcuts on macOS, older Linux distributions (glibc), Credential Manager failures on managed Windows machines, startup failures and a second launch." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Platform - Troubleshooting",
-      "description": "Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs, older Linux distributions (glibc), and Credential Manager failures on managed Windows machines.",
+      "description": "Platform-specific Loach issues: the macOS damaged-app warning on first launch, Intel Macs and older Safari, closing the window and shortcuts on macOS, older Linux distributions (glibc), Credential Manager failures on managed Windows machines, startup failures and a second launch.",
       "url": "https://docs.loach.dev/pages/troubleshooting/platform.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -264,7 +266,7 @@
   <main class="content">
     <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
     <h1>Platform</h1>
-    <p class="lead">A few problems are specific to a particular operating system or IT policy.</p>
+    <p class="lead">A few problems are specific to a particular operating system or IT policy, or to how Loach starts.</p>
 
     <h2 id="macos-gatekeeper">macOS - &ldquo;Loach is damaged and can&rsquo;t be opened&rdquo; on first launch</h2>
     <p class="problem-statement">macOS refuses to open the app after install, showing either <em>&ldquo;Loach is damaged and can&rsquo;t be opened&rdquo;</em> or <em>&ldquo;Apple cannot verify Loach is free of malware&rdquo;</em>.</p>
@@ -280,14 +282,34 @@
     <p class="problem-statement">You&rsquo;re on an Intel Mac and the <code>.dmg</code> won&rsquo;t install or run.</p>
     <p>The macOS build is <strong>Apple Silicon (M-series) only</strong>, and needs <strong>macOS 11</strong> or later. Intel Macs aren&rsquo;t supported. Build from source if you need to run on Intel - see <a href="../installation.html#source">Build from source</a>.</p>
 
+    <h2 id="macos-safari">macOS - Loach doesn&rsquo;t work on an older Mac</h2>
+    <p class="problem-statement">On an older Mac, Loach installs but doesn&rsquo;t work properly.</p>
+    <p>Besides <strong>macOS 11</strong> or later, Loach needs <strong>Safari 16.4</strong> or later. Its window runs on the system&rsquo;s WebKit, which follows the installed Safari rather than the macOS version, and its Markdown rendering needs Safari 16.4&rsquo;s JavaScript - so a Mac on an older Safari, such as a Big Sur or Monterey Mac still on Safari 14 or 15, has to update Safari first.</p>
+
+    <h2 id="macos-close">macOS - closing the window doesn&rsquo;t quit Loach</h2>
+    <p class="problem-statement">You closed Loach&rsquo;s window, but it&rsquo;s still in the Dock and the menu bar.</p>
+    <p>Like other Mac apps, Loach keeps running when you close its window (the red button or <kbd>&#8984;</kbd> + <kbd>W</kbd>), and a reply in progress carries on. Click its Dock icon, or <strong>Show Loach</strong> in its menu-bar icon, to bring the window back; quit with <kbd>&#8984;</kbd> + <kbd>Q</kbd> or <strong>Quit</strong> in the menu-bar icon. With an <a href="../features/app-lock.html">app lock</a> set, closing the window also locks Loach. The window uses the system&rsquo;s own buttons on macOS, which hide in full screen as in other apps.</p>
+
+    <h2 id="macos-shortcuts">macOS - Ctrl shortcuts don&rsquo;t work</h2>
+    <p class="problem-statement">On a Mac, <kbd>Ctrl</kbd> + <kbd>K</kbd>, <kbd>Ctrl</kbd> + <kbd>N</kbd> and the other shortcuts in these docs do nothing, or move the text cursor instead.</p>
+    <p>On macOS, Loach&rsquo;s shortcuts use <kbd>&#8984;</kbd> only - press <kbd>&#8984;</kbd> wherever these docs say <kbd>Ctrl</kbd>. <kbd>Ctrl</kbd> is left to the text field, where macOS gives it meanings of its own: <kbd>Ctrl</kbd> + <kbd>K</kbd> deletes to the end of the line, and <kbd>Ctrl</kbd> + <kbd>N</kbd> and <kbd>Ctrl</kbd> + <kbd>F</kbd> move the cursor. See <a href="../features/keyboard.html">Keyboard shortcuts</a>.</p>
+
     <h2 id="linux-glibc">Linux - the app won&rsquo;t start on an older distribution</h2>
     <p class="problem-statement">Launching Loach fails with an error such as <code>version `GLIBC_2.35' not found</code>.</p>
     <p>Loach&rsquo;s Linux packages are built against <strong>glibc 2.35</strong>, so <strong>Ubuntu 22.04</strong> and <strong>Debian 12</strong> are the oldest supported distributions; anything with an older glibc can&rsquo;t run the pre-built <code>.deb</code>, <code>.rpm</code> or <code>.AppImage</code>. Upgrade the distribution, or <a href="../installation.html#source">build from source</a> on the machine itself.</p>
+
+    <h2 id="startup-failed">&ldquo;Loach failed to start&rdquo;</h2>
+    <p class="problem-statement">Launching Loach shows a <em>Loach failed to start</em> dialog, and the app closes when you dismiss it.</p>
+    <p>Loach couldn&rsquo;t set itself up, and the dialog says why, with the details below: its app-data folder couldn&rsquo;t be found or created, the database couldn&rsquo;t be opened or updated, or its HTTP client couldn&rsquo;t start (TLS or root certificates may be missing). Check that the <a href="../privacy.html#where">app-data folder</a> is writable and the disk isn&rsquo;t full. If it keeps happening, file an issue with the details from the dialog.</p>
 
     <h2 id="windows-credman">Windows - saving a key or the app lock fails on a managed machine</h2>
     <p class="problem-statement">Saving keys or app-lock credentials fails on a managed Windows machine with a platform or storage error.</p>
     <p>Some corporate group policies block apps from writing to Credential Manager. Loach cannot store secrets without it. Ask your IT admin to allow Credential Manager writes for the Loach process, or use a personal machine.</p>
     <p>On Linux, the equivalent problem is a missing Secret Service - see <a href="providers-connections.html#linux-secret-service">Key won&rsquo;t save on Linux</a>.</p>
+
+    <h2 id="single-instance">Launching Loach again doesn&rsquo;t open a second window</h2>
+    <p class="problem-statement">You start Loach while it&rsquo;s already running, and no second window appears.</p>
+    <p>Loach runs as a single instance: launching it again - from the Start menu, a desktop file or a double click - brings the running window forward instead, out of the tray too, rather than starting a second copy over the same database.</p>
 
     <div class="page-nav">
       <a href="search-palette.html">

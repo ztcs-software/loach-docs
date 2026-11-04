@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -277,13 +279,13 @@
     <h2 id="when-its-missing">Where the numbers come from</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Ollama</strong> - reports the token count itself, and the rate uses Ollama&rsquo;s own generation time, so model loading and prompt processing don&rsquo;t drag it down.</li>
-      <li><strong class="feat-name">OpenAI-compatible</strong> - the count comes from the endpoint&rsquo;s usage report when it sends one. Older proxies ignore Loach&rsquo;s request for it; Loach then counts the streamed chunks as an approximation. The rate is worked out from the wall clock.</li>
+      <li><strong class="feat-name">OpenAI-compatible</strong> - the count comes from the endpoint&rsquo;s usage report when it sends one; it follows the reply&rsquo;s last chunk, and Loach reads on for it (up to 2 seconds on a server that keeps the stream open). Older proxies ignore Loach&rsquo;s request for it; Loach then counts the streamed chunks as an approximation. The rate is worked out from the wall clock.</li>
       <li><strong class="feat-name">Approval waits</strong> - time a reply spends paused on a tool approval card is left out of the rate but still counted in the elapsed time.</li>
     </ul>
     <p>If the numbers don&rsquo;t match your provider&rsquo;s dashboard, these differences are usually why - see <a href="../troubleshooting/messages.html#missing-stats">Troubleshooting</a>.</p>
 
     <h2 id="cancelled-replies">Stopped and failed replies</h2>
-    <p>The numbers arrive only when a reply completes. A reply you stop, one that <strong>Respond now</strong> pre-empts, and one that ends in an error keep their partial text but get no chip. See <a href="concurrency.html">Concurrency &amp; queue</a> for details on how partial output is preserved.</p>
+    <p>The numbers arrive only when a reply completes. A reply you stop, one that <strong>Respond now</strong> pre-empts, and one that ends in an error - including one the server <a href="provider-selection.html#request-errors">cuts off mid-reply</a> - keep their partial text but get no chip. See <a href="concurrency.html">Concurrency &amp; queue</a> for details on how partial output is preserved.</p>
 
     <h2 id="stats-command">Totals for a chat</h2>
     <p>Type <code>/stats</code> in the composer for a summary of the open chat: the message count (user and assistant), the assistant tokens across every reply that has a chip, the average tokens per second, the last reply&rsquo;s numbers, and the model and provider. The average divides the total tokens by the total elapsed time, so on Ollama it reads lower than the per-reply rates.</p>

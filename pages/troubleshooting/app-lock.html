@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>App lock - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen." />
+  <meta name="description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, macOS keychain prompts, and Loach opening without the lock screen." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/app-lock.html" />
   <meta property="og:title" content="App lock - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen." />
+  <meta property="og:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, macOS keychain prompts, and Loach opening without the lock screen." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="App lock - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen." />
+  <meta name="twitter:description" content="Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, macOS keychain prompts, and Loach opening without the lock screen." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "App lock - Troubleshooting",
-      "description": "Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, and Loach opening without the lock screen.",
+      "description": "Troubleshoot Loach app lock: forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session, macOS keychain prompts, and Loach opening without the lock screen.",
       "url": "https://docs.loach.dev/pages/troubleshooting/app-lock.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -277,7 +279,7 @@
       <li>Linux: delete it in your keyring app (Passwords and Keys, KWalletManager), or run <code>secret-tool clear service dev.loach.app username app_lock</code>.</li>
       <li>macOS: in <strong>Keychain Access</strong>, delete the <code>dev.loach.app</code> item whose account is <code>app_lock</code>.</li>
     </ul>
-    Your chats and settings are untouched - only the lock is gone, and Loach starts unlocked the next time you open it.
+    Your chats and settings are untouched - only the lock is gone. Loach also remembers that a lock was set in a small marker file, <code>app_lock.json</code>, next to its database in the <a href="../privacy.html#where">app-data folder</a>, so the next launch still shows the lock screen once: enter anything - any PIN of the right length, any password - to get in, and it starts unlocked from then on. Delete <code>app_lock.json</code> as well to skip that last lock screen.
   </li>
 </ul>
 <p>Deleting the app-data folder does <strong>not</strong> help: it wipes your chats but leaves the credential-store entry, so the lock screen comes straight back.</p>
@@ -285,7 +287,7 @@
 
     <h2 id="too-many-attempts">&ldquo;Too many failed attempts&rdquo; on the lock screen</h2>
     <p class="problem-statement">After several wrong PINs, every unlock attempt is refused with <em>Too many failed attempts. Try again in N seconds.</em></p>
-    <p>After 5 consecutive failed attempts, Loach starts an escalating cool-down (30 s &rarr; 60 s &rarr; 2 min &hellip; up to 2 h). Wrong credentials typed into a re-authentication prompt count toward it too. Wait for the window to expire, or <strong>restart the app</strong> - the counter resets on restart and on a successful unlock.</p>
+    <p>After 5 consecutive failed attempts, Loach starts an escalating cool-down (30 s &rarr; 60 s &rarr; 2 min &hellip; up to 2 h). Wrong credentials typed into a re-authentication prompt count toward it too. Wait for the window to expire. Restarting the app doesn&rsquo;t help: the count is saved next to the database and only resets when you enter the correct credentials, or when the lock is changed or removed.</p>
 
     <h2 id="reauth-prompts">Changing or removing the lock asks for my current password</h2>
     <p class="problem-statement">Even though the app is unlocked, changing the lock or running a destructive command prompts for the current credentials.</p>
@@ -298,7 +300,11 @@
   <li><strong>Lock after inactivity</strong> - set it to <em>Off</em>, or to a longer interval, if a 1- or 5-minute timeout is catching you while you read a long reply. Typing, clicking, scrolling, touch and moving the mouse over Loach count as activity; watching a reply stream does not.</li>
   <li><strong>Lock when minimized</strong> - turn it off if you routinely minimize Loach while it works. Native save / open dialogs don&rsquo;t trigger it, so exporting or attaching a file is safe either way.</li>
 </ul>
-<p>If neither is on, check you aren&rsquo;t hitting <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, which locks immediately. A reply already streaming keeps running behind the lock screen - unlocking returns you to it with the tokens that arrived meanwhile.</p>
+<p>If neither is on, check you aren&rsquo;t pressing <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> or typing <code>/lock</code>, which lock immediately. On macOS, closing the window (the red button, <kbd>&#8984;</kbd> + <kbd>W</kbd>) hides Loach rather than quitting it, and always locks it. A reply already streaming keeps running behind the lock screen - unlocking returns you to it with the tokens that arrived meanwhile. A <a href="../features/private-chat.html">Private Chat</a> doesn&rsquo;t survive a lock: locking wipes it, as closing it would.</p>
+
+    <h2 id="macos-keychain">macOS asks for keychain access when I unlock</h2>
+    <p class="problem-statement">Unlocking Loach brings up a macOS prompt asking to let it use its <code>dev.loach.app</code> keychain item - often right after an update.</p>
+    <p>Loach reads the lock from the keychain when you unlock (the lock screen itself comes up without it), and macOS can ask again after an update. Enter your login password and choose <strong>Always Allow</strong>. If you deny it, Loach can&rsquo;t check your PIN or password and stays locked - try again and allow it.</p>
 
     <h2 id="lock-late">The lock fired later than the timeout I set</h2>
     <p class="problem-statement">You picked 1 minute but it took closer to 75 seconds.</p>
@@ -306,12 +312,12 @@
 
     <h2 id="no-lock-screen">Loach opened without asking for my PIN</h2>
     <p class="problem-statement">A lock is configured, but Loach started straight into your chats.</p>
-    <p>At launch Loach asks the OS credential store whether a lock is set. If that check fails or gets no answer within 5 seconds - no Secret Service running on Linux, or a keyring still waiting to be unlocked - Loach starts unlocked rather than stranding you on a lock screen it can&rsquo;t verify, and <strong>Settings &rarr; Security</strong> shows <em>App lock is off</em> for that session. Make sure your keyring is running and unlocked, then restart Loach. On a managed Windows machine, see <a href="platform.html">Platform</a> for Credential Manager restrictions.</p>
+    <p>At launch Loach reads whether a lock is set from a small marker file next to its database, <code>app_lock.json</code>, so the lock screen comes up without waiting on the OS credential store. Only when that file is missing - the first launch after updating, or after it was deleted - does Loach ask the credential store instead. If that check fails - no Secret Service running on Linux, or a keyring still waiting to be unlocked - Loach starts unlocked rather than stranding you on a lock screen it can&rsquo;t verify, and <strong>Settings &rarr; Security</strong> shows <em>App lock is off</em> for that session. An answer that takes longer than 5 seconds but finds a lock brings the lock screen up when it arrives. Make sure your keyring is running and unlocked, then restart Loach. On a managed Windows machine, see <a href="platform.html">Platform</a> for Credential Manager restrictions.</p>
 
     <div class="page-nav">
-      <a href="spaces-memory.html">
+      <a href="library.html">
         <span class="label">Previous</span>
-        <span class="title">&larr; Spaces &amp; memory</span>
+        <span class="title">&larr; Library</span>
       </a>
       <a href="models-editor.html" class="next">
         <span class="label">Next</span>

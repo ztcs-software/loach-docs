@@ -25,7 +25,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "index.html",
     "heading": "Where to next?",
     "anchor": "next",
-    "body": "Installation - pre-built packages for Windows, Linux & macOS, or build from source. Quick start - your first chat with a local model in two minutes. Core concepts - providers, chats, Spaces, Snippets, parameters. Features - the full feature reference. FAQ - the questions people ask first. Troubleshooting - common…"
+    "body": "Installation - pre-built packages for Windows, Linux & macOS, or build from source. Quick start - your first chat with a local model in two minutes. Core concepts - providers, chats, Spaces, the Library, Snippets, parameters. Features - the full feature reference. FAQ - the questions people ask first. Troubleshooting…"
   },
   {
     "title": "Installation",
@@ -39,7 +39,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/installation.html",
     "heading": "System requirements",
     "anchor": "requirements",
-    "body": "Platform Supported Packages Windows Windows 10 or 11, x86_64 .exe (NSIS installer) Linux x86_64 with glibc 2.35 or newer - Ubuntu 22.04, Debian 12 or later .deb, .rpm and .AppImage macOS macOS 11 (Big Sur) or later, Apple Silicon only .dmg Loach itself is light. What your machine needs depends on the local models you…"
+    "body": "Platform Supported Packages Windows Windows 10 or 11, x86_64 .exe (NSIS installer) Linux x86_64 with glibc 2.35 or newer - Ubuntu 22.04, Debian 12 or later .deb, .rpm and .AppImage macOS macOS 11 (Big Sur) or later with Safari 16.4 or later, Apple Silicon only .dmg Loach itself is light. What your machine needs…"
   },
   {
     "title": "Installation",
@@ -81,7 +81,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/installation.html",
     "heading": "Prerequisites",
     "anchor": "prerequisites",
-    "body": "Node.js 20.19+ (or 22.12+) and npm - Vite 8 won't run on older 20.x point releases. Rust 1.88+ via rustup - the dependency tree's minimum; CI builds on 1.88.0. Platform build tooling - see the official Tauri prerequisites guide. Windows: Microsoft Visual Studio Build Tools, WebView2 runtime (pre-installed on Windows…"
+    "body": "Node.js 22.13+ (or 24 / 26+) and npm - the locked pdfjs-dist 6 needs 22.13, and Vitest 5 runs only on Node 22, 24 and 26+. Rust 1.90+ via rustup - the dependency tree's minimum; CI builds on 1.90.0. Platform build tooling - see the official Tauri prerequisites guide. Windows: Microsoft Visual Studio Build Tools…"
   },
   {
     "title": "Installation",
@@ -158,7 +158,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/getting-started.html",
     "heading": "Next steps",
     "anchor": "next-steps",
-    "body": "Read Core concepts to understand chats, Spaces, Snippets and parameters. Skim Features to see what else is available - built-in tools, MCP servers, web fetch, code canvas, LaTeX math and more. Let the model work in a folder - add one from the + menu next to the message box. Turn on Global memories in Settings →…"
+    "body": "Read Core concepts to understand chats, Spaces, the Library, Snippets and parameters. Skim Features to see what else is available - built-in tools, MCP servers, web fetch, code canvas, LaTeX math and more. Let the model work in a folder - add one from the + menu next to the message box. Save notes, documents and web…"
   },
   {
     "title": "Core concepts",
@@ -186,7 +186,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/concepts.html",
     "heading": "Chats",
     "anchor": "chats",
-    "body": "A chat is a single conversation. Chats appear in the sidebar and are persisted locally. Each chat remembers: The provider and model used. Its parameter overrides (see below) and its own instructions. Its messages, with their attachments and tool calls. Its Space, sidebar folder, colour label, pin and archive state…"
+    "body": "A chat is a single conversation. Chats appear in the sidebar and are persisted locally. Each chat remembers: The provider and model used. Its parameter overrides (see below) and its own instructions. Its messages, with their attachments and tool calls. The Library sources attached to it, and how they reach the model.…"
   },
   {
     "title": "Core concepts",
@@ -194,6 +194,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Spaces",
     "anchor": "spaces",
     "body": "A Space groups chats that share context - instructions, reference sources and memory. Use a Space when several chats orbit the same topic: a codebase, a research question, an ongoing piece of writing. A Space’s default model is the starting point of every new chat created inside it, and each chat can still switch it.…"
+  },
+  {
+    "title": "Core concepts",
+    "url": "pages/concepts.html",
+    "heading": "Library",
+    "anchor": "library",
+    "body": "The Library keeps the reference material you want models to use, saved once: texts you write or paste, files (PDF, Word, text and code, images) and links to web pages, which Loach fetches once and keeps as a snapshot. Group items into datasets to attach a whole set in one go. Open it from the sidebar. Attach items to…"
   },
   {
     "title": "Core concepts",
@@ -235,7 +242,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/concepts.html",
     "heading": "Context",
     "anchor": "context",
-    "body": "The “context” is what Loach sends to the model on each turn: the system prompt and the message history. A context usage bar just below the message box shows how full the model’s window is. You can: Compact it - summarise older turns into the system prompt to free space, without losing your scrollback. Export it as…"
+    "body": "The “context” is what Loach sends to the model on each turn: the system prompt, the message history and any sources the chat uses. A context usage bar just below the message box shows how full the model’s window is. You can: Attach Library sources, which reach the model in full or as the excerpts most relevant to…"
   },
   {
     "title": "Core concepts",
@@ -256,7 +263,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/concepts.html",
     "heading": "Private Chat",
     "anchor": "private-chat",
-    "body": "Private Chat is an off-the-record overlay for conversations that should leave no trace. Open it from the ghost icon in the title bar or with /private. Nothing is saved: the transcript lives in memory and is wiped when you close the overlay with the × in its header. It talks to Ollama only, and gets no MCP tools, no…"
+    "body": "Private Chat is an off-the-record overlay for conversations that should leave no trace. Open it from the ghost icon in the title bar or with /private. Nothing is saved: the transcript lives in memory and is wiped when you close the overlay with the × in its header, or when Loach locks. It talks to Ollama only, and…"
   },
   {
     "title": "Providers",
@@ -317,6 +324,27 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Providers",
     "url": "pages/providers.html",
+    "heading": "Reasoning models",
+    "anchor": "reasoning-models",
+    "body": "OpenAI’s reasoning models (the o-series and GPT-5) turn down some of the fields Loach sends, such as max_tokens or temperature. When a server answers 400 naming one of those fields, Loach adjusts the request and sends it again - max_tokens becomes max_completion_tokens, and the other fields are dropped - so these…"
+  },
+  {
+    "title": "Providers",
+    "url": "pages/providers.html",
+    "heading": "Context window",
+    "anchor": "openai-context",
+    "body": "An OpenAI-compatible server decides the context window itself, so Loach never sends one. To size the context bar and how much of your Library sources fits, it assumes 32k (32,768 tokens) unless the chat sets a Context Length in its parameters panel. Set it to your model’s real window for an accurate bar."
+  },
+  {
+    "title": "Providers",
+    "url": "pages/providers.html",
+    "heading": "Embedding models for the Library",
+    "anchor": "embeddings",
+    "body": "The Library searches big sources by keyword out of the box. To search them by meaning as well, set an embedding model in Settings → Library. It runs on either provider: on Ollama (Loach suggests models such as embeddinggemma and offers to download one), or on your OpenAI-compatible endpoint (text-embedding-3-small…"
+  },
+  {
+    "title": "Providers",
+    "url": "pages/providers.html",
     "heading": "Default model",
     "anchor": "default-model",
     "body": "Settings → General → Default model picks the model new chats open with: whichever you used most recently, the last model you used on a given provider, or one specific model. You can still change the model per chat from the header. See Default model selector."
@@ -333,7 +361,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features.html",
     "heading": "Features",
     "anchor": "",
-    "body": "A reference for the features Loach ships with today. We’re continuously extending this list - including new RAG and agentic capabilities. Pick a category below, or open any feature for the full description."
+    "body": "A reference for the features Loach ships with today. We’re continuously extending this list - including new agentic capabilities. Pick a category below, or open any feature for the full description."
   },
   {
     "title": "Features",
@@ -347,14 +375,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features.html",
     "heading": "Organization",
     "anchor": "organization",
-    "body": "Spaces Group chats around a project, with shared instructions, reference sources, memory and a default model. Every chat inside the Space inherits the context. Memory Space memory and opt-in Global memories note lasting facts about you after each reply, update or drop ones that changed, and show an Undo for every…"
+    "body": "Spaces Group chats around a project, with shared instructions, reference sources - uploads or Library items - memory and a default model. Every chat inside the Space inherits the context. Memory Space memory and opt-in Global memories note lasting facts about you after each reply, update or drop ones that changed…"
   },
   {
     "title": "Features",
     "url": "pages/features.html",
     "heading": "Input & output",
     "anchor": "input-output",
-    "body": "Attachments Drag and drop images, text and code, PDFs and DOCX files (up to 20 MB each) into the composer. Loach extracts the text and inlines it into the request; images go to vision-capable models. Attachment previews Click an attachment to open the right viewer without leaving the chat: an image lightbox, a…"
+    "body": "Attachments Drag and drop images, text and code, PDFs and DOCX files (up to 20 MB each) into the composer. Loach extracts the text and inlines it into the request; images go to vision-capable models, scaled down to 1024 px on their longest side by default. Attachment previews Click an attachment to open the right…"
   },
   {
     "title": "Features",
@@ -368,7 +396,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features.html",
     "heading": "Security & data",
     "anchor": "security-data",
-    "body": "App lock Optional PIN, password or PIN + password gate at launch, with opt-in auto-lock after inactivity or on minimize and a lock-now shortcut. Credentials are hashed with Argon2id and stored in the OS credential manager. Data management Back up your data to a JSON file (MCP headers, environment variables and chats’…"
+    "body": "App lock Optional PIN, password or PIN + password gate at launch, with opt-in auto-lock after inactivity or on minimize and a lock-now shortcut. Credentials are hashed with Argon2id and stored in the OS credential manager. Data management Back up your data to a JSON file (MCP headers, environment variables, secrets…"
   },
   {
     "title": "Features",
@@ -403,7 +431,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/provider-selection.html",
     "heading": "Starting Ollama from Loach",
     "anchor": "start-ollama",
-    "body": "You do not have to run ollama serve by hand: Start Ollama - when the daemon is not answering, the model picker in the chat header shows a Start Ollama button. It finds the ollama program (on your PATH or in Ollama’s default install location), starts it on the host and port of your base URL, waits up to 20 seconds for…"
+    "body": "You do not have to run ollama serve by hand: Start Ollama - when the daemon is not answering, the model picker in the chat header shows a Start Ollama button. It finds the ollama program (on your PATH or in Ollama’s default install location), starts it on the host and port of your base URL (port 80 or 443 when the…"
   },
   {
     "title": "Provider selection",
@@ -424,7 +452,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/provider-selection.html",
     "heading": "The model picker",
     "anchor": "model-picker",
-    "body": "Every chat has a model dropdown in its header, labelled with the current model and provider. It lists both providers’ catalogs grouped by provider: Ollama, with a green tick when it’s running or an amber warning when it isn’t, and API, which shows the first 30 models the endpoint returns (or Not connected when there…"
+    "body": "Every chat has a model dropdown in its header, labelled with the current model and provider. It lists both providers’ catalogs grouped by provider: Ollama, with a green tick when it’s running or an amber warning when it isn’t, and API, which lists every model the endpoint returns (or Not connected when there is no…"
   },
   {
     "title": "Provider selection",
@@ -452,7 +480,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/model-management.html",
     "heading": "The Models editor",
     "anchor": "editor",
-    "body": "Opening a model loads its configuration from Ollama into a form. The header shows its family, size, parameter count, quantization and format next to New chat and Delete buttons; All models takes you back. You can: Inspect and edit the System prompt (baked in as SYSTEM; per-chat instructions still win at runtime), the…"
+    "body": "Opening a model loads its configuration from Ollama into a form. The header shows its family, size, parameter count, quantization and format next to New chat and Delete buttons; the Models › tag breadcrumb above it takes you back. You can: Inspect and edit the System prompt (baked in as SYSTEM; per-chat instructions…"
   },
   {
     "title": "Local model management",
@@ -473,7 +501,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/parameters.html",
     "heading": "Simple and Advanced modes",
     "anchor": "simple-advanced",
-    "body": "The panel has two views: Simple - the Thinking toggle, Context Length, the Low VRAM toggle, persona, tone and the per-chat Additional instructions box. Deliberately terse so the common knobs are reachable without scrolling. Advanced - adds Temperature, Top-P, Top-K, Min-P, Max Tokens, Repeat Penalty, Frequency and…"
+    "body": "The panel has two views: Simple - the Thinking toggle, Context Length, the Low VRAM toggle, image scaling, persona, tone and the per-chat Additional instructions box. Deliberately terse so the common knobs are reachable without scrolling. Advanced - adds Temperature, Top-P, Top-K, Min-P, Max Tokens, Repeat Penalty…"
   },
   {
     "title": "Per-chat parameters",
@@ -501,14 +529,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/parameters.html",
     "heading": "Sampling",
     "anchor": "ref-sampling",
-    "body": "Temperature 0–1 - controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that. Top-P 0–1 - nucleus sampling. The model picks from the smallest set of tokens whose probabilities sum to this value. Lower = more on-track…"
+    "body": "Temperature 0–1 - controls randomness. Lower stays focused and predictable; higher gets more creative and varied. Capped at 1 because output usually breaks down beyond that. A Modelfile can still set more - the readout then shows the real value, such as 1.2, with the slider at its end. Top-P 0–1 - nucleus sampling.…"
   },
   {
     "title": "Per-chat parameters",
     "url": "pages/features/parameters.html",
     "heading": "Length",
     "anchor": "ref-length",
-    "body": "Context Length (num_ctx) - how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K → 1M). Ignored by OpenAI providers - the server decides. The context-usage bar measures against this value, and its Expand context window button doubles…"
+    "body": "Context Length (num_ctx) - how much conversation history the model can see at once. Larger windows remember more but use more VRAM. Snaps to power-of-two stops (4K → 1M); a Modelfile value off the stops, such as 2048, still reads as is. Not sent to OpenAI providers - the server decides - but Loach sizes Library…"
   },
   {
     "title": "Per-chat parameters",
@@ -522,14 +550,21 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/parameters.html",
     "heading": "Performance",
     "anchor": "ref-performance",
-    "body": "GPU Layers (num_gpu) - how many model layers to offload to the GPU. Blank = Ollama auto-detects; 0 = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). The clear button next to the field goes back to auto-detect. Ignored by OpenAI providers. Low…"
+    "body": "GPU Layers (num_gpu) - how many model layers to offload to the GPU. Blank = the model’s default when its Modelfile sets one, otherwise Ollama auto-detects; 0 = CPU only; a positive integer = explicit layer count (useful when a model almost fits but its KV cache spills off the GPU). The clear button next to the field…"
   },
   {
     "title": "Per-chat parameters",
     "url": "pages/features/parameters.html",
     "heading": "Reproducibility",
     "anchor": "ref-reproducibility",
-    "body": "Seed - a fixed integer makes the model’s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place, and the clear button goes back to random."
+    "body": "Seed - a fixed integer makes the model’s output reproducible for the same input. Leave empty for a fresh random seed each run. The dice button generates a random seed in place, and the clear button goes back to random. Only whole numbers are accepted, below 2 53 either way; anything else reverts to the seed in effect."
+  },
+  {
+    "title": "Per-chat parameters",
+    "url": "pages/features/parameters.html",
+    "heading": "Images",
+    "anchor": "ref-images",
+    "body": "Image scaling - how images are scaled down before they reach the model in this chat: Default follows the chat’s Space, or else the app setting (Settings → Features → Image scaling; Library images check Settings → Library first); Scale down caps the longest side in pixels or shrinks to a percentage; Original sends…"
   },
   {
     "title": "Per-chat parameters",
@@ -543,7 +578,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/parameters.html",
     "heading": "Thinking toggle",
     "anchor": "thinking",
-    "body": "The Thinking row is always shown, but it only switches on for Ollama models whose capabilities include thinking. On other models it is disabled with This model doesn’t support a thinking step; on OpenAI-compatible chats it is disabled and reads off. It sets the think parameter on the chat request. The default comes…"
+    "body": "The Thinking row is always shown, but it only switches on for Ollama models whose capabilities include thinking. On other models it is disabled with This model doesn’t support a thinking step; on OpenAI-compatible chats it is disabled and reads off. It sets the think parameter on the chat request, which Loach sends…"
   },
   {
     "title": "Per-chat parameters",
@@ -571,7 +606,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/personas.html",
     "heading": "Personas (role)",
     "anchor": "personas",
-    "body": "Pick one from the Persona row of the chat’s Parameters panel (Ctrl + Shift + P ), or type /persona <name> - for example /persona translator, or /persona none to clear it. The selected persona adds a short system prompt that frames the assistant’s job. None - no persona. Uses only your custom instructions. Code…"
+    "body": "Pick one from the Persona row of the chat’s Parameters panel (Ctrl + Shift + P ), or type /persona <name> - for example /persona translator, or /persona none to clear it. A bare /persona tells you which one is on, and the command palette completes the persona ids (code-reviewer, eli5 and so on). The selected persona…"
   },
   {
     "title": "Personas and tones",
@@ -585,7 +620,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/personas.html",
     "heading": "How they stack",
     "anchor": "how-they-stack",
-    "body": "At send time the system prompt is assembled in this order: Persona - the role, first. Your instructions - whichever applies: the Space’s instructions, else the chat’s own, else your global ones (see precedence ), with the date preamble, memory and any Space sources around them. Tone - the style modifier, last.…"
+    "body": "At send time the system prompt is assembled in this order: Persona - the role, first. Your instructions - whichever applies: the Space’s instructions, else the chat’s own, else your global ones (see precedence ), with the date preamble, any full-text sources and memory around them. Tone - the style modifier, last.…"
   },
   {
     "title": "Custom instructions",
@@ -634,7 +669,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/custom-instructions.html",
     "heading": "Template variables",
     "anchor": "template-variables",
-    "body": "Global instructions, Space instructions and per-chat instructions can use these placeholders; Loach substitutes them each time it sends a message. Snippet bodies can use them too - there they’re filled in when the snippet runs. Placeholders typed into an ordinary message are sent as written. {{USER_NAME}} - Your name…"
+    "body": "Global instructions, Space instructions and per-chat instructions can use these placeholders; Loach substitutes them each time it sends a message. Snippet bodies can use them too - there they’re filled in when the snippet runs. Placeholders typed into an ordinary message, or inside a source, are sent as written. The…"
   },
   {
     "title": "Custom instructions",
@@ -662,14 +697,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/generation-stats.html",
     "heading": "Where the numbers come from",
     "anchor": "when-its-missing",
-    "body": "Ollama - reports the token count itself, and the rate uses Ollama’s own generation time, so model loading and prompt processing don’t drag it down. OpenAI-compatible - the count comes from the endpoint’s usage report when it sends one. Older proxies ignore Loach’s request for it; Loach then counts the streamed chunks…"
+    "body": "Ollama - reports the token count itself, and the rate uses Ollama’s own generation time, so model loading and prompt processing don’t drag it down. OpenAI-compatible - the count comes from the endpoint’s usage report when it sends one; it follows the reply’s last chunk, and Loach reads on for it (up to 2 seconds on a…"
   },
   {
     "title": "Generation stats",
     "url": "pages/features/generation-stats.html",
     "heading": "Stopped and failed replies",
     "anchor": "cancelled-replies",
-    "body": "The numbers arrive only when a reply completes. A reply you stop, one that Respond now pre-empts, and one that ends in an error keep their partial text but get no chip. See Concurrency & queue for details on how partial output is preserved."
+    "body": "The numbers arrive only when a reply completes. A reply you stop, one that Respond now pre-empts, and one that ends in an error - including one the server cuts off mid-reply - keep their partial text but get no chip. See Concurrency & queue for details on how partial output is preserved."
   },
   {
     "title": "Generation stats",
@@ -718,14 +753,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/markdown.html",
     "heading": "Thinking traces",
     "anchor": "thinking-traces",
-    "body": "For reasoning-capable models, the chain-of-thought stream is rendered into a separate block above the answer, collapsed under a Thinking header (Thinking… while it streams). Expand it to audit how the model got there, and fold it away again when you only care about the final answer."
+    "body": "For reasoning-capable models, the chain-of-thought stream is rendered into a separate block above the answer, collapsed under a Thinking header (Thinking… while it streams). Expand it to audit how the model got there, and fold it away again when you only care about the final answer. Below it, a reply that drew on…"
   },
   {
     "title": "Markdown rendering",
     "url": "pages/features/markdown.html",
     "heading": "Tool-call blocks",
     "anchor": "tool-calls",
-    "body": "When the model calls tools - whether a built-in tool or one served by an MCP server - the calls collapse into a single header above the answer, styled like the thinking block: “Called tool tool” for one call, “Called N tools” for more, and “Calling tools…” while they run. Expand it to read each call’s name, arguments…"
+    "body": "When the model calls tools - whether a built-in tool or one served by an MCP server - the calls collapse into a single header above the answer, styled like the thinking block: “Called tool tool” for one call, “Called N tools” for more, “Calling tool tool…” or “Calling tools…” while they run, and “Waiting for your…"
   },
   {
     "title": "LaTeX math",
@@ -739,14 +774,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/math.html",
     "heading": "What renders",
     "anchor": "delimiters",
-    "body": "Display math - $$…$$ and \\[…\\]. A $$…$$ written on a single line is promoted to a centred display block. Inline math - \\(…\\) and $…$ (subject to the currency rule below). Math fences - a fenced code block tagged math renders as a display block instead of code. Other tags, such as ```latex, stay code. Loose symbols…"
+    "body": "Display math - $$…$$ and \\[…\\]. One written on a single line is promoted to a centred display block when it sits on that line alone; in the middle of a sentence it renders inline. Inline math - \\(…\\) and $…$ (subject to the currency rule below). Math fences - a fenced code block tagged math renders as a display block…"
   },
   {
     "title": "LaTeX math",
     "url": "pages/features/math.html",
     "heading": "Currency-safe $…$",
     "anchor": "currency",
-    "body": "$ doubles as a currency sign, so a single-dollar span only typesets when it actually reads as math: the content must hug both delimiters, stay on one line and under 200 characters, not follow a word character and not be chased by a digit. In practice: Stays prose - “it costs $5 and $10”, “between $5-$10”, “US$5”.…"
+    "body": "$ doubles as a currency sign, so a single-dollar span only typesets when it actually reads as math: the content must hug both delimiters, stay on one line and run no longer than 200 characters, not follow a word character and not be chased by a digit. In practice: Stays prose - “it costs $5 and $10”, “between…"
   },
   {
     "title": "LaTeX math",
@@ -760,14 +795,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/code-canvas.html",
     "heading": "Code blocks & canvas",
     "anchor": "",
-    "body": "Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, its Open button pops the block into the code canvas - a wider, easier-to-read panel alongside the conversation."
+    "body": "Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, its Open button pops the block into the code canvas - a wider, easier-to-read panel alongside the conversation - where HTML can also be previewed as a page."
   },
   {
     "title": "Code blocks & canvas",
     "url": "pages/features/code-canvas.html",
     "heading": "Inline actions",
     "anchor": "inline-actions",
-    "body": "Each code block has a header showing its language (or text when the model didn’t tag one) and three buttons: Open - pop the block out into the canvas panel (the tooltip reads Open in canvas ). Export - save to a file via the native save dialog. The default filename comes from the block’s language tag (snippet.ts…"
+    "body": "Each code block has a header showing its language (or text when the model didn’t tag one) and three buttons, four on an HTML block: Preview - HTML blocks only: open the canvas on the rendered page (the tooltip reads Preview in canvas ). See HTML preview. Open - pop the block out into the canvas panel (the tooltip…"
   },
   {
     "title": "Code blocks & canvas",
@@ -775,6 +810,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "The canvas panel",
     "anchor": "canvas-panel",
     "body": "The canvas opens in the right-hand slot of the window and holds one snippet at a time - opening another block replaces it. It shows: Header - a close button, the title (Code Canvas, Text canvas for plain text, or the file name when opened from an attachment) and a badge with the language. VS Code - write the snippet…"
+  },
+  {
+    "title": "Code blocks & canvas",
+    "url": "pages/features/code-canvas.html",
+    "heading": "HTML preview",
+    "anchor": "html-preview",
+    "body": "An HTML code block (tagged html or htm) has a Preview button that opens the canvas straight on the rendered page. An .html or .htm attachment opens in the canvas too, on its code. Either way, a Code / Preview switch under the canvas header flips between the source and the page. Scripts start off - a preview first…"
   },
   {
     "title": "Slash commands",
@@ -788,35 +830,35 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/slash-commands.html",
     "heading": "The command palette",
     "anchor": "palette",
-    "body": "The palette opens whenever the composer text starts with / and narrows to the commands whose names begin with what you type - /re leaves /rename, /regenerate and /remember. Each row shows the command, its arguments and a one-line description, under the same group headers /help uses (the headers appear once the list…"
+    "body": "The palette opens when the composer text starts with / and narrows to the commands whose names begin with what you type - /re leaves /rename, /regenerate and /remember. Text that goes on with a space or a second slash, such as // note or / aside, doesn’t open it and is sent as an ordinary message. Each row shows the…"
   },
   {
     "title": "Slash commands",
     "url": "pages/features/slash-commands.html",
     "heading": "Where the results appear",
     "anchor": "results",
-    "body": "A command that does something confirms with a short toast (Renamed chat, Switched model ). One that fails says why in a Command failed toast - for example No active chat. Start one with /new first. when a command needs an open chat and none is open. Commands that return a list - /list, /tools, /fetch, /stats, a bare…"
+    "body": "A command that does something confirms with a short toast (Renamed chat, Switched model ). One that fails says why in a Command failed toast - for example No active chat. Start one with /new first. when a command needs an open chat and none is open - and stays in the composer so you can fix it and run it again.…"
   },
   {
     "title": "Slash commands",
     "url": "pages/features/slash-commands.html",
     "heading": "The commands",
     "anchor": "commands",
-    "body": "Commands are grouped the way /help lists them. <arg> is required, [arg] optional. Most act on the chat that is open."
+    "body": "Commands are grouped the way /help lists them. <arg> is required, [arg] optional; a command shown without an argument takes none and refuses one rather than dropping it (/regenerate doesn’t take arguments. ). Most act on the chat that is open. On a Space’s page the composer starts a new chat, so there is no chat to…"
   },
   {
     "title": "Slash commands",
     "url": "pages/features/slash-commands.html",
     "heading": "Chat",
     "anchor": "cmd-chat",
-    "body": "Command What it does /new Start a new chat. It lands in the active Space when there is one (the Space you’re viewing, or one picked with /space ). /clear Delete every message in the current chat, after a confirmation. A reply still streaming in that chat is stopped first. /rename <title> Rename the current chat. The…"
+    "body": "Command What it does /new Start a new chat. It lands in the active Space when there is one (the Space you’re viewing, or one picked with /space ). Typed on a Space’s page, it opens the new chat and takes along any Library sources you picked in that page’s composer. /clear Delete every message in the current chat…"
   },
   {
     "title": "Slash commands",
     "url": "pages/features/slash-commands.html",
     "heading": "Model & persona",
     "anchor": "cmd-model-persona",
-    "body": "Command What it does /model <name> Switch the current chat’s model. An exact model id or display name wins; otherwise every model whose id or name contains what you typed matches, and several matches are listed so you can be more specific. /persona <name> Apply one of the built-in personas to the current chat…"
+    "body": "Command What it does /model [name] Switch the current chat’s model. An exact model id or display name wins; otherwise every model whose id or name contains what you typed matches, and several matches are listed so you can be more specific. When Ollama and an OpenAI-compatible server both have a model with the same…"
   },
   {
     "title": "Slash commands",
@@ -835,9 +877,9 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Slash commands",
     "url": "pages/features/slash-commands.html",
-    "heading": "Memory & spaces",
+    "heading": "Memory & Spaces",
     "anchor": "cmd-memory-spaces",
-    "body": "The memory commands work on one list: the open chat’s Space; for a chat outside any Space, the active Space if there is one; otherwise your global memories. See Spaces and Memory. Command What it does /remember <fact> Save a fact to that list. Refused when the Space’s memory is switched off - or, outside a Space…"
+    "body": "The memory commands work on one list: on a Space’s page, that Space’s; otherwise the open chat’s Space; for a chat outside any Space, the active Space if there is one; otherwise your global memories. See Spaces and Memory. Command What it does /remember <fact> Save a fact to that list. Refused when the Space’s memory…"
   },
   {
     "title": "Slash commands",
@@ -851,7 +893,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/slash-commands.html",
     "heading": "App",
     "anchor": "cmd-app",
-    "body": "Command What it does /settings [tab] Open Settings, optionally on a tab: general, providers, features, tools, appearance, mcp, archive, data, security, updates or about. /help Open the Slash commands reference, with every command grouped as above."
+    "body": "Command What it does /settings [tab] Open Settings, optionally on a tab: general, providers, features, tools, library, appearance, mcp, archive, data, security, updates or about. /theme light|dark|system Set the Color mode in Settings → Appearance. The repaint is the confirmation. /lock Lock Loach now, like Ctrl +…"
   },
   {
     "title": "Slash commands",
@@ -872,7 +914,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/context-compaction.html",
     "heading": "The context-usage bar",
     "anchor": "usage-bar",
-    "body": "The bar appears once a chat has messages. It reports used / total tokens and a percentage, and turns amber from 70% and red from 90%. Click it for a popover that breaks the estimate down: System prompt - this chat’s own instructions (or your global Custom instructions), including any compaction summary. Project…"
+    "body": "The bar appears once a chat has messages. It reports used / total tokens and a percentage, and turns amber from 70% and red from 90%. Click it for a popover that breaks the estimate down: System prompt - the instructions the chat sends: its Space’s instructions in a Space, otherwise this chat’s own (or your global…"
   },
   {
     "title": "Context & compaction",
@@ -893,7 +935,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/context-compaction.html",
     "heading": "Where the summary lives",
     "anchor": "summary-and-instructions",
-    "body": "The summary is stored with the chat’s own instructions, so you can read - and edit - it in the Additional instructions box of the parameters panel, between [Loach: earlier conversation summary] markers. It doesn’t count as an instruction, though: it rides along with whichever instructions apply - a Space’s, the…"
+    "body": "The summary is stored with the chat’s own instructions, so you can read - and edit - it in the Additional instructions box of the parameters panel, between the [Loach: earlier conversation summary] and [End of Loach summary] markers. It doesn’t count as an instruction, though: it rides along with whichever…"
   },
   {
     "title": "Pinned responses",
@@ -921,7 +963,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/pinned-responses.html",
     "heading": "Where pins live",
     "anchor": "persistence",
-    "body": "Pins are stored with the chat, so they survive restarts and travel in data backups. Forking a chat copies the pins on the replies the fork includes. Regenerate replaces the last reply with a new one, so a pin on that reply goes with it. Pinning a chat (from the sidebar row, the chat header menu, or the /pin command)…"
+    "body": "Pins are stored with the chat, so they survive restarts and travel in data backups. Forking a chat copies the pins on the replies the fork includes. Regenerate replaces the last reply with a new one, and a pin on that reply moves to the new one. Pinning a chat (from the sidebar row, the chat header menu, or the /pin…"
   },
   {
     "title": "Concurrency & queue",
@@ -956,49 +998,49 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/concurrency.html",
     "heading": "Replies waiting for your approval",
     "anchor": "tool-approvals",
-    "body": "When a reply pauses on a tool approval card - an MCP tool call, or a change to a file in the chat’s folder - it keeps its turn, so other chats queue behind it until you answer. If the card is in a chat you aren’t looking at, Loach shows a notice with an Open button, and a queued chat’s card reads Waiting for your…"
+    "body": "When a reply pauses on a tool approval card - an MCP tool call, or a change to a file in the chat’s folder - it keeps its turn, so other chats queue behind it until you answer - or until the card times out unanswered after 10 minutes. If the card is in a chat you aren’t looking at, Loach shows a notice with an Open…"
   },
   {
     "title": "Concurrency & queue",
     "url": "pages/features/concurrency.html",
     "heading": "While Private Chat is open",
     "anchor": "private-chat",
-    "body": "Opening Private Chat stops any regular reply that is streaming and holds the queue: nothing waiting in your regular chats starts until you close the overlay, and then the queue picks up where it left off."
+    "body": "Opening Private Chat stops any regular reply that is streaming and holds the queue: nothing waiting in your regular chats starts until you close the overlay (or Loach locks, which ends the Private Chat session), and then the queue picks up where it left off."
   },
   {
     "title": "Concurrency & queue",
     "url": "pages/features/concurrency.html",
     "heading": "Cancelling and errors",
     "anchor": "cancel-and-error",
-    "body": "Whether you stop a stream yourself (the send button becomes a stop button while streaming) or Respond now pre-empts it, whatever was written so far stays in the transcript. If the provider fails or drops the connection mid-reply, the partial output is kept too, and an italic ⚠ error line is added at the end so a…"
+    "body": "Whether you stop a stream yourself (the send button becomes a stop button while streaming, or type /stop) or Respond now pre-empts it, whatever was written so far stays in the transcript. If the provider fails or drops the connection mid-reply, the partial output is kept too, and an italic ⚠ error line is added at…"
   },
   {
     "title": "Private Chat",
     "url": "pages/features/private-chat.html",
     "heading": "Private Chat",
     "anchor": "",
-    "body": "An ephemeral chat surface for conversations that should leave no trace. Nothing is written to disk, nothing is remembered between sessions, and the transcript is wiped the moment the overlay closes. Open it from the ghost icon in the title bar."
+    "body": "An ephemeral chat surface for conversations that should leave no trace. Nothing is written to disk, nothing is remembered between sessions, and the transcript is wiped the moment the overlay closes or Loach locks. Open it from the ghost icon in the title bar."
   },
   {
     "title": "Private Chat",
     "url": "pages/features/private-chat.html",
     "heading": "Nothing is persisted",
     "anchor": "nothing-persisted",
-    "body": "Unlike regular chats, Private Chat does not create a chat row, message rows, metrics, or an attachment store. The transcript lives entirely in memory. The moment you close the overlay everything is gone - including the picked model, persona, tone, per-chat instructions, and parameters-panel state. There is nothing to…"
+    "body": "Unlike regular chats, Private Chat does not create a chat row, message rows, metrics, or an attachment store. The transcript lives entirely in memory. The moment you close the overlay - or Loach locks - everything is gone, including the picked model, persona, tone, per-chat instructions, and parameters-panel state.…"
   },
   {
     "title": "Private Chat",
     "url": "pages/features/private-chat.html",
     "heading": "Ollama only",
     "anchor": "ollama-only",
-    "body": "The model picker inside Private Chat only lists local Ollama models, and starts on the Ollama model of your most recently active chat (or the first one installed). OpenAI-compatible providers are deliberately excluded - the data path for cloud providers crosses too many intermediaries (proxies, key vaults, hosted…"
+    "body": "The model picker inside Private Chat only lists Ollama models, and starts on the Ollama model of your most recently active chat (or the first model in the list that can chat - embedding models are passed over). Ollama’s cloud models - tags ending in :cloud or -cloud, which Ollama runs on ollama.com - are left out.…"
   },
   {
     "title": "Private Chat",
     "url": "pages/features/private-chat.html",
-    "heading": "MCP tools are blocked",
+    "heading": "No tools",
     "anchor": "mcp-blocked",
-    "body": "Servers configured in Settings → MCP are not exposed to the model inside Private Chat. A tool call could side-channel the conversation out to a third party - that defeats the point. Built-in tools you have switched on still work: they run entirely on your machine, so they can’t leak the conversation. The file tools…"
+    "body": "The model inside Private Chat gets no tools at all. Servers configured in Settings → MCP are not exposed: a tool call could side-channel the conversation out to a third party - that defeats the point. The built-in tools are left out too, even those you have switched on, because the overlay has nowhere to show a tool…"
   },
   {
     "title": "Private Chat",
@@ -1012,7 +1054,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/private-chat.html",
     "heading": "Attaching files",
     "anchor": "attachments",
-    "body": "Attach files with the + button in the composer. The same 20 MB per-file cap and handling apply as in a regular chat (see Attachments ): text is added to your message, and images go to the model. Dropping files onto the overlay isn’t supported - the cursor shows the drop won’t be accepted - and a dropped file never…"
+    "body": "Attach files with the + button in the composer. The same 20 MB per-file cap and handling apply as in a regular chat (see Attachments ): text is added to your message, and images go to the model, sized by the app-wide Image scaling setting in Settings → Features - Private Chat has no setting of its own. The + button…"
   },
   {
     "title": "Private Chat",
@@ -1033,35 +1075,56 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/spaces.html",
     "heading": "Spaces",
     "anchor": "",
-    "body": "A Space is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference sources, a memory and a default model. Every chat created inside a Space inherits that context automatically."
+    "body": "A Space is a long-lived workspace built around a project: a codebase, a research question, an ongoing piece of writing. It bundles instructions, reference sources, a memory and a default model. Every chat in a Space - started there or moved in later - inherits that context automatically."
   },
   {
     "title": "Spaces",
     "url": "pages/features/spaces.html",
     "heading": "What a Space holds",
     "anchor": "what-a-space-holds",
-    "body": "Instructions - a system prompt for every chat in the Space. When set, it replaces both your global custom instructions and the chat’s own instructions. Reference sources - text files, PDFs and Word documents are inlined into the system prompt of every chat in the Space; images ride along with each message so…"
+    "body": "Instructions - a system prompt for every chat in the Space. When set, it replaces both your global custom instructions and the chat’s own instructions. Reference sources - files uploaded to the Space, plus texts, files, links and datasets linked from your Library. Every chat in the Space can use them: the model gets…"
   },
   {
     "title": "Spaces",
     "url": "pages/features/spaces.html",
     "heading": "Creating and editing",
     "anchor": "lifecycle",
-    "body": "Open the Spaces tab in the sidebar and click New space. Give it a name (up to 60 characters) and an optional description, then Save - Loach opens the new Space. The library shows every Space as a tile, most recently updated first, with its chat count, a New chat button and a … menu (Open / edit, Delete ). A Space’s…"
+    "body": "Open the Spaces tab in the sidebar and click New Space. Give it a Name (up to 60 characters) and an optional Description, then Create - Loach opens the new Space. Enter in the name creates it, and so does Ctrl + Enter in the description; closing the dialog with something typed asks before discarding it. The Spaces…"
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "The Settings tab",
+    "anchor": "settings",
+    "body": "Default model - the model new chats in the Space start with. Pick Default model at the top of the list to use your default model from Settings → General. Switching model inside a chat still wins. Memory - whether new facts from the Space’s chats are saved. See Space memory. How sources reach the model - Auto, Full…"
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "Moving chats in and out",
+    "anchor": "moving-chats",
+    "body": "A chat can join a Space after it started: pick Move to Space in its … menu - in the sidebar, the chat header or a Space’s Chats tab - and choose a Space (the current one has a check mark). Remove from Space, at the bottom of the same submenu, takes it out. From its next message the chat uses its new Space’s…"
   },
   {
     "title": "Spaces",
     "url": "pages/features/spaces.html",
     "heading": "Deleting a Space",
     "anchor": "deleting",
-    "body": "Pick Delete space from the … menu (or Delete on its library tile). The Space’s instructions, sources and memory are deleted. Its chats are kept: they leave the Space and carry on as regular chats."
+    "body": "Pick Delete Space from the … menu next to its title (or Delete in its tile’s menu on the Spaces page). The Space’s instructions, memories and uploaded files are deleted for good. Library sources stay in your Library, and its chats are kept: they leave the Space and carry on as regular chats."
   },
   {
     "title": "Spaces",
     "url": "pages/features/spaces.html",
     "heading": "Reference sources",
     "anchor": "sources",
-    "body": "Add files on the Sources tab with Add source. Every source is sent with every message in the Space: Text and code files - inlined into the system prompt. PDFs and Word (.docx) documents - their text is extracted and inlined. A scanned PDF has no text to extract; add its pages as images instead. Images - PNG, JPEG…"
+    "body": "The Sources tab holds two kinds of reference material, listed together: Uploads - files you add with Upload. They belong to the Space: they’re stored only there and deleted with it. Library sources - datasets, texts, files and links added with From Library. They stay in your Library, so an edit there reaches the…"
+  },
+  {
+    "title": "Spaces",
+    "url": "pages/features/spaces.html",
+    "heading": "How sources reach the model",
+    "anchor": "source-mode",
+    "body": "The Space’s Settings tab sets how its chats use the sources: Auto - the full text while the sources fit in half the context window, the most relevant excerpts once they don’t. Full text - always the whole text, cut short with a note if it can’t fit. Excerpts - always search the sources and give the model only the…"
   },
   {
     "title": "Spaces",
@@ -1082,14 +1145,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/memory.html",
     "heading": "Space memory and global memories",
     "anchor": "two-kinds",
-    "body": "Space memory Global memories Switched on with The switch on the Space’s Memory tab - on for every new Space Settings → Features → Global memories, or the Pick your defaults step of setup - off by default Learns from Chats inside that Space Chats outside any Space Sent with Chats inside that Space Every chat, inside…"
+    "body": "Space memory Global memories Switched on with The Memory switch on the Space’s Settings tab - on for every new Space Settings → Features → Global memories, or the Pick your defaults step of setup - off by default Learns from Chats inside that Space Chats outside any Space Sent with Chats inside that Space Every chat…"
   },
   {
     "title": "Memory",
     "url": "pages/features/memory.html",
     "heading": "How facts are captured",
     "anchor": "how-facts-are-captured",
-    "body": "After each finished reply, Loach makes a second, hidden call to the same provider and model you’re chatting with and asks it to pick out durable facts about you - things that would still be true, and worth knowing, in an unrelated chat a month from now. It runs in the background once the reply is done. If you send…"
+    "body": "After each finished reply, Loach makes a second, hidden call to the same provider and model you’re chatting with and asks it to pick out durable facts about you - things that would still be true, and worth knowing, in an unrelated chat a month from now. It runs in the background once the model is free: while another…"
   },
   {
     "title": "Memory",
@@ -1134,6 +1197,90 @@ window.LOACH_SEARCH_INDEX = [
     "body": "Stored locally - facts live in Loach’s local database. They’re included in a backup export and removed by Settings → Data → Erase… (Remove my data or Factory reset ); see Data management. Deleting a Space deletes its memory. Cloud providers - with an OpenAI-compatible provider, the extraction call (your message, the…"
   },
   {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Library",
+    "anchor": "",
+    "body": "The Library keeps the texts, files and links you give your models in one place - saved once, used in any chat or Space. Sources are linked, not copied: edit an item in the Library and every chat and Space using it gets the new version with its next message."
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "What it holds",
+    "anchor": "what-it-holds",
+    "body": "Texts - notes, specs or guidelines you write or paste with New text. Markdown works, and you can edit a text at any time. The title takes up to 120 characters; Ctrl + Enter in the text saves, and closing the editor with unsaved changes asks before discarding them. Files - Upload files, or drop them anywhere on the…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Datasets",
+    "anchor": "datasets",
+    "body": "A dataset is a named group of texts, files and links - “Thesis research”, say - so a whole set attaches to a chat or Space in one click. Create one with New dataset (a name of up to 80 characters and an optional description), or from a selection of items. Its card shows the mix (“3 texts · 2 files · 1 link”), the…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Managing items",
+    "anchor": "managing-items",
+    "body": "Preview - click an item to see its full text (or image), when it was added or fetched, its estimated tokens and the datasets it’s in. Rename it in place with the pencil next to the title: Enter saves, Esc cancels. The preview’s footer adds the item to a dataset, deletes it, and offers Edit for a text or Refresh for a…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Saving from elsewhere",
+    "anchor": "save-to-library",
+    "body": "A reply - Save to Library in a reply’s … menu saves it as a text, titled from its first line. Your attachments - Save attachments to Library (Save attachment to Library for one) in the … menu of a message you sent saves each readable file as a Library file. A Space upload - Save to Library in the upload’s … menu on…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Using sources in a chat",
+    "anchor": "using-sources",
+    "body": "+ → From Library - opens a picker with the same four tabs and a search box. Tick datasets and items, then Add to chat. The footer estimates the tokens and says how they’ll reach the model: Fits in full, Will be searched or Will be cut short (see How sources reach the model ). Sources the chat already has are marked…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "In a Space",
+    "anchor": "in-a-space",
+    "body": "On a Space’s Sources tab, From Library links datasets and items to the Space, next to the files uploaded to it. Every chat in the Space can use them, and each source has a switch to keep it in the Space without using it. Library sources don’t count toward the Space’s 200 MB upload limit, and deleting the Space leaves…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "How sources reach the model",
+    "anchor": "source-modes",
+    "body": "Once a chat has sources, a Sources chip next to them sets how the chat uses them: Auto (the default) - the full text while all the sources fit in half the context window, the most relevant excerpts once they don’t. The chip shows which of the two Auto is using right now. Full text - always the whole text. If it can’t…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Which sources a reply used",
+    "anchor": "sources-chip",
+    "body": "Every reply that drew on sources carries a chip above it - Read 3 sources in full, Used 6 excerpts from 3 sources or Searched 3 sources; nothing matched. Expand it to see which sources the model got (click a Library one to preview it) and, for excerpts, the passages themselves. Warnings show there too: sources cut…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Search by keyword and by meaning",
+    "anchor": "search",
+    "body": "Every text source - Library items and a Space’s uploaded files alike - is split into passages of about 1,200 characters and indexed for keyword search as soon as it’s added. No setup, no network. Accents are folded, so gesla finds gęślą. Chinese, Japanese and Thai text isn’t split into words, though, so keyword…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Images",
+    "anchor": "images",
+    "body": "Library images are scaled down before they’re sent to a model, so a full-size photo doesn’t cost thousands of image tokens. Settings → Library → Images sets how, for chats and Spaces that don’t set their own: Default follows the app’s setting in Settings → Features (longest side up to 1,024 px unless you change it)…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/features/library.html",
+    "heading": "Where your sources go",
+    "anchor": "privacy",
+    "body": "The Library lives in Loach’s local database and works offline - fetching a link and a remote embedding model are the only parts that need the network. With an Ollama embedding model, indexing and search stay on your machine (or the Ollama server you’ve set). With an OpenAI-compatible embedding model, the text of your…"
+  },
+  {
     "title": "Snippets",
     "url": "pages/features/snippets.html",
     "heading": "Snippets",
@@ -1145,14 +1292,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/snippets.html",
     "heading": "Creating",
     "anchor": "creating",
-    "body": "Open the Snippets tab in the sidebar and click New snippet. Give it a title (up to 80 characters) and the prompt body. Optionally pick a default model from the model menu so Run always starts a chat there; Clear removes the pin. Pinning is a nice fit for prompts that genuinely need a particular model - a…"
+    "body": "Open the Snippets tab in the sidebar and click New snippet. Fill in a Title (up to 80 characters) and the Prompt, then Create. Optionally pick a model in the Model field so Run always starts a chat there; picking Default model at the top of the same list removes the pin. Pinning is a nice fit for prompts that…"
   },
   {
     "title": "Snippets",
     "url": "pages/features/snippets.html",
     "heading": "Running",
     "anchor": "running",
-    "body": "Hit Run on a Snippet to open a fresh chat (outside any Space, with the pinned model if there is one) and put the prompt in the composer. You can edit it before sending - Snippets are a starting point, not a one-shot button. There are three ways to run one: From the library - the Run button on a tile, or Run in its ……"
+    "body": "Hit Run on a Snippet to open a fresh chat (outside any Space, with the pinned model if there is one) and put the prompt in the composer. You can edit it before sending - Snippets are a starting point, not a one-shot button. Run in Space in a tile’s … menu does the same in a new chat inside the Space you pick, so it…"
   },
   {
     "title": "Snippets",
@@ -1164,9 +1311,9 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Snippets",
     "url": "pages/features/snippets.html",
-    "heading": "The library",
+    "heading": "The Snippets page",
     "anchor": "library",
-    "body": "The Snippets tab shows a tile grid, most recently created or edited first. Each tile shows the start of the prompt, the pinned model (or Default model) and when it was last changed. Click a tile to edit it; its … menu has Run, Edit and Delete. Deleting asks for confirmation and can’t be undone. The library has no…"
+    "body": "The Snippets tab shows a tile grid, most recently created or edited first. Each tile shows the start of the prompt, the pinned model (or Default model) and when it was last changed. Click a tile to edit it; its … menu has Run, Run in Space, Edit and Delete. Deleting asks for confirmation and can’t be undone. A Search…"
   },
   {
     "title": "Snippets",
@@ -1180,14 +1327,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/snippets.html",
     "heading": "Defining static variables",
     "anchor": "static-variables",
-    "body": "In the Variables panel, click New and fill in a Key, a Value and an optional Description. Keys are converted to uppercase as you type; they can use letters, digits and underscores, can’t start with a digit, and can be up to 64 characters. The built-in names (USER_NAME and the CURRENT_* ones) are reserved. Use the…"
+    "body": "In the Variables panel, click New and fill in a Key, a Value and an optional Description, then Create (Save when editing); Enter in any field does the same. Closing the dialog with unsaved changes asks first. Keys are converted to uppercase as you type; they can use letters, digits and underscores, can’t start with a…"
   },
   {
     "title": "Snippets",
     "url": "pages/features/snippets.html",
     "heading": "Filling in placeholders",
     "anchor": "fill-in",
-    "body": "When a snippet still has placeholders after the static pass, the Fill in snippet variables dialog lists one field per placeholder, in the order they appear. Every field needs a value. Enter moves to the next field and, on the last one, runs the snippet - as does Run snippet. Cancel leaves the composer as it was."
+    "body": "When a snippet still has placeholders after the static pass, the Fill in snippet variables dialog lists one field per placeholder, in the order they appear. Every field needs a value. Enter moves to the next field and, on the last one, runs the snippet - as does Run snippet. Cancel runs nothing: no chat is created…"
   },
   {
     "title": "Chat folders & labels",
@@ -1215,7 +1362,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/folders-labels.html",
     "heading": "Colour labels",
     "anchor": "labels",
-    "body": "Tag any chat Red, Amber, Green, Blue, Purple or Pink from the Label submenu of any chat menu - the sidebar row, the chat header or the Space view. The colour renders as a dot at the start of the row in the sidebar and in the Space view. No label clears it. Labelling a chat doesn’t move it in the list, and a fork…"
+    "body": "Tag any chat Red, Amber, Green, Blue, Purple or Pink from the Label submenu of any chat menu - the sidebar row, the chat header or the Space view. The colour renders as a dot at the start of the row in the sidebar and in the Space view. No label clears it. You can also type /label <colour> - red, amber, green, blue…"
   },
   {
     "title": "Chat folders & labels",
@@ -1257,7 +1404,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/search.html",
     "heading": "The global palette",
     "anchor": "palette",
-    "body": "Press Ctrl + K (or click the search pill in the title bar) to open the palette. It cross-searches: Chats - by title. Messages - the content of your transcripts (see below). Spaces - by name and description. Snippets - by title and body. An empty query shows suggestions: the chats you opened most recently first, then…"
+    "body": "Press Ctrl + K (or click the search pill in the title bar) to open the palette. It cross-searches: Chats - by title. Messages - the content of your transcripts (see below). Spaces - by name and description. Snippets - by title and body. Library - datasets by name and description; texts, files and links by title, the…"
   },
   {
     "title": "Search",
@@ -1271,14 +1418,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/search.html",
     "heading": "Scoping with in:",
     "anchor": "scoping",
-    "body": "A dropdown beside the input narrows the search to one kind: everywhere (the default), chats, messages, spaces or snippets. It works by writing an in:<scope> token into the query itself - the token is the scope, so you can type in:messages borrow by hand, or notes in:spaces with the token last, and the dropdown label…"
+    "body": "A dropdown beside the input narrows the search to one kind: everywhere (the default), chats, messages, spaces, snippets or library. It works by writing an in:<scope> token into the query itself - the token is the scope, so you can type in:messages borrow by hand, or notes in:spaces with the token last, and the…"
   },
   {
     "title": "Search",
     "url": "pages/features/search.html",
     "heading": "Find within a chat",
     "anchor": "in-chat",
-    "body": "Press Ctrl + F in a chat, or pick Search in chat from the chat header’s … menu, to open the Find in this chat… bar at the top right. It works like browser find: type to search (case-insensitive), every occurrence is highlighted inline, and the current match is scrolled into view with a stronger highlight. Stepping…"
+    "body": "Press Ctrl + F in a chat, pick Search in chat from the chat header’s … menu, or type /find (/find <text> fills in the search) to open the Find in this chat… bar at the top right. It works like browser find: type to search (case-insensitive), every occurrence is highlighted inline, and the current match is scrolled…"
   },
   {
     "title": "Import and export context",
@@ -1299,14 +1446,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/import-export.html",
     "heading": "Import context",
     "anchor": "import",
-    "body": "From the same menu, pick Import context and paste exported Markdown, JSON or just plain text. Loach detects the format as you paste and shows how many messages it will add before you click Import: Markdown - ## You, ## Assistant and ## System sections, the shape Export context produces. Anything above the first…"
+    "body": "From the same menu, pick Import context (or type /import) and paste exported Markdown, JSON or just plain text. Loach detects the format as you paste and shows how many messages it will add before you click Import: Markdown - ## You, ## Assistant and ## System sections, the shape Export context produces. Anything…"
   },
   {
     "title": "Import and export context",
     "url": "pages/features/import-export.html",
     "heading": "Fork a chat",
     "anchor": "fork",
-    "body": "Fork this chat clones a conversation into a brand-new chat - same title, model, Space, sidebar folder, working folder, instructions and parameters - so you can branch a tangent without disturbing the original. Fork it from the chat header’s … menu, with Fork from here in an assistant reply’s … menu (which copies the…"
+    "body": "Fork this chat clones a conversation into a brand-new chat - same title, model, Space, sidebar folder, working folder, instructions and parameters, plus its Library sources, how those sources reach the model and its image scaling - so you can branch a tangent without disturbing the original. Fork it from the chat…"
   },
   {
     "title": "Attachments",
@@ -1320,14 +1467,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/attachments.html",
     "heading": "Adding files",
     "anchor": "adding-files",
-    "body": "+ menu - Add files opens the native file picker; pick as many files as you like. Ctrl + U opens the same picker. Drag and drop - drop files anywhere in the window while a message box is on screen. The box reads Drop files here to attach while you drag. Paste - Ctrl + V in the message box attaches any files on the…"
+    "body": "+ menu - Add files opens the native file picker; pick as many files as you like. Ctrl + U opens the same picker. Drag and drop - drop files anywhere in the window while a message box is on screen. The box reads Drop files here to attach while you drag. Drops are refused while a dialog such as Settings is open over…"
   },
   {
     "title": "Attachments",
     "url": "pages/features/attachments.html",
     "heading": "Supported file types",
     "anchor": "supported-types",
-    "body": "Loach sorts every file into one of four kinds: Images - PNG, JPEG, WEBP and GIF. Sent to the model as images alongside your text, so they need a vision-capable model. Text and code - about seventy recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown, CSV, SQL, shell scripts, Dockerfile, Makefile…"
+    "body": "Loach sorts every file into one of four kinds: Images - PNG, JPEG, WEBP and GIF. Sent to the model as images alongside your text, so they need a vision-capable model. Large images are scaled down on the way out. Text and code - about seventy recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown…"
   },
   {
     "title": "Attachments",
@@ -1335,6 +1482,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "How attachments enter the prompt",
     "anchor": "how-it-works",
     "body": "When you send, your typed prompt comes first, followed by one block per text file or document, in the order you added them. Each block opens with a header naming the file (“Attached file”, “Attached PDF” or “Attached Word document”), so the model knows what it is looking at. Pages pulled in by web fetch come after…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/features/attachments.html",
+    "heading": "Image scaling",
+    "anchor": "image-scaling",
+    "body": "Before an image goes to a model, Loach scales it down: a full-size photo costs thousands of image tokens, and many local models read it worse, not better. Out of the box the longest side is capped at 1,024 px. Scaling happens each time a message is sent, so the image stored with your chat stays the original - that is…"
   },
   {
     "title": "Attachments",
@@ -1404,21 +1558,21 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/web-fetch.html",
     "heading": "How it works",
     "anchor": "how-it-works",
-    "body": "When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can’t ask Loach to fetch a page on its own. For each URL it finds, Loach: Downloads the page, deduping repeated links and fetching several URLs in parallel. Sanitises the HTML into readable plain text, keeping the page…"
+    "body": "When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can’t ask Loach to fetch a page on its own. Punctuation right after a link, such as a full stop or the bracket closing an aside, is left off the URL, but a bracket that is part of it stays - (see…"
   },
   {
     "title": "Web fetch",
     "url": "pages/features/web-fetch.html",
     "heading": "Limits",
     "anchor": "limits",
-    "body": "Up to 5 URLs per message - duplicates are collapsed, anything beyond the cap is skipped. 30 s per URL in total, redirects included, with a 10 s connect timeout. 5 MB download cap per URL - a larger page is cut at the cap and marked truncated. ~12,000 characters of extracted text per URL - the leading portion of long…"
+    "body": "Up to 5 URLs per message - duplicates are collapsed, anything beyond the cap is skipped. 30 s per URL in total, DNS lookups and redirects included, with a 10 s connect timeout. 5 MB download cap per URL - a larger page is cut at the cap and marked truncated. ~12,000 characters of extracted text per URL - the leading…"
   },
   {
     "title": "Web fetch",
     "url": "pages/features/web-fetch.html",
     "heading": "Safety guards",
     "anchor": "safety",
-    "body": "Schemes - only http and https. Private-IP guard - localhost and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (100.64.0.0/10, which Tailscale uses), IPv6 unique-local (fc00::/7) or another reserved block is refused - even when a public-looking…"
+    "body": "Schemes - only http and https. Private-IP guard - localhost and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (100.64.0.0/10, which Tailscale uses), IPv6 unique-local (fc00::/7) or site-local, a 6to4 or Teredo tunnel address, an IPv6 address that…"
   },
   {
     "title": "Web fetch",
@@ -1439,7 +1593,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/share-message.html",
     "heading": "As text",
     "anchor": "as-text",
-    "body": "The message as written, markdown and all. Copy puts it on the clipboard, or hand it to Facebook, X, Reddit or LinkedIn: Loach opens that network’s composer in your browser with the text pre-filled, trimmed to the length each one accepts (about 270 characters on X). The clipboard always gets the full text. Facebook…"
+    "body": "The message as written, markdown and all. Copy puts it on the clipboard, or hand it to Facebook, X, Reddit or LinkedIn: Loach opens that network’s composer in your browser with the text pre-filled, trimmed to the length each one accepts (about 270 characters on X). Copy always takes the full text; the network buttons…"
   },
   {
     "title": "Share a message",
@@ -1467,7 +1621,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/temporal-awareness.html",
     "heading": "How it decides to fire",
     "anchor": "how-it-fires",
-    "body": "Before each message, Loach checks the system prompt it has built - your instructions, plus any memory and Space sources - for the {{CURRENT_*}} placeholders: {{CURRENT_DATE}}, {{CURRENT_TIME}}, {{CURRENT_WEEKDAY}}, {{CURRENT_DATETIME}}, {{CURRENT_TIMEZONE}} If any of them is present, you’ve asked for the values…"
+    "body": "Before each message, Loach checks your instructions - global, Space or per-chat - for the {{CURRENT_*}} placeholders. Memories and sources are left alone: a placeholder inside one of them is sent as plain text and doesn’t count. The placeholders are: {{CURRENT_DATE}}, {{CURRENT_TIME}}, {{CURRENT_WEEKDAY}}…"
   },
   {
     "title": "Temporal awareness",
@@ -1544,21 +1698,21 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/mcp.html",
     "heading": "Safety guards",
     "anchor": "safety",
-    "body": "HTTP - URLs are validated and the resolved addresses pinned for the connection, header names and values are checked for disallowed characters and size, responses are capped at 4 MiB and each request has a 30-second timeout, so a hung or hostile server can’t freeze the chat or exhaust the app. stdio - startup gets 60…"
+    "body": "HTTP - URLs are validated and the resolved addresses pinned for the connection, header names and values are checked for disallowed characters and size, responses are capped at 4 MiB and each request has a 30-second timeout, so a hung or hostile server can’t freeze the chat or exhaust the app. Loach connects directly…"
   },
   {
     "title": "MCP support",
     "url": "pages/features/mcp.html",
     "heading": "Backups and imports",
     "anchor": "backups",
-    "body": "Headers and environment variables hold API keys, so they are left out of backups. Arguments are exported as typed, except a password in a URL (postgresql://user:…@host) and the value of a flag such as --token or --api-key=…, which read REDACTED. An environment variable is still the better place for a secret. A backup…"
+    "body": "Headers and environment variables hold API keys, so they are left out of backups. Arguments are exported as typed, except credentials, which read REDACTED: In URLs - a password or a bare token before the host (postgresql://user:…@host, https://ghp_…@github.com) and a query value whose name marks a secret (?api_key=……"
   },
   {
     "title": "Built-in tools",
     "url": "pages/features/built-in-tools.html",
     "heading": "Built-in tools",
     "anchor": "",
-    "body": "A set of small, local utilities the model can call mid-answer through the same tool-call loop as MCP. They run entirely in Rust on your machine - no network, and apart from the file tools, nothing that touches your files - so they also work inside Private Chat."
+    "body": "A set of small, local utilities the model can call mid-answer through the same tool-call loop as MCP. They run entirely in Rust on your machine - no network, and apart from the file tools, nothing that touches your files."
   },
   {
     "title": "Built-in tools",
@@ -1628,7 +1782,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/work-in-folders.html",
     "heading": "How far “for this chat” reaches",
     "anchor": "allow-for-this-chat",
-    "body": "The answer is kept in memory, never saved, and is tied to the folder it was given for. It ends when you change or remove the chat’s folder, delete the chat, switch Workspace files off, or quit Loach. It covers only Loach’s own tool - never an MCP server’s tool of the same name - and never anything inside a .git…"
+    "body": "The answer is kept in memory, never saved, and is tied to the folder it was given for. It ends when you change or remove the chat’s folder, delete the chat, switch Workspace files off, or quit Loach. It covers only Loach’s own tool - never an MCP server’s tool of the same name - and never anything git takes commands…"
   },
   {
     "title": "Work in folders",
@@ -1677,7 +1831,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/default-model.html",
     "heading": "What can override it",
     "anchor": "overrides",
-    "body": "The global default is the last word for plain new chats. But: Chats started inside a Space use the Space’s pinned model when one is set. Chats started by Run on a Snippet - from the Snippets library or the search palette - use that Snippet’s pinned model when set. New chat on a model’s tile or in the Models editor…"
+    "body": "The global default is the last word for plain new chats. But: Chats started inside a Space use the Space’s own model when one is set - the Default model card on the Space’s Settings tab. Its picker (the same one Snippets use) starts with a Default model entry, “from Settings”, which unpins it so the Space follows…"
   },
   {
     "title": "Model preloading",
@@ -1712,7 +1866,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/model-preloading.html",
     "heading": "When it runs",
     "anchor": "when-it-runs",
-    "body": "At launch - warming starts while the window is still loading, and is repeated once your settings and chats have loaded. With Auto-launch Ollama on, Loach waits for the server it started before warming. After unlocking - with an app lock set, nothing is warmed until you unlock. Sized like your first chat - the model…"
+    "body": "At launch - warming starts while the window is still loading, and is repeated once your settings and chats have loaded. With Auto-launch Ollama on, Loach waits for the server it started before warming. After unlocking - with an app lock set, nothing is warmed until you unlock. It happens once per launch: unlocking…"
   },
   {
     "title": "Model preloading",
@@ -1824,28 +1978,28 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/data-management.html",
     "heading": "Export data",
     "anchor": "export",
-    "body": "Export data writes a single JSON backup - loach-export-YYYY-MM-DD.json by default - with every chat (archived ones included), message, folder, Space with its sources and memories, global memory, Snippet, snippet variable and saved fill-in, MCP server and setting. The native save dialog opens and the app’s backend…"
+    "body": "Export data writes a single JSON backup - loach-export-YYYY-MM-DD.json by default - with every chat (archived ones included), message, folder, Space with its sources and memories, global memory, Snippet, snippet variable and saved fill-in, MCP server and setting, plus your Library - texts, files, links and datasets…"
   },
   {
     "title": "Data management",
     "url": "pages/features/data-management.html",
     "heading": "Import data",
     "anchor": "import",
-    "body": "Import data restores a file made by Export data. It replaces everything in the database - chats, Spaces, Snippets, MCP servers and settings - so Loach first shows a confirmation, asks for your current credentials if app lock is on, and only then opens the file picker. Your stored OpenAI-compatible API key and the app…"
+    "body": "Import data restores a file made by Export data. It replaces everything in the database - chats, Spaces, your Library (texts, files, links and datasets), memories, Snippets, MCP servers and settings - so Loach first shows a confirmation, asks for your current credentials if app lock is on, and only then opens the…"
   },
   {
     "title": "Data management",
     "url": "pages/features/data-management.html",
     "heading": "Archive all chats",
     "anchor": "archive-all",
-    "body": "Moves every live chat to the archive after a confirmation, unpinning them on the way. Nothing is deleted - unarchive any of them later from Settings → Archive."
+    "body": "Moves every live chat to the archive after a confirmation, unpinning them on the way. Replies still running in those chats are stopped, and the chat on screen is closed. Nothing is deleted - unarchive any of them later from Settings → Archive."
   },
   {
     "title": "Data management",
     "url": "pages/features/data-management.html",
     "heading": "Remove my data",
     "anchor": "wipe",
-    "body": "In the Erase & Reset card, click Erase… and pick Remove my data. It deletes all chats and folders, Spaces (with their sources and memories), global memories, Snippets, snippet variables and saved fill-ins, and MCP servers. It keeps your settings, the stored OpenAI-compatible API key and the app lock, so the app…"
+    "body": "In the Erase & Reset card, click Erase… and pick Remove my data. It deletes all chats and folders, Spaces (with their sources and memories), your whole Library (texts, files, links and datasets, with its search index), global memories, Snippets, snippet variables and saved fill-ins, and MCP servers. It keeps your…"
   },
   {
     "title": "Data management",
@@ -1873,7 +2027,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/themes.html",
     "heading": "Colour modes",
     "anchor": "colour-modes",
-    "body": "Independent of the theme, Color mode offers: Light System - follows your OS preference and switches automatically when you do. Dark - the default. Private Chat keeps its own dark look whichever mode you pick."
+    "body": "Independent of the theme, Color mode offers: Light System - follows your OS preference and switches automatically when you do. Dark - the default. You can also switch from the message box: type /theme light, /theme dark or /theme system (see Slash commands ). Private Chat keeps its own dark look whichever mode you…"
   },
   {
     "title": "Themes",
@@ -1894,7 +2048,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/themes.html",
     "heading": "Window chrome",
     "anchor": "window-chrome",
-    "body": "Loach uses a borderless window on Windows, Linux and macOS. Its own title bar carries the sidebar toggle, the search box, the Private Chat button and the window controls (minimise, maximise, close) - on the right on every platform, so you do not lose any controls by going borderless. Drag the title bar to move the…"
+    "body": "On Windows and Linux, Loach uses a borderless window. Its own title bar carries the sidebar toggle, the search box, the Private Chat button and Loach’s own window controls (minimise, maximise, close) on the right, so you do not lose any controls by going borderless. On macOS the same bar keeps the system’s own close…"
   },
   {
     "title": "OTA updates",
@@ -1915,21 +2069,21 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/ota-updates.html",
     "heading": "Checking and installing",
     "anchor": "checking",
-    "body": "Settings → Updates shows your current version and a Check for updates button, which works whether or not the auto-check is on: Up to date: You’re on the latest version., with a Check again button. A newer release: the new and current version numbers, that release’s notes under What’s new, and Install update /…"
+    "body": "Settings → Updates shows your current version and a Check for updates button, which works whether or not the auto-check is on: Up to date: You’re on the latest version., with a Check again button. A newer release: the new and current version numbers, that release’s notes under Release notes, and Install update /…"
   },
   {
     "title": "OTA updates",
     "url": "pages/features/ota-updates.html",
     "heading": "Auto-check for updates",
     "anchor": "auto-check",
-    "body": "Off by default. Switch on Auto-check for updates in Settings → Updates and Loach asks the release server once per launch whether a newer version exists; the switch takes effect from the next launch. If a newer version exists, an Update available dialog opens with the current and new version numbers, that release’s…"
+    "body": "Off by default. Switch on Auto-check for updates in Settings → Updates and Loach asks the release server once per launch whether a newer version exists - locking and unlocking Loach doesn’t check again; the switch takes effect from the next launch. If a newer version exists, an Update available dialog opens with the…"
   },
   {
     "title": "OTA updates",
     "url": "pages/features/ota-updates.html",
-    "heading": "What’s new",
+    "heading": "Release notes",
     "anchor": "release-notes",
-    "body": "Every release ships with a markdown notes file that populates the GitHub release body, the in-app Updates panel and the Update available dialog when an upgrade is available. Skim it before clicking install if you want to know what is changing."
+    "body": "Every release ships with a markdown notes file that populates the GitHub release body and, under Release notes, the in-app Updates panel and the Update available dialog when an upgrade is available. Skim it before clicking install if you want to know what is changing."
   },
   {
     "title": "OTA updates",
@@ -1971,7 +2125,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/onboarding.html",
     "heading": "Connecting an OpenAI-compatible endpoint",
     "anchor": "openai-path",
-    "body": "The OpenAI API path asks for a Base URL (defaults to https://api.openai.com/v1; change it for vLLM, LM Studio, LiteLLM or any OpenAI-compatible proxy) and an API key. The key is optional: local servers such as LM Studio usually need none, so leave it blank. Verify & save stores the key in your OS credential manager…"
+    "body": "The OpenAI API path asks for a Base URL (defaults to https://api.openai.com/v1; change it for vLLM, LM Studio, LiteLLM or any OpenAI-compatible proxy) and an API key. The key is optional: local servers such as LM Studio usually need none, so leave it blank. Verify & save first lists the endpoint’s models with the key…"
   },
   {
     "title": "Onboarding wizard",
@@ -2006,7 +2160,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/keyboard.html",
     "heading": "Navigation",
     "anchor": "navigation",
-    "body": "Ctrl + K - open the search palette across chats, messages, Spaces and Snippets. Ctrl + N - start a new chat outside any Space."
+    "body": "Ctrl + K - open the search palette across chats, messages, Spaces, Snippets and the Library. Ctrl + N - start a new chat outside any Space."
   },
   {
     "title": "Keyboard shortcuts",
@@ -2020,42 +2174,49 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/keyboard.html",
     "heading": "Layout",
     "anchor": "layout",
-    "body": "Ctrl + Shift + S - show or hide the left sidebar. Ctrl + Shift + P - show or hide the parameters panel while a chat is open."
+    "body": "Ctrl + Shift + S - show or hide the left sidebar. Ctrl + Shift + P - show or hide the parameters panel beside an open chat. It does nothing on other pages, where the panel can’t show."
   },
   {
     "title": "Keyboard shortcuts",
     "url": "pages/features/keyboard.html",
     "heading": "Security",
     "anchor": "security",
-    "body": "Ctrl + Shift + L - lock Loach now, when an app lock is configured. It works in Private Chat and during onboarding too."
+    "body": "Ctrl + Shift + L - lock Loach now, when an app lock is configured. It works in Private Chat, during onboarding and with a dialog open too."
   },
   {
     "title": "Keyboard shortcuts",
     "url": "pages/features/keyboard.html",
     "heading": "Help",
     "anchor": "help",
-    "body": "Ctrl + / - open the keyboard-shortcuts cheat sheet, or close it again."
+    "body": "Ctrl + / - open the keyboard-shortcuts cheat sheet; Esc closes it. On layouts where / itself needs Shift (Shift + 7 on German and Nordic keyboards), hold Ctrl with that combination."
   },
   {
     "title": "Keyboard shortcuts",
     "url": "pages/features/keyboard.html",
     "heading": "In the composer",
     "anchor": "composer",
-    "body": "Enter - send the message, or run the typed slash command. Shift + Enter - insert a newline without sending. Use this for multi-paragraph prompts. / - typed as the first character, opens the slash-command palette."
+    "body": "Enter - send the message, or run the typed slash command. An Enter that confirms a candidate in an input method (Chinese, Japanese or Korean typing) never sends. Shift + Enter - insert a newline without sending. Use this for multi-paragraph prompts. / - typed as the first character, opens the slash-command palette.…"
   },
   {
     "title": "Keyboard shortcuts",
     "url": "pages/features/keyboard.html",
     "heading": "In the slash-command palette",
     "anchor": "slash-palette",
-    "body": "↑ / ↓ - move through the filtered command list. The selection wraps around at either end. Tab - complete the highlighted command. Enter - run a fully-typed command, or complete a partial one. Esc - dismiss the palette for the current draft. Anything that isn’t a recognised command is sent as an ordinary message."
+    "body": "↑ / ↓ - move through the filtered command list. The selection wraps around at either end. Tab - complete the highlighted command. After /model, /space or /snippet and a space, the palette lists your models, Spaces or Snippets by name, matching anywhere in the name. Enter - run a fully-typed command, or complete a…"
+  },
+  {
+    "title": "Keyboard shortcuts",
+    "url": "pages/features/keyboard.html",
+    "heading": "In the # Library list",
+    "anchor": "library-picker",
+    "body": "Tab - attach the highlighted item or dataset. The # text you typed is removed, and a chip above the message box shows what was added. ↑ / ↓ - move through the matches. The selection wraps around at either end. Enter - attach the highlighted entry, but only once you’ve moved with the arrow keys; otherwise Enter sends…"
   },
   {
     "title": "Keyboard shortcuts",
     "url": "pages/features/keyboard.html",
     "heading": "In the search palette",
     "anchor": "search-palette",
-    "body": "↑ / ↓ - move between results. Enter - open the highlighted result. A chat opens the conversation; a message opens its chat and jumps to that turn; a Space opens its detail view; a Snippet starts a fresh chat with the snippet’s prompt primed in the composer. Tab - move between the palette’s controls. Focus stays…"
+    "body": "↑ / ↓ - move between results. Enter - open the highlighted result. A chat opens the conversation; a message opens its chat and jumps to that turn; a Space opens its detail view; a Snippet starts a fresh chat with the snippet’s prompt primed in the composer, once any fill-in blanks are filled (cancel them and no chat…"
   },
   {
     "title": "Keyboard shortcuts",
@@ -2076,28 +2237,28 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/features/keyboard.html",
     "heading": "Where shortcuts do not apply",
     "anchor": "system",
-    "body": "The app lock screen blocks every shortcut and the search palette. While the onboarding wizard or Private Chat owns the window, the app-wide shortcuts and the search palette are off too - except Ctrl + Shift + L, which locks Loach from anywhere. Esc still dismisses menus and dialogs, and exits onboarding (with a…"
+    "body": "The app lock screen blocks every shortcut and the search palette, and so does the moment at launch while Loach checks whether a lock is set. While the onboarding wizard or Private Chat owns the window, or a dialog is open - Settings, a confirmation, the search palette itself - the app-wide shortcuts and the search…"
   },
   {
     "title": "Storage & privacy",
     "url": "pages/privacy.html",
     "heading": "Storage & privacy",
     "anchor": "",
-    "body": "Loach is local-first. Your content lives on your machine, and nothing goes over the network unless you set up something that needs it - a remote provider, web fetch, an MCP server, the update check. Here’s exactly what is stored, where, and what leaves your machine and when."
+    "body": "Loach is local-first. Your content lives on your machine, and nothing goes over the network unless you set up something that needs it - a remote provider, web fetch, a Library link, an MCP server, the update check. Here’s exactly what is stored, where, and what leaves your machine and when."
   },
   {
     "title": "Storage & privacy",
     "url": "pages/privacy.html",
     "heading": "Where things live",
     "anchor": "where",
-    "body": "What Where Chats and messages (with their tool calls and results), folders, labels, pinned responses, Spaces with their sources and memories, global memories, Snippets with their variables and saved fill-ins, MCP servers, app settings SQLite at <app-data-dir>/loach.db, plus its -wal and -shm files Attached files…"
+    "body": "What Where Chats and messages (with their tool calls and results), folders, labels, pinned responses, Spaces with their sources and memories, the Library (texts, files, links and datasets) and its search index, global memories, Snippets with their variables and saved fill-ins, MCP servers, app settings SQLite at…"
   },
   {
     "title": "Storage & privacy",
     "url": "pages/privacy.html",
     "heading": "Offline by default",
     "anchor": "offline",
-    "body": "With a local Ollama, Loach launches and works completely offline. All of these need no network access: The Models library Spaces, Snippets and memory Search across chats, messages, Spaces and Snippets The parameters panel The app lock Full chat history, and Private Chat Built-in tools, working folders and LaTeX math…"
+    "body": "With a local Ollama, Loach launches and works completely offline. All of these need no network access: The Models library Spaces, Snippets and memory The Library and its search - by keyword, and by meaning with an embedding model on your Ollama Search across chats, messages, Spaces, Snippets and the Library The…"
   },
   {
     "title": "Storage & privacy",
@@ -2111,7 +2272,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/privacy.html",
     "heading": "What goes over the network, and when",
     "anchor": "network",
-    "body": "Destination When Your Ollama base URL (http://localhost:11434 by default) At launch, to see whether Ollama is running and list its models; then for every chat, model preload and Models-tab action. Pulling a model makes Ollama download it from its library - that connection is Ollama’s, not Loach’s. Your…"
+    "body": "Destination When Your Ollama base URL (http:// localhost:11434 by default) At launch, to see whether Ollama is running and list its models; then for every chat, model preload and Models-tab action - and, when the Library’s embedding model runs on Ollama, to embed your sources in the background and every message that…"
   },
   {
     "title": "Storage & privacy",
@@ -2139,7 +2300,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/privacy.html",
     "heading": "Backup, restore and wipe",
     "anchor": "backup",
-    "body": "From Settings → Data you can: Export data - save your full content (chats, folders, Spaces with their sources and memories, global memories, Snippets and variables, MCP servers, settings) to a single JSON file. MCP headers and environment variables are left out, and so are secrets in a server’s arguments (a password…"
+    "body": "From Settings → Data you can: Export data - save your full content (chats, folders, Spaces with their sources and memories, the Library, global memories, Snippets and variables, MCP servers, settings) to a single JSON file, tagged loach/v2 - Loach 1.5 and older can’t restore it. MCP headers and environment variables…"
   },
   {
     "title": "Tech stack",
@@ -2153,14 +2314,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/tech-stack.html",
     "heading": "Stack at a glance",
     "anchor": "stack",
-    "body": "Layer Choice Desktop shell Tauri 2.x (Rust) Frontend React 19 + Vite 8 + TypeScript Styling Tailwind CSS 3 + shadcn/ui (Radix primitives) + tailwindcss-animate + @tailwindcss/typography Icons lucide-react State Zustand (in-memory; SQLite-backed where appropriate) Storage SQLite via rusqlite (bundled - no system…"
+    "body": "Layer Choice Desktop shell Tauri 2.x (Rust), currently 2.12, with tauri-plugin-single-instance so a second launch brings the running window forward Frontend React 19 + Vite 8 + TypeScript Styling Tailwind CSS 3 + shadcn/ui (Radix primitives) + tailwindcss-animate + @tailwindcss/typography Icons lucide-react State…"
   },
   {
     "title": "Tech stack",
     "url": "pages/tech-stack.html",
     "heading": "Toolchain",
     "anchor": "toolchain",
-    "body": "Building from source needs Node.js 20.19+ (or 22.12+) and Rust 1.88+ - the minimum the dependency tree allows; CI and the Docker build pin Rust 1.88.0 and Node.js 22. Linux builds target glibc 2.35, so Ubuntu 22.04 and Debian 12 are the oldest supported distributions. See Build from source."
+    "body": "Building from source needs Node.js 22.13+ (or 24 / 26+) and Rust 1.90+ - the minimum the dependency tree allows; CI and the Docker build pin Rust 1.90.0 and Node.js 22. Linux builds target glibc 2.35, so Ubuntu 22.04 and Debian 12 are the oldest supported distributions. See Build from source."
   },
   {
     "title": "FAQ",
@@ -2181,14 +2342,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/faq.html",
     "heading": "Which platforms are supported?",
     "anchor": "general",
-    "body": "Native desktop apps for Windows, Linux and macOS (Apple Silicon, macOS 11 or later) are published with every release. The macOS build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass - see Installation → macOS. Intel Macs are not supported."
+    "body": "Native desktop apps for Windows, Linux and macOS (Apple Silicon, macOS 11 or later with Safari 16.4 or later) are published with every release. The macOS build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass - see Installation → macOS. Intel Macs are not supported."
   },
   {
     "title": "FAQ",
     "url": "pages/faq.html",
     "heading": "Does Loach send my data anywhere?",
     "anchor": "general",
-    "body": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the remote provider you configured - including whatever goes into the prompt, such as your memories and files the model reads from a chat’s folder - model pulls you start, web fetches and…"
+    "body": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the remote provider you configured - including whatever goes into the prompt, such as your memories, Library sources and files the model reads from a chat’s folder - the text sent to a…"
   },
   {
     "title": "FAQ",
@@ -2242,6 +2403,13 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "FAQ",
     "url": "pages/faq.html",
+    "heading": "Do OpenAI’s reasoning models work?",
+    "anchor": "models",
+    "body": "Yes. The o-series and GPT-5 turn down some of the fields Loach sends, such as max_tokens or temperature. Loach reads the 400 error, moves max_tokens to max_completion_tokens or drops the refused field, and sends the request again - no setup needed. Servers that stream a model’s reasoning, such as OpenRouter, vLLM or…"
+  },
+  {
+    "title": "FAQ",
+    "url": "pages/faq.html",
     "heading": "I have very limited VRAM. Can I still use local models?",
     "anchor": "models",
     "body": "Yes - try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable Low VRAM mode globally or per-chat. This sends Ollama’s low_vram flag with every request."
@@ -2284,6 +2452,13 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "FAQ",
     "url": "pages/faq.html",
+    "heading": "Can Loach answer from my own documents?",
+    "anchor": "library",
+    "body": "Yes - put them in the Library. Upload files (PDF, Word, text and code, images), add links to web pages or write texts, then attach them to a chat with + → From Library or by typing #, or add them to a Space’s sources so every chat in it can use them. Sources that fit go to the model in full; bigger ones are searched…"
+  },
+  {
+    "title": "FAQ",
+    "url": "pages/faq.html",
     "heading": "What are global memories, and are they on by default?",
     "anchor": "memory",
     "body": "They’re off by default. Turn on Settings → Features → Global memories (or the same switch in setup’s Pick your defaults step). After each reply in a chat outside a Space, Loach asks the chat’s own model to note lasting facts about you - updating or dropping ones that changed, with an Undo on every change - and adds…"
@@ -2293,7 +2468,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/faq.html",
     "heading": "Does Private Chat use memory or tools?",
     "anchor": "memory",
-    "body": "It never reads or writes memory of either kind, and it gets no MCP tools, no web fetch and no working folder. Built-in tools you’ve turned on in Settings → Tools still work, since they run entirely on your machine. Private Chat also offers only local Ollama models and leaves out your Custom instructions, Space…"
+    "body": "It never reads or writes memory of either kind, and it gets no tools at all - neither built-in tools nor MCP - no web fetch, no Library sources and no working folder. Private Chat also offers only Ollama models, never Ollama’s cloud ones, and leaves out your Custom instructions, Space context and the date preamble.…"
   },
   {
     "title": "FAQ",
@@ -2321,28 +2496,28 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/faq.html",
     "heading": "Can Loach lock itself when I walk away?",
     "anchor": "security",
-    "body": "Yes. Once an app lock is configured, Settings → Security offers Lock after inactivity (1, 5, 15 or 30 minutes) and Lock when minimized, both opt-in. Ctrl + Shift + L locks immediately from anywhere in the app. See App lock → Auto-lock."
+    "body": "Yes. Once an app lock is configured, Settings → Security offers Lock after inactivity (1, 5, 15 or 30 minutes) and Lock when minimized, both opt-in. Ctrl + Shift + L (⌘ + Shift + L on macOS) locks immediately from anywhere in the app, and typing /lock in the message box does the same. On macOS, closing the window…"
   },
   {
     "title": "FAQ",
     "url": "pages/faq.html",
     "heading": "How do I back up my chats?",
     "anchor": "data",
-    "body": "Open Settings → Data and use Export data. You’ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), global memories, Snippets and snippet variables, MCP servers and settings. API keys are not in the export - they live in the OS credential manager - and neither are MCP headers…"
+    "body": "Open Settings → Data and use Export data. You’ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), the Library, global memories, Snippets and snippet variables, MCP servers and settings. It’s tagged loach/v2, so Loach 1.5 and older can’t restore it. API keys are not in the…"
   },
   {
     "title": "FAQ",
     "url": "pages/faq.html",
     "heading": "How do I move Loach to a new machine?",
     "anchor": "data",
-    "body": "Install Loach on the new machine, then use Import data in Settings → Data - or Restore from backup on the onboarding wizard’s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key and any MCP headers or environment…"
+    "body": "Install Loach on the new machine, then use Import data in Settings → Data - or Restore from backup on the onboarding wizard’s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key, any MCP headers and environment…"
   },
   {
     "title": "FAQ",
     "url": "pages/faq.html",
     "heading": "How do I delete everything?",
     "anchor": "data",
-    "body": "Settings → Data → Erase… opens Erase & Reset. Factory reset wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. Remove my data is the gentler option - it drops chats, folders, Spaces, memories, Snippets and MCP servers but…"
+    "body": "Settings → Data → Erase… opens Erase & Reset. Factory reset wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. Remove my data is the gentler option - it drops chats, folders, Spaces, the Library, memories, Snippets and MCP…"
   },
   {
     "title": "FAQ",
@@ -2382,6 +2557,13 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "FAQ",
     "url": "pages/faq.html",
+    "heading": "The model misses details in my image.",
+    "anchor": "troubleshooting",
+    "body": "Loach scales images down before sending them - by default to 1024 px on the longest side - because a full-size photo costs thousands of image tokens and many local models read it worse, not better. The stored image stays the original. For more detail, raise the limit or choose Original: for one chat in the parameters…"
+  },
+  {
+    "title": "FAQ",
+    "url": "pages/faq.html",
     "heading": "Where do I report a bug or request a feature?",
     "anchor": "troubleshooting",
     "body": "Open an issue on the GitHub repository: github.com/ztcs-software/loach/issues. Please include your OS, Loach version, and steps to reproduce."
@@ -2398,7 +2580,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting.html",
     "heading": "Categories",
     "anchor": "categories",
-    "body": "Providers & connections Ollama not running or failing to start, OpenAI 401s and keys withheld over plain http://, Linux key storage, empty model lists, API models missing from the picker. Sending & receiving messages Stuck “waiting” chats, half-streamed replies, missing thinking traces, formulas shown as raw TeX…"
+    "body": "Providers & connections Ollama not running or failing to start, OpenAI 401s and keys withheld over plain http://, OpenAI 400s, keys that won’t save on Linux or Windows, empty model lists, API models missing from the picker. Sending & receiving messages Stuck “waiting” chats, half-streamed replies, missing thinking…"
   },
   {
     "title": "Providers & connections",
@@ -2427,6 +2609,13 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "OpenAI says “invalid key” or returns 401",
     "anchor": "openai-401",
     "body": "You added an OpenAI-compatible API key but every request fails with 401 (“API key invalid or expired”). Re-enter the key under OpenAI API key in Settings → Providers and click Save. Keys are stored in the operating system’s credential store, not on disk. Leading and trailing spaces are trimmed before saving, so a…"
+  },
+  {
+    "title": "Providers & connections",
+    "url": "pages/troubleshooting/providers-connections.html",
+    "heading": "An OpenAI chat fails with “HTTP 400 Bad Request”",
+    "anchor": "openai-400",
+    "body": "A chat on an OpenAI-compatible provider fails with OpenAI HTTP 400 Bad Request followed by the server’s own error. Some models refuse request fields Loach sets on its own - OpenAI’s reasoning models (the o-series, GPT-5) reject max_tokens and any temperature but their default. When the server’s 400 names such a field…"
   },
   {
     "title": "Providers & connections",
@@ -2475,7 +2664,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/messages.html",
     "heading": "I see no “thinking” trace even though the model supports reasoning",
     "anchor": "no-thinking-trace",
-    "body": "A reasoning model is selected but no thinking block appears above the answer. Open the Parameters panel (Ctrl + Shift + P) and confirm the Thinking toggle is on for this chat. Make sure the model actually advertises the thinking capability - when it doesn’t, the Thinking row in the panel is disabled with This model…"
+    "body": "A reasoning model is selected but no thinking block appears above the answer. Open the Parameters panel (Ctrl + Shift + P) and confirm the Thinking toggle is on for this chat. If it starts off in every new chat, check Settings → Features → Thinking and the model’s Allow thinking step switch on its page under Models.…"
   },
   {
     "title": "Sending & receiving messages",
@@ -2504,6 +2693,20 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Replies are off-topic, repetitive, or too short",
     "anchor": "bad-output",
     "body": "The model is technically responding but the quality is poor. Open the Parameters panel. Temperature, Max Tokens and Repeat Penalty only appear in its Advanced view: Lower Temperature for more focused answers, raise it for more variety. Raise Max Tokens if the answer keeps cutting off. Raise Context Length if the…"
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "An HTML preview shows the page but nothing on it works",
+    "anchor": "html-preview",
+    "body": "In the code canvas, buttons, games or animations on a previewed page do nothing. Previews open with the page’s scripts off - markup and styles only - and the bar above the page reads Offline sandbox · scripts off. Click Run scripts to turn them on for that page; another code block, or an edit to this one, starts with…"
+  },
+  {
+    "title": "Sending & receiving messages",
+    "url": "pages/troubleshooting/messages.html",
+    "heading": "A message starting with / ran a command instead of sending",
+    "anchor": "slash-text",
+    "body": "You typed a message that begins with /, and a command ran - or a Command failed notice appeared - instead of the message going to the model. When the first word after the / is a slash command, Enter runs the command rather than sending. A command that fails - /new idea answers /new doesn’t take arguments. - leaves…"
   },
   {
     "title": "Performance & VRAM",
@@ -2585,6 +2788,13 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Attachments",
     "url": "pages/troubleshooting/attachments.html",
+    "heading": "A text file’s accented letters come through garbled",
+    "anchor": "garbled-text",
+    "body": "A text or code file attaches, but the model sees accented or non-Latin letters as the wrong characters or as �. Loach reads text files as UTF-8 or UTF-16, with or without a byte-order mark. A file in neither is taken to be in the legacy Windows code page of your system language: Windows-1250 for Polish, Czech…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/troubleshooting/attachments.html",
     "heading": "A long document’s chip says “truncated”",
     "anchor": "content-truncated",
     "body": "A long PDF or text file was attached, its chip carries a truncated pill, and only part of it reached the model. Per-file cap is 200,000 characters; total inlined content per message is 500,000 characters, counting your prompt and fetched pages too. Files past that per-message budget are clipped or left out without a…"
@@ -2601,7 +2811,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/attachments.html",
     "heading": "Dropping a file onto Private Chat does nothing",
     "anchor": "private-chat-drop",
-    "body": "The cursor shows a no-entry sign and nothing attaches. Expected: dropping files is switched off while Private Chat is open, so a file can’t land in the regular chat behind it. Use the + button in Private Chat’s message box instead."
+    "body": "The cursor shows a no-entry sign and nothing attaches. Expected: dropping files is switched off while Private Chat is open, so a file can’t land in the regular chat behind it. Use the + button in Private Chat’s message box instead. Drops are refused the same way while a dialog - Settings, the snippet editor, Import…"
   },
   {
     "title": "Attachments",
@@ -2609,6 +2819,20 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Images don’t seem to be working",
     "anchor": "vision-images",
     "body": "You attached a PNG/JPEG but the model can’t describe it. The model needs vision capability - check the model’s page in the Ollama library or the capabilities that ollama show <model> lists. Switch to a vision-capable model (Llava, Llama 3.2 Vision, GPT-4o, etc.) and re-send. Also check that: The image is PNG, JPEG…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "The model misses details in an image",
+    "anchor": "image-detail",
+    "body": "A vision model can’t read small text in a screenshot, or overlooks fine detail in a photo. Loach scales images down before it sends them - by default to at most 1024 px on the longest side, since a full-size photo costs thousands of image tokens and many local models read it no better. The original stays in your…"
+  },
+  {
+    "title": "Attachments",
+    "url": "pages/troubleshooting/attachments.html",
+    "heading": "Pasting from Word or Excel gives text, not a picture",
+    "anchor": "paste-office",
+    "body": "You copied cells from Excel or a paragraph from Word, and the message box got the text instead of an image of it. Office apps put a picture of the selection on the clipboard next to its text. When the clipboard holds text alongside nothing but images, Loach pastes the text - what the model reads best - and ignores…"
   },
   {
     "title": "Tools, MCP & folders",
@@ -2678,21 +2902,28 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/web-fetch-mcp.html",
     "heading": "“… does not support tools” after turning a tool on",
     "anchor": "tools-unsupported",
-    "body": "Every message to a local model now fails with an Ollama error ending in “does not support tools”. Loach sends the tools you switched on - built-in tools, enabled MCP servers, a chat’s working folder - with every request, whatever the model. A model without tool calling can’t take them, and Ollama refuses the request.…"
+    "body": "Every message to a local model now fails with an Ollama error ending in “does not support tools”. Loach sends the tools you switched on - built-in tools, enabled MCP servers, a chat’s working folder - with every request outside Private Chat, whatever the model. A model without tool calling can’t take them, and Ollama…"
+  },
+  {
+    "title": "Tools, MCP & folders",
+    "url": "pages/troubleshooting/web-fetch-mcp.html",
+    "heading": "The model can’t use tools in Private Chat",
+    "anchor": "private-chat-tools",
+    "body": "A model that calls tools in regular chats says it has none in Private Chat. By design: Private Chat offers no tools at all - no MCP servers, which could carry the conversation off your machine, and no built-in tools, since the overlay has nowhere to show a call or a PDF one makes. Use a regular chat for tool work."
   },
   {
     "title": "Tools, MCP & folders",
     "url": "pages/troubleshooting/web-fetch-mcp.html",
     "heading": "Can’t add a folder, or the model doesn’t use it",
     "anchor": "workspace-folder",
-    "body": "Add directory is greyed out or refuses the folder, or the model says it has no file tools. Send a message first to start this chat - a brand-new chat can’t have a folder until its first message is sent. Wait for the reply to finish - the folder can’t be changed or removed while a reply is running in the chat. “Pick a…"
+    "body": "Add directory is greyed out or refuses the folder, or the model says it has no file tools. Send a message first to start this chat - you’re on a Space’s page, whose message box starts a new chat. Send the first message, then add the folder in the chat that opens. Wait for the reply to finish - the folder can’t be…"
   },
   {
     "title": "Tools, MCP & folders",
     "url": "pages/troubleshooting/web-fetch-mcp.html",
     "heading": "The model can’t use a file or folder name on Windows",
     "anchor": "windows-names",
-    "body": "A file tool refuses a path with “contains: ”, “ends with a dot or a space”, or “is a device name Windows reserves”. Those names are refused on purpose: a: names a hidden data stream, and CON, nul.txt or a trailing dot would be created as files that Explorer and most tools can’t open or delete. Ask the model to pick…"
+    "body": "A file tool refuses a path with “contains: ”, “ends with a dot or a space”, “is a device name Windows reserves” or “reaches … by its Windows short (8.3) name”. Those names are refused on purpose: a: names a hidden data stream, and CON, nul.txt or a trailing dot would be created as files that Explorer and most tools…"
   },
   {
     "title": "Tools, MCP & folders",
@@ -2713,7 +2944,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/spaces-memory.html",
     "heading": "Memories aren’t being saved",
     "anchor": "memory-not-saved",
-    "body": "You expect memory to pick up facts, but nothing appears in the Space’s Memory tab or the global memories list. Memory extraction only runs after a complete assistant reply. Cancelled or errored turns are skipped. In a Space, the switch on the Space’s Memory tab must be on. Outside a Space, nothing is saved until you…"
+    "body": "You expect memory to pick up facts, but nothing appears in the Space’s Memory tab or the global memories list. Memory extraction only runs after a complete assistant reply. Cancelled or errored turns are skipped. It also waits until the model is free - no other reply running or queued - so facts can turn up a little…"
   },
   {
     "title": "Spaces & memory",
@@ -2727,7 +2958,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/spaces-memory.html",
     "heading": "“Memory is off” when using /remember",
     "anchor": "remember-off",
-    "body": "/remember answers Memory is off for “…” or Global memory is off and saves nothing. /remember follows the same switches as automatic memory. In a Space chat, turn on the switch on the Space’s Memory tab. Outside a Space, turn on Settings → Features → Global memories, or run the command in a chat inside a Space. The…"
+    "body": "/remember answers Memory is off for “…” or Global memory is off and saves nothing. /remember follows the same switches as automatic memory. In a Space chat, turn on Memory in the Space’s Settings tab (the Change in Settings link on its Memory tab goes there). Outside a Space, turn on Settings → Features → Global…"
   },
   {
     "title": "Spaces & memory",
@@ -2741,7 +2972,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/spaces-memory.html",
     "heading": "Reference sources won’t add to a Space",
     "anchor": "reference-cap",
-    "body": "Adding a source to a Space fails or silently does nothing. Each file can be at most 20 MB (… exceeds the 20 MB limit ), and a Space’s sources at most 200 MB in total (… would exceed the 200 MB space limit; at the limit, Add source is disabled). Remove older sources, or move the content into a smaller text file. If a…"
+    "body": "Adding a source to a Space fails or silently does nothing. Each upload can be at most 20 MB (… exceeds the 20 MB limit ), and a Space’s uploads at most 200 MB in total (… would exceed the 200 MB space limit; at the limit, the Sources tab reads Reached the 200 MB upload limit and Upload is disabled). Library items…"
   },
   {
     "title": "Spaces & memory",
@@ -2749,6 +2980,69 @@ window.LOACH_SEARCH_INDEX = [
     "heading": "Space instructions seem to override my custom instructions",
     "anchor": "space-instructions",
     "body": "Your global Custom Instructions, or a chat’s own instructions, don’t appear to apply in chats inside a Space. This is by design. When a Space has its own instructions, they replace both the global ones and the chat’s own Additional instructions for chats in that Space. Either clear the Space’s instructions, or repeat…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "Library",
+    "anchor": "",
+    "body": "The Library gives a chat its sources in full or searches them for the relevant parts; search by meaning needs an embedding model Loach can reach. When a reply surprises you, start with the sources chip above it - it says what the model actually got."
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "Search by meaning says “Embedding paused”",
+    "anchor": "embedding-paused",
+    "body": "The Library header shows Embedding paused (Settings → Library reads Embedding is paused ), and replies’ sources chips say the embedding model was unavailable. Loach can’t reach the embedding model, so it searches your sources by keyword until it can - nothing is lost. Hover the header button, or open Settings →…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "Indexing never seems to finish",
+    "anchor": "indexing",
+    "body": "Indexing n / m stays in the Library header, or items keep their Indexing badge. Embedding runs in the background, a batch at a time, and a large Library on a CPU-only machine takes a while; keyword search works throughout. If the count stops moving, check Settings → Library: when something fails, the status turns…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "A link won’t add",
+    "anchor": "link-wont-add",
+    "body": "Add link stays greyed out, or fails with an error. The button stays greyed out - the address has no dot in its host, like localhost or a bare intranet name. Those aren’t accepted; copy the page’s text into a New text instead. Refusing to fetch … - links to loopback, private-network and VPN addresses are refused, the…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "The model ignored my source, or used the wrong part of it",
+    "anchor": "source-ignored",
+    "body": "A reply doesn’t reflect a source you attached. Expand the sources chip above the reply. It lists the sources and says whether the model read them in full or got excerpts. Excerpts - only the passages most relevant to your message were sent. Name the topic in the message, set an embedding model so sources are also…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "Keyword search finds nothing in Chinese, Japanese or Thai text",
+    "anchor": "cjk-keyword-search",
+    "body": "Excerpts from these sources don’t match the question - the chip shows the opening part of each source instead. These languages don’t put spaces between words, so keyword search can only match long runs of text. Set a multilingual embedding model in Settings → Library (embeddinggemma, qwen3-embedding:0.6b or bge-m3)…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "An item is marked “Truncated”",
+    "anchor": "truncated",
+    "body": "A Library item shows an amber Truncated badge. An item keeps up to 200,000 characters - roughly a 100-page document - and a link’s page is read up to 5 MB. The rest was cut; a text cut at 200,000 characters ends with a note telling the model it’s incomplete. Split the document and add the parts as separate items…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "A file won’t add, or a Space upload says “unreadable”",
+    "anchor": "unreadable-upload",
+    "body": "Adding a file to the Library fails with Couldn’t add …, or on a Space’s Sources tab an upload shows unreadable instead of a token count. not a format Loach can read - binary spreadsheets (.xlsx ), archives and legacy .doc files have no text Loach can extract. Save the file as PDF, Word (.docx) or plain text and add…"
+  },
+  {
+    "title": "Library",
+    "url": "pages/troubleshooting/library.html",
+    "heading": "I can’t find a Library item",
+    "anchor": "find-item",
+    "body": "The Library page has no search box, and the search palette doesn’t list an item you know is there. The Library is searched from the search palette (Ctrl + K ); type in:library or pick Library in the scope dropdown to see only Library items and datasets. Items match by title, the opening of their text (about 280…"
   },
   {
     "title": "App lock",
@@ -2788,6 +3082,13 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "App lock",
     "url": "pages/troubleshooting/app-lock.html",
+    "heading": "macOS asks for keychain access when I unlock",
+    "anchor": "macos-keychain",
+    "body": "Unlocking Loach brings up a macOS prompt asking to let it use its dev.loach.app keychain item - often right after an update. Loach reads the lock from the keychain when you unlock (the lock screen itself comes up without it), and macOS can ask again after an update. Enter your login password and choose Always Allow.…"
+  },
+  {
+    "title": "App lock",
+    "url": "pages/troubleshooting/app-lock.html",
     "heading": "The lock fired later than the timeout I set",
     "anchor": "lock-late",
     "body": "You picked 1 minute but it took closer to 75 seconds. Expected. The idle deadline is re-checked periodically rather than driven by one long timer, so the lock lands up to 15 seconds after the interval. Erring late is deliberate: a timer that fires early on a throttled or suspended window is the worse failure. A…"
@@ -2797,7 +3098,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/app-lock.html",
     "heading": "Loach opened without asking for my PIN",
     "anchor": "no-lock-screen",
-    "body": "A lock is configured, but Loach started straight into your chats. At launch Loach asks the OS credential store whether a lock is set. If that check fails or gets no answer within 5 seconds - no Secret Service running on Linux, or a keyring still waiting to be unlocked - Loach starts unlocked rather than stranding you…"
+    "body": "A lock is configured, but Loach started straight into your chats. At launch Loach reads whether a lock is set from a small marker file next to its database, app_lock.json, so the lock screen comes up without waiting on the OS credential store. Only when that file is missing - the first launch after updating, or after…"
   },
   {
     "title": "Models editor",
@@ -2830,9 +3131,9 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Models editor",
     "url": "pages/troubleshooting/models-editor.html",
-    "heading": "My Thinking preference for a model was forgotten",
+    "heading": "My per-model Thinking preference doesn’t apply",
     "anchor": "thinking-pref-reset",
-    "body": "You set Allow thinking step in the Models editor, and after restarting Loach the model is back to its own default. That per-model preference is kept only until Loach restarts. For a lasting choice, flip the Thinking toggle in a chat’s parameters panel - that one is saved with the chat - or set the default for every…"
+    "body": "You set Allow thinking step in the Models editor, but a chat with that model still thinks (or doesn’t) the old way. That setting is the default for chats with the model, saved on this device. A chat whose own Thinking toggle you flipped in its parameters panel keeps that choice - reset the chat’s parameters to fall…"
   },
   {
     "title": "Updates",
@@ -2902,21 +3203,21 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/data.html",
     "heading": "Something is missing after restoring a backup",
     "anchor": "after-import",
-    "body": "The import succeeded, but an MCP server is off or can’t authenticate, or a chat lost its folder. Backups leave out anything secret or tied to one machine: MCP credentials. HTTP headers, stdio environment variables, and passwords or tokens in command-line arguments are scrubbed on export. Re-enter them in Settings →…"
+    "body": "The import succeeded, but an MCP server is off or can’t authenticate, a chat lost its working folder, or the OpenAI base URL stayed as it was. Backups leave out anything secret or tied to one machine: MCP credentials. HTTP headers, stdio environment variables, passwords or tokens in command-line arguments, and any…"
   },
   {
     "title": "Data, import & export",
     "url": "pages/troubleshooting/data.html",
     "heading": "“Remove my data” didn’t remove my OpenAI key",
     "anchor": "wipe-keeps-key",
-    "body": "After erasing, your OpenAI-compatible API key is still configured. By design. Remove my data (under Settings → Data → Erase & Reset) removes chats, folders, Spaces, Snippets, snippet variables, MCP servers and memories, but keeps app settings, your stored API key and the app lock. To clear everything, including the…"
+    "body": "After erasing, your OpenAI-compatible API key is still configured. By design. Remove my data (under Settings → Data → Erase & Reset) removes chats, folders, Spaces, the Library (texts, files, links and datasets), Snippets, snippet variables, MCP servers and memories, but keeps app settings, your stored API key and…"
   },
   {
     "title": "Data, import & export",
     "url": "pages/troubleshooting/data.html",
     "heading": "The database is still large after deleting chats",
     "anchor": "db-not-shrinking",
-    "body": "The Database size in Settings → Data didn’t go down after you deleted or erased chats. Expected. SQLite keeps the space it frees and reuses it for new data instead of shrinking the file, so the on-disk total doesn’t drop. The lines under it - Chats, Attachments, Spaces, Other - measure what is actually stored, and…"
+    "body": "The Database size in Settings → Data didn’t go down after you deleted or erased chats. Expected. SQLite keeps the space it frees and reuses it for new data instead of shrinking the file, so the on-disk total doesn’t drop. The lines under it - Chats, Attachments, Spaces, Library, Other - measure what is actually…"
   },
   {
     "title": "Appearance & window",
@@ -2937,7 +3238,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/appearance.html",
     "heading": "Font size change didn’t fully apply",
     "anchor": "partial-font-scale",
-    "body": "Some text scaled, some didn’t. Native dialogs (file pickers, save dialogs, the prompt that confirms a local MCP server before it starts) follow the OS font scale, not Loach’s. Everything Loach draws itself, the title bar included, follows the in-app setting - apart from a few fixed sizes: the onboarding step titles…"
+    "body": "Some text scaled, some didn’t. Native dialogs (file pickers, save dialogs, the prompt that confirms a local MCP server before it starts) follow the OS font scale, not Loach’s, and on macOS the window’s buttons are the system’s own. Everything Loach draws itself, the title bar included, follows the in-app setting…"
   },
   {
     "title": "Appearance & window",
@@ -2965,7 +3266,7 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/search-palette.html",
     "heading": "Ctrl+K does nothing",
     "anchor": "shortcut-dead",
-    "body": "The shortcut doesn’t open the global search. The palette is suppressed while the onboarding wizard, the lock screen or Private Chat owns the window - the title-bar search pill is disabled or hidden then too. Finish onboarding, unlock the app or close Private Chat first."
+    "body": "The shortcut doesn’t open the global search. The palette is suppressed while the onboarding wizard, the lock screen or Private Chat owns the window - the title-bar search pill is disabled or hidden then too - and while another dialog (Settings, a confirmation) is open. Finish onboarding, unlock the app, or close…"
   },
   {
     "title": "Search palette",
@@ -2979,14 +3280,14 @@ window.LOACH_SEARCH_INDEX = [
     "url": "pages/troubleshooting/search-palette.html",
     "heading": "Ctrl+F does nothing",
     "anchor": "find-dead",
-    "body": "The in-chat finder doesn’t open. The finder searches the open chat’s transcript, so it needs a chat with at least one message on screen - nothing happens on a new, empty chat or while the Spaces, Snippets or Models view is showing. Like the palette, it’s unavailable in Private Chat, during onboarding and behind the…"
+    "body": "The in-chat finder doesn’t open. The finder searches the open chat’s transcript, so it needs a chat with at least one message on screen - nothing happens on a new, empty chat or while the Spaces, Library, Snippets or Models view is showing. Like the palette, it’s unavailable in Private Chat, during onboarding, behind…"
   },
   {
     "title": "Platform",
     "url": "pages/troubleshooting/platform.html",
     "heading": "Platform",
     "anchor": "",
-    "body": "A few problems are specific to a particular operating system or IT policy."
+    "body": "A few problems are specific to a particular operating system or IT policy, or to how Loach starts."
   },
   {
     "title": "Platform",
@@ -3005,6 +3306,27 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Platform",
     "url": "pages/troubleshooting/platform.html",
+    "heading": "macOS - Loach doesn’t work on an older Mac",
+    "anchor": "macos-safari",
+    "body": "On an older Mac, Loach installs but doesn’t work properly. Besides macOS 11 or later, Loach needs Safari 16.4 or later. Its window runs on the system’s WebKit, which follows the installed Safari rather than the macOS version, and its Markdown rendering needs Safari 16.4’s JavaScript - so a Mac on an older Safari…"
+  },
+  {
+    "title": "Platform",
+    "url": "pages/troubleshooting/platform.html",
+    "heading": "macOS - closing the window doesn’t quit Loach",
+    "anchor": "macos-close",
+    "body": "You closed Loach’s window, but it’s still in the Dock and the menu bar. Like other Mac apps, Loach keeps running when you close its window (the red button or ⌘ + W ), and a reply in progress carries on. Click its Dock icon, or Show Loach in its menu-bar icon, to bring the window back; quit with ⌘ + Q or Quit in the…"
+  },
+  {
+    "title": "Platform",
+    "url": "pages/troubleshooting/platform.html",
+    "heading": "macOS - Ctrl shortcuts don’t work",
+    "anchor": "macos-shortcuts",
+    "body": "On a Mac, Ctrl + K, Ctrl + N and the other shortcuts in these docs do nothing, or move the text cursor instead. On macOS, Loach’s shortcuts use ⌘ only - press ⌘ wherever these docs say Ctrl. Ctrl is left to the text field, where macOS gives it meanings of its own: Ctrl + K deletes to the end of the line, and Ctrl + N…"
+  },
+  {
+    "title": "Platform",
+    "url": "pages/troubleshooting/platform.html",
     "heading": "Linux - the app won’t start on an older distribution",
     "anchor": "linux-glibc",
     "body": "Launching Loach fails with an error such as version `GLIBC_2.35' not found. Loach’s Linux packages are built against glibc 2.35, so Ubuntu 22.04 and Debian 12 are the oldest supported distributions; anything with an older glibc can’t run the pre-built .deb, .rpm or .AppImage. Upgrade the distribution, or build from…"
@@ -3012,9 +3334,23 @@ window.LOACH_SEARCH_INDEX = [
   {
     "title": "Platform",
     "url": "pages/troubleshooting/platform.html",
+    "heading": "“Loach failed to start”",
+    "anchor": "startup-failed",
+    "body": "Launching Loach shows a Loach failed to start dialog, and the app closes when you dismiss it. Loach couldn’t set itself up, and the dialog says why, with the details below: its app-data folder couldn’t be found or created, the database couldn’t be opened or updated, or its HTTP client couldn’t start (TLS or root…"
+  },
+  {
+    "title": "Platform",
+    "url": "pages/troubleshooting/platform.html",
     "heading": "Windows - saving a key or the app lock fails on a managed machine",
     "anchor": "windows-credman",
     "body": "Saving keys or app-lock credentials fails on a managed Windows machine with a platform or storage error. Some corporate group policies block apps from writing to Credential Manager. Loach cannot store secrets without it. Ask your IT admin to allow Credential Manager writes for the Loach process, or use a personal…"
+  },
+  {
+    "title": "Platform",
+    "url": "pages/troubleshooting/platform.html",
+    "heading": "Launching Loach again doesn’t open a second window",
+    "anchor": "single-instance",
+    "body": "You start Loach while it’s already running, and no second window appears. Loach runs as a single instance: launching it again - from the Start menu, a desktop file or a double click - brings the running window forward instead, out of the tray too, rather than starting a second copy over the same database."
   }
 ]
 ;

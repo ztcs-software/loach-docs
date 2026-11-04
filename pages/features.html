@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Features - Loach Docs</title>
-  <meta name="description" content="The full feature set of Loach: providers and models, Spaces and memory, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more." />
+  <meta name="description" content="The full feature set of Loach: providers and models, Spaces and memory, the Library, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features.html" />
   <meta property="og:title" content="Features - Loach Docs" />
-  <meta property="og:description" content="The full feature set of Loach: providers and models, Spaces and memory, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more." />
+  <meta property="og:description" content="The full feature set of Loach: providers and models, Spaces and memory, the Library, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Features - Loach Docs" />
-  <meta name="twitter:description" content="The full feature set of Loach: providers and models, Spaces and memory, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more." />
+  <meta name="twitter:description" content="The full feature set of Loach: providers and models, Spaces and memory, the Library, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     {
       "@type": "Article",
       "headline": "Features",
-      "description": "The full feature set of Loach: providers and models, Spaces and memory, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more.",
+      "description": "The full feature set of Loach: providers and models, Spaces and memory, the Library, Snippets, folders and labels, slash commands, built-in tools, working folders, MCP, web fetch, code canvas, LaTeX math, app lock, themes, updates and more.",
       "url": "https://docs.loach.dev/pages/features.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -257,41 +259,42 @@
 
   <main class="content">
     <h1>Features</h1>
-    <p class="lead">A reference for the features Loach ships with today. We&rsquo;re continuously extending this list - including new RAG and agentic capabilities. Pick a category below, or open any feature for the full description.</p>
+    <p class="lead">A reference for the features Loach ships with today. We&rsquo;re continuously extending this list - including new agentic capabilities. Pick a category below, or open any feature for the full description.</p>
 
     <h2 id="chat-experience">Chat experience</h2>
     <ul class="feature-grid">
       <li><a class="feature-card" href="features/provider-selection.html"><span class="feature-card-title">Provider selection</span><span class="feature-card-desc">Switch between Ollama local models and any OpenAI-compatible endpoint (OpenAI, llama.cpp, LM Studio, vLLM, Groq, OpenRouter…) directly from the chat header - and start Ollama from Loach when it isn&rsquo;t running, on demand or automatically at launch.</span></a></li>
-      <li><a class="feature-card" href="features/model-management.html"><span class="feature-card-title">Local model management</span><span class="feature-card-desc">Pull, copy, customize and delete local models from inside the app - no terminal required. The <strong>Models</strong> library tab is a full UI over the Ollama HTTP API.</span></a></li>
+      <li><a class="feature-card" href="features/model-management.html"><span class="feature-card-title">Local model management</span><span class="feature-card-desc">Pull, copy, customize and delete local models from inside the app - no terminal required. The <strong>Models</strong> sidebar tab is a full UI over the Ollama HTTP API.</span></a></li>
       <li><a class="feature-card" href="features/parameters.html"><span class="feature-card-title">Per-chat parameters</span><span class="feature-card-desc">Set <code>temperature</code>, <code>top_k</code>, <code>top_p</code>, <code>min_p</code>, <code>max_tokens</code>, <code>context length</code>, per-chat system prompts and more. Per-chat values are layered over the model&rsquo;s Modelfile defaults and Loach&rsquo;s built-in defaults.</span></a></li>
       <li><a class="feature-card" href="features/personas.html"><span class="feature-card-title">Personas and tones</span><span class="feature-card-desc">Pick a role (Code Reviewer, Translator, ELI5…) and a delivery style (Direct, Detailed, Playful, Skeptical, Socratic…). They layer on top of your custom instructions.</span></a></li>
       <li><a class="feature-card" href="features/custom-instructions.html"><span class="feature-card-title">Custom instructions</span><span class="feature-card-desc">Set instructions globally, per-Space or per-chat - with template variables for your name, the date, time, weekday and timezone. One set applies: the Space&rsquo;s if it has them, otherwise the chat&rsquo;s, otherwise your global ones.</span></a></li>
       <li><a class="feature-card" href="features/generation-stats.html"><span class="feature-card-title">Generation stats</span><span class="feature-card-desc">An inline <code>tok/s · tokens · elapsed</code> line under every finished reply, so you always know how the model performed.</span></a></li>
       <li><a class="feature-card" href="features/markdown.html"><span class="feature-card-title">Markdown rendering</span><span class="feature-card-desc">Full GitHub-flavoured Markdown with tables, task lists and footnotes - rendered live as the response streams. Thinking traces and tool calls fold into their own collapsible blocks.</span></a></li>
       <li><a class="feature-card" href="features/math.html"><span class="feature-card-title">LaTeX math</span><span class="feature-card-desc">Formulas typeset with KaTeX - <code>$$…$$</code>, <code>\(…\)</code>, <code>\[…\]</code> and <code>```math</code> fences - with currency-safe <code>$…$</code> so &ldquo;$5 and $10&rdquo; stays prose. Bundled in the app; nothing is fetched.</span></a></li>
-      <li><a class="feature-card" href="features/code-canvas.html"><span class="feature-card-title">Code blocks &amp; canvas</span><span class="feature-card-desc">Code blocks are syntax-highlighted with line numbers and offer <strong>Open</strong> (in the canvas), <strong>Export</strong> and <strong>Copy</strong>. The resizable <strong>code canvas</strong> gives any block a wider view, mirrors a reply live while it streams, and can hand the snippet straight to <strong>VS Code</strong>.</span></a></li>
-      <li><a class="feature-card" href="features/slash-commands.html"><span class="feature-card-title">Slash commands</span><span class="feature-card-desc">Type <code>/</code> in the composer to open a command palette - <code>/fork</code>, <code>/compact</code>, <code>/private</code>, <code>/model</code>, <code>/persona</code>, <code>/remember</code> and more. Tab completes, Enter runs, and destructive commands confirm first.</span></a></li>
-      <li><a class="feature-card" href="features/context-compaction.html"><span class="feature-card-title">Context &amp; compaction</span><span class="feature-card-desc">A bar below the message box shows how full the model&rsquo;s context window is, broken down by system prompt, project instructions, memories and messages. <strong>Compact context</strong> summarises older turns into the system prompt to free space - without losing your scrollback.</span></a></li>
+      <li><a class="feature-card" href="features/code-canvas.html"><span class="feature-card-title">Code blocks &amp; canvas</span><span class="feature-card-desc">Code blocks are syntax-highlighted with line numbers and offer <strong>Open</strong> (in the canvas), <strong>Export</strong> and <strong>Copy</strong>, plus <strong>Preview</strong> on HTML blocks. The resizable <strong>code canvas</strong> gives any block a wider view, mirrors a reply live while it streams, previews HTML as a page in an offline sandbox, and can hand the snippet straight to <strong>VS Code</strong>.</span></a></li>
+      <li><a class="feature-card" href="features/slash-commands.html"><span class="feature-card-title">Slash commands</span><span class="feature-card-desc">Type <code>/</code> in the composer to open a command palette - <code>/fork</code>, <code>/compact</code>, <code>/model</code>, <code>/set</code>, <code>/stop</code>, <code>/remember</code>, <code>/lock</code> and more. Tab completes, Enter runs, and destructive commands confirm first.</span></a></li>
+      <li><a class="feature-card" href="features/context-compaction.html"><span class="feature-card-title">Context &amp; compaction</span><span class="feature-card-desc">A bar below the message box shows how full the model&rsquo;s context window is, broken down by system prompt, project instructions, memories, sources and messages. <strong>Compact context</strong> summarises older turns into the system prompt to free space - without losing your scrollback.</span></a></li>
       <li><a class="feature-card" href="features/pinned-responses.html"><span class="feature-card-title">Pinned responses</span><span class="feature-card-desc">Pin any reply from its <code>…</code> menu and jump straight back to it from a <strong>Pinned</strong> bar under the chat header. Pins survive restarts and travel in backups.</span></a></li>
       <li><a class="feature-card" href="features/concurrency.html"><span class="feature-card-title">Concurrency &amp; queue</span><span class="feature-card-desc">One generation at a time across all chats, with a FIFO queue and a <strong>Respond now</strong> action for jumping the line. A reply waiting on a tool approval keeps its turn, and cancelled streams preserve their partial output.</span></a></li>
-      <li><a class="feature-card" href="features/private-chat.html"><span class="feature-card-title">Private Chat</span><span class="feature-card-desc">A dark-only, ephemeral chat surface. Nothing is written to disk, memory, MCP tools and working folders are off-limits, and only local Ollama models are offered - the transcript wipes the moment the overlay closes.</span></a></li>
+      <li><a class="feature-card" href="features/private-chat.html"><span class="feature-card-title">Private Chat</span><span class="feature-card-desc">A dark-only, ephemeral chat surface. Nothing is written to disk, memory, tools, Library sources and working folders are off-limits, and only Ollama models are offered, never cloud ones - the transcript wipes the moment the overlay closes or Loach locks.</span></a></li>
     </ul>
 
     <h2 id="organization">Organization</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="features/spaces.html"><span class="feature-card-title">Spaces</span><span class="feature-card-desc">Group chats around a project, with shared instructions, reference sources, memory and a default model. Every chat inside the Space inherits the context.</span></a></li>
+      <li><a class="feature-card" href="features/spaces.html"><span class="feature-card-title">Spaces</span><span class="feature-card-desc">Group chats around a project, with shared instructions, reference sources - uploads or Library items - memory and a default model. Every chat inside the Space inherits the context.</span></a></li>
       <li><a class="feature-card" href="features/memory.html"><span class="feature-card-title">Memory</span><span class="feature-card-desc">Space memory and opt-in <strong>Global memories</strong> note lasting facts about you after each reply, update or drop ones that changed, and show an <strong>Undo</strong> for every change. A searchable editor links each fact back to its chat; Private Chat never reads or writes memory.</span></a></li>
-      <li><a class="feature-card" href="features/snippets.html"><span class="feature-card-title">Snippets</span><span class="feature-card-desc">Save reusable prompts with an optional pinned model and click <strong>Run</strong> to start a fresh chat pre-filled. Parameterise them with custom <code>{{PLACEHOLDER}}</code> variables - reusable globals or fill-in-on-use prompts.</span></a></li>
+      <li><a class="feature-card" href="features/library.html"><span class="feature-card-title">Library</span><span class="feature-card-desc">Save texts, files and links once, group them into datasets, and attach them to any chat (<strong>+</strong> &rarr; <strong>From Library</strong>, or <code>#</code>) or Space. Small sources go to the model in full; big ones are searched by keyword or by meaning, and each reply shows what it used.</span></a></li>
+      <li><a class="feature-card" href="features/snippets.html"><span class="feature-card-title">Snippets</span><span class="feature-card-desc">Save reusable prompts with an optional pinned model and click <strong>Run</strong> - or <strong>Run in Space</strong> - to start a fresh chat pre-filled. Parameterise them with custom <code>{{PLACEHOLDER}}</code> variables - reusable globals or fill-in-on-use prompts.</span></a></li>
       <li><a class="feature-card" href="features/folders-labels.html"><span class="feature-card-title">Chat folders &amp; labels</span><span class="feature-card-desc">Drag one chat onto another to file both into a named folder, and tag chats with a colour label from any chat menu - it shows as a dot in the sidebar and Space view.</span></a></li>
       <li><a class="feature-card" href="features/chat-archive.html"><span class="feature-card-title">Chat archive</span><span class="feature-card-desc">Move chats out of the sidebar without deleting them, with an inline <strong>Undo</strong> if you mis-clicked. Restore or delete them from a dedicated archive view.</span></a></li>
-      <li><a class="feature-card" href="features/search.html"><span class="feature-card-title">Search</span><span class="feature-card-desc">A global <kbd>Ctrl</kbd> + <kbd>K</kbd> palette across chats, message content, Spaces and Snippets - narrowed with a scope picker or an <code>in:</code> filter - plus a browser-style in-chat finder with phrase highlighting.</span></a></li>
+      <li><a class="feature-card" href="features/search.html"><span class="feature-card-title">Search</span><span class="feature-card-desc">A global <kbd>Ctrl</kbd> + <kbd>K</kbd> palette across chats, message content, Spaces, Snippets and the Library - narrowed with a scope picker or an <code>in:</code> filter - plus a browser-style in-chat finder with phrase highlighting.</span></a></li>
       <li><a class="feature-card" href="features/import-export.html"><span class="feature-card-title">Import and export context</span><span class="feature-card-desc">Copy a chat&rsquo;s context as Markdown (optionally a compacted summary), and paste an exported chat - JSON or Markdown - or any text back into any chat, inline or folded out of the transcript.</span></a></li>
-      <li><a class="feature-card" href="features/import-export.html#fork"><span class="feature-card-title">Fork chats</span><span class="feature-card-desc">Branch any conversation into a new chat - same model, Space, folder and settings - from the header, a reply&rsquo;s menu, or <code>/fork</code>. The copy carries a &ldquo;Forked from…&rdquo; badge back to the source.</span></a></li>
+      <li><a class="feature-card" href="features/import-export.html#fork"><span class="feature-card-title">Fork chats</span><span class="feature-card-desc">Branch any conversation into a new chat - same model, Space, folder, settings and Library sources - from the header, a reply&rsquo;s menu, or <code>/fork</code>. The copy carries a &ldquo;Forked from…&rdquo; badge back to the source.</span></a></li>
     </ul>
 
     <h2 id="input-output">Input &amp; output</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="features/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">Drag and drop images, text and code, PDFs and DOCX files (up to 20 MB each) into the composer. Loach extracts the text and inlines it into the request; images go to vision-capable models.</span></a></li>
+      <li><a class="feature-card" href="features/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">Drag and drop images, text and code, PDFs and DOCX files (up to 20 MB each) into the composer. Loach extracts the text and inlines it into the request; images go to vision-capable models, scaled down to 1024 px on their longest side by default.</span></a></li>
       <li><a class="feature-card" href="features/attachments.html#previews"><span class="feature-card-title">Attachment previews</span><span class="feature-card-desc">Click an attachment to open the right viewer without leaving the chat: an image lightbox, a multi-page PDF preview, the code canvas for text and code, or a file-info card with <strong>Save</strong>.</span></a></li>
       <li><a class="feature-card" href="features/voice-dictation.html"><span class="feature-card-title">Voice dictation</span><span class="feature-card-desc">A mic button in the composer turns speech into text in real time. It appears where the system web view supports speech recognition - most Linux builds don&rsquo;t.</span></a></li>
       <li><a class="feature-card" href="features/web-fetch.html"><span class="feature-card-title">Web fetch</span><span class="feature-card-desc">Opt-in: drop up to five URLs into a message and Loach fetches each page, sanitizes it, and inlines the content into the request - no separate browser extension needed.</span></a></li>
@@ -312,7 +315,7 @@
     <h2 id="security-data">Security &amp; data</h2>
     <ul class="feature-grid">
       <li><a class="feature-card" href="features/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Optional PIN, password or PIN + password gate at launch, with opt-in auto-lock after inactivity or on minimize and a lock-now shortcut. Credentials are hashed with Argon2id and stored in the OS credential manager.</span></a></li>
-      <li><a class="feature-card" href="features/data-management.html"><span class="feature-card-title">Data management</span><span class="feature-card-desc">Back up your data to a JSON file (MCP headers, environment variables and chats&rsquo; working folders are left out), restore it, or wipe with a few clicks - with a storage breakdown showing what your chats, attachments and Spaces actually weigh on disk.</span></a></li>
+      <li><a class="feature-card" href="features/data-management.html"><span class="feature-card-title">Data management</span><span class="feature-card-desc">Back up your data to a JSON file (MCP headers, environment variables, secrets in a server&rsquo;s arguments or address, and chats&rsquo; working folders are left out), restore it, or wipe with a few clicks - with a storage breakdown showing what your chats, attachments, Spaces and Library actually weigh on disk.</span></a></li>
     </ul>
 
     <h2 id="appearance">Appearance &amp; updates</h2>

@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -266,7 +268,7 @@
     <p class="lead">Personas and tones are two thin style layers that compose with the chat&rsquo;s system prompt at send time. A <em>persona</em> sets the role the model plays; a <em>tone</em> tweaks how it speaks. They&rsquo;re curated presets that play nicely with your own custom instructions rather than replacing them.</p>
 
     <h2 id="personas">Personas (role)</h2>
-    <p>Pick one from the <strong>Persona</strong> row of the chat&rsquo;s <a href="parameters.html">Parameters panel</a> (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>), or type <code>/persona &lt;name&gt;</code> - for example <code>/persona translator</code>, or <code>/persona none</code> to clear it. The selected persona adds a short system prompt that frames the assistant&rsquo;s job.</p>
+    <p>Pick one from the <strong>Persona</strong> row of the chat&rsquo;s <a href="parameters.html">Parameters panel</a> (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>), or type <code>/persona &lt;name&gt;</code> - for example <code>/persona translator</code>, or <code>/persona none</code> to clear it. A bare <code>/persona</code> tells you which one is on, and the command palette completes the persona ids (<code>code-reviewer</code>, <code>eli5</code> and so on). The selected persona adds a short system prompt that frames the assistant&rsquo;s job.</p>
     <ul class="feature-list">
       <li><strong class="feat-name">None</strong> - no persona. Uses only your custom instructions.</li>
       <li><strong class="feat-name">Code Reviewer</strong> - bug hunts, security checks, blunt PR feedback.</li>
@@ -275,7 +277,7 @@
       <li><strong class="feat-name">Explain Like I&rsquo;m 5</strong> - plain language, concrete analogies, one idea per paragraph.</li>
       <li><strong class="feat-name">Translator</strong> - accurate translation that preserves tone and idiom.</li>
     </ul>
-    <p>The active persona shows as an accent-tinted chip above the composer, sharing the row with the tone chip and any attachment chips. Hover it for a description; click its &times; to clear it. A persona belongs to one chat - switching chats doesn&rsquo;t carry it over. It isn&rsquo;t saved with the chat, either: the persona text is added at send time, so after you restart Loach you pick it again.</p>
+    <p>The active persona shows as an accent-tinted chip above the composer, sharing the row with the tone chip, any <a href="library.html#using-sources">Library source</a> chips and any attachment chips. Hover it for a description; click its &times; to clear it. A persona belongs to one chat - switching chats doesn&rsquo;t carry it over. It isn&rsquo;t saved with the chat, either: the persona text is added at send time, so after you restart Loach you pick it again.</p>
 
     <h2 id="tones">Tones (style)</h2>
     <p>A tone is appended <em>after</em> the persona and your instructions, biasing the delivery without changing the role.</p>
@@ -290,14 +292,14 @@
       <li><strong class="feat-name">Skeptical</strong> - stress-tests claims, surfaces counterarguments and edge cases.</li>
       <li><strong class="feat-name">Socratic</strong> - guides with questions instead of handing over answers; switches to direct answers when explicitly asked.</li>
     </ul>
-    <p>Set a tone per chat from the <strong>Tone</strong> row of the Parameters panel, or pick a <strong>Default tone</strong> in <strong>Settings &rarr; General</strong> to apply to every chat that hasn&rsquo;t chosen its own. The General tab has an expandable <em>&ldquo;What each tone does&rdquo;</em> drawer that shows the one-line summary for every tone, so the default-tone picker doubles as a reference.</p>
+    <p>Set a tone per chat from the <strong>Tone</strong> row of the Parameters panel or with <code>/tone &lt;name&gt;</code> - for example <code>/tone direct</code>, or <code>/tone default</code> to switch this chat to <strong>Default</strong>. A bare <code>/tone</code> tells you which tone is in effect and whether it comes from your default, and the palette completes the tone names. Or pick a <strong>Default tone</strong> in <strong>Settings &rarr; General</strong> to apply to every chat that hasn&rsquo;t chosen its own. The General tab has an expandable <em>&ldquo;What each tone does&rdquo;</em> drawer that shows the one-line summary for every tone, so the default-tone picker doubles as a reference.</p>
     <p>The tone in effect shows as a chip above the composer too - including your default tone, so it never applies invisibly; hover the chip to see whether it comes from your default or was set for this chat. Clearing it with the chip&rsquo;s &times; switches <em>this</em> chat to <strong>Default</strong> rather than unsetting it, so your default tone doesn&rsquo;t come straight back. Like personas, a per-chat tone lasts until you restart Loach; after that the chat follows your default tone again.</p>
 
     <h2 id="how-they-stack">How they stack</h2>
     <p>At send time the system prompt is assembled in this order:</p>
     <ol>
       <li><strong>Persona</strong> - the role, first.</li>
-      <li><strong>Your instructions</strong> - whichever applies: the Space&rsquo;s instructions, else the chat&rsquo;s own, else your global ones (see <a href="custom-instructions.html#precedence">precedence</a>), with the <a href="temporal-awareness.html">date preamble</a>, <a href="memory.html">memory</a> and any Space sources around them.</li>
+      <li><strong>Your instructions</strong> - whichever applies: the Space&rsquo;s instructions, else the chat&rsquo;s own, else your global ones (see <a href="custom-instructions.html#precedence">precedence</a>), with the <a href="temporal-awareness.html">date preamble</a>, any full-text <a href="library.html#source-modes">sources</a> and <a href="memory.html">memory</a> around them.</li>
       <li><strong>Tone</strong> - the style modifier, last.</li>
     </ol>
     <p><a href="private-chat.html">Private Chat</a> has its own persona and tone pickers in its panel and layers them the same way: persona, then its own instructions, then tone.</p>

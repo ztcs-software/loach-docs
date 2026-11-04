@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -271,7 +273,7 @@
     <ol>
   <li>Turn on <strong>Low VRAM</strong> in the parameters panel (or globally with <strong>Settings &rarr; Features &rarr; Low VRAM mode</strong>). This forces smaller batches and a leaner KV cache.</li>
   <li>Lower <strong>Context Length</strong> in the same panel - a smaller context window uses dramatically less VRAM.</li>
-  <li>Set <strong>GPU Layers</strong> (Advanced view; blank means auto, <code>0</code> means CPU only) below the model&rsquo;s layer count to push more of it onto CPU/RAM at the cost of speed.</li>
+  <li>Set <strong>GPU Layers</strong> (Advanced view; blank uses the model&rsquo;s default - or Ollama&rsquo;s auto-detect when it has none - and <code>0</code> means CPU only) below the model&rsquo;s layer count to push more of it onto CPU/RAM at the cost of speed.</li>
   <li>Pick a smaller quantization (for example <code>q4_K_M</code> instead of <code>q8_0</code>) or a smaller parameter size.</li>
 </ol>
 
@@ -282,7 +284,7 @@
   <li><strong>Windows</strong> reads dedicated video memory directly, for any vendor.</li>
   <li><strong>Linux</strong> reads <code>nvidia-smi</code>, then the amdgpu sysfs node. <strong>Intel Arc isn&rsquo;t covered</strong> and falls back to system RAM, which is usually more than the card holds - so the pick can overflow it. If Ollama runs on your Arc, choose a variant that fits its VRAM by hand.</li>
   <li><strong>macOS</strong> deliberately uses system RAM: Apple Silicon shares it with the GPU, so a separate figure would double-count.</li>
-  <li>Adapters under 1 GB - and, on Windows, any adapter that reports unified memory - are treated as integrated graphics and ignored, since they carve out system RAM the RAM path already counts. With several GPUs, the one with the most VRAM is used.</li>
+  <li>Adapters under 1 GB - and any adapter that reports unified memory on Windows, or that amdgpu reports as an APU (an AMD processor&rsquo;s built-in graphics) on Linux - are treated as integrated graphics and ignored, since they carve out system RAM the RAM path already counts. With several GPUs, the one with the most VRAM is used.</li>
 </ul>
 <p>Any probe that fails falls back to RAM. Nothing here restricts you - every catalog entry stays pullable, and the custom-tag field takes any tag at all. The badges are advice, except <strong>Not enough disk space</strong>, which does disable that row&rsquo;s Pull button. If a model marked <strong>Runs slowly</strong> feels fine in practice, that&rsquo;s the expected direction of error for a rough estimate - Ollama publishes no runtime memory figures to size against.</p>
 
@@ -291,6 +293,7 @@
     <ul>
   <li>In <strong>Settings &rarr; Appearance</strong>, switch the theme from <strong>Aurora</strong> to <strong>Solid</strong>. Aurora&rsquo;s heavily blurred gradient and translucent panels are heavy on weak GPUs.</li>
   <li>Long chats mount only their latest 50 messages; <strong>Show earlier messages</strong>, <strong>Search in chat</strong> or jumping to an old pinned response mounts more. Switch to another chat and back to collapse them again.</li>
+  <li>A code block over 50,000 characters in a reply is shown without syntax highlighting, which would otherwise hold the UI for seconds.</li>
 </ul>
 
     <h2 id="slow-first-reply">The first reply takes forever, even on a fast model</h2>
