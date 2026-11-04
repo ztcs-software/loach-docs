@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -271,18 +273,19 @@
     <p>The verbatim export leaves out imported messages you hid from the transcript (see below), so you don&rsquo;t unknowingly share context you tucked away. The compact summary is written from everything the model sees, hidden imports included.</p>
 
     <h2 id="import">Import context</h2>
-    <p>From the same menu, pick <strong>Import context</strong> and paste exported Markdown, JSON or just plain text. Loach detects the format as you paste and shows how many messages it will add before you click <strong>Import</strong>:</p>
+    <p>From the same menu, pick <strong>Import context</strong> (or type <code>/import</code>) and paste exported Markdown, JSON or just plain text. Loach detects the format as you paste and shows how many messages it will add before you click <strong>Import</strong>:</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Markdown</strong> - <code>## You</code>, <code>## Assistant</code> and <code>## System</code> sections, the shape Export context produces. Anything above the first section, such as the title and instructions, is skipped.</li>
       <li><strong class="feat-name">JSON</strong> - <code>{ "messages": [{ "role": "user", "content": "&hellip;" }, &hellip;] }</code>, a bare array of messages, or a single message object. Common role names (<code>user</code>, <code>assistant</code>, <code>you</code>, <code>ai</code>, <code>bot</code>, <code>model</code>) and text content blocks are understood.</li>
       <li><strong class="feat-name">Plain text</strong> - anything else becomes one user message. A compacted export has no message sections, so it arrives this way too.</li>
     </ul>
-    <p>The messages are appended to the end of the current chat as new turns; the previous conversation is preserved. Imported <code>system</code> turns are kept too, brought in as user turns so the model still sees them. Import context is unavailable while a reply is still streaming.</p>
+    <p>The messages are appended to the end of the current chat as new turns; the previous conversation is preserved. Imported <code>system</code> turns are kept too, brought in as user turns so the model still sees them. Import context is unavailable while a reply is still streaming, and <strong>Regenerate</strong> isn&rsquo;t offered on an imported reply.</p>
     <p>This is the right tool for stitching together two related threads, picking up where another tool left off, or re-using a long transcript as the seed for a new line of questioning.</p>
     <p>A <strong>Hide from transcript</strong> toggle folds the imported messages into a single collapsed <strong>Imported context</strong> card instead of listing them inline - either way the model still receives them in full, so the toggle only changes what <em>you</em> see. Expand the card to read them, or remove the whole batch from the chat with the card&rsquo;s remove button. Hidden turns stay out of <a href="search.html">search</a> and the in-chat finder.</p>
 
     <h2 id="fork">Fork a chat</h2>
-    <p><strong>Fork this chat</strong> clones a conversation into a brand-new chat - same title, model, Space, sidebar folder, <a href="work-in-folders.html">working folder</a>, instructions and parameters - so you can branch a tangent without disturbing the original. Fork it from the chat header&rsquo;s <code>&hellip;</code> menu, with <strong>Fork from here</strong> in an assistant reply&rsquo;s <code>&hellip;</code> menu (which copies the conversation up to and including that reply), or with the <code>/fork</code> <a href="slash-commands.html">slash command</a>. The new chat carries a <strong>&ldquo;Forked from &hellip;&rdquo;</strong> badge in its header that jumps back to the source; the badge disappears if you delete the original.</p>
+    <p><strong>Fork this chat</strong> clones a conversation into a brand-new chat - same title, model, Space, sidebar folder, <a href="work-in-folders.html">working folder</a>, instructions and parameters, plus its <a href="library.html">Library sources</a>, how those sources reach the model and its <a href="attachments.html#image-scaling">image scaling</a> - so you can branch a tangent without disturbing the original. Fork it from the chat header&rsquo;s <code>&hellip;</code> menu, with <strong>Fork from here</strong> in an assistant reply&rsquo;s <code>&hellip;</code> menu (which copies the conversation up to and including that reply), or with the <code>/fork</code> <a href="slash-commands.html">slash command</a>. While a reply is still streaming, the header item is greyed out (<em>Wait for the reply to finish</em>) and <code>/fork</code> says so; <strong>Fork from here</strong> is greyed out only on the reply that&rsquo;s still streaming, so you can still fork from an earlier one. The new chat carries a <strong>&ldquo;Forked from &hellip;&rdquo;</strong> badge in its header that jumps back to the source; the badge disappears if you delete the original.</p>
+    <p>If the source chat was <a href="context-compaction.html">compacted</a> and you fork from a point before the end of the compacted part, the summary would cover turns the fork doesn&rsquo;t have - so the fork drops it and sends the turns it does copy in full again.</p>
     <div class="page-nav">
       <a href="search.html">
         <span class="label">Previous</span>

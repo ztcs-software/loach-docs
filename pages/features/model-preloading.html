@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -278,12 +280,12 @@
       <li>If you pinned to a provider, the model of your most recently active chat on that provider.</li>
       <li>Otherwise, your most recent (provider, model) pair.</li>
     </ul>
-    <p>Only an Ollama result is warmed - if the default lands on an OpenAI-compatible model, preload does nothing. A Space&rsquo;s own pinned model doesn&rsquo;t change what gets warmed.</p>
+    <p>Only an Ollama result is warmed - if the default lands on an OpenAI-compatible model, preload does nothing. A Space&rsquo;s own default model doesn&rsquo;t change what gets warmed.</p>
 
     <h2 id="when-it-runs">When it runs</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">At launch</strong> - warming starts while the window is still loading, and is repeated once your settings and chats have loaded. With <a href="provider-selection.html#start-ollama">Auto-launch Ollama</a> on, Loach waits for the server it started before warming.</li>
-      <li><strong class="feat-name">After unlocking</strong> - with an <a href="app-lock.html">app lock</a> set, nothing is warmed until you unlock.</li>
+      <li><strong class="feat-name">After unlocking</strong> - with an <a href="app-lock.html">app lock</a> set, nothing is warmed until you unlock. It happens once per launch: unlocking again later in the session doesn&rsquo;t warm the model a second time.</li>
       <li><strong class="feat-name">Sized like your first chat</strong> - the model is loaded with the context length, GPU layers and <a href="low-vram.html">Low VRAM</a> setting a new chat with it would use, so your first message doesn&rsquo;t trigger a reload.</li>
       <li><strong class="feat-name">Silent</strong> - if Ollama isn&rsquo;t running or the model isn&rsquo;t installed, the preload simply doesn&rsquo;t happen; no error is shown.</li>
     </ul>

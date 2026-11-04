@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Search - Loach Docs</title>
-  <meta name="description" content="Two searches: a global Ctrl+K palette across chats, message content, Spaces and Snippets with a scope picker and in: filters, and a browser-style find within the current chat transcript." />
+  <meta name="description" content="Two searches: a global Ctrl+K palette across chats, message content, Spaces, Snippets and the Library with a scope picker and in: filters, and a browser-style find within the current chat transcript." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/search.html" />
   <meta property="og:title" content="Search - Loach Docs" />
-  <meta property="og:description" content="Two searches: a global Ctrl+K palette across chats, message content, Spaces and Snippets with a scope picker and in: filters, and a browser-style find within the current chat transcript." />
+  <meta property="og:description" content="Two searches: a global Ctrl+K palette across chats, message content, Spaces, Snippets and the Library with a scope picker and in: filters, and a browser-style find within the current chat transcript." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Search - Loach Docs" />
-  <meta name="twitter:description" content="Two searches: a global Ctrl+K palette across chats, message content, Spaces and Snippets with a scope picker and in: filters, and a browser-style find within the current chat transcript." />
+  <meta name="twitter:description" content="Two searches: a global Ctrl+K palette across chats, message content, Spaces, Snippets and the Library with a scope picker and in: filters, and a browser-style find within the current chat transcript." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Search",
-      "description": "Two searches: a global Ctrl+K palette across chats, message content, Spaces and Snippets with a scope picker and in: filters, and a browser-style find within the current chat transcript.",
+      "description": "Two searches: a global Ctrl+K palette across chats, message content, Spaces, Snippets and the Library with a scope picker and in: filters, and a browser-style find within the current chat transcript.",
       "url": "https://docs.loach.dev/pages/features/search.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -272,9 +274,10 @@
       <li><strong class="feat-name">Messages</strong> - the content of your transcripts (see below).</li>
       <li><strong class="feat-name">Spaces</strong> - by name and description.</li>
       <li><strong class="feat-name">Snippets</strong> - by title and body.</li>
+      <li><strong class="feat-name">Library</strong> - datasets by name and description; texts, files and links by title, the opening of their text (about 280 characters) and a link&rsquo;s address. The rest of an item&rsquo;s text isn&rsquo;t searched. See <a href="library.html">Library</a>.</li>
     </ul>
-    <p>An empty query shows suggestions: the chats you opened most recently first, then a few Spaces and Snippets. Typing filters as you go, case-insensitively, and the list shows up to 20 results. Use the arrow keys to move and <kbd>Enter</kbd> to commit. Picking a chat opens it; picking a message opens its chat and jumps to that turn; picking a Space opens its detail view; picking a Snippet starts a fresh chat with the Snippet&rsquo;s prompt primed in the composer, after asking for any variables it needs.</p>
-    <p><kbd>Esc</kbd> clears a non-empty query first, then closes the palette; clicking outside it closes it too. Archived chats aren&rsquo;t listed. The palette is unavailable while the lock screen, the onboarding wizard or <a href="private-chat.html">Private Chat</a> owns the window.</p>
+    <p>An empty query shows suggestions: the chats you opened most recently first, then a few Spaces, Snippets and recent Library datasets and items. Typing filters as you go, case-insensitively, and the list shows up to 20 results. When many kinds match, those places are shared out between them, so a query matching dozens of chat titles can&rsquo;t push Spaces, Snippets or Library hits off the list. Use the arrow keys to move and <kbd>Enter</kbd> to commit; the highlight stays on the row you&rsquo;ve moved to when message hits arrive a moment later. Picking a chat opens it; picking a message opens its chat and jumps to that turn; picking a Space opens its detail view; picking a Library item opens its preview where you are, and a dataset its page in the Library. Picking a Snippet first asks for any variables it needs, then starts a fresh chat with the Snippet&rsquo;s prompt primed in the composer - cancel the variables and no chat is created.</p>
+    <p><kbd>Esc</kbd> clears a non-empty query first, then closes the palette; clicking outside it closes it too. Archived chats aren&rsquo;t listed. The palette is unavailable while the lock screen, the onboarding wizard or <a href="private-chat.html">Private Chat</a> owns the window, and while another dialog, such as Settings or a confirmation, is open.</p>
 
     <h2 id="messages">Message search</h2>
     <p>Message search looks inside transcripts, not just titles. Hits carry a <strong>MESSAGE</strong> badge, the chat&rsquo;s title and a one-line excerpt that opens just before the match, newest first. They sort below title matches - a chat whose <em>title</em> matches is the stronger signal - but transcript hits keep a reserved block at the bottom of the list so a common word cannot squeeze them out. It starts at two characters, is debounced while you type, and returns up to 8 hits (20 when the search is scoped to messages).</p>
@@ -289,10 +292,10 @@
     <p>Case-insensitivity in message search is ASCII-only: a query with accented or non-Latin characters matches transcript text at its own case but not across cases. Title matching ignores case fully.</p>
 
     <h2 id="scoping">Scoping with <code>in:</code></h2>
-    <p>A dropdown beside the input narrows the search to one kind: <em>everywhere</em> (the default), <em>chats</em>, <em>messages</em>, <em>spaces</em> or <em>snippets</em>. It works by writing an <code>in:&lt;scope&gt;</code> token into the query itself - the token <em>is</em> the scope, so you can type <code>in:messages borrow</code> by hand, or <code>notes in:spaces</code> with the token last, and the dropdown label follows either way. The token is boxed in the input so you can see it is a filter. Clearing it from the text returns to <em>everywhere</em>. A narrowed scope with an empty query shows more suggestions of that one kind.</p>
+    <p>A dropdown beside the input narrows the search to one kind: <em>everywhere</em> (the default), <em>chats</em>, <em>messages</em>, <em>spaces</em>, <em>snippets</em> or <em>library</em>. It works by writing an <code>in:&lt;scope&gt;</code> token into the query itself - the token <em>is</em> the scope, so you can type <code>in:messages borrow</code> by hand, or <code>notes in:spaces</code> with the token last, and the dropdown label follows either way. The token is boxed in the input so you can see it is a filter. Clearing it from the text returns to <em>everywhere</em>. A narrowed scope with an empty query shows more suggestions of that one kind.</p>
 
     <h2 id="in-chat">Find within a chat</h2>
-    <p>Press <kbd>Ctrl</kbd> + <kbd>F</kbd> in a chat, or pick <strong>Search in chat</strong> from the chat header&rsquo;s <code>&hellip;</code> menu, to open the <strong>Find in this chat&hellip;</strong> bar at the top right. It works like browser find: type to search (case-insensitive), every occurrence is highlighted inline, and the current match is scrolled into view with a stronger highlight.</p>
+    <p>Press <kbd>Ctrl</kbd> + <kbd>F</kbd> in a chat, pick <strong>Search in chat</strong> from the chat header&rsquo;s <code>&hellip;</code> menu, or type <code>/find</code> (<code>/find &lt;text&gt;</code> fills in the search) to open the <strong>Find in this chat&hellip;</strong> bar at the top right. It works like browser find: type to search (case-insensitive), every occurrence is highlighted inline, and the current match is scrolled into view with a stronger highlight.</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Stepping</strong> - <kbd>Enter</kbd> or <kbd>&darr;</kbd> for the next match, <kbd>Shift</kbd> + <kbd>Enter</kbd> or <kbd>&uarr;</kbd> for the previous one, wrapping round at either end; the arrow buttons do the same. <kbd>Esc</kbd> closes the bar.</li>
       <li><strong class="feat-name">Counter</strong> - shows which matching message you are on, e.g. <code>2/5</code>. It counts messages, not individual occurrences.</li>

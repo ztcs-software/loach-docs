@@ -4,7 +4,7 @@
   // ---------- Version ----------
   // Bump this when shipping a meaningful docs update. The footer pulls from it
   // on every page, so one edit here updates every HTML file.
-  const LOACH_DOCS_VERSION = 'v1.5.0';
+  const LOACH_DOCS_VERSION = 'v1.6.0';
 
   // ---------- Theme ----------
   // The initial data-theme attribute is set by the inline bootstrap in each page's <head>,

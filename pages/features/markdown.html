@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -273,14 +275,14 @@
       <li><strong class="feat-name">Strikethrough and autolinks</strong> - <code>~~text~~</code> is struck through, and bare URLs become links.</li>
       <li><strong class="feat-name">Footnotes</strong> - reference markers in the text, with the definitions collected at the end of the reply.</li>
       <li><strong class="feat-name">Math</strong> - LaTeX formulas typeset with KaTeX: <code>$$&hellip;$$</code>, <code>\(&hellip;\)</code>, <code>\[&hellip;\]</code>, currency-safe <code>$&hellip;$</code> and <code>```math</code> fences. See <a href="math.html">LaTeX math</a>.</li>
-      <li><strong class="feat-name">Fenced code</strong> - language-aware syntax highlighting and line numbers, plus a toolbar for <a href="code-canvas.html">open in canvas</a>, export and copy. A block that is still streaming shows as plain text and picks up its highlighting when the reply finishes.</li>
+      <li><strong class="feat-name">Fenced code</strong> - language-aware syntax highlighting and line numbers, plus a toolbar for <a href="code-canvas.html">open in canvas</a> (and <a href="code-canvas.html#html-preview">preview</a>, on HTML), export and copy. A block that is still being written shows as plain text and picks up its highlighting once it&rsquo;s complete. A block over 50,000 characters stays plain text, so it can&rsquo;t hold up the window.</li>
       <li><strong class="feat-name">Links</strong> - open in your default browser or mail app. Only <code>http</code>, <code>https</code> and <code>mailto</code> links do anything; other schemes are ignored.</li>
     </ul>
     <p>Two things are deliberately not rendered: HTML tags in a reply show as plain text, and images the model links from the web (<code>![&hellip;](https://&hellip;)</code>) don&rsquo;t load, because the app window never fetches remote content.</p>
 
     <h2 id="copy-and-select">Copying and selecting</h2>
     <p>Right-click any message bubble for a quick menu: <strong>Copy</strong> - the text you have selected inside that bubble, or the whole message when nothing is selected - and <strong>Select all</strong>, which highlights just the body text and leaves the metrics line and toggles out of the selection.</p>
-    <p>Each bubble also has a <code>&hellip;</code> menu below it for the deliberate, full-message actions: <strong>Copy message</strong> and <a href="share-message.html"><strong>Share</strong></a> on every bubble, <strong>Save as Snippet</strong> on your own prompts, and on assistant replies <a href="pinned-responses.html"><strong>Pin this response</strong></a>, <a href="import-export.html#fork"><strong>Fork from here</strong></a> and, on the last reply, <strong>Regenerate</strong>. On a reply, <strong>Copy message</strong> copies the raw Markdown, so fences and tables survive a paste into an editor. The <code>/copy</code> <a href="slash-commands.html">slash command</a> does the same for the last reply, or the Nth-latest with <code>/copy N</code>.</p>
+    <p>Each bubble also has a <code>&hellip;</code> menu below it for the deliberate, full-message actions: <strong>Copy message</strong> and <a href="share-message.html"><strong>Share</strong></a> on every bubble; <strong>Save as Snippet</strong> on your own prompts, plus <strong>Save attachment to Library</strong> (or <strong>attachments</strong>) on one with attached files or images; and on assistant replies <a href="library.html#save-to-library"><strong>Save to Library</strong></a>, <a href="pinned-responses.html"><strong>Pin this response</strong></a>, <strong>Regenerate</strong> (on the last reply only) and <a href="import-export.html#fork"><strong>Fork from here</strong></a> (unavailable while that reply is still streaming). On a reply, <strong>Copy message</strong> copies the raw Markdown, so fences and tables survive a paste into an editor. The <code>/copy</code> <a href="slash-commands.html">slash command</a> does the same for the last reply, or the Nth-latest with <code>/copy N</code>.</p>
 
     <h2 id="long-prompts">Your own messages</h2>
     <p>Your own messages are not rendered as Markdown: they show exactly as you typed them, line breaks included. Bubbles that paste in dozens of lines clamp to the first ten lines with a <strong>Show more</strong> toggle (and <strong>Show less</strong> to fold them again), so the assistant&rsquo;s reply does not get pushed off-screen by your own input.</p>
@@ -290,10 +292,10 @@
     <p>Only the most recent assistant message can be regenerated, and only while the chat isn&rsquo;t busy. Earlier turns stay intact so the rest of the conversation history is preserved. A reply that came in through an <a href="import-export.html#import">imported conversation</a> can&rsquo;t be regenerated.</p>
 
     <h2 id="thinking-traces">Thinking traces</h2>
-    <p>For reasoning-capable models, the chain-of-thought stream is rendered into a separate block above the answer, collapsed under a <strong>Thinking</strong> header (<strong>Thinking&hellip;</strong> while it streams). Expand it to audit how the model got there, and fold it away again when you only care about the final answer.</p>
+    <p>For reasoning-capable models, the chain-of-thought stream is rendered into a separate block above the answer, collapsed under a <strong>Thinking</strong> header (<strong>Thinking&hellip;</strong> while it streams). Expand it to audit how the model got there, and fold it away again when you only care about the final answer. Below it, a reply that drew on <a href="library.html">Library</a> sources carries a chip saying what it read (see <a href="library.html#sources-chip">the sources chip</a>).</p>
 
     <h2 id="tool-calls">Tool-call blocks</h2>
-    <p>When the model calls tools - whether a <a href="built-in-tools.html">built-in tool</a> or one served by an <a href="mcp.html">MCP server</a> - the calls collapse into a single header above the answer, styled like the thinking block: <strong>&ldquo;Called <em>tool</em> tool&rdquo;</strong> for one call, <strong>&ldquo;Called N tools&rdquo;</strong> for more, and <strong>&ldquo;Calling tools&hellip;&rdquo;</strong> while they run. Expand it to read each call&rsquo;s name, arguments and result - or its error, or a <strong>Denied</strong>, <strong>No answer</strong> or <strong>Interrupted</strong> tag for a call that didn&rsquo;t complete. A call that needs your approval shows an approval card above the block, and the reply waits until you answer (see <a href="mcp.html#approvals">Approving tool calls</a>).</p>
+    <p>When the model calls tools - whether a <a href="built-in-tools.html">built-in tool</a> or one served by an <a href="mcp.html">MCP server</a> - the calls collapse into a single header above the answer, styled like the thinking block: <strong>&ldquo;Called <em>tool</em> tool&rdquo;</strong> for one call, <strong>&ldquo;Called N tools&rdquo;</strong> for more, <strong>&ldquo;Calling <em>tool</em> tool&hellip;&rdquo;</strong> or <strong>&ldquo;Calling tools&hellip;&rdquo;</strong> while they run, and <strong>&ldquo;Waiting for your approval&hellip;&rdquo;</strong> while a call needs your answer. Expand it to read each call&rsquo;s name, arguments and result - or its error, or a <strong>Denied</strong>, <strong>No answer</strong> or <strong>Interrupted</strong> tag for a call that didn&rsquo;t complete. A call that needs your approval shows an approval card above the block, and the reply waits until you answer (see <a href="mcp.html#approvals">Approving tool calls</a>).</p>
     <div class="page-nav">
       <a href="generation-stats.html">
         <span class="label">Previous</span>

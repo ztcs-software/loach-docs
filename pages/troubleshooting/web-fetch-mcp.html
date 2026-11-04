@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tools, MCP & folders - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors." />
+  <meta name="description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, proxies and redirects, tool-call approvals, the 10-turn tool limit, tools in Private Chat and working folder errors." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/web-fetch-mcp.html" />
   <meta property="og:title" content="Tools, MCP &amp; folders - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors." />
+  <meta property="og:description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, proxies and redirects, tool-call approvals, the 10-turn tool limit, tools in Private Chat and working folder errors." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Tools, MCP &amp; folders - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors." />
+  <meta name="twitter:description" content="Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, proxies and redirects, tool-call approvals, the 10-turn tool limit, tools in Private Chat and working folder errors." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Tools, MCP & folders - Troubleshooting",
-      "description": "Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, tool-call approvals, the 10-turn tool limit and working folder errors.",
+      "description": "Troubleshoot Loach web fetch, MCP servers over HTTP and stdio, proxies and redirects, tool-call approvals, the 10-turn tool limit, tools in Private Chat and working folder errors.",
       "url": "https://docs.loach.dev/pages/troubleshooting/web-fetch-mcp.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -277,7 +279,7 @@
 
     <h2 id="url-blocked">&ldquo;Refusing to fetch &hellip;&rdquo; for <code>localhost</code>, <code>192.168.x</code>, or my office VPN</h2>
     <p class="problem-statement">Loach refuses to fetch an internal URL.</p>
-    <p>This is intentional. The SSRF guard rejects <code>localhost</code> and any URL whose resolved IP lands on loopback, link-local, private RFC1918 ranges, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses) or IPv6 unique-local addresses (<code>fc00::/7</code>), even if the hostname looks public but resolves there via DNS. To share internal content with a model, copy the page text and paste it into the chat instead. (This guard is specific to web fetch - <a href="../features/mcp.html">MCP servers</a> on <code>localhost</code> or your LAN are allowed.)</p>
+    <p>This is intentional. The SSRF guard rejects <code>localhost</code> and any URL whose resolved IP lands on loopback, link-local, private RFC1918 ranges, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses) or IPv6 unique-local addresses (<code>fc00::/7</code>), even if the hostname looks public but resolves there via DNS. To share internal content with a model, copy the page text and paste it into the chat instead. (This guard covers web fetch and <a href="library.html#link-wont-add">Library links</a> - <a href="../features/mcp.html">MCP servers</a> on <code>localhost</code> or your LAN are allowed.)</p>
 
     <h2 id="fetch-failed">A URL fetch failed or came back cut short</h2>
     <p class="problem-statement">The model is told a URL was attempted but no content came back - the reply&rsquo;s tool-call block shows a red warning - or only part of the page arrived.</p>
@@ -290,16 +292,18 @@
       <li>The rate limit of <strong>60 URLs per 60 seconds</strong>, shared across all chats.</li>
     </ul>
     <p>A body over the <strong>5 MB</strong> cap isn&rsquo;t a failure: the page is cut off at the cap and the entry says &ldquo;truncated by Loach&rdquo; - as it does for a page whose extracted text runs past ~12,000 characters. If your message also carries large attachments, a fetched page may not fit the 500,000-character message budget and is listed by URL only. And because no JavaScript runs, a page that builds its content in the browser can come back nearly empty.</p>
-    <p>Type <code>/fetch &lt;url&gt;</code> to see what Loach extracts from a page without sending anything to the model. If the URL works in a browser but not in Loach, the page is likely slow, large, built by JavaScript, or blocks non-browser user agents.</p>
+    <p>Type <code>/fetch &lt;url&gt;</code> to see what Loach extracts from a page without sending anything to the model. If the URL works in a browser but not in Loach, the page is likely slow, large, built by JavaScript, or blocks non-browser user agents - or your network only lets traffic out through a proxy. Web fetch, Library links and HTTP MCP servers connect directly and never use a proxy (the <code>HTTP(S)_PROXY</code> variables or the system setting): a proxy looks the host up again itself, which would get around the private-address check.</p>
 
     <h2 id="mcp-test-fail">MCP &ldquo;Test connection&rdquo; fails (HTTP)</h2>
     <p class="problem-statement">An HTTP MCP server is configured but the test button reports an error.</p>
     <ol>
       <li>Confirm the URL is the <strong>Streamable HTTP</strong> endpoint. Loach does not support the legacy two-endpoint SSE transport. If the server is distributed as a command to run (<code>npx &hellip;</code>, <code>uvx &hellip;</code>), add it as a <strong>Local process (stdio)</strong> server instead.</li>
-      <li>If the server requires auth, open it in <strong>Settings &rarr; MCP</strong> and add an <code>Authorization: Bearer &hellip;</code> line under <strong>Headers</strong>.</li>
-      <li>&ldquo;DNS lookup failed&rdquo; means the host can&rsquo;t be resolved from this machine - check the address, or connect to the VPN it lives behind. <code>localhost</code> and private LAN addresses are fine for MCP (unlike web fetch); only link-local addresses are refused.</li>
+      <li>If the server requires auth, open it in <strong>Settings &rarr; MCP</strong> and add an <code>Authorization: Bearer &hellip;</code> line under <strong>Headers</strong>. The field hides what&rsquo;s in it once filled; its eye button shows the values.</li>
+      <li>&ldquo;DNS lookup failed&rdquo; means the host can&rsquo;t be resolved from this machine - check the address, or connect to the VPN it lives behind. <code>localhost</code> and private LAN addresses are fine for MCP (unlike web fetch); only link-local addresses are refused. A server saved switched off isn&rsquo;t looked up, so you can rename or disable one while its host is out of reach; switching it on checks the host again.</li>
       <li>Check that the response body fits under <strong>4 MiB</strong> - misconfigured servers that dump full schemas can exceed this.</li>
       <li>Per-request timeout is <strong>30 s</strong>.</li>
+      <li>Loach doesn&rsquo;t follow redirects. When the error says the server redirects to the same URL with (or without) a trailing <code>/</code>, change the server URL to match; for any other target, use the address the server points to.</li>
+      <li>Loach connects directly, never through a proxy - a server you can reach only through one won&rsquo;t answer.</li>
     </ol>
 
     <h2 id="stdio-wont-start">A local (stdio) MCP server won&rsquo;t start</h2>
@@ -312,17 +316,18 @@
       <li>Put one argument per line. Don&rsquo;t quote arguments the way you would in a shell - Loach passes each line as one argument, spaces included (only leading and trailing whitespace is trimmed).</li>
       <li>If you clicked <strong>Cancel</strong> on the &ldquo;Run MCP server &hellip;?&rdquo; system dialog - or pressed <kbd>Enter</kbd>, which picks Cancel - nothing was saved or started. Save again and click <strong>Start server</strong>.</li>
       <li>&ldquo;This command line is too long to show for review&rdquo; means the program, arguments and shown environment exceed the dialog&rsquo;s 1,500 characters. Point the server at a config file instead of passing everything as arguments.</li>
-      <li>A tool call that times out doesn&rsquo;t stop the server; it may still be working. If every call times out, disable and re-enable the server to restart it.</li>
+      <li>A tool call that times out doesn&rsquo;t stop the server; it may still be working. A tool that reports its progress gets up to 10 minutes. When two requests in a row go unanswered, Loach treats the server as hung and starts it afresh on the next call; to restart it sooner, disable and re-enable it.</li>
     </ol>
 
     <h2 id="mcp-import-disabled">A server imported from a backup is disabled and won&rsquo;t turn on</h2>
     <p class="problem-statement">After <strong>Settings &rarr; Data &rarr; Import data</strong>, a stdio MCP server shows up switched off, and flipping the switch opens a system dialog.</p>
     <p>That is deliberate: a backup can&rsquo;t prove <em>you</em> configured that command on this machine, so imported stdio servers arrive disabled and the first enable asks you to confirm the command line. Review it and choose <strong>Start server</strong> to enable the row; <strong>Cancel</strong> leaves it off. HTTP servers keep the on/off state they had in the backup - unless their host couldn&rsquo;t be looked up during the import (offline, off the VPN), in which case they arrive switched off too; turn them on once the host is reachable again.</p>
-    <p>Backups never contain MCP headers or environment variables, and a password in a connection URL or the value after a <code>--token</code>-style argument comes back as <code>REDACTED</code> - so after an import, re-enter any <code>Authorization</code> header, API-key variable or redacted argument a server needs.</p>
+    <p>Backups never contain MCP headers or environment variables, and a URL&rsquo;s credentials, the value after a <code>--token</code>-style argument and a credential passed as <code>NAME=value</code> come back as <code>REDACTED</code> - as does every query value in an HTTP server&rsquo;s URL. After an import, re-enter any <code>Authorization</code> header, API-key variable, URL or redacted argument a server needs.</p>
+    <p>A server whose name breaks the naming rules (from a backup made before they existed) is imported under a fixed-up name rather than failing the import.</p>
 
     <h2 id="approval-waiting">The reply is stuck on &ldquo;Waiting for your approval&hellip;&rdquo;</h2>
     <p class="problem-statement">The assistant bubble shows an approval card and nothing else happens.</p>
-    <p>The model asked to run an MCP tool, or to change a file in the chat&rsquo;s <a href="../features/work-in-folders.html">working folder</a>, and Loach is waiting for you - answer <strong>Allow once</strong>, <strong>Always allow</strong> (<strong>Allow &hellip; for this chat</strong> for a file change), or <strong>Deny</strong> on the card. A card left unanswered for 10 minutes isn&rsquo;t run - the call is marked <strong>No answer</strong> - and the Stop button cancels the reply.</p>
+    <p>The model asked to run an MCP tool, or to change a file in the chat&rsquo;s <a href="../features/work-in-folders.html">working folder</a>, and Loach is waiting for you - answer <strong>Allow once</strong>, <strong>Always allow</strong> (<strong>Allow &hellip; for this chat</strong> for a file change), or <strong>Deny</strong> on the card. A card left unanswered for 10 minutes isn&rsquo;t run - the call is marked <strong>No answer</strong> - and the Stop button cancels the reply. A file change inside a <code>.git</code>, <code>.husky</code> or <code>.githooks</code> folder, to a <code>.pre-commit-config.yaml</code>, or in a folder laid out as a bare Git repository asks every time, even after <strong>Allow &hellip; for this chat</strong>: a hook or setting there runs commands the next time you use Git.</p>
     <p>Until you answer, replies in other chats queue behind this one. If the card is in a chat you aren&rsquo;t looking at, Loach shows a notice with an <strong>Open</strong> button, and the queued chat offers <strong>Go to it</strong>. To stop being asked for a server you trust, open it in <strong>Settings &rarr; MCP</strong> and turn off <strong>Ask before each tool call</strong>; to bring back prompts for tools you answered &ldquo;Always allow&rdquo; for, use <strong>Ask again for all</strong> in the same editor and save.</p>
 
     <h2 id="tool-turn-limit">&ldquo;Stopped after 10 tool-use turns&rdquo;</h2>
@@ -331,12 +336,16 @@
 
     <h2 id="tools-unsupported">&ldquo;&hellip; does not support tools&rdquo; after turning a tool on</h2>
     <p class="problem-statement">Every message to a local model now fails with an Ollama error ending in &ldquo;does not support tools&rdquo;.</p>
-    <p>Loach sends the tools you switched on - <a href="../features/built-in-tools.html">built-in tools</a>, enabled <a href="../features/mcp.html">MCP servers</a>, a chat&rsquo;s <a href="../features/work-in-folders.html">working folder</a> - with every request, whatever the model. A model without tool calling can&rsquo;t take them, and Ollama refuses the request. Switch the chat to a model that supports tools (its page in the Ollama library lists them, and <code>ollama show &lt;model&gt;</code> prints <code>tools</code> under Capabilities), or turn the tools off in <strong>Settings &rarr; Tools</strong> and <strong>Settings &rarr; MCP</strong>. <a href="../features/web-fetch.html">Web fetch</a> doesn&rsquo;t count: it isn&rsquo;t a tool the model calls, so it works with any model.</p>
+    <p>Loach sends the tools you switched on - <a href="../features/built-in-tools.html">built-in tools</a>, enabled <a href="../features/mcp.html">MCP servers</a>, a chat&rsquo;s <a href="../features/work-in-folders.html">working folder</a> - with every request outside Private Chat, whatever the model. A model without tool calling can&rsquo;t take them, and Ollama refuses the request. Switch the chat to a model that supports tools (its page in the Ollama library lists them, and <code>ollama show &lt;model&gt;</code> prints <code>tools</code> under Capabilities), or turn the tools off in <strong>Settings &rarr; Tools</strong> and <strong>Settings &rarr; MCP</strong>. <a href="../features/web-fetch.html">Web fetch</a> doesn&rsquo;t count: it isn&rsquo;t a tool the model calls, so it works with any model.</p>
+
+    <h2 id="private-chat-tools">The model can&rsquo;t use tools in Private Chat</h2>
+    <p class="problem-statement">A model that calls tools in regular chats says it has none in Private Chat.</p>
+    <p>By design: <a href="../features/private-chat.html">Private Chat</a> offers no tools at all - no MCP servers, which could carry the conversation off your machine, and no <a href="../features/built-in-tools.html">built-in tools</a>, since the overlay has nowhere to show a call or a PDF one makes. Use a regular chat for tool work.</p>
 
     <h2 id="workspace-folder">Can&rsquo;t add a folder, or the model doesn&rsquo;t use it</h2>
     <p class="problem-statement"><strong>Add directory</strong> is greyed out or refuses the folder, or the model says it has no file tools.</p>
     <ul>
-      <li><em>Send a message first to start this chat</em> - a brand-new chat can&rsquo;t have a folder until its first message is sent.</li>
+      <li><em>Send a message first to start this chat</em> - you&rsquo;re on a Space&rsquo;s page, whose message box starts a new chat. Send the first message, then add the folder in the chat that opens.</li>
       <li><em>Wait for the reply to finish</em> - the folder can&rsquo;t be changed or removed while a reply is running in the chat.</li>
       <li>&ldquo;Pick a project folder rather than a whole drive&rdquo; or &ldquo;That&rsquo;s Loach&rsquo;s own data folder&rdquo; - those two are refused on purpose; pick the project&rsquo;s own folder.</li>
       <li>The &ldquo;Working in&rdquo; notice is amber and says <strong>tools off</strong> - <strong>Settings &rarr; Tools &rarr; Workspace files</strong> was switched off. Turn it back on; while it&rsquo;s off, the model gets neither the tools nor <code>LOACHFILE.md</code>.</li>
@@ -345,8 +354,8 @@
     </ul>
 
     <h2 id="windows-names">The model can&rsquo;t use a file or folder name on Windows</h2>
-    <p class="problem-statement">A file tool refuses a path with &ldquo;contains <code>:</code>&rdquo;, &ldquo;ends with a dot or a space&rdquo;, or &ldquo;is a device name Windows reserves&rdquo;.</p>
-    <p>Those names are refused on purpose: a <code>:</code> names a hidden data stream, and <code>CON</code>, <code>nul.txt</code> or a trailing dot would be created as files that Explorer and most tools can&rsquo;t open or delete. Ask the model to pick another name. (On every platform, a name with a control or text-direction character is refused too, because it can make the approval card show a different name than the one written.)</p>
+    <p class="problem-statement">A file tool refuses a path with &ldquo;contains <code>:</code>&rdquo;, &ldquo;ends with a dot or a space&rdquo;, &ldquo;is a device name Windows reserves&rdquo; or &ldquo;reaches &hellip; by its Windows short (8.3) name&rdquo;.</p>
+    <p>Those names are refused on purpose: a <code>:</code> names a hidden data stream, and <code>CON</code>, <code>nul.txt</code> or a trailing dot would be created as files that Explorer and most tools can&rsquo;t open or delete. Ask the model to pick another name. A short name such as <code>PROGRA~1</code> or <code>IMPORT~1.MD</code> is refused when it stands for a longer one, because the approval card would name a different file from the one that changes - ask the model to use the full name, which <code>list_directory</code> shows. (On every platform, a name with a control or text-direction character is refused too, because it can make the approval card show a different name than the one written.)</p>
 
     <h2 id="workspace-edit-refused">A file write or edit is refused</h2>
     <p class="problem-statement">The model&rsquo;s file change fails, and the tool-call entry shows why.</p>
@@ -357,7 +366,7 @@
       <li>&ldquo;the file is read-only&rdquo; - clear the read-only attribute if you want the model to change it.</li>
       <li>&ldquo;resolves outside the workspace&rdquo; or &ldquo;a link that doesn&rsquo;t resolve&rdquo; - the path goes through a symbolic link that leaves the folder or points nowhere, which the sandbox refuses.</li>
       <li>&ldquo;already exists - move_file never overwrites&rdquo; - delete or rename the target first.</li>
-      <li>Size limits - <code>read_file</code> and <code>edit_file</code> handle files up to 4 MB, a write may be at most 1 MB, and one edit may grow a file by at most 1 MB.</li>
+      <li>&ldquo;is 5.2 MB; read_file handles files up to 4.0 MB&rdquo; (or &ldquo;is over 4.0 MB&rdquo;) and the like - <code>read_file</code> and <code>edit_file</code> handle files up to 4 MB, and the model can use <code>search_files</code> to find the lines it needs in a bigger one. A write may be at most 1 MB, and one edit may grow a file by at most 1 MB.</li>
     </ul>
 
     <div class="page-nav">

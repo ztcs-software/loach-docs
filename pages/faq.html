@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ - Loach Docs</title>
-  <meta name="description" content="Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more." />
+  <meta name="description" content="Frequently asked questions about Loach: providers, models, tools, working folders, the Library, memory, privacy, troubleshooting and more." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/faq.html" />
   <meta property="og:title" content="FAQ - Loach Docs" />
-  <meta property="og:description" content="Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more." />
+  <meta property="og:description" content="Frequently asked questions about Loach: providers, models, tools, working folders, the Library, memory, privacy, troubleshooting and more." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FAQ - Loach Docs" />
-  <meta name="twitter:description" content="Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more." />
+  <meta name="twitter:description" content="Frequently asked questions about Loach: providers, models, tools, working folders, the Library, memory, privacy, troubleshooting and more." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -46,7 +46,7 @@
       "@type": "FAQPage",
       "url": "https://docs.loach.dev/pages/faq.html",
       "name": "FAQ",
-      "description": "Frequently asked questions about Loach: providers, models, tools, working folders, memory, privacy, troubleshooting and more.",
+      "description": "Frequently asked questions about Loach: providers, models, tools, working folders, the Library, memory, privacy, troubleshooting and more.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://docs.loach.dev/#website"
@@ -65,7 +65,7 @@
           "name": "Which platforms are supported?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Native desktop apps for Windows, Linux and macOS (Apple Silicon, macOS 11 or later) are published with every release. The macOS build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass - see Installation → macOS. Intel Macs are not supported."
+            "text": "Native desktop apps for Windows, Linux and macOS (Apple Silicon, macOS 11 or later with Safari 16.4 or later) are published with every release. The macOS build is not Apple-notarized, so first launch needs a one-time Gatekeeper bypass - see Installation → macOS. Intel Macs are not supported."
           }
         },
         {
@@ -73,7 +73,7 @@
           "name": "Does Loach send my data anywhere?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the remote provider you configured - including whatever goes into the prompt, such as your memories and files the model reads from a chat’s folder - model pulls you start, web fetches and MCP servers you turned on (the first run of an npx or uvx server downloads its package), and the update check - run manually from Settings → Updates, or once per launch if you opted into the auto-check. With a purely local provider like Ollama, Loach works fully offline. See Storage & privacy."
+            "text": "No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the remote provider you configured - including whatever goes into the prompt, such as your memories, Library sources and files the model reads from a chat’s folder - the text sent to a Library embedding model on a remote endpoint, model pulls you start, web fetches and Library links you add, MCP servers you turned on (the first run of an npx or uvx server downloads its package), and the update check - run manually from Settings → Updates, or once per launch if you opted into the auto-check. With a purely local provider like Ollama, Loach works fully offline. See Storage & privacy."
           }
         },
         {
@@ -134,6 +134,14 @@
         },
         {
           "@type": "Question",
+          "name": "Do OpenAI’s reasoning models work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The o-series and GPT-5 turn down some of the fields Loach sends, such as max_tokens or temperature. Loach reads the 400 error, moves max_tokens to max_completion_tokens or drops the refused field, and sends the request again - no setup needed. Servers that stream a model’s reasoning, such as OpenRouter, vLLM or Ollama’s /v1, show it in a Thinking block. See Providers → Reasoning models."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "I have very limited VRAM. Can I still use local models?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -153,7 +161,7 @@
           "name": "Can the model read or edit my files? Is it sandboxed?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Only the files in a folder you give the chat: click + next to the message box and choose Add directory. The model can then list, find, read and search files in that folder, and write, edit, move or delete them - but each change is shown to you first (the new contents, a line-by-line diff, from → to, or a deletion warning) and waits for your approval, unless you’ve allowed that tool for the chat. It’s sandboxed to that folder: paths outside it, including links that point elsewhere, are refused; there’s no shell and no recursive delete; and the picker refuses a whole drive or Loach’s own data folder. Changes inside a .git directory always ask. Line endings and non-UTF-8 encodings are kept as they were. With a cloud provider, files the model reads are sent to it like any other message. Private Chat never gets a folder. See Work in folders."
+            "text": "Only the files in a folder you give the chat: click + next to the message box and choose Add directory. The model can then list, find, read and search files in that folder, and write, edit, move or delete them - but each change is shown to you first (the new contents, a line-by-line diff, from → to, or a deletion warning) and waits for your approval, unless you’ve allowed that tool for the chat. It’s sandboxed to that folder: paths outside it, including links that point elsewhere, are refused; there’s no shell and no recursive delete; and the picker refuses a whole drive or Loach’s own data folder. Changes to what Git runs - a .git folder, the .husky and .githooks hook folders, a .pre-commit-config.yaml or a folder laid out as a bare repository - always ask. Line endings and non-UTF-8 encodings are kept as they were. With a cloud provider, files the model reads are sent to it like any other message. Private Chat never gets a folder. See Work in folders."
           }
         },
         {
@@ -182,6 +190,14 @@
         },
         {
           "@type": "Question",
+          "name": "Can Loach answer from my own documents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes - put them in the Library. Upload files (PDF, Word, text and code, images), add links to web pages or write texts, then attach them to a chat with + → From Library or by typing #, or add them to a Space’s sources so every chat in it can use them. Sources that fit go to the model in full; bigger ones are searched, and only the excerpts most relevant to each message are sent - the Sources chip above the message box lets you force either. Keyword search works out of the box; set an embedding model in Settings → Library to also search by meaning - with one on a local Ollama, nothing leaves your machine. Each reply shows which sources it used. For a one-off question, attaching a file to the message works too. See Library → Source modes."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What are global memories, and are they on by default?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -193,7 +209,7 @@
           "name": "Does Private Chat use memory or tools?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It never reads or writes memory of either kind, and it gets no MCP tools, no web fetch and no working folder. Built-in tools you’ve turned on in Settings → Tools still work, since they run entirely on your machine. Private Chat also offers only local Ollama models and leaves out your Custom instructions, Space context and the date preamble. See Private Chat."
+            "text": "It never reads or writes memory of either kind, and it gets no tools at all - neither built-in tools nor MCP - no web fetch, no Library sources and no working folder. Private Chat also offers only Ollama models, never Ollama’s cloud ones, and leaves out your Custom instructions, Space context and the date preamble. See Private Chat."
           }
         },
         {
@@ -217,7 +233,7 @@
           "name": "I forgot my app-lock PIN. Can I reset it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not from inside Loach. There is no recovery path by design: the lock is an Argon2id hash in the OS credential manager that Loach cannot reverse, and Factory reset itself asks for your credentials. Try the hint you set when creating the lock. Otherwise, delete the lock’s entry from the credential store by hand - service dev.loach.app, account app_lock - and Loach starts unlocked, with your chats and settings untouched. Deleting the app data folder doesn’t help: it wipes your chats but leaves the lock. See Troubleshooting → App lock."
+            "text": "Not from inside Loach. There is no recovery path by design: the lock is an Argon2id hash in the OS credential manager that Loach cannot reverse, and Factory reset itself asks for your credentials. Try the hint you set when creating the lock. Otherwise, delete the lock’s entry from the credential store by hand - service dev.loach.app, account app_lock - and your chats and settings stay untouched. A marker file next to the database (app_lock.json) remembers that a lock was set, so the next launch still shows the lock screen once: enter any PIN of the right length (and any password) and Loach is unlocked from then on, or delete app_lock.json as well to skip that screen. Deleting the app data folder doesn’t help: it wipes your chats but leaves the lock. See Troubleshooting → App lock."
           }
         },
         {
@@ -225,7 +241,7 @@
           "name": "Can Loach lock itself when I walk away?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Once an app lock is configured, Settings → Security offers Lock after inactivity (1, 5, 15 or 30 minutes) and Lock when minimized, both opt-in. Ctrl + Shift + L locks immediately from anywhere in the app. See App lock → Auto-lock."
+            "text": "Yes. Once an app lock is configured, Settings → Security offers Lock after inactivity (1, 5, 15 or 30 minutes) and Lock when minimized, both opt-in. Ctrl + Shift + L (⌘ + Shift + L on macOS) locks immediately from anywhere in the app, and typing /lock in the message box does the same. On macOS, closing the window hides Loach and, with a lock set, locks it. See App lock → Auto-lock."
           }
         },
         {
@@ -233,7 +249,7 @@
           "name": "How do I back up my chats?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Open Settings → Data and use Export data. You’ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), global memories, Snippets and snippet variables, MCP servers and settings. API keys are not in the export - they live in the OS credential manager - and neither are MCP headers, environment variables, secrets passed as server arguments, or chats’ working folders. The same panel shows a storage breakdown, so you can see what your chats, attachments and Spaces weigh before you back them up."
+            "text": "Open Settings → Data and use Export data. You’ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), the Library, global memories, Snippets and snippet variables, MCP servers and settings. It’s tagged loach/v2, so Loach 1.5 and older can’t restore it. API keys are not in the export - they live in the OS credential manager - and neither are MCP headers, environment variables, secrets passed in a server’s arguments or address, or chats’ working folders. The same panel shows a storage breakdown, so you can see what your chats, attachments, Spaces and Library weigh before you back them up."
           }
         },
         {
@@ -241,7 +257,7 @@
           "name": "How do I move Loach to a new machine?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Install Loach on the new machine, then use Import data in Settings → Data - or Restore from backup on the onboarding wizard’s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key and any MCP headers or environment variables, switch local (stdio) MCP servers back on - they arrive disabled - and pick chats’ working folders again; none of those travel in the export."
+            "text": "Install Loach on the new machine, then use Import data in Settings → Data - or Restore from backup on the onboarding wizard’s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key, any MCP headers and environment variables, and secrets left out of a server’s arguments or address, switch local (stdio) MCP servers back on - they arrive disabled - and pick chats’ working folders again; none of those travel in the export. The Library comes along, and Loach rebuilds its search index after the import."
           }
         },
         {
@@ -249,7 +265,7 @@
           "name": "How do I delete everything?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Settings → Data → Erase… opens Erase & Reset. Factory reset wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. Remove my data is the gentler option - it drops chats, folders, Spaces, memories, Snippets and MCP servers but keeps your settings and the key. Both need you to type YES, plus your current PIN or password when an app lock is set."
+            "text": "Settings → Data → Erase… opens Erase & Reset. Factory reset wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. Remove my data is the gentler option - it drops chats, folders, Spaces, the Library, memories, Snippets and MCP servers but keeps your settings and the key. Both need you to type YES, plus your current PIN or password when an app lock is set."
           }
         },
         {
@@ -290,6 +306,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Single-dollar spans are treated as currency unless they clearly read as math, and TeX that doesn’t parse shows its own source on purpose. Ask the model for $$…$$, \\(…\\) or a ```math fence. See LaTeX math and Troubleshooting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "The model misses details in my image.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Loach scales images down before sending them - by default to 1024 px on the longest side - because a full-size photo costs thousands of image tokens and many local models read it worse, not better. The stored image stays the original. For more detail, raise the limit or choose Original: for one chat in the parameters panel’s Images section, for a Space on its Settings tab, for Library images in Settings → Library, or as the default for everything in Settings → Features → Image scaling. Private Chat uses the Settings → Features one. See Attachments → Image scaling."
           }
         },
         {
@@ -400,6 +424,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -482,6 +507,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -510,14 +536,14 @@
     <details class="faq-item">
       <summary>Which platforms are supported?</summary>
       <div class="faq-body">
-        <p>Native desktop apps for <strong>Windows</strong>, <strong>Linux</strong> and <strong>macOS</strong> (Apple Silicon, macOS 11 or later) are published with every release. The macOS build is <strong>not Apple-notarized</strong>, so first launch needs a one-time Gatekeeper bypass - see <a href="installation.html#macos">Installation &rarr; macOS</a>. Intel Macs are not supported.</p>
+        <p>Native desktop apps for <strong>Windows</strong>, <strong>Linux</strong> and <strong>macOS</strong> (Apple Silicon, macOS 11 or later with Safari 16.4 or later) are published with every release. The macOS build is <strong>not Apple-notarized</strong>, so first launch needs a one-time Gatekeeper bypass - see <a href="installation.html#macos">Installation &rarr; macOS</a>. Intel Macs are not supported.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Does Loach send my data anywhere?</summary>
       <div class="faq-body">
-        <p>No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the <em>remote</em> provider you configured - including whatever goes into the prompt, such as your memories and files the model reads from a chat&rsquo;s folder - model pulls you start, <a href="features/web-fetch.html">web fetches</a> and <a href="features/mcp.html">MCP servers</a> you turned on (the first run of an <code>npx</code> or <code>uvx</code> server downloads its package), and the update check - run manually from <strong>Settings → Updates</strong>, or once per launch if you opted into the auto-check. With a purely local provider like Ollama, Loach works fully offline. See <a href="privacy.html">Storage &amp; privacy</a>.</p>
+        <p>No, not on its own. There is no telemetry. The only outbound requests Loach initiates are the ones you set up: generations against the <em>remote</em> provider you configured - including whatever goes into the prompt, such as your memories, <a href="features/library.html">Library</a> sources and files the model reads from a chat&rsquo;s folder - the text sent to a Library <a href="features/library.html#search">embedding model</a> on a remote endpoint, model pulls you start, <a href="features/web-fetch.html">web fetches</a> and Library links you add, <a href="features/mcp.html">MCP servers</a> you turned on (the first run of an <code>npx</code> or <code>uvx</code> server downloads its package), and the update check - run manually from <strong>Settings → Updates</strong>, or once per launch if you opted into the auto-check. With a purely local provider like Ollama, Loach works fully offline. See <a href="privacy.html">Storage &amp; privacy</a>.</p>
       </div>
     </details>
 
@@ -578,6 +604,13 @@
     </details>
 
     <details class="faq-item">
+      <summary>Do OpenAI&rsquo;s reasoning models work?</summary>
+      <div class="faq-body">
+        <p>Yes. The o-series and GPT-5 turn down some of the fields Loach sends, such as <code>max_tokens</code> or <code>temperature</code>. Loach reads the <code>400</code> error, moves <code>max_tokens</code> to <code>max_completion_tokens</code> or drops the refused field, and sends the request again - no setup needed. Servers that stream a model&rsquo;s reasoning, such as OpenRouter, vLLM or Ollama&rsquo;s <code>/v1</code>, show it in a <strong>Thinking</strong> block. See <a href="providers.html#reasoning-models">Providers &rarr; Reasoning models</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
       <summary>I have very limited VRAM. Can I still use local models?</summary>
       <div class="faq-body">
         <p>Yes - try smaller quantizations (e.g. a 4-bit 3B/4B model), and enable <a href="features/low-vram.html">Low VRAM mode</a> globally or per-chat. This sends Ollama&rsquo;s <code>low_vram</code> flag with every request.</p>
@@ -597,7 +630,7 @@
       <summary>Can the model read or edit my files? Is it sandboxed?</summary>
       <div class="faq-body">
         <p>Only the files in a folder you give the chat: click <strong>+</strong> next to the message box and choose <strong>Add directory</strong>. The model can then list, find, read and search files in that folder, and write, edit, move or delete them - but each change is shown to you first (the new contents, a line-by-line diff, <code>from → to</code>, or a deletion warning) and waits for your approval, unless you&rsquo;ve allowed that tool for the chat.</p>
-        <p>It&rsquo;s sandboxed to that folder: paths outside it, including links that point elsewhere, are refused; there&rsquo;s no shell and no recursive delete; and the picker refuses a whole drive or Loach&rsquo;s own data folder. Changes inside a <code>.git</code> directory always ask. Line endings and non-UTF-8 encodings are kept as they were. With a cloud provider, files the model reads are sent to it like any other message. Private Chat never gets a folder. See <a href="features/work-in-folders.html">Work in folders</a>.</p>
+        <p>It&rsquo;s sandboxed to that folder: paths outside it, including links that point elsewhere, are refused; there&rsquo;s no shell and no recursive delete; and the picker refuses a whole drive or Loach&rsquo;s own data folder. Changes to what Git runs - a <code>.git</code> folder, the <code>.husky</code> and <code>.githooks</code> hook folders, a <code>.pre-commit-config.yaml</code> or a folder laid out as a bare repository - always ask. Line endings and non-UTF-8 encodings are kept as they were. With a cloud provider, files the model reads are sent to it like any other message. Private Chat never gets a folder. See <a href="features/work-in-folders.html">Work in folders</a>.</p>
       </div>
     </details>
 
@@ -623,6 +656,16 @@
       </div>
     </details>
 
+    <h2 id="library">Library</h2>
+
+    <details class="faq-item">
+      <summary>Can Loach answer from my own documents?</summary>
+      <div class="faq-body">
+        <p>Yes - put them in the <a href="features/library.html">Library</a>. Upload files (PDF, Word, text and code, images), add links to web pages or write texts, then attach them to a chat with <strong>+</strong> &rarr; <strong>From Library</strong> or by typing <code>#</code>, or add them to a Space&rsquo;s sources so every chat in it can use them.</p>
+        <p>Sources that fit go to the model in full; bigger ones are searched, and only the excerpts most relevant to each message are sent - the <strong>Sources</strong> chip above the message box lets you force either. Keyword search works out of the box; set an embedding model in <strong>Settings &rarr; Library</strong> to also search by meaning - with one on a local Ollama, nothing leaves your machine. Each reply shows which sources it used. For a one-off question, <a href="features/attachments.html">attaching a file</a> to the message works too. See <a href="features/library.html#source-modes">Library &rarr; Source modes</a>.</p>
+      </div>
+    </details>
+
     <h2 id="memory">Memory &amp; Private Chat</h2>
 
     <details class="faq-item">
@@ -636,7 +679,7 @@
     <details class="faq-item">
       <summary>Does Private Chat use memory or tools?</summary>
       <div class="faq-body">
-        <p>It never reads or writes memory of either kind, and it gets no MCP tools, no web fetch and no working folder. Built-in tools you&rsquo;ve turned on in <strong>Settings → Tools</strong> still work, since they run entirely on your machine. Private Chat also offers only local Ollama models and leaves out your Custom instructions, Space context and the date preamble. See <a href="features/private-chat.html">Private Chat</a>.</p>
+        <p>It never reads or writes memory of either kind, and it gets no tools at all - neither built-in tools nor MCP - no web fetch, no Library sources and no working folder. Private Chat also offers only Ollama models, never Ollama&rsquo;s cloud ones, and leaves out your Custom instructions, Space context and the date preamble. See <a href="features/private-chat.html">Private Chat</a>.</p>
       </div>
     </details>
 
@@ -659,14 +702,14 @@
     <details class="faq-item">
       <summary>I forgot my app-lock PIN. Can I reset it?</summary>
       <div class="faq-body">
-        <p>Not from inside Loach. There is no recovery path by design: the lock is an Argon2id hash in the OS credential manager that Loach cannot reverse, and <strong>Factory reset</strong> itself asks for your credentials. Try the hint you set when creating the lock. Otherwise, delete the lock&rsquo;s entry from the credential store by hand - service <code>dev.loach.app</code>, account <code>app_lock</code> - and Loach starts unlocked, with your chats and settings untouched. Deleting the app data folder doesn&rsquo;t help: it wipes your chats but leaves the lock. See <a href="troubleshooting/app-lock.html#forgot-pin">Troubleshooting → App lock</a>.</p>
+        <p>Not from inside Loach. There is no recovery path by design: the lock is an Argon2id hash in the OS credential manager that Loach cannot reverse, and <strong>Factory reset</strong> itself asks for your credentials. Try the hint you set when creating the lock. Otherwise, delete the lock&rsquo;s entry from the credential store by hand - service <code>dev.loach.app</code>, account <code>app_lock</code> - and your chats and settings stay untouched. A marker file next to the database (<code>app_lock.json</code>) remembers that a lock was set, so the next launch still shows the lock screen once: enter any PIN of the right length (and any password) and Loach is unlocked from then on, or delete <code>app_lock.json</code> as well to skip that screen. Deleting the app data folder doesn&rsquo;t help: it wipes your chats but leaves the lock. See <a href="troubleshooting/app-lock.html#forgot-pin">Troubleshooting → App lock</a>.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>Can Loach lock itself when I walk away?</summary>
       <div class="faq-body">
-        <p>Yes. Once an app lock is configured, <strong>Settings → Security</strong> offers <strong>Lock after inactivity</strong> (1, 5, 15 or 30 minutes) and <strong>Lock when minimized</strong>, both opt-in. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> locks immediately from anywhere in the app. See <a href="features/app-lock.html#auto-lock">App lock → Auto-lock</a>.</p>
+        <p>Yes. Once an app lock is configured, <strong>Settings → Security</strong> offers <strong>Lock after inactivity</strong> (1, 5, 15 or 30 minutes) and <strong>Lock when minimized</strong>, both opt-in. <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> (<kbd>&#8984;</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> on macOS) locks immediately from anywhere in the app, and typing <code>/lock</code> in the message box does the same. On macOS, closing the window hides Loach and, with a lock set, locks it. See <a href="features/app-lock.html#auto-lock">App lock → Auto-lock</a>.</p>
       </div>
     </details>
 
@@ -675,21 +718,21 @@
     <details class="faq-item">
       <summary>How do I back up my chats?</summary>
       <div class="faq-body">
-        <p>Open <strong>Settings → Data</strong> and use <strong>Export data</strong>. You&rsquo;ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), global memories, Snippets and snippet variables, MCP servers and settings. API keys are <em>not</em> in the export - they live in the OS credential manager - and neither are MCP headers, environment variables, secrets passed as server arguments, or chats&rsquo; working folders. The same panel shows a storage breakdown, so you can see what your chats, attachments and Spaces weigh before you back them up.</p>
+        <p>Open <strong>Settings → Data</strong> and use <strong>Export data</strong>. You&rsquo;ll get a single JSON file containing chats, folders, Spaces (with their sources and memories), the <a href="features/library.html">Library</a>, global memories, Snippets and snippet variables, MCP servers and settings. It&rsquo;s tagged <code>loach/v2</code>, so Loach 1.5 and older can&rsquo;t restore it. API keys are <em>not</em> in the export - they live in the OS credential manager - and neither are MCP headers, environment variables, secrets passed in a server&rsquo;s arguments or address, or chats&rsquo; working folders. The same panel shows a storage breakdown, so you can see what your chats, attachments, Spaces and Library weigh before you back them up.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>How do I move Loach to a new machine?</summary>
       <div class="faq-body">
-        <p>Install Loach on the new machine, then use <strong>Import data</strong> in <strong>Settings → Data</strong> - or <strong>Restore from backup</strong> on the onboarding wizard&rsquo;s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key and any MCP headers or environment variables, switch local (stdio) MCP servers back on - they arrive disabled - and pick chats&rsquo; working folders again; none of those travel in the export.</p>
+        <p>Install Loach on the new machine, then use <strong>Import data</strong> in <strong>Settings → Data</strong> - or <strong>Restore from backup</strong> on the onboarding wizard&rsquo;s welcome screen - with the JSON file you exported from the old one. Importing replaces everything in the new database. Afterwards, re-enter your API key, any MCP headers and environment variables, and secrets left out of a server&rsquo;s arguments or address, switch local (stdio) MCP servers back on - they arrive disabled - and pick chats&rsquo; working folders again; none of those travel in the export. The Library comes along, and Loach rebuilds its search index after the import.</p>
       </div>
     </details>
 
     <details class="faq-item">
       <summary>How do I delete everything?</summary>
       <div class="faq-body">
-        <p><strong>Settings → Data → Erase…</strong> opens <strong>Erase &amp; Reset</strong>. <strong>Factory reset</strong> wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. <strong>Remove my data</strong> is the gentler option - it drops chats, folders, Spaces, memories, Snippets and MCP servers but keeps your settings and the key. Both need you to type <code>YES</code>, plus your current PIN or password when an app lock is set.</p>
+        <p><strong>Settings → Data → Erase…</strong> opens <strong>Erase &amp; Reset</strong>. <strong>Factory reset</strong> wipes the database, clears every setting, and removes the API key and the app lock from the credential store; Loach then reloads into onboarding. <strong>Remove my data</strong> is the gentler option - it drops chats, folders, Spaces, the Library, memories, Snippets and MCP servers but keeps your settings and the key. Both need you to type <code>YES</code>, plus your current PIN or password when an app lock is set.</p>
       </div>
     </details>
 
@@ -728,6 +771,13 @@
       <summary>A formula shows as raw TeX.</summary>
       <div class="faq-body">
         <p>Single-dollar spans are treated as currency unless they clearly read as math, and TeX that doesn&rsquo;t parse shows its own source on purpose. Ask the model for <code>$$…$$</code>, <code>\(…\)</code> or a <code>```math</code> fence. See <a href="features/math.html">LaTeX math</a> and <a href="troubleshooting/messages.html#raw-tex">Troubleshooting</a>.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>The model misses details in my image.</summary>
+      <div class="faq-body">
+        <p>Loach scales images down before sending them - by default to 1024 px on the longest side - because a full-size photo costs thousands of image tokens and many local models read it worse, not better. The stored image stays the original. For more detail, raise the limit or choose <strong>Original</strong>: for one chat in the parameters panel&rsquo;s <strong>Images</strong> section, for a Space on its <strong>Settings</strong> tab, for Library images in <strong>Settings &rarr; Library</strong>, or as the default for everything in <strong>Settings &rarr; Features &rarr; Image scaling</strong>. Private Chat uses the <strong>Settings &rarr; Features</strong> one. See <a href="features/attachments.html#image-scaling">Attachments &rarr; Image scaling</a>.</p>
       </div>
     </details>
 

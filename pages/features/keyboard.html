@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -263,11 +265,12 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Keyboard shortcuts</h1>
-    <p class="lead">Loach is keyboard-friendly. Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to open an in-app cheat sheet of the nine app-wide shortcuts below; the dialog and the handler read the same table, so the keys listed there are the keys the app actually listens for. The composer, palette and finder keys further down aren&rsquo;t in it. On macOS, <kbd>&#8984;</kbd> stands in for <kbd>Ctrl</kbd> throughout, and the cheat sheet shows <kbd>&#8679;</kbd> for <kbd>Shift</kbd>.</p>
+    <p class="lead">Loach is keyboard-friendly. Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to open an in-app cheat sheet of the nine app-wide shortcuts below; the dialog and the handler read the same table, so the keys listed there are the keys the app actually listens for. The composer, palette and finder keys further down aren&rsquo;t in it. On macOS, <kbd>&#8984;</kbd> stands in for <kbd>Ctrl</kbd> throughout, and the cheat sheet shows <kbd>&#8679;</kbd> for <kbd>Shift</kbd>. <kbd>Ctrl</kbd> itself doesn&rsquo;t trigger shortcuts there: it is left to text fields&rsquo; own editing keys, such as <kbd>Ctrl</kbd> + <kbd>K</kbd> to delete to the end of the line.</p>
+    <p>On a keyboard layout without Latin letters, such as Cyrillic or Greek, a shortcut follows the key&rsquo;s position: <kbd>Ctrl</kbd> + <kbd>K</kbd> is the key where a US layout has K.</p>
 
     <h2 id="navigation">Navigation</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Ctrl + K</strong> - open the <a href="search.html">search palette</a> across chats, messages, Spaces and Snippets.</li>
+      <li><strong class="feat-name">Ctrl + K</strong> - open the <a href="search.html">search palette</a> across chats, messages, Spaces, Snippets and the <a href="library.html">Library</a>.</li>
       <li><strong class="feat-name">Ctrl + N</strong> - start a new chat outside any Space.</li>
     </ul>
 
@@ -275,44 +278,53 @@
     <ul class="feature-list">
       <li><strong class="feat-name">Ctrl + F</strong> - find within the current chat transcript, with browser-style match highlighting and a match counter. Does nothing unless a chat with at least one message is on screen.</li>
       <li><strong class="feat-name">Ctrl + U</strong> - attach files to the current chat (opens the file picker).</li>
-      <li><strong class="feat-name">Ctrl + Shift + Backspace</strong> (or <strong>Delete</strong>) - delete the current chat, after a confirmation.</li>
+      <li><strong class="feat-name">Ctrl + Shift + Backspace</strong> (or <strong>Delete</strong>) - delete the current chat, after a confirmation. Only while the chat is on screen: it does nothing while a Space&rsquo;s page, a model&rsquo;s page or another sidebar tab, such as the Library, covers it.</li>
     </ul>
 
     <h2 id="layout">Layout</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Ctrl + Shift + S</strong> - show or hide the left sidebar.</li>
-      <li><strong class="feat-name">Ctrl + Shift + P</strong> - show or hide the <a href="parameters.html">parameters panel</a> while a chat is open.</li>
+      <li><strong class="feat-name">Ctrl + Shift + P</strong> - show or hide the <a href="parameters.html">parameters panel</a> beside an open chat. It does nothing on other pages, where the panel can&rsquo;t show.</li>
     </ul>
 
     <h2 id="security">Security</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Ctrl + Shift + L</strong> - lock Loach now, when an <a href="app-lock.html">app lock</a> is configured. It works in Private Chat and during onboarding too.</li>
+      <li><strong class="feat-name">Ctrl + Shift + L</strong> - lock Loach now, when an <a href="app-lock.html">app lock</a> is configured. It works in Private Chat, during onboarding and with a dialog open too.</li>
     </ul>
 
     <h2 id="help">Help</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Ctrl + /</strong> - open the keyboard-shortcuts cheat sheet, or close it again.</li>
+      <li><strong class="feat-name">Ctrl + /</strong> - open the keyboard-shortcuts cheat sheet; <kbd>Esc</kbd> closes it. On layouts where <kbd>/</kbd> itself needs <kbd>Shift</kbd> (<kbd>Shift</kbd> + <kbd>7</kbd> on German and Nordic keyboards), hold <kbd>Ctrl</kbd> with that combination.</li>
     </ul>
 
     <h2 id="composer">In the composer</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Enter</strong> - send the message, or run the typed slash command.</li>
+      <li><strong class="feat-name">Enter</strong> - send the message, or run the typed slash command. An <kbd>Enter</kbd> that confirms a candidate in an input method (Chinese, Japanese or Korean typing) never sends.</li>
       <li><strong class="feat-name">Shift&nbsp;+&nbsp;Enter</strong> - insert a newline without sending. Use this for multi-paragraph prompts.</li>
-      <li><strong class="feat-name">/</strong> - typed as the first character, opens the <a href="slash-commands.html">slash-command palette</a>.</li>
+      <li><strong class="feat-name">/</strong> - typed as the first character, opens the <a href="slash-commands.html">slash-command palette</a>. Text that goes on with a space or a second slash (<code>// note</code>, <code>/ aside</code>) is ordinary text and doesn&rsquo;t open it.</li>
+      <li><strong class="feat-name">#</strong> - typed at the start of the message or after a space, lists your <a href="library.html#using-sources">Library sources</a> to attach, newest first; letters typed after it narrow the list.</li>
     </ul>
 
     <h2 id="slash-palette">In the slash-command palette</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">&uarr; / &darr;</strong> - move through the filtered command list. The selection wraps around at either end.</li>
-      <li><strong class="feat-name">Tab</strong> - complete the highlighted command.</li>
+      <li><strong class="feat-name">Tab</strong> - complete the highlighted command. After <code>/model</code>, <code>/space</code> or <code>/snippet</code> and a space, the palette lists your models, Spaces or Snippets by name, matching anywhere in the name.</li>
       <li><strong class="feat-name">Enter</strong> - run a fully-typed command, or complete a partial one.</li>
       <li><strong class="feat-name">Esc</strong> - dismiss the palette for the current draft. Anything that isn&rsquo;t a recognised command is sent as an ordinary message.</li>
+    </ul>
+
+    <h2 id="library-picker">In the <code>#</code> Library list</h2>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Tab</strong> - attach the highlighted item or dataset. The <code>#</code> text you typed is removed, and a chip above the message box shows what was added.</li>
+      <li><strong class="feat-name">&uarr; / &darr;</strong> - move through the matches. The selection wraps around at either end.</li>
+      <li><strong class="feat-name">Enter</strong> - attach the highlighted entry, but only once you&rsquo;ve moved with the arrow keys; otherwise <kbd>Enter</kbd> sends the message, so one ending in a <code>#tag</code> isn&rsquo;t swallowed.</li>
+      <li><strong class="feat-name">Esc</strong> - dismiss the list.</li>
     </ul>
 
     <h2 id="search-palette">In the search palette</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">&uarr; / &darr;</strong> - move between results.</li>
-      <li><strong class="feat-name">Enter</strong> - open the highlighted result. A chat opens the conversation; a message opens its chat and jumps to that turn; a Space opens its detail view; a Snippet starts a fresh chat with the snippet&rsquo;s prompt primed in the composer.</li>
+      <li><strong class="feat-name">Enter</strong> - open the highlighted result. A chat opens the conversation; a message opens its chat and jumps to that turn; a Space opens its detail view; a Snippet starts a fresh chat with the snippet&rsquo;s prompt primed in the composer, once any fill-in blanks are filled (cancel them and no chat is made); a Library item opens its preview where you are, and a dataset opens its page in the Library.</li>
       <li><strong class="feat-name">Tab</strong> - move between the palette&rsquo;s controls. Focus stays inside the palette until you close it.</li>
       <li><strong class="feat-name">Esc</strong> - clear the query, then close the palette on a second press.</li>
     </ul>
@@ -329,12 +341,14 @@
       <li><strong class="feat-name">Enter</strong> - save a rename (a chat in the sidebar, the chat header or a Space&rsquo;s chat list); <kbd>Esc</kbd> cancels it.</li>
       <li><strong class="feat-name">Enter</strong> - in the memory editor, add or save a fact (<kbd>Shift</kbd> + <kbd>Enter</kbd> for a newline while editing); <kbd>Esc</kbd> cancels an edit.</li>
       <li><strong class="feat-name">Enter</strong> - in a Snippet&rsquo;s fill-in dialog, move to the next blank; on the last one, put the filled-in prompt in the composer.</li>
-      <li><strong class="feat-name">Enter</strong> or <strong>Space</strong> - open a focused chat row, folder, Space, Snippet or model tile, or attachment chip.</li>
+      <li><strong class="feat-name">Enter</strong> or <strong>Space</strong> - open a focused chat row, folder, Space, Snippet or model tile, Library item or dataset, or attachment chip.</li>
       <li><strong class="feat-name">Enter</strong> / <strong>Esc</strong> - in a confirmation dialog, confirm or cancel. The confirm button has focus when the dialog opens - including for deletions.</li>
+      <li><strong class="feat-name">Enter</strong> - in a create or edit dialog (a Snippet, a snippet variable, a Space, a Library text or dataset), <kbd>Enter</kbd> in a one-line field, or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in a multi-line one, saves once everything required is filled in; until then it moves you to the next field to fill.</li>
     </ul>
+    <p>As in the composer, renames, prompts, the search palette, the in-chat finder and these dialogs leave an <kbd>Enter</kbd> that confirms an input-method candidate to the input method.</p>
 
     <h2 id="system">Where shortcuts do not apply</h2>
-    <p>The app lock screen blocks every shortcut and the search palette. While the onboarding wizard or <a href="private-chat.html">Private Chat</a> owns the window, the app-wide shortcuts and the search palette are off too - except <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, which locks Loach from anywhere. <kbd>Esc</kbd> still dismisses menus and dialogs, and exits onboarding (with a confirm on the provider step). It does not close Private Chat: only the <strong>&times;</strong> in its header does, so a stray key can&rsquo;t wipe the conversation. The web view&rsquo;s own find bar (<kbd>Ctrl</kbd> + <kbd>G</kbd>, <kbd>F3</kbd>) is switched off - use <kbd>Ctrl</kbd> + <kbd>F</kbd>.</p>
+    <p>The app lock screen blocks every shortcut and the search palette, and so does the moment at launch while Loach checks whether a lock is set. While the onboarding wizard or <a href="private-chat.html">Private Chat</a> owns the window, or a dialog is open - Settings, a confirmation, the search palette itself - the app-wide shortcuts and the search palette are off too, except <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, which locks Loach from anywhere. <kbd>Esc</kbd> still dismisses menus and dialogs, and exits onboarding (with a confirm on the provider step). It does not close Private Chat: only the <strong>&times;</strong> in its header does, so a stray key can&rsquo;t wipe the conversation. The web view&rsquo;s own find bar (<kbd>Ctrl</kbd> + <kbd>G</kbd>, <kbd>F3</kbd>) is switched off - use <kbd>Ctrl</kbd> + <kbd>F</kbd>.</p>
     <div class="page-nav">
       <a href="onboarding.html">
         <span class="label">Previous</span>

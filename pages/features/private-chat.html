@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Private Chat - Loach Docs</title>
-  <meta name="description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, MCP tools are blocked, and only Ollama models are offered." />
+  <meta name="description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, the model gets no tools, and only Ollama models are offered." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/private-chat.html" />
   <meta property="og:title" content="Private Chat - Loach Docs" />
-  <meta property="og:description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, MCP tools are blocked, and only Ollama models are offered." />
+  <meta property="og:description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, the model gets no tools, and only Ollama models are offered." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Private Chat - Loach Docs" />
-  <meta name="twitter:description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, MCP tools are blocked, and only Ollama models are offered." />
+  <meta name="twitter:description" content="A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, the model gets no tools, and only Ollama models are offered." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Private Chat",
-      "description": "A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, MCP tools are blocked, and only Ollama models are offered.",
+      "description": "A dark-only, ephemeral chat surface for conversations that should leave no trace - nothing is written to disk, the model gets no tools, and only Ollama models are offered.",
       "url": "https://docs.loach.dev/pages/features/private-chat.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -263,24 +265,26 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Private Chat</h1>
-    <p class="lead">An ephemeral chat surface for conversations that should leave no trace. Nothing is written to disk, nothing is remembered between sessions, and the transcript is wiped the moment the overlay closes. Open it from the ghost icon in the title bar.</p>
+    <p class="lead">An ephemeral chat surface for conversations that should leave no trace. Nothing is written to disk, nothing is remembered between sessions, and the transcript is wiped the moment the overlay closes or Loach locks. Open it from the ghost icon in the title bar.</p>
 
     <h2 id="nothing-persisted">Nothing is persisted</h2>
-    <p>Unlike regular chats, Private Chat does not create a chat row, message rows, metrics, or an attachment store. The transcript lives entirely in memory. The moment you close the overlay everything is gone - including the picked model, persona, tone, per-chat instructions, and parameters-panel state. There is nothing to export, nothing to search, and nothing for an attacker with disk access to recover. Private Chat never reads or writes Space or global <a href="memory.html">memory</a> either.</p>
+    <p>Unlike regular chats, Private Chat does not create a chat row, message rows, metrics, or an attachment store. The transcript lives entirely in memory. The moment you close the overlay - or Loach locks - everything is gone, including the picked model, persona, tone, per-chat instructions, and parameters-panel state. There is nothing to export, nothing to search, and nothing for an attacker with disk access to recover. Private Chat never reads or writes Space or global <a href="memory.html">memory</a> either.</p>
 
     <h2 id="ollama-only">Ollama only</h2>
-    <p>The model picker inside Private Chat only lists local <a href="provider-selection.html">Ollama</a> models, and starts on the Ollama model of your most recently active chat (or the first one installed). OpenAI-compatible providers are deliberately excluded - the data path for cloud providers crosses too many intermediaries (proxies, key vaults, hosted logging) to honour the &ldquo;leaves no trace&rdquo; promise.</p>
+    <p>The model picker inside Private Chat only lists <a href="provider-selection.html">Ollama</a> models, and starts on the Ollama model of your most recently active chat (or the first model in the list that can chat - embedding models are passed over). Ollama&rsquo;s cloud models - tags ending in <code>:cloud</code> or <code>-cloud</code>, which Ollama runs on ollama.com - are left out. OpenAI-compatible providers are deliberately excluded - the data path for cloud providers crosses too many intermediaries (proxies, key vaults, hosted logging) to honour the &ldquo;leaves no trace&rdquo; promise.</p>
+    <p>Messages go to the Ollama server set in <strong>Settings &rarr; Providers</strong>. When that&rsquo;s this machine, the empty chat reads <em>Only local Ollama models can be used here.</em> When it&rsquo;s another machine, it says so: <em>Only Ollama models can be used here, and messages go to the Ollama server at</em> followed by its address.</p>
 
-    <h2 id="mcp-blocked">MCP tools are blocked</h2>
-    <p>Servers configured in <strong>Settings &rarr; MCP</strong> are not exposed to the model inside Private Chat. A tool call could side-channel the conversation out to a third party - that defeats the point. <a href="built-in-tools.html">Built-in tools</a> you have switched on still work: they run entirely on your machine, so they can&rsquo;t leak the conversation. The file tools from <a href="work-in-folders.html">Work in folders</a> are the exception - a Private Chat never gets a folder, so it can&rsquo;t read or write files on disk. For anything that needs an MCP server or a folder, use a regular chat. See <a href="mcp.html">MCP support</a>.</p>
+    <h2 id="mcp-blocked">No tools</h2>
+    <p>The model inside Private Chat gets no tools at all. Servers configured in <strong>Settings &rarr; MCP</strong> are not exposed: a tool call could side-channel the conversation out to a third party - that defeats the point. The <a href="built-in-tools.html">built-in tools</a> are left out too, even those you have switched on, because the overlay has nowhere to show a tool call, its result or a file one makes. And a Private Chat never gets a folder, so the file tools from <a href="work-in-folders.html">Work in folders</a> can&rsquo;t read or write files on disk. For anything that needs a tool, an MCP server or a folder, use a regular chat. See <a href="mcp.html">MCP support</a>.</p>
     <p>Two other features that would send your words elsewhere stay out too: links in your message aren&rsquo;t fetched by <a href="web-fetch.html">web fetch</a>, and there is no <a href="voice-dictation.html">voice dictation</a> button, because dictation can send audio to an online speech service.</p>
+    <p>Code blocks in replies keep <strong>Copy</strong> and <strong>Export</strong>, but there is no <a href="code-canvas.html">code canvas</a>: <strong>Open</strong> and <strong>Preview</strong> aren&rsquo;t offered, because the canvas belongs to the main window and would outlive the overlay.</p>
 
     <h2 id="opening-and-closing">Opening and closing</h2>
     <p>Open Private Chat from the <strong>ghost icon</strong> in the title bar, or with the <code>/private</code> <a href="slash-commands.html">slash command</a>. It opens as a dark-only overlay above whatever you were doing, with the cursor in its composer. The overlay can only be dismissed by the explicit <code>X</code> in its header - clicking outside, pressing <kbd>Esc</kbd>, or otherwise stray-clicking <em>does not</em> close it. The wipe is destructive, so we don&rsquo;t want one accidental click to throw away the conversation.</p>
-    <p>While Private Chat is open the regular chat surface is paused: any in-flight regular generation is cancelled, queued messages wait, and the rest of the app is non-interactive underneath until you close the overlay. <kbd>Tab</kbd> can&rsquo;t reach it, the title-bar search and sidebar toggle are disabled, and app shortcuts are off - except <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>, which still <a href="app-lock.html#auto-lock">locks the app</a> if you have set a lock up. The Private Chat conversation is still there after you unlock.</p>
+    <p>While Private Chat is open the regular chat surface is paused: any in-flight regular generation is cancelled, queued messages wait, a <a href="memory.html">memory</a> extraction still running for a regular chat pauses when you send a message here, and the rest of the app is non-interactive underneath until you close the overlay. <kbd>Tab</kbd> can&rsquo;t reach it, the title-bar search and sidebar toggle are disabled, and app shortcuts are off - except <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> (<kbd>&#8984;</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> on macOS), which still <a href="app-lock.html#auto-lock">locks the app</a> if you have set a lock up. Locking - with that shortcut or by auto-lock - ends the Private Chat session exactly like closing it, so the conversation is gone when you unlock.</p>
 
     <h2 id="attachments">Attaching files</h2>
-    <p>Attach files with the <strong>+</strong> button in the composer. The same 20 MB per-file cap and handling apply as in a regular chat (see <a href="attachments.html">Attachments</a>): text is added to your message, and images go to the model. Dropping files onto the overlay isn&rsquo;t supported - the cursor shows the drop won&rsquo;t be accepted - and a dropped file never lands in the regular chat behind it.</p>
+    <p>Attach files with the <strong>+</strong> button in the composer. The same 20 MB per-file cap and handling apply as in a regular chat (see <a href="attachments.html">Attachments</a>): text is added to your message, and images go to the model, sized by the app-wide <a href="attachments.html#image-scaling">Image scaling</a> setting in <strong>Settings &rarr; Features</strong> - Private Chat has no setting of its own. The <strong>+</strong> button only attaches files: <a href="library.html">Library</a> sources can&rsquo;t be added here. Dropping files onto the overlay isn&rsquo;t supported - the cursor shows the drop won&rsquo;t be accepted - and a dropped file never lands in the regular chat behind it.</p>
 
     <h2 id="shaping-layers">Shaping layers</h2>
     <p>Private Chat reuses the same prompt-shaping layers as a regular chat - just with a few deliberate omissions. Set them in the parameters panel (the sliders icon in the header); the active persona and tone show as chips above the composer, where you can remove them:</p>

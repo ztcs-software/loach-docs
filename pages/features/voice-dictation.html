@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -267,12 +269,12 @@
 
     <h2 id="how-it-works">How it works</h2>
     <p>Click the mic (<strong>Voice dictation</strong>) next to the send button to start. While it listens, the button turns red and pulses. Whatever is already in the message box stays, and what you say is appended after it: interim guesses appear as you speak and settle into final text as the engine commits each phrase.</p>
-    <p>Click the mic again to stop. Sending the message stops dictation for you, and it also ends if the speech engine closes the session on its own. Recognition uses the web view&rsquo;s language - normally your system display language; Loach has no separate language setting.</p>
+    <p>Click the mic again to stop. Sending the message stops dictation for you: what is in the box is what gets sent, and anything the engine was still finishing is dropped rather than written back into the empty box. Dictation also ends if the speech engine closes the session on its own. Recognition uses the web view&rsquo;s language - normally your system display language; Loach has no separate language setting.</p>
 
     <div class="callout tip">
       <div class="callout-body">
-        <div class="callout-title">Edit after you stop</div>
-        <p>Each new phrase rewrites the message box from the text it held when you started plus everything you have said since, so anything you type while dictation is running gets replaced. Stop dictation first, then edit.</p>
+        <div class="callout-title">Typing while you dictate</div>
+        <p>You can edit the message box while dictation is running. Your changes are kept, and the next phrase you say is added at the end of the text as it now stands.</p>
       </div>
     </div>
 
@@ -282,6 +284,7 @@
       <li><strong class="feat-name">&ldquo;Microphone access was blocked. Allow it in your OS sound settings to dictate.&rdquo;</strong> - the microphone permission was denied, or the platform&rsquo;s speech service refused the request. Check that apps are allowed to use the microphone in your OS privacy settings.</li>
       <li><strong class="feat-name">&ldquo;Dictation error: &hellip;&rdquo;</strong> - any other failure, followed by the engine&rsquo;s own error code (for example <code>network</code> when an online speech service can&rsquo;t be reached, or <code>audio-capture</code> when no microphone is available).</li>
       <li><strong class="feat-name">&ldquo;Couldn&rsquo;t start dictation. Try again.&rdquo;</strong> - the engine refused to start.</li>
+      <li><strong class="feat-name">&ldquo;Voice dictation isn&rsquo;t available on this device.&rdquo;</strong> - the web view offers the API but couldn&rsquo;t create a recogniser.</li>
     </ul>
     <p>Stopping before you say anything is not an error, so nothing is shown.</p>
 

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Library - Troubleshooting - Loach Docs</title>
+  <meta name="description" content="Fixes for embedding paused or stuck indexing, links that won&rsquo;t add, sources the model ignores, Chinese, Japanese or Thai keyword search, truncated items, unreadable files and finding an item." />
+  <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
+  <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+  <link rel="canonical" href="https://docs.loach.dev/pages/troubleshooting/library.html" />
+  <meta name="theme-color" content="#fafbfc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e1014" media="(prefers-color-scheme: dark)" />
+  <meta property="og:site_name" content="Loach Docs" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/library.html" />
+  <meta property="og:title" content="Library - Troubleshooting - Loach Docs" />
+  <meta property="og:description" content="Fixes for embedding paused or stuck indexing, links that won&rsquo;t add, sources the model ignores, Chinese, Japanese or Thai keyword search, truncated items, unreadable files and finding an item." />
+  <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Library - Troubleshooting - Loach Docs" />
+  <meta name="twitter:description" content="Fixes for embedding paused or stuck indexing, links that won&rsquo;t add, sources the model ignores, Chinese, Japanese or Thai keyword search, truncated items, unreadable files and finding an item." />
+  <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://docs.loach.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Troubleshooting",
+          "item": "https://docs.loach.dev/pages/troubleshooting.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Library - Troubleshooting",
+          "item": "https://docs.loach.dev/pages/troubleshooting/library.html"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Library - Troubleshooting",
+      "description": "Fixes for embedding paused or stuck indexing, links that won’t add, sources the model ignores, Chinese, Japanese or Thai keyword search, truncated items, unreadable files and finding an item.",
+      "url": "https://docs.loach.dev/pages/troubleshooting/library.html",
+      "image": "https://docs.loach.dev/assets/img/loach-logo.png",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://docs.loach.dev/#website"
+      },
+      "mainEntityOfPage": "https://docs.loach.dev/pages/troubleshooting/library.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ZTCS",
+        "url": "https://github.com/ztcs-software",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://docs.loach.dev/assets/img/loach-icon.png"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a class="brand" href="../../index.html" aria-label="Loach Docs home">
+      <span class="brand-mark">L</span>
+      <span class="brand-name"><span class="brand-name-prefix">Loach </span>Docs</span>
+    </a>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Search the docs…" aria-label="Search documentation" />
+      <span class="search-shortcut">Ctrl K</span>
+      <div class="search-results" role="listbox"></div>
+    </div>
+
+    <div class="topbar-spacer"></div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn search-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn search-close" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a class="icon-btn github-link" href="https://github.com/ztcs-software/loach" target="_blank" rel="noopener" aria-label="View Loach on GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.92 5.31.92 11.58c0 4.89 3.17 9.04 7.57 10.51.55.1.75-.24.75-.53 0-.26-.01-.95-.01-1.86-3.08.67-3.74-1.49-3.74-1.49-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.46-.28-5.05-1.23-5.05-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.49-1.41.11-2.94 0 0 .93-.3 3.05 1.13a10.6 10.6 0 0 1 2.77-.37c.94 0 1.89.13 2.77.37 2.11-1.43 3.04-1.13 3.04-1.13.6 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.26-2.6 5.19-5.07 5.47.4.35.76 1.03.76 2.08 0 1.5-.01 2.71-.01 3.08 0 .29.2.64.76.53 4.4-1.47 7.56-5.62 7.56-10.51C23.08 5.31 18.27.5 12 .5z"/></svg>
+      </a>
+      <div class="theme-toggle" role="group" aria-label="Theme">
+        <button class="theme-toggle-opt" data-theme-set="light" aria-label="Light theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="theme-toggle-opt" data-theme-set="dark" aria-label="Dark theme" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Getting started</div>
+      <a class="sidebar-link" href="../../index.html">Introduction</a>
+      <a class="sidebar-link" href="../installation.html">Installation</a>
+      <a class="sidebar-link" href="../getting-started.html">Quick start</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Core concepts</div>
+      <a class="sidebar-link" href="../concepts.html">Overview</a>
+      <a class="sidebar-link" href="../providers.html">Providers</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Reference</div>
+      <div class="sidebar-group" data-group="features">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-features"><span>Features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu sidebar-submenu--categories" id="sb-features">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../features.html">All features</a></li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-chat-experience">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-chat-experience">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Chat experience</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-chat-experience">
+              <li><a class="sidebar-sublink" href="../features/provider-selection.html">Provider selection</a></li>
+              <li><a class="sidebar-sublink" href="../features/model-management.html">Local model management</a></li>
+              <li><a class="sidebar-sublink" href="../features/parameters.html">Per-chat parameters</a></li>
+              <li><a class="sidebar-sublink" href="../features/personas.html">Personas and tones</a></li>
+              <li><a class="sidebar-sublink" href="../features/custom-instructions.html">Custom instructions</a></li>
+              <li><a class="sidebar-sublink" href="../features/generation-stats.html">Generation stats</a></li>
+              <li><a class="sidebar-sublink" href="../features/markdown.html">Markdown rendering</a></li>
+              <li><a class="sidebar-sublink" href="../features/math.html">LaTeX math</a></li>
+              <li><a class="sidebar-sublink" href="../features/code-canvas.html">Code blocks &amp; canvas</a></li>
+              <li><a class="sidebar-sublink" href="../features/slash-commands.html">Slash commands</a></li>
+              <li><a class="sidebar-sublink" href="../features/context-compaction.html">Context &amp; compaction</a></li>
+              <li><a class="sidebar-sublink" href="../features/pinned-responses.html">Pinned responses</a></li>
+              <li><a class="sidebar-sublink" href="../features/concurrency.html">Concurrency &amp; queue</a></li>
+              <li><a class="sidebar-sublink" href="../features/private-chat.html">Private Chat</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-organization">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-organization">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Organization</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-organization">
+              <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
+              <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
+              <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
+              <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
+              <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
+              <li><a class="sidebar-sublink" href="../features/search.html">Search</a></li>
+              <li><a class="sidebar-sublink" href="../features/import-export.html">Import and export context</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-input-output">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-input-output">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Input &amp; output</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-input-output">
+              <li><a class="sidebar-sublink" href="../features/attachments.html">Attachments</a></li>
+              <li><a class="sidebar-sublink" href="../features/voice-dictation.html">Voice dictation</a></li>
+              <li><a class="sidebar-sublink" href="../features/web-fetch.html">Web fetch</a></li>
+              <li><a class="sidebar-sublink" href="../features/share-message.html">Share a message</a></li>
+              <li><a class="sidebar-sublink" href="../features/temporal-awareness.html">Temporal awareness</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-advanced">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-advanced">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Advanced</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-advanced">
+              <li><a class="sidebar-sublink" href="../features/mcp.html">MCP support</a></li>
+              <li><a class="sidebar-sublink" href="../features/built-in-tools.html">Built-in tools</a></li>
+              <li><a class="sidebar-sublink" href="../features/work-in-folders.html">Work in folders</a></li>
+              <li><a class="sidebar-sublink" href="../features/default-model.html">Default model selector</a></li>
+              <li><a class="sidebar-sublink" href="../features/model-preloading.html">Model preloading</a></li>
+              <li><a class="sidebar-sublink" href="../features/low-vram.html">Low VRAM mode</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-security-data">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-security-data">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Security &amp; data</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-security-data">
+              <li><a class="sidebar-sublink" href="../features/app-lock.html">App lock</a></li>
+              <li><a class="sidebar-sublink" href="../features/data-management.html">Data management</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-appearance-updates">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-appearance-updates">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Appearance &amp; updates</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-appearance-updates">
+              <li><a class="sidebar-sublink" href="../features/themes.html">Themes</a></li>
+              <li><a class="sidebar-sublink" href="../features/ota-updates.html">OTA updates</a></li>
+            </ul>
+          </li>
+          <li class="sidebar-group sidebar-group--category" data-group="features-reference">
+            <button class="sidebar-group-toggle sidebar-category-toggle" type="button" aria-expanded="false" aria-controls="sb-features-reference">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <span>Reference</span>
+            </button>
+            <ul class="sidebar-submenu" id="sb-features-reference">
+              <li><a class="sidebar-sublink" href="../features/onboarding.html">Onboarding wizard</a></li>
+              <li><a class="sidebar-sublink" href="../features/keyboard.html">Keyboard shortcuts</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <a class="sidebar-link" href="../privacy.html">Storage &amp; privacy</a>
+      <a class="sidebar-link" href="../tech-stack.html">Tech stack</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Help</div>
+      <a class="sidebar-link" href="../faq.html">FAQ</a>
+      <div class="sidebar-group" data-group="troubleshooting">
+        <button class="sidebar-link sidebar-toplevel-toggle" type="button" aria-expanded="false" aria-controls="sb-troubleshooting"><span>Troubleshooting</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <ul class="sidebar-submenu" id="sb-troubleshooting">
+          <li><a class="sidebar-sublink sidebar-overview-link" href="../troubleshooting.html">All topics</a></li>
+          <li><a class="sidebar-sublink" href="providers-connections.html">Providers &amp; connections</a></li>
+          <li><a class="sidebar-sublink" href="messages.html">Sending &amp; receiving messages</a></li>
+          <li><a class="sidebar-sublink" href="performance.html">Performance &amp; VRAM</a></li>
+          <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
+          <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
+          <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
+          <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
+          <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
+          <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
+          <li><a class="sidebar-sublink" href="data.html">Data, import &amp; export</a></li>
+          <li><a class="sidebar-sublink" href="appearance.html">Appearance &amp; window</a></li>
+          <li><a class="sidebar-sublink" href="search-palette.html">Search palette</a></li>
+          <li><a class="sidebar-sublink" href="platform.html">Platform</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <p class="breadcrumb"><a href="../troubleshooting.html">&larr; All troubleshooting topics</a></p>
+    <h1>Library</h1>
+    <p class="lead">The Library gives a chat its sources in full or searches them for the relevant parts; search by meaning needs an embedding model Loach can reach. When a reply surprises you, start with the sources chip above it - it says what the model actually got.</p>
+
+    <h2 id="embedding-paused">Search by meaning says &ldquo;Embedding paused&rdquo;</h2>
+    <p class="problem-statement">The Library header shows <strong>Embedding paused</strong> (<strong>Settings &rarr; Library</strong> reads <em>Embedding is paused</em>), and replies&rsquo; sources chips say the embedding model was unavailable.</p>
+    <p>Loach can&rsquo;t reach the embedding model, so it searches your sources by keyword until it can - nothing is lost. Hover the header button, or open <strong>Settings &rarr; Library</strong>, for the reason:</p>
+    <ul>
+      <li><strong>The model isn&rsquo;t found</strong> - it isn&rsquo;t installed in Ollama. Settings shows <em>&hellip; isn&rsquo;t installed in Ollama</em> with a <strong>Download it</strong> link, or pick a suggested model with <strong>Download &amp; use</strong>.</li>
+      <li><strong>A connection error</strong> (such as <em>error sending request</em>) - Ollama, or the OpenAI-compatible endpoint, isn&rsquo;t running or can&rsquo;t be reached. Start it, check its address under <strong>Settings &rarr; Providers</strong>, then click <strong>Retry</strong>.</li>
+      <li><strong>The endpoint answers but rejects the model</strong> - pick one it serves for embeddings; a chat model won&rsquo;t do.</li>
+    </ul>
+    <p>Loach tries again by itself every minute, and straight away when you change the model or the server&rsquo;s address. Messages sent meanwhile don&rsquo;t wait on the model: once one couldn&rsquo;t reach it, those in the next minute go straight to keyword search.</p>
+
+    <h2 id="indexing">Indexing never seems to finish</h2>
+    <p class="problem-statement"><strong>Indexing n / m</strong> stays in the Library header, or items keep their <em>Indexing</em> badge.</p>
+    <p>Embedding runs in the background, a batch at a time, and a large Library on a CPU-only machine takes a while; keyword search works throughout. If the count stops moving, check <strong>Settings &rarr; Library</strong>: when something fails, the status turns into <em>Embedding is paused</em> with the reason (see above).</p>
+    <p>Passages a model refuses or fails on by themselves - too long for some servers, or one that crashes the model&rsquo;s runner - are set aside for keyword search and don&rsquo;t hold up the rest. Editing the source, new embedding settings or a rebuild gives them another try. <strong>Rebuild</strong> in <strong>Settings &rarr; Library</strong> starts over from scratch; use it too when a reply&rsquo;s sources chip says excerpts were <em>embedded by a different version of the model</em>, for example after you pulled a newer model under the same name.</p>
+    <p>Changing the embedding model, or the address of the server it runs on, re-embeds every source, so the count starts over then.</p>
+
+    <h2 id="link-wont-add">A link won&rsquo;t add</h2>
+    <p class="problem-statement"><strong>Add link</strong> stays greyed out, or fails with an error.</p>
+    <ul>
+      <li><strong>The button stays greyed out</strong> - the address has no dot in its host, like <code>localhost</code> or a bare intranet name. Those aren&rsquo;t accepted; copy the page&rsquo;s text into a <strong>New text</strong> instead.</li>
+      <li><em>Refusing to fetch &hellip;</em> - links to loopback, private-network and VPN addresses are refused, the same as for <a href="web-fetch-mcp.html#url-blocked">web fetch</a>. Copy the page&rsquo;s text into a <strong>New text</strong> instead.</li>
+      <li><em>This link serves &hellip;, which can&rsquo;t be read as text</em> - the link points at a file, such as a PDF, not a page. Download it and add it under <strong>Files</strong>.</li>
+      <li><em>The page has no readable text</em> - the page builds its content with scripts, which Loach doesn&rsquo;t run. Copy its text into a <strong>New text</strong>.</li>
+      <li><em>Fetch exceeded its 30s time budget</em> - a slow page gets 30 seconds; anything past 5 MB is cut. <em>Web fetch rate limit hit</em> means more than 60 fetches in a minute, links and web fetch together - wait a moment.</li>
+    </ul>
+    <p>Web fetch and Library links connect directly and never through a proxy, so a network that only lets traffic out through one can&rsquo;t fetch links. A link is a snapshot: when the page changes, <strong>Refresh</strong> it.</p>
+
+    <h2 id="source-ignored">The model ignored my source, or used the wrong part of it</h2>
+    <p class="problem-statement">A reply doesn&rsquo;t reflect a source you attached.</p>
+    <p>Expand the sources chip above the reply. It lists the sources and says whether the model read them <strong>in full</strong> or got <strong>excerpts</strong>.</p>
+    <ul>
+      <li><strong>Excerpts</strong> - only the passages most relevant to your message were sent. Name the topic in the message, set an embedding model so sources are also searched by meaning, or switch the chat&rsquo;s <strong>Sources</strong> chip to <strong>Full text</strong> if they fit.</li>
+      <li><strong>Cut to fit</strong>, or a source named as left out - the sources didn&rsquo;t fit the context window. Raise the chat&rsquo;s context length, attach fewer sources, or switch to <strong>Excerpts</strong>. On an OpenAI-compatible chat Loach assumes a 32k window unless you set one; set the context length to your model&rsquo;s real window if it&rsquo;s larger. A Space made before Loach 1.6 stays on <strong>Full text</strong>, as it always worked - switch it to <strong>Auto</strong> on its <strong>Settings</strong> tab to have long sources searched once they don&rsquo;t fit.</li>
+      <li><strong>No chip at all</strong> - the source isn&rsquo;t reaching the chat. Check it&rsquo;s attached to this chat or linked to its Space, and switched on (a Space&rsquo;s <strong>Sources</strong> tab). Private Chat never uses sources.</li>
+    </ul>
+    <p>Small local models sometimes overlook long context; a larger model helps. See <a href="../features/library.html#source-modes">How sources reach the model</a>.</p>
+
+    <h2 id="cjk-keyword-search">Keyword search finds nothing in Chinese, Japanese or Thai text</h2>
+    <p class="problem-statement">Excerpts from these sources don&rsquo;t match the question - the chip shows the opening part of each source instead.</p>
+    <p>These languages don&rsquo;t put spaces between words, so keyword search can only match long runs of text. Set a multilingual embedding model in <strong>Settings &rarr; Library</strong> (<code>embeddinggemma</code>, <code>qwen3-embedding:0.6b</code> or <code>bge-m3</code>) - search by meaning doesn&rsquo;t depend on spaces - or switch the chat to <strong>Full text</strong> when the sources fit.</p>
+
+    <h2 id="truncated">An item is marked &ldquo;Truncated&rdquo;</h2>
+    <p class="problem-statement">A Library item shows an amber <strong>Truncated</strong> badge.</p>
+    <p>An item keeps up to 200,000 characters - roughly a 100-page document - and a link&rsquo;s page is read up to 5 MB. The rest was cut; a text cut at 200,000 characters ends with a note telling the model it&rsquo;s incomplete. Split the document and add the parts as separate items, then put them in one dataset to attach them together. Editing a cut text doesn&rsquo;t bring back what was cut.</p>
+
+    <h2 id="unreadable-upload">A file won&rsquo;t add, or a Space upload says &ldquo;unreadable&rdquo;</h2>
+    <p class="problem-statement">Adding a file to the Library fails with <em>Couldn&rsquo;t add &hellip;</em>, or on a Space&rsquo;s <strong>Sources</strong> tab an upload shows <strong>unreadable</strong> instead of a token count.</p>
+    <ul>
+      <li><em>not a format Loach can read</em> - binary spreadsheets (<code>.xlsx</code>), archives and legacy <code>.doc</code> files have no text Loach can extract. Save the file as PDF, Word (<code>.docx</code>) or plain text and add that; CSV works as it is. A Space keeps such a file but marks it <strong>unreadable</strong> and never sends it to a model.</li>
+      <li><em>no readable text - it may be a scanned PDF</em> - the PDF is a scan with no text layer (or the document is empty). Run it through OCR, or add its pages as images or a text version. The Library and Space uploads both refuse these.</li>
+      <li><em>exceeds the 20 MB limit</em> - each file can be at most 20 MB.</li>
+    </ul>
+
+    <h2 id="find-item">I can&rsquo;t find a Library item</h2>
+    <p class="problem-statement">The Library page has no search box, and the search palette doesn&rsquo;t list an item you know is there.</p>
+    <p>The Library is searched from the search palette (<kbd>Ctrl</kbd> + <kbd>K</kbd>); type <code>in:library</code> or pick <em>Library</em> in the scope dropdown to see only Library items and datasets. Items match by title, the opening of their text (about 280 characters) and a link&rsquo;s address - not by words deeper in the body. Datasets match by name and description. To find a passage inside your sources, ask in a chat that has them attached.</p>
+    <div class="page-nav">
+      <a href="spaces-memory.html">
+        <span class="label">Previous</span>
+        <span class="title">&larr; Spaces &amp; memory</span>
+      </a>
+      <a href="app-lock.html" class="next">
+        <span class="label">Next</span>
+        <span class="title">App lock &rarr;</span>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; <span class="footer-year"></span> <a href="https://github.com/ztcs-software" target="_blank" rel="noopener">ZTCS</a><br>Loach Docs <span class="footer-version"></span></p>
+    </footer>
+  </main>
+</div>
+
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/search-index.js"></script>
+<script src="../../assets/js/search.js"></script>
+</body>
+</html>

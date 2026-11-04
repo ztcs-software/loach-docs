@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Models editor - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach’s Models tab and editor: Save as new model validation errors, stuck pulls, delete failures and a forgotten Thinking preference." />
+  <meta name="description" content="Troubleshoot Loach’s Models tab and editor: Save as new model errors and replace prompts, stuck pulls, delete failures and a per-model Thinking preference that doesn’t apply." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/models-editor.html" />
   <meta property="og:title" content="Models editor - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach’s Models tab and editor: Save as new model validation errors, stuck pulls, delete failures and a forgotten Thinking preference." />
+  <meta property="og:description" content="Troubleshoot Loach’s Models tab and editor: Save as new model errors and replace prompts, stuck pulls, delete failures and a per-model Thinking preference that doesn’t apply." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Models editor - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach’s Models tab and editor: Save as new model validation errors, stuck pulls, delete failures and a forgotten Thinking preference." />
+  <meta name="twitter:description" content="Troubleshoot Loach’s Models tab and editor: Save as new model errors and replace prompts, stuck pulls, delete failures and a per-model Thinking preference that doesn’t apply." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Models editor - Troubleshooting",
-      "description": "Troubleshoot Loach’s Models tab and editor: Save as new model validation errors, stuck pulls, delete failures and a forgotten Thinking preference.",
+      "description": "Troubleshoot Loach’s Models tab and editor: Save as new model errors and replace prompts, stuck pulls, delete failures and a per-model Thinking preference that doesn’t apply.",
       "url": "https://docs.loach.dev/pages/troubleshooting/models-editor.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -273,7 +275,9 @@
   <li>The <strong>Base model (FROM)</strong> tag must only contain letters, digits, <code>.</code>, <code>_</code>, <code>/</code>, or <code>-</code>, plus one <code>:</code> before the tag (so <code>llama3.1:8b</code> and a Hugging Face pull such as <code>hf.co/user/repo:Q4_K_M</code> are fine). No spaces, no quotes, and no empty path segments (<code>a//b</code>, or a leading or trailing <code>/</code>).</li>
   <li>The <strong>System prompt</strong> and <strong>Prompt template</strong> cannot contain <code>&quot;&quot;&quot;</code>. If you need a triple-quote in your system prompt, rephrase.</li>
   <li><strong>Save</strong> stays disabled until both <strong>New model tag</strong> and <strong>Base model (FROM)</strong> are filled in. If Ollama itself rejects the model - say, the base model isn&rsquo;t installed - its error appears next to the button.</li>
-  <li><strong>Save as new model</strong> writes under the tag you type. If a model with that tag already exists, it&rsquo;s replaced without asking - pick a tag that isn&rsquo;t taken if you want to keep the old one.</li>
+  <li><strong>Top-K</strong>, <strong>Context</strong>, <strong>Max tokens</strong> and <strong>GPU layers</strong> take whole numbers of 0 or more, and <strong>Seed</strong> a whole number. Anything else snaps back to the previous value.</li>
+  <li>&ldquo;Couldn&rsquo;t read the Modelfile: &hellip;&rdquo; - Ollama 0.5.5 and later want the Modelfile split into separate fields, and Loach couldn&rsquo;t split this one. The usual cause is an <em>unsupported directive</em>: a <strong>System prompt</strong> or <strong>Prompt template</strong> that ends in a <code>&quot;</code> runs into the closing <code>&quot;&quot;&quot;</code>, and the leftover quote reads as a directive of its own. Add a space or a full stop after that last quote.</li>
+  <li><strong>Save as new model</strong> writes under the tag you type. If a model with that tag already exists - or the tag is the base model&rsquo;s own - Loach asks before replacing it (<strong>Replace</strong>); pick a tag that isn&rsquo;t taken if you want to keep the old one. <strong>Duplicate</strong> asks the same way before it overwrites a tag.</li>
 </ul>
 
     <h2 id="pull-stuck">A model pull is stuck</h2>
@@ -288,9 +292,9 @@
     <p class="problem-statement">Delete fails with a <em>Couldn&rsquo;t delete model</em> toast.</p>
     <p>The toast quotes Ollama&rsquo;s own error - Loach never blocks a delete itself. Check that Ollama is still reachable (the chat-header model picker shows an amber warning and &ldquo;Not running&rdquo; when it isn&rsquo;t) and that the tag matches what <code>ollama list</code> shows, then retry from the Models tab.</p>
 
-    <h2 id="thinking-pref-reset">My Thinking preference for a model was forgotten</h2>
-    <p class="problem-statement">You set <strong>Allow thinking step</strong> in the Models editor, and after restarting Loach the model is back to its own default.</p>
-    <p>That per-model preference is kept only until Loach restarts. For a lasting choice, flip the Thinking toggle in a chat&rsquo;s parameters panel - that one is saved with the chat - or set the default for every new chat in <strong>Settings &rarr; Features &rarr; Thinking</strong>.</p>
+    <h2 id="thinking-pref-reset">My per-model Thinking preference doesn&rsquo;t apply</h2>
+    <p class="problem-statement">You set <strong>Allow thinking step</strong> in the Models editor, but a chat with that model still thinks (or doesn&rsquo;t) the old way.</p>
+    <p>That setting is the default for chats with the model, saved on this device. A chat whose own <strong>Thinking</strong> toggle you flipped in its parameters panel keeps that choice - reset the chat&rsquo;s parameters to fall back to the model&rsquo;s default. The preference isn&rsquo;t part of a backup either, so after <strong>Import data</strong> on another machine, set it again. <strong>Settings &rarr; Features &rarr; Thinking</strong> sets the default for models without a preference of their own.</p>
 
     <div class="page-nav">
       <a href="app-lock.html">

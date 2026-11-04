@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -285,8 +287,9 @@
     <p><strong>Settings → Features → Keep model loaded</strong> controls how long Ollama keeps a model resident after a reply (<strong>5 min</strong>, <strong>30 min</strong>, <strong>1 hour</strong> or <strong>Always</strong>), so a reply after a pause skips the cold reload.</p>
 
     <h3 id="ollama-remote">Pointing at a remote Ollama</h3>
-    <p>If Ollama is running on another machine on your network, change the <strong>Ollama base URL</strong> in <strong>Settings → Providers</strong>. Make sure the remote server is reachable from your machine and listening on a routable interface (<code>OLLAMA_HOST=0.0.0.0</code> on the server). <strong>Test connection</strong> under the field queries the server and reports how many models it lists, or a readable error, so you can confirm a custom base URL works without opening a chat. <strong>Start Ollama</strong> and <strong>Auto-launch Ollama</strong> only work for this computer - a remote server is yours to start.</p>
+    <p>If Ollama is running on another machine on your network, change the <strong>Ollama base URL</strong> in <strong>Settings → Providers</strong>. Make sure the remote server is reachable from your machine and listening on a routable interface (<code>OLLAMA_HOST=0.0.0.0</code> on the server). <strong>Test connection</strong> under the field queries the server and reports how many models it lists, or a readable error, so you can confirm a custom base URL works without opening a chat. A <code>404</code> usually means the URL has a path on it - use the server&rsquo;s address alone, such as <code>http://localhost:11434</code>, not <code>…/v1</code> or <code>…/api</code>. A <code>401</code> or <code>403</code> comes from something in front of Ollama asking for a login: Loach sends Ollama no credentials, so point it at Ollama directly. <strong>Start Ollama</strong> and <strong>Auto-launch Ollama</strong> only work for this computer - a remote server is yours to start.</p>
     <p>For any provider, Loach refuses a base URL on a link-local address (<code>169.254.x.x</code>, <code>fe80::</code>), the range where cloud-metadata services live.</p>
+    <p>Requests to both providers go through a proxy when your environment or system settings name one. Web fetch, <a href="features/library.html">Library</a> links and HTTP MCP servers are different: they always connect directly.</p>
 
     <h2 id="openai">OpenAI-compatible endpoints</h2>
     <p>Anything that speaks the OpenAI Chat Completions protocol works - the real OpenAI API, llama.cpp&rsquo;s <code>llama-server</code>, LM Studio, vLLM, LiteLLM, OpenRouter, Groq and other proxies. Configure it in <strong>Settings → Providers</strong>:</p>
@@ -294,8 +297,9 @@
       <li>Set the <strong>API base URL</strong>, or pick one from the presets dropdown at the end of the field. It&rsquo;s saved as you type. Loach appends <code>/chat/completions</code> and <code>/models</code> to it, so include the <code>/v1</code> (or other prefix) the server&rsquo;s docs give.</li>
       <li>Paste the <strong>OpenAI API key</strong> and click <strong>Save</strong>. It&rsquo;s stored in your OS credential manager (Windows Credential Manager, macOS Keychain or the Linux Secret Service) - never in plain text on disk - and the field stays blank afterwards, showing <code>•••••••• (stored)</code>. <strong>Clear</strong> removes it. Local servers such as llama.cpp, LM Studio and vLLM usually need no key at all.</li>
       <li>Use <strong>Test connection</strong> to verify the base URL and key before opening a chat - it lists the endpoint&rsquo;s models and reports the count, or a readable error if something is off. Save a typed key first; the button waits for it.</li>
-      <li>Pick a model from the <strong>API</strong> group in the chat-header model picker.</li>
+      <li>Pick a model from the <strong>API</strong> group in the chat-header model picker. It lists every model the endpoint returns; the menu scrolls, and typing a model&rsquo;s first letters jumps to it.</li>
     </ol>
+    <p>On Windows, the Credential Manager can&rsquo;t hold a key longer than 1,280 characters, so Loach refuses one that long when you save it. On Linux, a Secret Service that starts after Loach is picked up on the next save or read - no restart needed - and while none can be read, a server without a key still lists its models.</p>
     <p>With the default OpenAI base URL, Loach lists models only once a key is saved - so clearing the key empties the API list in the model pickers instead of leaving models that could only fail at send time. A base URL of your own is listed with or without a key.</p>
 
     <div class="callout warn">
@@ -306,7 +310,7 @@
     </div>
 
     <h3 id="endpoints">Common base URLs</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead>
         <tr><th>Provider</th><th>Base URL</th></tr>
       </thead>
@@ -322,7 +326,7 @@
         <tr><td>Fireworks</td><td><code>https://api.fireworks.ai/inference/v1</code></td></tr>
         <tr><td>Mistral</td><td><code>https://api.mistral.ai/v1</code></td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <p>The <strong>presets</strong> dropdown at the end of the base-URL field fills in the documented endpoint for OpenAI, llama.cpp (<code>llama-server</code>), LM Studio, vLLM and LiteLLM in one click. The table above is the fuller reference for the providers that aren&rsquo;t in that dropdown.</p>
 
@@ -333,6 +337,16 @@
         <p>Only one OpenAI-compatible endpoint is active at a time. To switch providers (say, from Groq to OpenRouter) change the base URL and key in Settings. Your chats with the previous endpoint keep their history, but from then on every API chat goes to the new endpoint - pick one of its models from the chat header if the old model name isn&rsquo;t served there.</p>
       </div>
     </div>
+
+    <h3 id="reasoning-models">Reasoning models</h3>
+    <p>OpenAI&rsquo;s reasoning models (the o-series and GPT-5) turn down some of the fields Loach sends, such as <code>max_tokens</code> or <code>temperature</code>. When a server answers <code>400</code> naming one of those fields, Loach adjusts the request and sends it again - <code>max_tokens</code> becomes <code>max_completion_tokens</code>, and the other fields are dropped - so these models work with no setup. The adjustment lasts for that reply, so each new message makes the first, refused request again.</p>
+    <p>Servers that stream a model&rsquo;s reasoning - as <code>reasoning_content</code>, or as <code>reasoning</code> like Ollama&rsquo;s <code>/v1</code>, OpenRouter and newer vLLM - show it in a <strong>Thinking</strong> block above the reply.</p>
+
+    <h3 id="openai-context">Context window</h3>
+    <p>An OpenAI-compatible server decides the context window itself, so Loach never sends one. To size the <a href="features/context-compaction.html">context bar</a> and how much of your <a href="features/library.html#source-modes">Library sources</a> fits, it assumes <strong>32k</strong> (32,768 tokens) unless the chat sets a <strong>Context Length</strong> in its <a href="features/parameters.html">parameters panel</a>. Set it to your model&rsquo;s real window for an accurate bar.</p>
+
+    <h2 id="embeddings">Embedding models for the Library</h2>
+    <p>The <a href="features/library.html">Library</a> searches big sources by keyword out of the box. To search them by meaning as well, set an <strong>embedding model</strong> in <strong>Settings &rarr; Library</strong>. It runs on either provider: on Ollama (Loach suggests models such as <code>embeddinggemma</code> and offers to download one), or on your OpenAI-compatible endpoint (<code>text-embedding-3-small</code>, for example). With the OpenAI-compatible endpoint, your sources&rsquo; text and every message that searches them are sent there - in chats with a local model too. Changing the provider, the model or that provider&rsquo;s base URL re-embeds every source in the background. See <a href="features/library.html#search">Library &rarr; Search</a>.</p>
 
     <h2 id="default-model">Default model</h2>
     <p><strong>Settings → General → Default model</strong> picks the model new chats open with: whichever you used most recently, the last model you used on a given provider, or one specific model. You can still change the model per chat from the header. See <a href="features/default-model.html">Default model selector</a>.</p>

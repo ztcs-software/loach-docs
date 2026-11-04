@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -285,17 +287,17 @@
     <p><strong>Settings &rarr; Updates</strong> shows your current version and a <strong>Check for updates</strong> button, which works whether or not the auto-check is on:</p>
     <ul>
       <li>Up to date: <em>You&rsquo;re on the latest version.</em>, with a <strong>Check again</strong> button.</li>
-      <li>A newer release: the new and current version numbers, that release&rsquo;s notes under <strong>What&rsquo;s new</strong>, and <strong>Install update</strong> / <strong>Re-check</strong>.</li>
+      <li>A newer release: the new and current version numbers, that release&rsquo;s notes under <strong>Release notes</strong>, and <strong>Install update</strong> / <strong>Re-check</strong>.</li>
       <li>Installing: a progress bar with the downloaded size and percentage, and the note that the app restarts automatically once the update is installed.</li>
-      <li>Anything that goes wrong - a failed check, download or install - shows <em>Update failed:</em> with the reason and a <strong>Try again</strong> button.</li>
+      <li>Anything that goes wrong - a failed check, download, install or restart - shows <em>Update failed:</em> with the reason and a <strong>Try again</strong> button, and Settings can be closed again.</li>
     </ul>
-    <p>Once a download has started it can&rsquo;t be cancelled: the update installs and Loach restarts on its own. The updater only offers the newest <strong>published stable</strong> release - drafts and pre-releases are never offered in-app.</p>
+    <p>Once a download has started it can&rsquo;t be cancelled: the update installs and Loach restarts on its own. Until then Settings can&rsquo;t be closed or switched to another tab. The updater only offers the newest <strong>published stable</strong> release - drafts and pre-releases are never offered in-app.</p>
 
     <h2 id="auto-check">Auto-check for updates</h2>
-    <p>Off by default. Switch on <strong>Auto-check for updates</strong> in <strong>Settings &rarr; Updates</strong> and Loach asks the release server once per launch whether a newer version exists; the switch takes effect from the next launch. If a newer version exists, an <strong>Update available</strong> dialog opens with the current and new version numbers, that release&rsquo;s notes, and <strong>Update now</strong> / <strong>Later</strong> - nothing is downloaded or installed until you pick <em>Update now</em>. The check is otherwise silent: no &ldquo;up to date&rdquo; notice, and a failed check is only logged. The dialog never appears over the lock screen or the onboarding wizard, and while an update downloads it can&rsquo;t be closed.</p>
+    <p>Off by default. Switch on <strong>Auto-check for updates</strong> in <strong>Settings &rarr; Updates</strong> and Loach asks the release server once per launch whether a newer version exists - locking and unlocking Loach doesn&rsquo;t check again; the switch takes effect from the next launch. If a newer version exists, an <strong>Update available</strong> dialog opens with the current and new version numbers, that release&rsquo;s notes, and <strong>Update now</strong> / <strong>Later</strong> - nothing is downloaded or installed until you pick <em>Update now</em>. The check is otherwise silent: no &ldquo;up to date&rdquo; notice, and a failed check is only logged. The dialog never appears over the lock screen or the onboarding wizard, and while an update downloads it can&rsquo;t be closed. If the update fails, the dialog shows <em>Update failed:</em> with the reason, and <strong>Update now</strong> becomes <strong>Try again</strong>.</p>
 
-    <h2 id="release-notes">What&rsquo;s new</h2>
-    <p>Every release ships with a markdown notes file that populates the GitHub release body, the in-app <strong>Updates</strong> panel and the <em>Update available</em> dialog when an upgrade is available. Skim it before clicking install if you want to know what is changing.</p>
+    <h2 id="release-notes">Release notes</h2>
+    <p>Every release ships with a markdown notes file that populates the GitHub release body and, under <strong>Release notes</strong>, the in-app <strong>Updates</strong> panel and the <em>Update available</em> dialog when an upgrade is available. Skim it before clicking install if you want to know what is changing.</p>
 
     <h2 id="signing">Signing</h2>
     <p>Update bundles are cryptographically signed. The updater verifies the signature against a key bundled with the app before replacing any binary on disk, so a man-in-the-middle on the download channel cannot swap in a tampered build.</p>

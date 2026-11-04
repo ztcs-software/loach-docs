@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -274,23 +276,23 @@
       <li><strong class="feat-name">Display name</strong> - the label shown in menus and in the approval card. One line, at most 100 characters.</li>
       <li><strong class="feat-name">Transport</strong> - <strong>Streamable HTTP</strong> or <strong>Local process (stdio)</strong>; the fields below it change to match.</li>
       <li><strong class="feat-name">Ask before each tool call</strong> - the per-call approval switch, on by default (see <a href="#approvals">Approving tool calls</a>).</li>
-      <li><strong class="feat-name">Enabled</strong> - disable a server without deleting it. The same switch sits on the server&rsquo;s row in the list, next to the delete button, which asks before removing anything.</li>
+      <li><strong class="feat-name">Enabled</strong> - disable a server without deleting it. The same switch sits on the server&rsquo;s row in the list, next to the delete button, which asks before removing anything. A server saved switched off isn&rsquo;t looked up, so you can rename or disable one whose host doesn&rsquo;t resolve right now (offline, off the VPN); switching it on checks the address again.</li>
       <li><strong class="feat-name">Test connection</strong> - runs the <code>initialize</code> + <code>tools/list</code> handshake without saving, and reports the server&rsquo;s name and version, the protocol version and its tool list. Use this before saving.</li>
     </ul>
 
     <h3 id="http">Streamable HTTP</h3>
     <ul class="feature-list">
       <li><strong class="feat-name">URL</strong> - the server&rsquo;s <code>http(s)://&hellip;</code> endpoint, where requests are POSTed. <code>localhost</code> and private LAN addresses are accepted, since self-hosted servers commonly live there; only link-local (cloud-metadata) addresses are refused. The legacy two-endpoint SSE transport is not supported.</li>
-      <li><strong class="feat-name">Headers</strong> - optional, one <code>Name: value</code> per line, typically <code>Authorization: Bearer &hellip;</code>. Up to 16.</li>
+      <li><strong class="feat-name">Headers</strong> - optional, one <code>Name: value</code> per line, typically <code>Authorization: Bearer &hellip;</code>. Up to 16. When you open a server that already has headers, the field is masked; its eye button (<strong>Show values</strong> / <strong>Hide values</strong>) reveals it.</li>
     </ul>
 
     <h3 id="stdio">Local process (stdio)</h3>
     <ul class="feature-list">
       <li><strong class="feat-name">Command</strong> - a program on your <code>PATH</code> (<code>npx</code>, <code>uvx</code>, <code>node</code>) or a full path to one.</li>
       <li><strong class="feat-name">Arguments</strong> - one per line, with no shell quoting: each line is passed as one argument, spaces included; only the ends of a line are trimmed.</li>
-      <li><strong class="feat-name">Environment variables</strong> - optional <code>NAME=value</code> lines layered over Loach&rsquo;s own environment. This is where most servers take their API keys.</li>
+      <li><strong class="feat-name">Environment variables</strong> - optional <code>NAME=value</code> lines layered over Loach&rsquo;s own environment. This is where most servers take their API keys, so the field is masked like <strong>Headers</strong>.</li>
     </ul>
-    <p>Loach starts the program in your home folder - so a relative path in its arguments means the same thing however Loach was launched - and talks to it over its standard input and output. Saving doesn&rsquo;t start it: it first runs when you test it, list tools with <code>/tools</code>, or send a message while it is enabled, and then stays running between turns. When you disable, edit or delete the server, Loach closes its input and gives it two seconds to exit; one that doesn&rsquo;t is stopped along with every process it started (such as the <code>node</code> behind <code>npx</code>). When Loach quits, its servers are stopped at once. If the program exits before it answers, <strong>Test connection</strong> quotes the last lines of its error output (<code>npm ERR! 404</code>, a Python traceback), which usually says why.</p>
+    <p>Loach starts the program in your home folder - so a relative path in its arguments means the same thing however Loach was launched - and talks to it over its standard input and output. Saving doesn&rsquo;t start it: it first runs when you test it, list tools with <code>/tools</code>, or send a message while it is enabled, and then stays running between turns. When you disable, edit or delete the server, Loach closes its input and gives it two seconds to exit; one that doesn&rsquo;t is stopped along with every process it started (such as the <code>node</code> behind <code>npx</code>). When Loach quits, idle servers have their input closed and share one second to exit before they are stopped; one in the middle of a call is stopped at once. If the program exits before it answers, <strong>Test connection</strong> quotes the last lines of its error output (<code>npm ERR! 404</code>, a Python traceback), which usually says why.</p>
     <p>On Windows, a bare <code>npx</code> resolves to <code>npx.cmd</code> through Loach&rsquo;s own <code>PATH</code>, so commands work as typed; a <code>PATH</code> set in the server&rsquo;s environment isn&rsquo;t used for that lookup. On macOS and Linux the server gets the <code>PATH</code> your login shell builds - the one a terminal sees - followed by Loach&rsquo;s own, so tools installed through Homebrew, nvm or <code>~/.local/bin</code> are found even when Loach was started from the Dock or an app menu. A <code>PATH</code> set in the server&rsquo;s environment replaces both.</p>
 
     <h2 id="consent">Consent before a program runs</h2>
@@ -300,7 +302,7 @@
       <li><strong class="feat-name">What it refuses</strong> - a command line too long to show in full (over 1,500 characters) rather than cutting it short, and control characters or invisible and text-reordering Unicode anywhere in the name, command, arguments or environment.</li>
       <li><strong class="feat-name">Cancel is the default</strong> - pressing <kbd>Enter</kbd> declines; only clicking <strong>Start server</strong> starts the program. The dialog comes from Loach&rsquo;s native side rather than the app window, so nothing inside the window can click it for you.</li>
       <li><strong class="feat-name">Once per session</strong> - an approved command line is remembered until you quit, so a test followed by a save asks once. After a restart, an enabled server you already approved starts without asking, though <strong>Test connection</strong> asks again.</li>
-      <li><strong class="feat-name">Auto-approve is part of it</strong> - when <strong>Ask before each tool call</strong> is off, the dialog says so: agreeing to run the program then also means its tools run unasked.</li>
+      <li><strong class="feat-name">Auto-approve is part of it</strong> - when <strong>Ask before each tool call</strong> is off, the dialog says so: agreeing to run the program then also means its tools run unasked. Turning it off later, on a server you already approved, doesn&rsquo;t ask again.</li>
     </ul>
 
     <h2 id="approvals">Approving tool calls</h2>
@@ -325,17 +327,25 @@
 
     <h2 id="safety">Safety guards</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">HTTP</strong> - URLs are validated and the resolved addresses pinned for the connection, header names and values are checked for disallowed characters and size, responses are capped at 4&nbsp;MiB and each request has a 30-second timeout, so a hung or hostile server can&rsquo;t freeze the chat or exhaust the app.</li>
-      <li><strong class="feat-name">stdio</strong> - startup gets 60 seconds (first runs of <code>npx -y &hellip;</code> download the package) and each request 30 seconds. A request that runs out of time fails, but the server keeps running - it may still be working - and is told the result is no longer wanted, as it is when you press <strong>Stop</strong> mid-call. A single reply over 4&nbsp;MiB fails that call only.</li>
-      <li><strong class="feat-name">Tool catalogue</strong> - up to 200 tools per server; descriptions are cut at 2,000 characters; a tool whose input schema isn&rsquo;t a JSON object under 16&nbsp;KB is skipped; and tool names are reduced to the characters model APIs accept. If two of one server&rsquo;s tools end up with the same name, only the first is kept, so a chat never sees colliding entries from the same source.</li>
+      <li><strong class="feat-name">HTTP</strong> - URLs are validated and the resolved addresses pinned for the connection, header names and values are checked for disallowed characters and size, responses are capped at 4&nbsp;MiB and each request has a 30-second timeout, so a hung or hostile server can&rsquo;t freeze the chat or exhaust the app. Loach connects directly, never through a proxy, and doesn&rsquo;t follow redirects: when a server answers with one, the error says where it points without quoting its path - usually it&rsquo;s the same URL with or without a trailing <code>/</code>, and the error says which to change. Connection errors leave the URL out, since it can carry a credential.</li>
+      <li><strong class="feat-name">stdio</strong> - startup gets 60 seconds (first runs of <code>npx -y &hellip;</code> download the package) and each request 30 seconds. A request that runs out of time fails, but the server keeps running - it may still be working - and is told the result is no longer wanted, as it is when you press <strong>Stop</strong> mid-call. A server that leaves two requests in a row unanswered, or stops reading its input, counts as hung: Loach stops it, and the next call starts it afresh. A single reply over 4&nbsp;MiB, or one that isn&rsquo;t a valid JSON-RPC response, fails that call only.</li>
+      <li><strong class="feat-name">Long-running tools</strong> - on either transport, a tool call whose server reports progress gets a fresh 30 seconds with each report, up to 10 minutes in all.</li>
+      <li><strong class="feat-name">Error replies</strong> - a server that answers a call with an error (bad arguments, an unknown tool) fails just that call; the server keeps running and its session stays open.</li>
+      <li><strong class="feat-name">Tool catalogue</strong> - up to 200 tools per server, read across up to 10 pages when the server hands out its list a page at a time; descriptions are cut at 2,000 characters; a tool whose input schema isn&rsquo;t a JSON object under 16&nbsp;KB is skipped; and tool names are reduced to the characters model APIs accept. A name that runs past 64 characters together with its server&rsquo;s prefix is shortened and ends in a short hash, so it still fits and stays unique. If two of one server&rsquo;s tools end up with the same name, only the first is kept, so a chat never sees colliding entries from the same source.</li>
       <li><strong class="feat-name">Disabled means disabled</strong> - a server switched off never runs, even for a call the model asked for before you switched it off.</li>
     </ul>
 
     <h2 id="backups">Backups and imports</h2>
-    <p>Headers and environment variables hold API keys, so they are left out of <a href="data-management.html">backups</a>. Arguments are exported as typed, except a password in a URL (<code>postgresql://user:&hellip;@host</code>) and the value of a flag such as <code>--token</code> or <code>--api-key=&hellip;</code>, which read <code>REDACTED</code>. An environment variable is still the better place for a secret.</p>
-    <p>A backup can&rsquo;t prove you set up a command on this machine, so imported stdio servers arrive <strong>disabled</strong>; turning one on raises the consent dialog. HTTP servers keep the on/off state they had in the backup, unless their host couldn&rsquo;t be looked up during the import - then they arrive switched off too. After an import, re-enter any header, variable or redacted argument a server needs.</p>
+    <p>Headers and environment variables hold API keys, so they are left out of <a href="data-management.html">backups</a>. Arguments are exported as typed, except credentials, which read <code>REDACTED</code>:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">In URLs</strong> - a password or a bare token before the host (<code>postgresql://user:&hellip;@host</code>, <code>https://ghp_&hellip;@github.com</code>) and a query value whose name marks a secret (<code>?api_key=&hellip;</code>).</li>
+      <li><strong class="feat-name">In flags</strong> - the value of a flag such as <code>--token</code>, <code>--api-key=&hellip;</code> or <code>--auth</code>. Only the whole word <code>auth</code> counts, so <code>--author</code> keeps its value.</li>
+      <li><strong class="feat-name">Assignments and headers</strong> - a <code>NAME=value</code> or <code>Name: value</code> argument whose name marks a secret, such as <code>-e GITHUB_TOKEN=&hellip;</code> or <code>--header "Authorization: &hellip;"</code>.</li>
+    </ul>
+    <p>An HTTP server&rsquo;s URL loses anything before the host and the value of <em>every</em> query parameter. Its path is kept, so a secret inside the path itself isn&rsquo;t redacted. An environment variable or a header is still the better place for a secret.</p>
+    <p>A backup can&rsquo;t prove you set up a command on this machine, so imported stdio servers arrive <strong>disabled</strong>; turning one on raises the consent dialog. HTTP servers keep the on/off state they had in the backup, unless their host couldn&rsquo;t be looked up during the import - then they arrive switched off too. A server whose name breaks the naming rules (over 100 characters, or with invisible characters) is renamed rather than failing the import: the bad characters are dropped, and a name already taken gets &ldquo;(2)&rdquo;. After an import, re-enter any header, variable or redacted value a server needs.</p>
 
-    <p><a href="private-chat.html">Private Chat</a> deliberately does <em>not</em> expose MCP tools - a tool call inside that surface could side-channel the conversation out to a third party, which would defeat the &ldquo;leaves no trace&rdquo; promise.</p>
+    <p><a href="private-chat.html">Private Chat</a> deliberately does <em>not</em> expose MCP tools - a tool call inside that surface could side-channel the conversation out to a third party, which would defeat the &ldquo;leaves no trace&rdquo; promise. It leaves out the <a href="built-in-tools.html">built-in tools</a> too, so it offers no tools at all.</p>
 
     <div class="callout note">
       <div class="callout-body">

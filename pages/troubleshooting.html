@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform." />
+  <meta name="description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, the Library, app lock, models, updates, data, search and platform." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting.html" />
   <meta property="og:title" content="Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform." />
+  <meta property="og:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, the Library, app lock, models, updates, data, search and platform." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform." />
+  <meta name="twitter:description" content="Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, the Library, app lock, models, updates, data, search and platform." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     {
       "@type": "Article",
       "headline": "Troubleshooting",
-      "description": "Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, app lock, models, updates, data, search and platform.",
+      "description": "Common problems with Loach and how to fix them: providers, messages, performance, attachments, web fetch, MCP and tool approvals, Spaces and memory, the Library, app lock, models, updates, data, search and platform.",
       "url": "https://docs.loach.dev/pages/troubleshooting.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -263,19 +265,20 @@
 
     <h2 id="categories">Categories</h2>
     <ul class="feature-grid">
-      <li><a class="feature-card" href="troubleshooting/providers-connections.html"><span class="feature-card-title">Providers &amp; connections</span><span class="feature-card-desc">Ollama not running or failing to start, OpenAI 401s and keys withheld over plain <code>http://</code>, Linux key storage, empty model lists, API models missing from the picker.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/messages.html"><span class="feature-card-title">Sending &amp; receiving messages</span><span class="feature-card-desc">Stuck &ldquo;waiting&rdquo; chats, half-streamed replies, missing thinking traces, formulas shown as raw TeX, metrics that are missing or don&rsquo;t match your provider, <strong>Compact context</strong> greyed out, off-topic answers.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/providers-connections.html"><span class="feature-card-title">Providers &amp; connections</span><span class="feature-card-desc">Ollama not running or failing to start, OpenAI 401s and keys withheld over plain <code>http://</code>, OpenAI 400s, keys that won&rsquo;t save on Linux or Windows, empty model lists, API models missing from the picker.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/messages.html"><span class="feature-card-title">Sending &amp; receiving messages</span><span class="feature-card-desc">Stuck &ldquo;waiting&rdquo; chats, half-streamed replies, missing thinking traces, formulas shown as raw TeX, metrics that are missing or don&rsquo;t match your provider, <strong>Compact context</strong> greyed out, off-topic answers, HTML previews that don&rsquo;t run, messages starting with <code>/</code>.</span></a></li>
       <li><a class="feature-card" href="troubleshooting/performance.html"><span class="feature-card-title">Performance &amp; VRAM</span><span class="feature-card-desc">Out-of-memory errors, onboarding sizing your machine wrong, sluggish UI, slow first reply after launch, making Ollama generate faster.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">The 20 MB file limit, files Loach can&rsquo;t read, empty scanned PDFs, legacy <code>.doc</code> files, truncated documents, PDFs without a preview, drops onto Private Chat, images on models without vision.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/web-fetch-mcp.html"><span class="feature-card-title">Tools, MCP &amp; folders</span><span class="feature-card-desc">Ignored URLs, blocked internal hosts, failed fetches, MCP handshake errors, local (stdio) servers that won&rsquo;t start or arrive disabled after an import, replies waiting for a tool approval, the 10-tool-turn limit, and working folders, file names and edits that get refused.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/spaces-memory.html"><span class="feature-card-title">Spaces &amp; memory</span><span class="feature-card-desc">Space or global memories that aren&rsquo;t being saved, undoing or editing a wrong fact, &ldquo;Memory is off&rdquo; from <code>/remember</code>, facts marked &ldquo;not sent&rdquo;, reference-source size caps, Space instructions replacing your custom ones.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session or later than the timeout, or opening without asking for your PIN.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/models-editor.html"><span class="feature-card-title">Models editor</span><span class="feature-card-desc"><strong>Save as new model</strong> validation errors, stuck pulls, delete failures, a forgotten per-model Thinking preference.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/updates.html"><span class="feature-card-title">Updates</span><span class="feature-card-desc">Missing install buttons on Linux, password prompts on <code>.deb</code> / <code>.rpm</code> updates, &ldquo;latest version&rdquo; while GitHub shows something newer, no update notice at launch, downloads you can&rsquo;t cancel, signature failures.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/data.html"><span class="feature-card-title">Data, import &amp; export</span><span class="feature-card-desc">Rejected JSON imports, what&rsquo;s missing after a restore, what &ldquo;Remove my data&rdquo; keeps that &ldquo;Factory reset&rdquo; clears, a database that stays large after deleting chats.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/attachments.html"><span class="feature-card-title">Attachments</span><span class="feature-card-desc">The 20 MB file limit, files Loach can&rsquo;t read, empty scanned PDFs, legacy <code>.doc</code> files, garbled text files, truncated documents, PDFs without a preview, refused drops, images on models without vision or sent with too little detail, pastes from Office.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/web-fetch-mcp.html"><span class="feature-card-title">Tools, MCP &amp; folders</span><span class="feature-card-desc">Ignored URLs, blocked internal hosts, failed fetches and proxies, MCP handshake errors and redirects, local (stdio) servers that won&rsquo;t start or arrive disabled after an import, replies waiting for a tool approval, the 10-tool-turn limit, models that don&rsquo;t support tools, no tools in Private Chat, and working folders, file names and edits that get refused.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/spaces-memory.html"><span class="feature-card-title">Spaces &amp; memory</span><span class="feature-card-desc">Space or global memories that aren&rsquo;t being saved, undoing or editing a wrong fact, &ldquo;Memory is off&rdquo; from <code>/remember</code>, facts marked &ldquo;not sent&rdquo;, Space uploads that are refused or ignored, Space instructions replacing your custom ones.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/library.html"><span class="feature-card-title">Library</span><span class="feature-card-desc">Embedding paused or indexing that never finishes, links that won&rsquo;t add, sources the model ignores, Chinese, Japanese or Thai keyword search, <strong>Truncated</strong> items, unreadable uploads, finding an item.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/app-lock.html"><span class="feature-card-title">App lock</span><span class="feature-card-desc">Forgotten PINs, rate-limited unlocks, re-authentication prompts after unlock, Loach locking itself mid-session or later than the timeout, macOS keychain prompts, or opening without asking for your PIN.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/models-editor.html"><span class="feature-card-title">Models editor</span><span class="feature-card-desc"><strong>Save as new model</strong> validation errors and replace prompts, stuck pulls, delete failures, a per-model Thinking preference that doesn&rsquo;t apply.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/updates.html"><span class="feature-card-title">Updates</span><span class="feature-card-desc">Missing install buttons on Linux, password prompts on <code>.deb</code> / <code>.rpm</code> updates, &ldquo;latest version&rdquo; while GitHub shows something newer, no update notice at launch or after <strong>Later</strong>, downloads you can&rsquo;t cancel, signature failures.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/data.html"><span class="feature-card-title">Data, import &amp; export</span><span class="feature-card-desc">Rejected JSON imports (a 1.6 backup in an older Loach included), what&rsquo;s missing after a restore, what &ldquo;Remove my data&rdquo; keeps that &ldquo;Factory reset&rdquo; clears, a database that stays large after deleting chats.</span></a></li>
       <li><a class="feature-card" href="troubleshooting/appearance.html"><span class="feature-card-title">Appearance &amp; window</span><span class="feature-card-desc">Aurora tearing on integrated GPUs, partial font-size scaling, missing animations, the sidebar collapsing on its own.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/search-palette.html"><span class="feature-card-title">Search palette</span><span class="feature-card-desc">Ctrl+K or Ctrl+F doing nothing (onboarding, the lock screen and Private Chat block the palette), phrases search can&rsquo;t find.</span></a></li>
-      <li><a class="feature-card" href="troubleshooting/platform.html"><span class="feature-card-title">Platform</span><span class="feature-card-desc">macOS &ldquo;damaged&rdquo; warning on first launch, Intel Macs, older Linux distributions, Credential Manager writes blocked on managed Windows machines.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/search-palette.html"><span class="feature-card-title">Search palette</span><span class="feature-card-desc">Ctrl+K or Ctrl+F doing nothing (onboarding, the lock screen, Private Chat and open dialogs block the palette), phrases and Library items search can&rsquo;t find.</span></a></li>
+      <li><a class="feature-card" href="troubleshooting/platform.html"><span class="feature-card-title">Platform</span><span class="feature-card-desc">macOS &ldquo;damaged&rdquo; warning on first launch, Intel Macs and older Safari, closing the window and Ctrl shortcuts on macOS, older Linux distributions, Credential Manager writes blocked on managed Windows machines, &ldquo;Loach failed to start&rdquo;, a second launch.</span></a></li>
     </ul>
 
     <div class="page-nav">

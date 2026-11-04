@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Attachments - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments." />
+  <meta name="description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, garbled text files, truncation, previews of sent PDFs, refused drops, pastes from Office, and images the model can’t see or sees in too little detail in Loach attachments." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/attachments.html" />
   <meta property="og:title" content="Attachments - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments." />
+  <meta property="og:description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, garbled text files, truncation, previews of sent PDFs, refused drops, pastes from Office, and images the model can’t see or sees in too little detail in Loach attachments." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Attachments - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments." />
+  <meta name="twitter:description" content="Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, garbled text files, truncation, previews of sent PDFs, refused drops, pastes from Office, and images the model can’t see or sees in too little detail in Loach attachments." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Attachments - Troubleshooting",
-      "description": "Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, truncation, previews of sent PDFs, Private Chat drops and images the model can’t see in Loach attachments.",
+      "description": "Troubleshoot file-size and unreadable-file errors, empty scanned PDFs, legacy .doc files, garbled text files, truncation, previews of sent PDFs, refused drops, pastes from Office, and images the model can’t see or sees in too little detail in Loach attachments.",
       "url": "https://docs.loach.dev/pages/troubleshooting/attachments.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -282,6 +284,10 @@
     <p class="problem-statement">A <code>.doc</code> file attached, but the model says it only knows the file&rsquo;s name.</p>
     <p>Only <code>.docx</code> is extracted, not legacy <code>.doc</code>. A <code>.doc</code> still attaches, but as a file the model is told about by name only. Open it in Word or LibreOffice and <strong>Save As &rarr; Word Document (.docx)</strong>.</p>
 
+    <h2 id="garbled-text">A text file&rsquo;s accented letters come through garbled</h2>
+    <p class="problem-statement">A text or code file attaches, but the model sees accented or non-Latin letters as the wrong characters or as &#65533;.</p>
+    <p>Loach reads text files as UTF-8 or UTF-16, with or without a byte-order mark. A file in neither is taken to be in the legacy Windows code page of your system language: Windows-1250 for Polish, Czech, Slovak, Hungarian, Croatian, Slovenian and Romanian, Windows-1252 for every other language. A file saved in some other encoding - Cyrillic Windows-1251, Shift-JIS, or a Central European file on an English system - comes out with the wrong characters. Re-save it as UTF-8 (most editors offer that under <strong>Save As</strong> or an encoding menu) and attach it again.</p>
+
     <h2 id="content-truncated">A long document&rsquo;s chip says &ldquo;truncated&rdquo;</h2>
     <p class="problem-statement">A long PDF or text file was attached, its chip carries a <strong>truncated</strong> pill, and only part of it reached the model.</p>
     <p>Per-file cap is <strong>200,000 characters</strong>; total inlined content per message is <strong>500,000 characters</strong>, counting your prompt and fetched pages too. Files past that per-message budget are clipped or left out without a <strong>truncated</strong> pill - only the model is told. Either:</p>
@@ -296,7 +302,7 @@
 
     <h2 id="private-chat-drop">Dropping a file onto Private Chat does nothing</h2>
     <p class="problem-statement">The cursor shows a no-entry sign and nothing attaches.</p>
-    <p>Expected: dropping files is switched off while <a href="../features/private-chat.html">Private Chat</a> is open, so a file can&rsquo;t land in the regular chat behind it. Use the <strong>+</strong> button in Private Chat&rsquo;s message box instead.</p>
+    <p>Expected: dropping files is switched off while <a href="../features/private-chat.html">Private Chat</a> is open, so a file can&rsquo;t land in the regular chat behind it. Use the <strong>+</strong> button in Private Chat&rsquo;s message box instead. Drops are refused the same way while a dialog - Settings, the snippet editor, <strong>Import context</strong> - is open over the chat; close it first.</p>
 
     <h2 id="vision-images">Images don&rsquo;t seem to be working</h2>
     <p class="problem-statement">You attached a PNG/JPEG but the model can&rsquo;t describe it.</p>
@@ -305,6 +311,14 @@
   <li>The image is PNG, JPEG, WEBP or GIF. Other formats (BMP, TIFF, HEIC, SVG) attach as files the model only knows by name; convert them first.</li>
   <li>You attached it to <em>this</em> message. Images go to the model only with the message they are attached to, so for a follow-up question about the same picture, attach it again.</li>
 </ul>
+
+    <h2 id="image-detail">The model misses details in an image</h2>
+    <p class="problem-statement">A vision model can&rsquo;t read small text in a screenshot, or overlooks fine detail in a photo.</p>
+    <p>Loach scales images down before it sends them - by default to at most 1024 px on the longest side, since a full-size photo costs thousands of image tokens and many local models read it no better. The original stays in your chat. To send more detail, open the chat&rsquo;s <strong>Parameters</strong> panel and, under <strong>Images</strong>, pick <strong>Scale down</strong> with a larger size, or <strong>Original</strong>. A Space sets this for its chats on its <strong>Settings</strong> tab, and the app-wide default - the one Private Chat uses - is <strong>Settings &rarr; Features &rarr; Image scaling</strong>; Library images can also follow <strong>Settings &rarr; Library &rarr; Images</strong>. See <a href="../features/attachments.html#image-scaling">Image scaling</a>.</p>
+
+    <h2 id="paste-office">Pasting from Word or Excel gives text, not a picture</h2>
+    <p class="problem-statement">You copied cells from Excel or a paragraph from Word, and the message box got the text instead of an image of it.</p>
+    <p>Office apps put a picture of the selection on the clipboard next to its text. When the clipboard holds text alongside nothing but images, Loach pastes the text - what the model reads best - and ignores the picture. To send the picture, take a screenshot, or save it as an image file and attach that.</p>
     <div class="page-nav">
       <a href="performance.html">
         <span class="label">Previous</span>

@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -267,15 +269,15 @@
 
     <h2 id="delimiters">What renders</h2>
     <ul class="feature-list">
-      <li><strong class="feat-name">Display math</strong> - <code>$$&hellip;$$</code> and <code>\[&hellip;\]</code>. A <code>$$&hellip;$$</code> written on a single line is promoted to a centred display block.</li>
+      <li><strong class="feat-name">Display math</strong> - <code>$$&hellip;$$</code> and <code>\[&hellip;\]</code>. One written on a single line is promoted to a centred display block when it sits on that line alone; in the middle of a sentence it renders inline.</li>
       <li><strong class="feat-name">Inline math</strong> - <code>\(&hellip;\)</code> and <code>$&hellip;$</code> (subject to the currency rule below).</li>
       <li><strong class="feat-name">Math fences</strong> - a fenced code block tagged <code>math</code> renders as a display block instead of code. Other tags, such as <code>```latex</code>, stay code.</li>
       <li><strong class="feat-name">Loose symbols</strong> - a common single TeX command in prose, such as <code>\rightarrow</code>, <code>\alpha</code> or <code>\sum</code>, is rewritten to the equivalent Unicode character (arrows, set and logic symbols, relations, operators and Greek letters); commands it doesn&rsquo;t know are left alone. This is always on, even in a reply with no formulas, and runs over the parsed document, so code blocks, inline code and anything already inside math delimiters are left byte-for-byte intact.</li>
     </ul>
-    <p>Rendering applies to assistant replies in regular chats and in <a href="private-chat.html">Private Chat</a>. Your own messages show the TeX exactly as you typed it, and release notes in the Updates panel never typeset math. TeX that does not parse degrades to showing its own source, with the parse error on hover, rather than flashing an error - which keeps a half-typed formula quiet while it is still streaming. Links inside a formula (<code>\href</code>, <code>\url</code>) render as inert text, and oversized lengths are capped so a formula can&rsquo;t blow out the layout.</p>
+    <p>Rendering applies to assistant replies in regular chats and in <a href="private-chat.html">Private Chat</a>. Your own messages show the TeX exactly as you typed it, and release notes in the Updates panel and the <a href="library.html">Library</a>&rsquo;s item preview never typeset math. TeX that does not parse degrades to showing its own source, with the parse error on hover, rather than flashing an error - which keeps a half-typed formula quiet while it is still streaming. Links inside a formula (<code>\href</code>, <code>\url</code>) render as inert text, and oversized lengths are capped so a formula can&rsquo;t blow out the layout.</p>
 
     <h2 id="currency">Currency-safe <code>$&hellip;$</code></h2>
-    <p><code>$</code> doubles as a currency sign, so a single-dollar span only typesets when it actually reads as math: the content must hug both delimiters, stay on one line and under 200 characters, not follow a word character and not be chased by a digit. In practice:</p>
+    <p><code>$</code> doubles as a currency sign, so a single-dollar span only typesets when it actually reads as math: the content must hug both delimiters, stay on one line and run no longer than 200 characters, not follow a word character and not be chased by a digit. In practice:</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Stays prose</strong> - &ldquo;it costs $5 and $10&rdquo;, &ldquo;between $5-$10&rdquo;, &ldquo;US$5&rdquo;.</li>
       <li><strong class="feat-name">Renders</strong> - <code>$x^2$</code> or <code>$\frac{a}{b}$</code>, the delimiter most models actually emit for inline math.</li>

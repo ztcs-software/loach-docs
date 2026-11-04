@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -276,13 +278,13 @@
     </ul>
 
     <h2 id="persistence">Where pins live</h2>
-    <p>Pins are stored with the chat, so they survive restarts and travel in <a href="data-management.html#export">data backups</a>. <a href="import-export.html#fork">Forking</a> a chat copies the pins on the replies the fork includes. <strong>Regenerate</strong> replaces the last reply with a new one, so a pin on that reply goes with it.</p>
+    <p>Pins are stored with the chat, so they survive restarts and travel in <a href="data-management.html#export">data backups</a>. <a href="import-export.html#fork">Forking</a> a chat copies the pins on the replies the fork includes. <strong>Regenerate</strong> replaces the last reply with a new one, and a pin on that reply moves to the new one.</p>
     <p>Pinning a <em>chat</em> (from the sidebar row, the chat header menu, or the <code>/pin</code> <a href="slash-commands.html">command</a>) is a different feature: that keeps the whole conversation at the top of the sidebar, while pinning a <em>response</em> bookmarks one answer inside it.</p>
 
     <div class="callout tip">
       <div class="callout-body">
         <div class="callout-title">Pins vs. Snippets</div>
-        <p>Pin a reply when you want to find it again in <em>this</em> chat. If you want to reuse text as a prompt elsewhere, keep it as a <a href="snippets.html">Snippet</a> instead - <strong>Save as Snippet</strong> in the <code>&hellip;</code> menu does that for your own prompts.</p>
+        <p>Pin a reply when you want to find it again in <em>this</em> chat. If you want to reuse text as a prompt elsewhere, keep it as a <a href="snippets.html">Snippet</a> instead - <strong>Save as Snippet</strong> in the <code>&hellip;</code> menu does that for your own prompts. To give a reply to other chats as reference material, <strong>Save to Library</strong> in its <code>&hellip;</code> menu adds it to your <a href="library.html#save-to-library">Library</a>.</p>
       </div>
     </div>
     <div class="page-nav">

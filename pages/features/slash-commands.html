@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -266,7 +268,8 @@
     <p class="lead">Type <code>/</code> as the first character in the composer to open the <strong>command palette</strong> - a floating list that filters as you type. It is the fastest way to run chat actions, switch model or persona, manage memory, fetch a URL and more without lifting your hands off the keyboard.</p>
 
     <h2 id="palette">The command palette</h2>
-    <p>The palette opens whenever the composer text starts with <code>/</code> and narrows to the commands whose names begin with what you type - <code>/re</code> leaves <code>/rename</code>, <code>/regenerate</code> and <code>/remember</code>. Each row shows the command, its arguments and a one-line description, under the same group headers <code>/help</code> uses (the headers appear once the list spans more than one group). A command with a fixed set of arguments lists them as rows of their own once you&rsquo;ve typed its full name: <code>/list</code> offers <code>/list models</code>, <code>/list snippets</code> and the rest, and <code>/instructions</code> offers <code>/instructions clear</code>. <kbd>Enter</kbd> then completes the highlighted row, so to run a bare <code>/instructions</code>, press <kbd>Esc</kbd> to hide the palette first.</p>
+    <p>The palette opens when the composer text starts with <code>/</code> and narrows to the commands whose names begin with what you type - <code>/re</code> leaves <code>/rename</code>, <code>/regenerate</code> and <code>/remember</code>. Text that goes on with a space or a second slash, such as <code>// note</code> or <code>/ aside</code>, doesn&rsquo;t open it and is sent as an ordinary message. Each row shows the command, its arguments and a one-line description, under the same group headers <code>/help</code> uses (the headers appear once the list spans more than one group).</p>
+    <p>Once you&rsquo;ve typed a command&rsquo;s full name, the palette lists what can follow it as rows of their own. Fixed arguments match from the start of the word: <code>/list models</code>, <code>/list snippets</code> and the rest, <code>/instructions clear</code>, <code>/folder none</code>, the personas after <code>/persona</code>, the tones after <code>/tone</code>, the label colours, the <code>/set</code> parameters, <code>on</code> and <code>off</code>, and the <code>/theme</code> modes. Names match anywhere, exact matches first: your models after <code>/model</code>, your Spaces after <code>/space</code> and your Snippets after <code>/snippet</code>. Where the argument is optional - <code>/model</code>, <code>/persona</code>, <code>/tone</code>, <code>/instructions</code> - the bare command heads the list, so <kbd>Enter</kbd> runs it as typed. The highlight returns to the top row as you type, so <kbd>Enter</kbd> on a name typed out in full runs that one rather than a longer name that contains it.</p>
     <ul class="feature-list">
       <li><strong class="feat-name">&uarr; / &darr;</strong> - move the selection through the filtered list. It wraps around at either end.</li>
       <li><strong class="feat-name">Tab</strong> - complete the highlighted command without running it.</li>
@@ -276,42 +279,69 @@
     <p>Clicking a row completes it, like <kbd>Tab</kbd>. Anything that isn&rsquo;t a recognised command is sent as an ordinary message, so a prompt that happens to start with <code>/</code> is never swallowed. Commands run even while a reply is streaming; the few that can&rsquo;t, such as <code>/regenerate</code>, say so. <a href="private-chat.html">Private Chat</a> has no command palette - a leading <code>/</code> there is just text.</p>
 
     <h2 id="results">Where the results appear</h2>
-    <p>A command that does something confirms with a short toast (<em>Renamed chat</em>, <em>Switched model</em>). One that fails says why in a <strong>Command failed</strong> toast - for example <em>No active chat. Start one with /new first.</em> when a command needs an open chat and none is open. Commands that return a list - <code>/list</code>, <code>/tools</code>, <code>/fetch</code>, <code>/stats</code>, a bare <code>/instructions</code>, or a name that matches several things - show it in a panel just above the composer. Close the panel with its <strong>&times;</strong>; sending your next message clears it too.</p>
+    <p>A command that does something confirms with a short toast (<em>Renamed chat</em>, <em>Switched model</em>). One that fails says why in a <strong>Command failed</strong> toast - for example <em>No active chat. Start one with /new first.</em> when a command needs an open chat and none is open - and stays in the composer so you can fix it and run it again. Commands that return a list - <code>/list</code>, <code>/tools</code>, <code>/fetch</code>, <code>/stats</code>, a bare <code>/instructions</code>, or a name that matches several things - show it in a panel just above the composer. Close the panel with its <strong>&times;</strong>; sending your next message clears it too.</p>
 
     <h2 id="commands">The commands</h2>
-    <p>Commands are grouped the way <code>/help</code> lists them. <code>&lt;arg&gt;</code> is required, <code>[arg]</code> optional. Most act on the chat that is open.</p>
+    <p>Commands are grouped the way <code>/help</code> lists them. <code>&lt;arg&gt;</code> is required, <code>[arg]</code> optional; a command shown without an argument takes none and refuses one rather than dropping it (<em>/regenerate doesn&rsquo;t take arguments.</em>). Most act on the chat that is open.</p>
+    <p>On a <a href="spaces.html">Space&rsquo;s</a> page the composer starts a new chat, so there is no chat to act on: commands that need one answer <em>This works on a chat. Open one of this Space&rsquo;s chats, or send a message here to start one.</em> The memory commands work on that Space, <code>/new</code> starts its chat in the Space and opens it, and <code>/space</code> opens the other Space&rsquo;s page.</p>
 
     <h3 id="cmd-chat">Chat</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td><code>/new</code></td><td>Start a new chat. It lands in the active Space when there is one (the Space you&rsquo;re viewing, or one picked with <code>/space</code>).</td></tr>
-        <tr><td><code>/clear</code></td><td>Delete every message in the current chat, after a confirmation. A reply still streaming in that chat is stopped first.</td></tr>
+        <tr><td><code>/new</code></td><td>Start a new chat. It lands in the active Space when there is one (the Space you&rsquo;re viewing, or one picked with <code>/space</code>). Typed on a Space&rsquo;s page, it opens the new chat and takes along any <a href="library.html#using-sources">Library sources</a> you picked in that page&rsquo;s composer.</td></tr>
+        <tr><td><code>/clear</code></td><td>Delete every message in the current chat, after a confirmation. A reply still streaming in that chat is stopped first, and a <a href="context-compaction.html">compaction</a> summary goes too (your own instructions stay). Refused while the chat is being compacted.</td></tr>
         <tr><td><code>/rename &lt;title&gt;</code></td><td>Rename the current chat. The whole rest of the line is the title.</td></tr>
         <tr><td><code>/pin</code></td><td>Pin the current chat, or unpin it if it&rsquo;s pinned.</td></tr>
+        <tr><td><code>/label &lt;color|clear&gt;</code></td><td>Give the current chat a <a href="folders-labels.html#labels">colour label</a>: <code>red</code>, <code>amber</code>, <code>green</code>, <code>blue</code>, <code>purple</code> or <code>pink</code>. <code>/label clear</code> removes it.</td></tr>
+        <tr><td><code>/folder &lt;name|none&gt;</code></td><td>Move the current chat into the <a href="folders-labels.html#folders">folder</a> with that name (matched exactly, ignoring case), creating the folder if there is none. <code>/folder none</code> takes the chat out of its folder.</td></tr>
         <tr><td><code>/archive</code></td><td>Move the current chat to the <a href="chat-archive.html">archive</a>, with an <strong>Undo</strong> in the toast.</td></tr>
         <tr><td><code>/delete</code></td><td>Delete the current chat permanently, after a confirmation.</td></tr>
-        <tr><td><code>/fork</code></td><td><a href="import-export.html#fork">Fork</a> the chat into a new copy and open it.</td></tr>
-        <tr><td><code>/regenerate</code></td><td>Re-stream the last assistant reply. Refused when the last turn isn&rsquo;t an assistant reply, the reply was imported, the chat has no model, or the chat is still busy.</td></tr>
+        <tr><td><code>/fork</code></td><td><a href="import-export.html#fork">Fork</a> the chat into a new copy and open it. Refused while a reply in the chat is streaming or still being prepared.</td></tr>
+        <tr><td><code>/regenerate</code></td><td>Re-stream the last assistant reply. Refused when the last turn isn&rsquo;t an assistant reply, the reply was imported, the chat has no model, or the chat is still busy or preparing a reply.</td></tr>
+        <tr><td><code>/stop</code></td><td>Stop this chat&rsquo;s reply, like the Stop button - also one still being prepared - or take its prompt out of the <a href="concurrency.html">queue</a>. Other chats aren&rsquo;t touched.</td></tr>
         <tr><td><code>/copy [N]</code></td><td>Copy the latest assistant reply to the clipboard, or the Nth-latest - <code>/copy 2</code> is the one before it. Only assistant replies count, and <code>N</code> must be a positive whole number.</td></tr>
+        <tr><td><code>/find [text]</code></td><td>Open the <a href="search.html#in-chat">in-chat finder</a>, like <strong>Search in chat</strong> in the chat header, with your text already in it when you give some.</td></tr>
         <tr><td><code>/export</code></td><td>Open the <a href="import-export.html">Export context</a> dialog for this chat.</td></tr>
+        <tr><td><code>/import</code></td><td>Open the <a href="import-export.html#import">Import context</a> dialog for this chat.</td></tr>
         <tr><td><code>/stats</code></td><td>Show the chat&rsquo;s message counts, total tokens and average tokens/sec across replies, the last reply&rsquo;s numbers, and the model.</td></tr>
         <tr><td><code>/compact</code></td><td>Summarise older messages to free context - see <a href="context-compaction.html">Context &amp; compaction</a>. Only one chat compacts at a time.</td></tr>
         <tr><td><code>/private</code></td><td>Open <a href="private-chat.html">Private Chat</a>. A reply streaming in a regular chat is stopped first.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3 id="cmd-model-persona">Model &amp; persona</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td><code>/model &lt;name&gt;</code></td><td>Switch the current chat&rsquo;s model. An exact model id or display name wins; otherwise every model whose id or name contains what you typed matches, and several matches are listed so you can be more specific.</td></tr>
-        <tr><td><code>/persona &lt;name&gt;</code></td><td>Apply one of the built-in <a href="personas.html">personas</a> to the current chat, matched the same way by name. <code>/persona none</code> clears it.</td></tr>
+        <tr><td><code>/model [name]</code></td><td>Switch the current chat&rsquo;s model. An exact model id or display name wins; otherwise every model whose id or name contains what you typed matches, and several matches are listed so you can be more specific. When Ollama and an OpenAI-compatible server both have a model with the same id, prefix it with <code>ollama/</code> or <code>openai/</code>. On its own, <code>/model</code> opens the model picker in the chat header.</td></tr>
+        <tr><td><code>/persona [name]</code></td><td>Apply one of the built-in <a href="personas.html">personas</a> to the current chat, matched the same way by name. <code>/persona none</code> clears it, and <code>/persona</code> on its own shows the current one.</td></tr>
+        <tr><td><code>/tone [name]</code></td><td>Set the current chat&rsquo;s <a href="personas.html#tones">tone</a>, matched the same way; <code>/tone default</code> clears it. On its own, it shows the tone in effect - the chat&rsquo;s own, or the default from <strong>Settings &rarr; General</strong>.</td></tr>
+        <tr><td><code>/set &lt;param&gt; &lt;value&gt;</code></td><td>Set one of the chat&rsquo;s <a href="parameters.html">parameters</a>, within the parameters panel&rsquo;s ranges. Only that one value is saved as the chat&rsquo;s override - see the list below.</td></tr>
+        <tr><td><code>/set reset</code></td><td>Drop the chat&rsquo;s own parameter changes, like the panel&rsquo;s <strong>Reset to defaults</strong> button (<strong>Reset to model defaults</strong> for a model with its own defaults).</td></tr>
+        <tr><td><code>/unload</code></td><td>Unload the current chat&rsquo;s Ollama model from memory; it loads again on your next message. If a reply is still using it, it goes once that reply ends. OpenAI-compatible models can&rsquo;t be unloaded - their server manages them.</td></tr>
       </tbody>
-    </table>
+    </table></div>
+    <p><code>/set</code> takes one plain number (not <code>1e2</code> or <code>0x10</code>), in the ranges the panel&rsquo;s own controls allow:</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Parameter</th><th>Panel setting</th><th>Accepts</th></tr></thead>
+      <tbody>
+        <tr><td><code>temperature</code></td><td>Temperature</td><td>0 to 1</td></tr>
+        <tr><td><code>top_p</code></td><td>Top-P</td><td>0 to 1</td></tr>
+        <tr><td><code>top_k</code></td><td>Top-K</td><td>a whole number, 0 to 200</td></tr>
+        <tr><td><code>min_p</code></td><td>Min-P</td><td>0 to 0.5</td></tr>
+        <tr><td><code>num_ctx</code></td><td>Context Length</td><td>one of 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576</td></tr>
+        <tr><td><code>max_tokens</code></td><td>Max Tokens</td><td>a whole number, 128 to 32768</td></tr>
+        <tr><td><code>repeat_penalty</code></td><td>Repeat Penalty</td><td>0.8 to 2</td></tr>
+        <tr><td><code>frequency_penalty</code></td><td>Frequency Penalty</td><td>&minus;2 to 2</td></tr>
+        <tr><td><code>presence_penalty</code></td><td>Presence Penalty</td><td>&minus;2 to 2</td></tr>
+        <tr><td><code>num_gpu</code></td><td>GPU Layers</td><td>a whole number, 0 or more</td></tr>
+        <tr><td><code>seed</code></td><td>Seed</td><td>any whole number</td></tr>
+      </tbody>
+    </table></div>
 
     <h3 id="cmd-listings">Listings</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it lists</th></tr></thead>
       <tbody>
         <tr><td><code>/list models</code></td><td>Every model from both providers, with its provider.</td></tr>
@@ -322,32 +352,32 @@
         <tr><td><code>/list providers</code></td><td>The Ollama and OpenAI-compatible base URLs, and whether an API key is saved.</td></tr>
         <tr><td><code>/list memories</code></td><td>The memories <code>/remember</code> and <code>/forget</code> work on (see below), each with the short id <code>/forget</code> accepts.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3 id="cmd-prompts">Prompts</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it does</th></tr></thead>
       <tbody>
         <tr><td><code>/instructions &lt;text&gt;</code></td><td>Set the current chat&rsquo;s own instructions - the <strong>Additional instructions</strong> in the <a href="parameters.html">parameters panel</a>. Line breaks are kept.</td></tr>
         <tr><td><code>/instructions clear</code></td><td>Clear them.</td></tr>
         <tr><td><code>/instructions</code></td><td>On its own, show the chat&rsquo;s current instructions. A <a href="context-compaction.html">compaction</a> summary stored with them is kept whichever form you use.</td></tr>
-        <tr><td><code>/snippet &lt;name&gt;</code></td><td>Put a saved <a href="snippets.html">Snippet</a> into the composer, matched by title, with its variables filled in. Any blanks left open the fill-in dialog first. Unlike a Snippet&rsquo;s <strong>Run</strong>, it stays in the current chat and doesn&rsquo;t switch model.</td></tr>
+        <tr><td><code>/snippet &lt;name&gt;</code></td><td>Put a saved <a href="snippets.html">Snippet</a> into the composer, matched by title, with its variables filled in and any files saved with it attached. Any blanks left open the fill-in dialog first. Unlike a Snippet&rsquo;s <strong>Run</strong>, it stays in the current chat and doesn&rsquo;t switch model.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <h3 id="cmd-memory-spaces">Memory &amp; spaces</h3>
-    <p>The memory commands work on one list: the open chat&rsquo;s Space; for a chat outside any Space, the active Space if there is one; otherwise your global memories. See <a href="spaces.html">Spaces</a> and <a href="memory.html">Memory</a>.</p>
-    <table>
+    <h3 id="cmd-memory-spaces">Memory &amp; Spaces</h3>
+    <p>The memory commands work on one list: on a Space&rsquo;s page, that Space&rsquo;s; otherwise the open chat&rsquo;s Space; for a chat outside any Space, the active Space if there is one; otherwise your global memories. See <a href="spaces.html">Spaces</a> and <a href="memory.html">Memory</a>.</p>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it does</th></tr></thead>
       <tbody>
         <tr><td><code>/remember &lt;fact&gt;</code></td><td>Save a fact to that list. Refused when the Space&rsquo;s memory is switched off - or, outside a Space, while <strong>Settings → Features → Global memories</strong> is off.</td></tr>
         <tr><td><code>/forget &lt;id|query&gt;</code></td><td>Remove a memory by its id (at least the eight characters <code>/list memories</code> shows) or by text it contains. When several match the text, they&rsquo;re listed so you can re-run with an id.</td></tr>
-        <tr><td><code>/space &lt;name&gt;</code></td><td>Make a Space active, matched by name. <code>/new</code> then starts its chat there, and the memory commands use that Space outside a Space chat.</td></tr>
+        <tr><td><code>/space &lt;name&gt;</code></td><td>Make a Space active, matched by name. <code>/new</code> then starts its chat there, and the memory commands use that Space outside a Space chat. Typed on a Space&rsquo;s page, it opens the other Space&rsquo;s page.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3 id="cmd-tools-web">Tools &amp; web</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it does</th></tr></thead>
       <tbody>
         <tr><td><code>/tools</code></td><td>List the tools exposed by your enabled <a href="mcp.html">MCP servers</a>, server by server; a server that can&rsquo;t be reached shows its error. Built-in tools aren&rsquo;t listed.</td></tr>
@@ -355,19 +385,21 @@
         <tr><td><code>/fetch &lt;url&gt;</code></td><td>Fetch one page now and show its final URL, title, size and the first 200 characters of its text - a quick way to see what Web fetch would get. It works with the Web fetch switch off and goes through the same safety checks.</td></tr>
         <tr><td><code>/thinking on|off</code></td><td>Turn the current chat&rsquo;s <strong>Thinking</strong> toggle on or off (Ollama models that can reason).</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3 id="cmd-app">App</h3>
-    <table>
+    <div class="table-wrap"><table>
       <thead><tr><th>Command</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td><code>/settings [tab]</code></td><td>Open Settings, optionally on a tab: <code>general</code>, <code>providers</code>, <code>features</code>, <code>tools</code>, <code>appearance</code>, <code>mcp</code>, <code>archive</code>, <code>data</code>, <code>security</code>, <code>updates</code> or <code>about</code>.</td></tr>
+        <tr><td><code>/settings [tab]</code></td><td>Open Settings, optionally on a tab: <code>general</code>, <code>providers</code>, <code>features</code>, <code>tools</code>, <code>library</code>, <code>appearance</code>, <code>mcp</code>, <code>archive</code>, <code>data</code>, <code>security</code>, <code>updates</code> or <code>about</code>.</td></tr>
+        <tr><td><code>/theme light|dark|system</code></td><td>Set the <a href="themes.html#colour-modes">Color mode</a> in <strong>Settings &rarr; Appearance</strong>. The repaint is the confirmation.</td></tr>
+        <tr><td><code>/lock</code></td><td><a href="app-lock.html">Lock</a> Loach now, like <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> (<kbd>&#8984;</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> on macOS). Needs a PIN or password set up in <strong>Settings &rarr; Security</strong>.</td></tr>
         <tr><td><code>/help</code></td><td>Open the <strong>Slash commands</strong> reference, with every command grouped as above.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h2 id="recent">Recent commands</h2>
-    <p>Above those groups sits a <strong>Recent</strong> group: up to four of the commands you ran last that match what you&rsquo;ve typed, hoisted out of their normal groups. Loach keeps the last six command names in its settings rather than per session, so the group is useful on the first <code>/</code> after a restart instead of only once you have already run a command that launch. A command counts even if it failed - you&rsquo;re likely to retry it - while text that isn&rsquo;t a command is never recorded. Argument rows such as <code>/list models</code> stay where they are.</p>
+    <p>Above those groups sits a <strong>Recent</strong> group: up to four of the commands you ran last that match what you&rsquo;ve typed, hoisted out of their normal groups. Loach keeps the last six command names in its settings rather than per session, so the group is useful on the first <code>/</code> after a restart instead of only once you have already run a command that launch. A command counts even if it failed - you&rsquo;re likely to retry it - while text that isn&rsquo;t a command is never recorded. Argument rows such as <code>/list models</code> stay where they are, and so does a bare command heading its own list, like <code>/model</code>.</p>
 
     <div class="callout note">
       <div class="callout-body">

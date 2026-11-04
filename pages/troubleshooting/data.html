@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -271,7 +273,7 @@
     <p><strong>Import data</strong> expects a <strong>full Loach backup</strong> - the JSON produced by <strong>Settings &rarr; Data &rarr; Export data</strong>. The per-chat <strong>Export context</strong> Markdown is not an import source; paste it into another chat with <strong>Import context</strong> instead. The error says which check failed:</p>
 <ul>
   <li><em>file doesn&rsquo;t look like a Loach export</em> - the file isn&rsquo;t valid JSON, or isn&rsquo;t a backup.</li>
-  <li><em>unsupported export schema</em> - the file uses a backup format this version of Loach doesn&rsquo;t read.</li>
+  <li><em>unsupported export schema</em> - the file uses a backup format this version of Loach doesn&rsquo;t read. <em>unsupported export schema &lsquo;loach/v2&rsquo;</em> means the backup was made by Loach 1.6 or later and you&rsquo;re restoring it into 1.5 or older, which can&rsquo;t hold the <a href="../features/library.html">Library</a>. Update Loach first; newer versions still restore older backups.</li>
   <li><em>import rejected: MCP server #N &hellip;</em> - a server in the file points at a link-local address or has malformed settings, which usually means the file was hand-edited. Fix or remove that server in the file.</li>
   <li><em>import rejected: chat #N &hellip; has unknown provider</em>, or an <em>invalid message role</em> - a chat or message in the file isn&rsquo;t one Loach could have written.</li>
   <li><em>Current app-lock credentials are required for this action</em> - the PIN or password you typed in the confirmation didn&rsquo;t match.</li>
@@ -279,22 +281,24 @@
 <p>A rejected import changes nothing.</p>
 
     <h2 id="after-import">Something is missing after restoring a backup</h2>
-    <p class="problem-statement">The import succeeded, but an MCP server is off or can&rsquo;t authenticate, or a chat lost its folder.</p>
+    <p class="problem-statement">The import succeeded, but an MCP server is off or can&rsquo;t authenticate, a chat lost its working folder, or the OpenAI base URL stayed as it was.</p>
     <p>Backups leave out anything secret or tied to one machine:</p>
 <ul>
-  <li><strong>MCP credentials.</strong> HTTP headers, stdio environment variables, and passwords or tokens in command-line arguments are scrubbed on export. Re-enter them in <strong>Settings &rarr; MCP</strong>.</li>
-  <li><strong>Local (stdio) MCP servers</strong> come back disabled, and so does any server whose host couldn&rsquo;t be resolved during the import. Turning a stdio server on asks for your consent again. See <a href="web-fetch-mcp.html">Tools, MCP &amp; folders</a>.</li>
+  <li><strong>MCP credentials.</strong> HTTP headers, stdio environment variables, passwords or tokens in command-line arguments, and any credentials before the host and every query value in an HTTP server&rsquo;s URL are scrubbed on export. Re-enter them in <strong>Settings &rarr; MCP</strong>.</li>
+  <li><strong>Local (stdio) MCP servers</strong> come back disabled, and so does any server whose host couldn&rsquo;t be resolved during the import. Turning a stdio server on asks for your consent again. See <a href="web-fetch-mcp.html#mcp-import-disabled">Tools, MCP &amp; folders</a>.</li>
   <li><strong>Working folders.</strong> Chats come back without one; pick it again with <strong>Add directory</strong> in the <strong>+</strong> menu next to the message box. See <a href="../features/work-in-folders.html">Work in folders</a>.</li>
   <li><strong>API key and app lock.</strong> Both live in the OS credential manager, not in the backup. On a new machine, add the key in <strong>Settings &rarr; Providers</strong> and set the lock up again in <strong>Settings &rarr; Security</strong>.</li>
+  <li><strong>OpenAI base URL.</strong> While an API key is stored on this machine, an import keeps your current base URL rather than the backup&rsquo;s, so the key is never sent to a server the backup names. Change it in <strong>Settings &rarr; Providers</strong> if you meant to switch.</li>
+  <li><strong>The Library&rsquo;s search index.</strong> Your Library items come back, but the index isn&rsquo;t in the backup: Loach rebuilds it in the background after the import. With an embedding model set, search by meaning catches up while the Library header shows <strong>Indexing</strong>.</li>
 </ul>
 
     <h2 id="wipe-keeps-key">&ldquo;Remove my data&rdquo; didn&rsquo;t remove my OpenAI key</h2>
     <p class="problem-statement">After erasing, your OpenAI-compatible API key is still configured.</p>
-    <p>By design. <strong>Remove my data</strong> (under <strong>Settings &rarr; Data &rarr; Erase &amp; Reset</strong>) removes chats, folders, Spaces, Snippets, snippet variables, MCP servers and memories, but keeps app settings, your stored API key and the app lock. To clear everything, including the key and the app lock, use <strong>Factory reset</strong> instead.</p>
+    <p>By design. <strong>Remove my data</strong> (under <strong>Settings &rarr; Data &rarr; Erase &amp; Reset</strong>) removes chats, folders, Spaces, the Library (texts, files, links and datasets), Snippets, snippet variables, MCP servers and memories, but keeps app settings, your stored API key and the app lock. To clear everything, including the key and the app lock, use <strong>Factory reset</strong> instead.</p>
 
     <h2 id="db-not-shrinking">The database is still large after deleting chats</h2>
     <p class="problem-statement">The <strong>Database</strong> size in <strong>Settings &rarr; Data</strong> didn&rsquo;t go down after you deleted or erased chats.</p>
-    <p>Expected. SQLite keeps the space it frees and reuses it for new data instead of shrinking the file, so the on-disk total doesn&rsquo;t drop. The lines under it - Chats, Attachments, Spaces, Other - measure what is actually stored, and those do go down. Attachments are inlined into the database, so they are usually the biggest line.</p>
+    <p>Expected. SQLite keeps the space it frees and reuses it for new data instead of shrinking the file, so the on-disk total doesn&rsquo;t drop. The lines under it - Chats, Attachments, Spaces, Library, Other - measure what is actually stored, and those do go down. Attachments are inlined into the database, so they are usually the biggest line.</p>
 
     <div class="page-nav">
       <a href="updates.html">

@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -266,10 +268,10 @@
     <p class="lead">Out of the box, most models don&rsquo;t know what day it is. Temporal awareness fixes that by prepending a one-line date, weekday and timezone note to every system prompt - only when the prompt doesn&rsquo;t already pull those values in itself.</p>
 
     <h2 id="enabling">Enabling</h2>
-    <p>Temporal awareness is <strong>on by default</strong>, and setup&rsquo;s <strong>Pick your defaults</strong> step offers it too. Switch it with <strong>Settings &rarr; Features &rarr; Temporal awareness</strong>. The change applies to every chat, new or existing, from its next message. Below the switch, an expandable <em>&ldquo;Template variables&rdquo;</em> cheat sheet lists the five <code>{{CURRENT_*}}</code> placeholders with an example value for each.</p>
+    <p>Temporal awareness is <strong>on by default</strong>, and setup&rsquo;s <strong>Pick your defaults</strong> step offers it too. Switch it with <strong>Settings &rarr; Features &rarr; Temporal awareness</strong>. The change applies to every chat, new or existing, from its next message. Below the switch, an expandable <em>&ldquo;Template variables&rdquo;</em> cheat sheet lists the five <code>{{CURRENT_*}}</code> placeholders with an example value for each. The <a href="snippets.html#variables">Snippets</a> page&rsquo;s <strong>Variables</strong> panel lists them too, under <strong>Built in - filled in automatically</strong>, each with its value right now.</p>
 
     <h2 id="how-it-fires">How it decides to fire</h2>
-    <p>Before each message, Loach checks the system prompt it has built - your <a href="custom-instructions.html#precedence">instructions</a>, plus any memory and Space sources - for the <code>{{CURRENT_*}}</code> placeholders:</p>
+    <p>Before each message, Loach checks your <a href="custom-instructions.html#precedence">instructions</a> - global, Space or per-chat - for the <code>{{CURRENT_*}}</code> placeholders. Memories and sources are left alone: a placeholder inside one of them is sent as plain text and doesn&rsquo;t count. The placeholders are:</p>
     <ul class="feature-list">
       <li><code>{{CURRENT_DATE}}</code>, <code>{{CURRENT_TIME}}</code>, <code>{{CURRENT_WEEKDAY}}</code>, <code>{{CURRENT_DATETIME}}</code>, <code>{{CURRENT_TIMEZONE}}</code></li>
     </ul>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Code blocks & canvas - Loach Docs</title>
-  <meta name="description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
+  <meta name="description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting, and previews HTML as a page in an offline sandbox." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/code-canvas.html" />
   <meta property="og:title" content="Code blocks &amp; canvas - Loach Docs" />
-  <meta property="og:description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
+  <meta property="og:description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting, and previews HTML as a page in an offline sandbox." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Code blocks &amp; canvas - Loach Docs" />
-  <meta name="twitter:description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting." />
+  <meta name="twitter:description" content="Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting, and previews HTML as a page in an offline sandbox." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Code blocks & canvas",
-      "description": "Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting.",
+      "description": "Every code block ships with copy, export and open-in-canvas actions. The canvas opens any code block in a wider, easier-to-read panel with line numbers and language-aware highlighting, and previews HTML as a page in an offline sandbox.",
       "url": "https://docs.loach.dev/pages/features/code-canvas.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -263,16 +265,17 @@
   <main class="content">
     <p class="breadcrumb"><a href="../features.html">&larr; All features</a></p>
     <h1>Code blocks & canvas</h1>
-    <p class="lead">Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, its <strong>Open</strong> button pops the block into the code canvas - a wider, easier-to-read panel alongside the conversation.</p>
+    <p class="lead">Every fenced code block in an assistant reply is syntax-highlighted, line-numbered and comes with a small toolbar. For longer snippets, its <strong>Open</strong> button pops the block into the code canvas - a wider, easier-to-read panel alongside the conversation - where HTML can also be previewed as a page.</p>
 
     <h2 id="inline-actions">Inline actions</h2>
-    <p>Each code block has a header showing its language (or <em>text</em> when the model didn&rsquo;t tag one) and three buttons:</p>
+    <p>Each code block has a header showing its language (or <em>text</em> when the model didn&rsquo;t tag one) and three buttons, four on an HTML block:</p>
     <ul class="feature-list">
+      <li><strong class="feat-name">Preview</strong> - HTML blocks only: open the canvas on the rendered page (the tooltip reads <em>Preview in canvas</em>). See <a href="#html-preview">HTML preview</a>.</li>
       <li><strong class="feat-name">Open</strong> - pop the block out into the canvas panel (the tooltip reads <em>Open in canvas</em>).</li>
       <li><strong class="feat-name">Export</strong> - save to a file via the native save dialog. The default filename comes from the block&rsquo;s language tag (<code>snippet.ts</code>, <code>snippet.py</code>, <code>Dockerfile</code>, and so on); untagged or unrecognised languages save as <code>snippet.txt</code>.</li>
       <li><strong class="feat-name">Copy</strong> - put the snippet on the clipboard exactly as the model wrote it. Works for everything, even non-code (JSON, logs, plain prose in a fenced block).</li>
     </ul>
-    <p>While a reply is still streaming, the block being written shows as plain text; highlighting is applied once the reply finishes.</p>
+    <p>While a reply is still streaming, the block being written shows as plain text; highlighting is applied once the block is complete. A block over 50,000 characters stays plain text, so a huge one can&rsquo;t hold up the window.</p>
 
     <h2 id="canvas-panel">The canvas panel</h2>
     <p>The canvas opens in the right-hand slot of the window and holds one snippet at a time - opening another block replaces it. It shows:</p>
@@ -282,7 +285,7 @@
       <li><strong class="feat-name">Copy</strong> - mirrors the inline action.</li>
       <li><strong class="feat-name">Export</strong> - same sensible-filename defaults; for an attachment, the default is the original file name.</li>
       <li><strong class="feat-name">Read-only body</strong> with line numbers and language-aware highlighting. Unknown languages fall back to auto-detection, and snippets over 50,000 characters show as plain text to keep the window responsive.</li>
-      <li><strong class="feat-name">Live updates</strong> - open the canvas on a reply that is still streaming and it keeps mirroring the reply&rsquo;s latest code block as more tokens arrive, as plain text until the reply finishes.</li>
+      <li><strong class="feat-name">Live updates</strong> - open the canvas on the block a reply is still writing and it follows that block as more tokens arrive, as plain text until the reply finishes. Then it keeps the finished block; code blocks the reply goes on to write don&rsquo;t replace it.</li>
       <li><strong class="feat-name">Resizable</strong> - drag the left edge to set the panel width (at least 320&nbsp;px, always leaving the transcript 420&nbsp;px); your choice is remembered.</li>
     </ul>
 
@@ -292,7 +295,24 @@
       <div class="callout-body">
         <div class="callout-title">Heads up</div>
         <p>The canvas and the <a href="parameters.html">parameters sidebar</a> share the same right-hand slot. While the canvas is open it takes the slot; close it and the parameters panel comes back if it was open. On windows narrower than 1080&nbsp;px, opening the canvas also folds the left sidebar to its icon rail so the transcript keeps a usable width - it returns when the canvas closes (see <a href="folders-labels.html#auto-collapse">the sidebar on narrow windows</a>).</p>
-        <p><a href="private-chat.html">Private Chat</a> has no canvas of its own: <strong>Open</strong> there loads the block into the main window&rsquo;s canvas, hidden behind the overlay and still open after you close Private Chat. Use <strong>Copy</strong> or <strong>Export</strong> instead.</p>
+        <p><a href="private-chat.html">Private Chat</a> has no canvas: while it&rsquo;s open, code blocks show neither <strong>Open</strong> nor <strong>Preview</strong>. <strong>Copy</strong> and <strong>Export</strong> still work.</p>
+      </div>
+    </div>
+
+    <h2 id="html-preview">HTML preview</h2>
+    <p>An HTML code block (tagged <code>html</code> or <code>htm</code>) has a <strong>Preview</strong> button that opens the canvas straight on the rendered page. An <code>.html</code> or <code>.htm</code> <a href="attachments.html#previews">attachment</a> opens in the canvas too, on its code. Either way, a <strong>Code</strong> / <strong>Preview</strong> switch under the canvas header flips between the source and the page.</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Scripts start off</strong> - a preview first shows the page&rsquo;s markup and styles only, labelled <em>Offline sandbox &middot; scripts off</em>. <strong>Run scripts</strong> runs its JavaScript and turns into <strong>Stop scripts</strong>. It applies to that exact code only: open different code and its scripts start off again.</li>
+      <li><strong class="feat-name">Reload</strong> - starts the page over from scratch.</li>
+      <li><strong class="feat-name">While the reply streams</strong> - the preview shows <em>The preview appears when the code finishes generating.</em> until the reply is done, and <strong>Run scripts</strong> and <strong>Reload</strong> stay disabled until then.</li>
+    </ul>
+    <p>The page runs in an offline sandbox, cut off from Loach, your files and the network. Only what the page itself contains loads - inline styles and scripts, and images, fonts and media embedded as <code>data:</code> URLs. Scripts, stylesheets, images and fonts from the web don&rsquo;t, so neither do libraries from a CDN such as Tailwind or Chart.js. Forms don&rsquo;t submit; pop-ups, downloads and dialogs such as <code>alert()</code> do nothing; embedded frames (<code>&lt;iframe&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>) are removed; and WebRTC isn&rsquo;t available. <code>localStorage</code> and <code>sessionStorage</code> work, but only in memory until the page reloads, and there are no cookies. A page that sets no background shows on white, like a browser tab.</p>
+    <p>Typing or clicking inside a preview counts as activity for <a href="app-lock.html#auto-lock">auto-lock</a>, and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> (<kbd>&#8984;</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> on macOS) still locks Loach while the preview has focus.</p>
+
+    <div class="callout warn">
+      <div class="callout-body">
+        <div class="callout-title">Scripts on macOS and Linux</div>
+        <p>On macOS and Linux the preview runs on the same thread as Loach itself, so a script that never stops - an endless loop, say - freezes the whole app, lock screen included, until you quit it. That&rsquo;s why scripts start off, and it&rsquo;s what the <strong>Run scripts</strong> tooltip warns about there. On Windows the preview runs in a process of its own, and the tooltip just says the scripts run still sandboxed and offline.</p>
       </div>
     </div>
     <div class="page-nav">

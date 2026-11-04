@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Attachments - Loach Docs</title>
-  <meta name="description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
+  <meta name="description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one, scales images down, and feeds the content into the model’s context." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/features/attachments.html" />
   <meta property="og:title" content="Attachments - Loach Docs" />
-  <meta property="og:description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
+  <meta property="og:description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one, scales images down, and feeds the content into the model’s context." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Attachments - Loach Docs" />
-  <meta name="twitter:description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context." />
+  <meta name="twitter:description" content="Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one, scales images down, and feeds the content into the model’s context." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Attachments",
-      "description": "Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one and feeds the content into the model’s context.",
+      "description": "Drop files into any chat - images, code, PDFs, DOCX and more. Loach parses each one, scales images down, and feeds the content into the model’s context.",
       "url": "https://docs.loach.dev/pages/features/attachments.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -268,18 +270,22 @@
     <h2 id="adding-files">Adding files</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">+ menu</strong> - <strong>Add files</strong> opens the native file picker; pick as many files as you like. <kbd>Ctrl</kbd> + <kbd>U</kbd> opens the same picker.</li>
-      <li><strong class="feat-name">Drag and drop</strong> - drop files anywhere in the window while a message box is on screen. The box reads <strong>Drop files here to attach</strong> while you drag.</li>
-      <li><strong class="feat-name">Paste</strong> - <kbd>Ctrl</kbd> + <kbd>V</kbd> in the message box attaches any files on the clipboard, such as a screenshot or files copied in your file manager. Plain text pastes as text.</li>
+      <li><strong class="feat-name">Drag and drop</strong> - drop files anywhere in the window while a message box is on screen. The box reads <strong>Drop files here to attach</strong> while you drag. Drops are refused while a dialog such as Settings is open over the chat.</li>
+      <li><strong class="feat-name">Paste</strong> - <kbd>Ctrl</kbd> + <kbd>V</kbd> in the message box attaches any files on the clipboard, such as a screenshot or files copied in your file manager. Plain text pastes as text. When the clipboard holds text along with a picture of it - cells copied from Excel, a paragraph from Word - the text is pasted and the picture ignored.</li>
     </ul>
-    <p>Each file becomes a chip above the input, after any persona and tone chips. Click a chip&rsquo;s <em>&times;</em> to drop it before sending. You can send files without typing anything; the chips leave with the message.</p>
-    <p>The same menu&rsquo;s <strong>Add directory</strong> item (<strong>Change directory</strong> once the chat has a folder) does something different: instead of copying files into one message, it lets the model list, read and edit the files in a folder for the rest of the chat. It becomes available once the chat has its first message. See <a href="work-in-folders.html#adding-a-folder">Work in folders</a>.</p>
+    <p>Each file becomes a chip above the input, after any persona, tone and Library source chips. Click a chip&rsquo;s <em>&times;</em> to drop it before sending. You can send files without typing anything; the chips leave with the message. Files you haven&rsquo;t sent yet stay with the chat you attached them in: switch to another chat and back, and they are still waiting in its message box (until you quit Loach).</p>
+    <p>The <strong>+</strong> menu has two more items, and neither copies files into a message:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">From Library</strong> - adds sources saved in your <a href="library.html#using-sources">Library</a> to the chat. They are used on every message until you remove them. Typing <code>#</code> in the message box does the same.</li>
+      <li><strong class="feat-name">Add directory</strong> - lets the model list, read and edit the files in a folder for the rest of the chat; the item reads <strong>Change directory</strong> once the chat has a folder. On a Space&rsquo;s page, where the message box starts a new chat, it is greyed out: send the first message, then add the folder in the chat that opens. See <a href="work-in-folders.html#adding-a-folder">Work in folders</a>.</li>
+    </ul>
 
     <h2 id="supported-types">Supported file types</h2>
     <p>Loach sorts every file into one of four kinds:</p>
     <ul class="feature-list">
-      <li><strong class="feat-name">Images</strong> - PNG, JPEG, WEBP and GIF. Sent to the model as images alongside your text, so they need a vision-capable model.</li>
-      <li><strong class="feat-name">Text and code</strong> - about seventy recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown, CSV, SQL, shell scripts, <code>Dockerfile</code>, <code>Makefile</code> and so on) plus anything with a <code>text/*</code> type. The file is read as UTF-8 text and added verbatim inside a code block.</li>
-      <li><strong class="feat-name">Documents</strong> - PDF and DOCX. Loach extracts the plain text and adds that; a PDF is read page by page, each page under a &ldquo;Page N&rdquo; header. Layout, formatting and embedded images are lost. A scanned PDF with no text layer has nothing to extract, and the model is told so.</li>
+      <li><strong class="feat-name">Images</strong> - PNG, JPEG, WEBP and GIF. Sent to the model as images alongside your text, so they need a vision-capable model. Large images are <a href="#image-scaling">scaled down</a> on the way out.</li>
+      <li><strong class="feat-name">Text and code</strong> - about seventy recognised extensions (Python, TypeScript, Rust, Go, JSON, YAML, Markdown, CSV, SQL, shell scripts, <code>Dockerfile</code>, <code>Makefile</code> and so on) plus anything with a <code>text/*</code> type. The file is added verbatim inside a code block. Loach works out its encoding: UTF-8 and UTF-16 (with or without a byte-order mark) are read as such, and anything else as the legacy Windows code page for your system&rsquo;s display language - Windows-1250 for Polish, Czech, Slovak, Hungarian, Croatian, Slovenian and Romanian, Windows-1252 for every other language.</li>
+      <li><strong class="feat-name">Documents</strong> - PDF and DOCX. Loach extracts the plain text and adds that; a PDF is read page by page, each page under a &ldquo;Page N&rdquo; header, and a page that can&rsquo;t be read is skipped. Layout, formatting and embedded images are lost. A scanned PDF with no text layer has nothing to extract, and the model is told so.</li>
       <li><strong class="feat-name">Everything else</strong> - legacy <code>.doc</code>, archives, binaries and other image formats such as BMP, TIFF, HEIC or SVG. These attach, but Loach can&rsquo;t read them; see <a href="#unknown-formats">below</a>.</li>
     </ul>
 
@@ -287,6 +293,26 @@
     <p>When you send, your typed prompt comes first, followed by one block per text file or document, in the order you added them. Each block opens with a header naming the file (&ldquo;Attached file&rdquo;, &ldquo;Attached PDF&rdquo; or &ldquo;Attached Word document&rdquo;), so the model knows what it is looking at. Pages pulled in by <a href="web-fetch.html">web fetch</a> come after the attachments.</p>
     <p>Your bubble in the transcript shows only what you typed, with the files as chips, but the extracted text is stored with the message. It is sent again with the chat history on every later turn and counts toward the context window - the <a href="context-compaction.html#usage-bar">context usage popover</a> lists it as <strong>of which attachments</strong>.</p>
     <p>Images work differently: they reach the model only with the message they are attached to, and again if you <a href="markdown.html#regenerate">regenerate</a> that reply. Later turns don&rsquo;t resend them, so attach the image again if you want the model to take another look.</p>
+    <p>Attachments belong to the message they came with. To use them in other chats, pick <strong>Save attachments to Library</strong> (<strong>Save attachment to Library</strong> for a single file) in your message&rsquo;s <code>&hellip;</code> menu: each readable file becomes a <a href="library.html#save-to-library">Library</a> item. A scanned PDF or an empty document is refused, since there is no text to keep.</p>
+
+    <h2 id="image-scaling">Image scaling</h2>
+    <p>Before an image goes to a model, Loach scales it down: a full-size photo costs thousands of image tokens, and many local models read it worse, not better. Out of the box the longest side is capped at 1,024&nbsp;px. Scaling happens each time a message is sent, so the image stored with your chat stays the original - that is what the preview shows and <strong>Save</strong> writes. An image is never enlarged, and one already within the limit goes as it is. A JPEG stays a JPEG; other formats go as PNG, which keeps transparency. An image Loach can&rsquo;t decode is sent unchanged.</p>
+    <p>Scaling covers images attached to a message (again when you regenerate its reply), images uploaded to a <a href="spaces.html">Space</a> and <a href="library.html#images">Library</a> images. Every place that sets it offers the same control:</p>
+    <ul class="feature-list">
+      <li><strong class="feat-name">Default</strong> - follow the level above. The line under the control says which setting that is and what it does.</li>
+      <li><strong class="feat-name">Scale down</strong> - shrink images to the size you enter, in <strong>px</strong> (the longest side, 64 to 8,192) or <strong>%</strong> (a share of the original width and height, 1 to 100). The number is saved when you press <kbd>Enter</kbd> or leave the field, and a value outside the range is brought into it.</li>
+      <li><strong class="feat-name">Original</strong> - send images at their original size, up to the 20&nbsp;MB file limit.</li>
+    </ul>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Where</th><th>What it covers</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Settings &rarr; Features &rarr; Image scaling</strong></td><td>The whole app: the setting every other level falls back to. It has no <strong>Default</strong> option.</td></tr>
+        <tr><td><strong>Settings &rarr; Library &rarr; Images</strong></td><td>Library images, in chats and Spaces that don&rsquo;t set their own</td></tr>
+        <tr><td>A Space&rsquo;s <strong>Settings</strong> tab &rarr; <strong>Image scaling</strong></td><td>The Space&rsquo;s chats: attached images, the Space&rsquo;s own uploads and its Library images</td></tr>
+        <tr><td>The chat&rsquo;s <a href="parameters.html">Parameters</a> panel &rarr; <strong>Images</strong></td><td>That chat only</td></tr>
+      </tbody>
+    </table></div>
+    <p>The most specific level that sets it wins. For attached images and a Space&rsquo;s uploads that is the chat, then its Space, then the app. Library images check the Library&rsquo;s setting before the app&rsquo;s: chat, Space, Library, app. <a href="private-chat.html">Private Chat</a> has no setting of its own and always follows <strong>Settings &rarr; Features</strong>.</p>
 
     <h2 id="caps-and-truncation">Caps and truncation</h2>
     <p>To keep the prompt manageable, Loach applies three limits:</p>
@@ -311,7 +337,7 @@
     <ul class="feature-list">
       <li><strong class="feat-name">Images</strong> - open in a lightbox with a <strong>Save</strong> button. Click the dim backdrop or the <em>&times;</em> to close.</li>
       <li><strong class="feat-name">PDFs</strong> - open as a scrollable preview that renders each page as you reach it, with <strong>Save</strong> writing the original file. This needs the PDF&rsquo;s original bytes, which Loach keeps for a PDF still in the message box and for PDFs from the <code>pdf</code> tool - not for a PDF you have already sent in a regular chat.</li>
-      <li><strong class="feat-name">Text and code</strong> - open in the <a href="code-canvas.html">code canvas</a> under the file&rsquo;s name, with highlighting, and with <strong>Export</strong> defaulting to the original file name.</li>
+      <li><strong class="feat-name">Text and code</strong> - open in the <a href="code-canvas.html">code canvas</a> under the file&rsquo;s name, with highlighting, and with <strong>Export</strong> defaulting to the original file name. An <code>.html</code> or <code>.htm</code> file also gets the canvas&rsquo;s <a href="code-canvas.html#html-preview">HTML preview</a>, to see the page rendered.</li>
       <li><strong class="feat-name">Everything else</strong> - DOCX files, files Loach can&rsquo;t decode, sent PDFs and any PDF that fails to render open a card reading <strong>Preview not available</strong>, with a <strong>Save</strong> button so you can still pull the file back out. For a PDF or DOCX that has already been sent, <strong>Save</strong> writes the extracted text as a <code>.txt</code> file, so keep your original.</li>
     </ul>
 

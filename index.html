@@ -160,6 +160,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="pages/features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="pages/features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="pages/features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="pages/features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="pages/features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="pages/features/chat-archive.html">Chat archive</a></li>
@@ -242,6 +243,7 @@
           <li><a class="sidebar-sublink" href="pages/troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="pages/troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="pages/troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="pages/troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="pages/troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="pages/troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="pages/troubleshooting/updates.html">Updates</a></li>
@@ -299,7 +301,11 @@
       </a>
       <a class="card" href="pages/concepts.html#spaces">
         <div class="card-title">Spaces</div>
-        <div class="card-desc">Group chats around a project, with shared instructions, reference files and their own memory.</div>
+        <div class="card-desc">Group chats around a project, with shared instructions, reference sources - uploads or Library items - and their own memory.</div>
+      </a>
+      <a class="card" href="pages/features/library.html">
+        <div class="card-title">Library</div>
+        <div class="card-desc">Save texts, files and links once and attach them to any chat or Space. Small sources go to the model in full; big ones are searched by keyword or by meaning.</div>
       </a>
       <a class="card" href="pages/concepts.html#snippets">
         <div class="card-title">Snippets</div>
@@ -309,13 +315,21 @@
         <div class="card-title">Built-in tools</div>
         <div class="card-desc">Local tools the model can call - calculator, dates, JSON, text diff, PDF generation and more - plus opt-in web fetch.</div>
       </a>
+      <a class="card" href="pages/features/code-canvas.html">
+        <div class="card-title">Code canvas</div>
+        <div class="card-desc">Open any code block in a wide, resizable view that updates live as the model streams. HTML previews as a page in an offline sandbox, with scripts off until you run them.</div>
+      </a>
+      <a class="card" href="pages/features/search.html">
+        <div class="card-title">Search</div>
+        <div class="card-desc">One <kbd>Ctrl</kbd> + <kbd>K</kbd> palette across chats, message text, Spaces, Snippets and the Library, plus a find-in-chat bar.</div>
+      </a>
       <a class="card" href="pages/privacy.html">
         <div class="card-title">Local-first &amp; private</div>
-        <div class="card-desc">Chats, Spaces and settings live in one local SQLite file. Your API key and app-lock hash go to the OS credential manager.</div>
+        <div class="card-desc">Chats, Spaces, the Library and settings live in one local SQLite file. Your API key and app-lock hash go to the OS credential manager.</div>
       </a>
       <a class="card" href="pages/features/private-chat.html">
         <div class="card-title">Private Chat</div>
-        <div class="card-desc">A dark-only, ephemeral overlay for conversations that leave no trace. Wiped the moment you close it.</div>
+        <div class="card-desc">A dark-only, ephemeral overlay for conversations that leave no trace. Wiped the moment you close it or Loach locks.</div>
       </a>
     </div>
 
@@ -323,7 +337,7 @@
     <ul>
       <li><a href="pages/installation.html">Installation</a> - pre-built packages for Windows, Linux &amp; macOS, or build from source.</li>
       <li><a href="pages/getting-started.html">Quick start</a> - your first chat with a local model in two minutes.</li>
-      <li><a href="pages/concepts.html">Core concepts</a> - providers, chats, Spaces, Snippets, parameters.</li>
+      <li><a href="pages/concepts.html">Core concepts</a> - providers, chats, Spaces, the Library, Snippets, parameters.</li>
       <li><a href="pages/features.html">Features</a> - the full feature reference.</li>
       <li><a href="pages/faq.html">FAQ</a> - the questions people ask first.</li>
       <li><a href="pages/troubleshooting.html">Troubleshooting</a> - common problems and how to fix them.</li>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Core concepts - Loach Docs</title>
-  <meta name="description" content="The basic building blocks of Loach: providers, chats, Spaces, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat." />
+  <meta name="description" content="The basic building blocks of Loach: providers, chats, Spaces, the Library, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat." />
   <link rel="icon" type="image/png" href="../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/concepts.html" />
   <meta property="og:title" content="Core concepts - Loach Docs" />
-  <meta property="og:description" content="The basic building blocks of Loach: providers, chats, Spaces, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat." />
+  <meta property="og:description" content="The basic building blocks of Loach: providers, chats, Spaces, the Library, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Core concepts - Loach Docs" />
-  <meta name="twitter:description" content="The basic building blocks of Loach: providers, chats, Spaces, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat." />
+  <meta name="twitter:description" content="The basic building blocks of Loach: providers, chats, Spaces, the Library, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -45,7 +45,7 @@
     {
       "@type": "Article",
       "headline": "Core concepts",
-      "description": "The basic building blocks of Loach: providers, chats, Spaces, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat.",
+      "description": "The basic building blocks of Loach: providers, chats, Spaces, the Library, memory, Snippets, parameters, personas and tones, instructions, context, slash commands, tools, working folders, MCP and Private Chat.",
       "url": "https://docs.loach.dev/pages/concepts.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -161,6 +161,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="features/chat-archive.html">Chat archive</a></li>
@@ -243,6 +244,7 @@
           <li><a class="sidebar-sublink" href="troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="troubleshooting/updates.html">Updates</a></li>
@@ -276,6 +278,7 @@
       <li>The provider and model used.</li>
       <li>Its parameter overrides (see below) and its own instructions.</li>
       <li>Its messages, with their attachments and tool calls.</li>
+      <li>The <a href="#library">Library</a> sources attached to it, and how they reach the model.</li>
       <li>Its Space, sidebar folder, colour label, pin and archive state, and <a href="features/work-in-folders.html">working folder</a>.</li>
     </ul>
     <p>The persona and tone you pick for a chat last until you quit Loach; after a restart the chat goes back to no persona and your default tone.</p>
@@ -283,7 +286,11 @@
 
     <h2 id="spaces">Spaces</h2>
     <p>A <strong>Space</strong> groups chats that share context - instructions, reference sources and memory. Use a Space when several chats orbit the same topic: a codebase, a research question, an ongoing piece of writing.</p>
-    <p>A Space&rsquo;s default model is the starting point of every new chat created inside it, and each chat can still switch it. Its reference sources and memory go with every chat in it. Its instructions, when set, <em>replace</em> both your global Custom instructions and the chat&rsquo;s own. See <a href="features/spaces.html">Spaces</a>.</p>
+    <p>A Space&rsquo;s default model is the starting point of every new chat created inside it, and each chat can still switch it. Its reference sources - files uploaded to the Space, or items linked from your <a href="#library">Library</a> - and its memory go with every chat in it. Its instructions, when set, <em>replace</em> both your global Custom instructions and the chat&rsquo;s own. The Space&rsquo;s <strong>Settings</strong> tab holds its default model, memory auto-save, how its sources reach the model and how images are scaled. See <a href="features/spaces.html">Spaces</a>.</p>
+
+    <h2 id="library">Library</h2>
+    <p>The <strong>Library</strong> keeps the reference material you want models to use, saved once: <strong>texts</strong> you write or paste, <strong>files</strong> (PDF, Word, text and code, images) and <strong>links</strong> to web pages, which Loach fetches once and keeps as a snapshot. Group items into <strong>datasets</strong> to attach a whole set in one go. Open it from the sidebar.</p>
+    <p>Attach items to a chat with <strong>+</strong> &rarr; <strong>From Library</strong> or by typing <code>#</code> in the message box, or add them to a Space&rsquo;s sources so every chat in it can use them. Chats and Spaces link to an item rather than copying it, so an edit in the Library reaches every chat using it. Sources that fit go to the model in full text; bigger ones are searched, and only the excerpts most relevant to each message are sent - by keyword out of the box, and by meaning too once you set an embedding model in <strong>Settings &rarr; Library</strong>. Each reply shows which sources it used. See <a href="features/library.html">Library</a>.</p>
 
     <h2 id="memory">Memory</h2>
     <p>Loach can remember lasting facts about you. While memory is on, after each reply it asks the same model, in a second, hidden request, to save new facts and to update or drop ones that no longer hold; every change shows a toast with <strong>Undo</strong>. There are two lists:</p>
@@ -304,7 +311,7 @@
     <h2 id="parameters">Per-chat parameters</h2>
     <p>Every chat has a <a href="features/parameters.html">parameters panel</a> where you can override sampling and runtime settings without touching the model itself. Its <strong>Simple</strong> view holds the everyday controls; <strong>Advanced</strong> adds the sampling and repetition knobs. The most useful ones:</p>
 
-    <table>
+    <div class="table-wrap"><table>
       <thead>
         <tr><th>Parameter</th><th>What it does</th></tr>
       </thead>
@@ -312,13 +319,14 @@
         <tr><td>Temperature</td><td>Randomness. Lower = more deterministic.</td></tr>
         <tr><td>Top-K / Top-P / Min-P</td><td>Truncate the token distribution at sampling time.</td></tr>
         <tr><td>Max Tokens</td><td>Cap on the length of a single reply.</td></tr>
-        <tr><td>Context Length</td><td>The model&rsquo;s context window - how much of the conversation it can see at once. Ollama only; an OpenAI-compatible server decides for itself.</td></tr>
+        <tr><td>Context Length</td><td>The model&rsquo;s context window - how much of the conversation it can see at once. Sent to Ollama only; an OpenAI-compatible server decides for itself, but Loach still sizes the context bar and Library sources by it (32k when unset).</td></tr>
         <tr><td>Thinking</td><td>Turns a reasoning model&rsquo;s thinking step on or off (Ollama).</td></tr>
         <tr><td>Additional instructions</td><td>The chat&rsquo;s own instructions. They take the place of your global Custom instructions for this chat rather than adding to them.</td></tr>
+        <tr><td>Images</td><td>How images are <a href="features/attachments.html#image-scaling">scaled down</a> before they&rsquo;re sent - by default to 1024 px on the longest side. The stored original is untouched.</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
-    <p>Values are layered: a chat&rsquo;s own setting wins over the model&rsquo;s Modelfile defaults, which win over Loach&rsquo;s built-in defaults. <strong>Low VRAM mode</strong> in <strong>Settings → Features</strong>, when on, overrides them all.</p>
+    <p>Values are layered: a chat&rsquo;s own setting wins over the model&rsquo;s Modelfile defaults, which win over Loach&rsquo;s built-in defaults. <strong>Low VRAM mode</strong> in <strong>Settings → Features</strong>, when on, turns Low VRAM on for every Ollama chat, whatever the chat sets.</p>
 
     <h2 id="personas-tones">Personas and tones</h2>
     <p>A <strong>persona</strong> is a role the model takes on - <em>Code Reviewer</em>, <em>Writing Editor</em>, <em>Translator</em>, <em>Explain Like I&rsquo;m 5</em>, and so on. A <strong>tone</strong> is the delivery style - <em>Direct</em>, <em>Detailed</em>, <em>Casual</em>, <em>Formal</em>, <em>Playful</em>, <em>Skeptical</em>, <em>Socratic</em>, and more. Both wrap around your instructions: the persona goes before them, the tone after. A persona is picked per chat; a tone can be picked per chat or set as the default in <strong>Settings → General</strong>. See <a href="features/personas.html">Personas and tones</a> for details.</p>
@@ -333,8 +341,9 @@
     <p>All three accept template variables such as <code>{{USER_NAME}}</code> and <code>{{CURRENT_DATE}}</code>. See <a href="features/custom-instructions.html">Custom instructions</a>.</p>
 
     <h2 id="context">Context</h2>
-    <p>The &ldquo;context&rdquo; is what Loach sends to the model on each turn: the system prompt and the message history. A <a href="features/context-compaction.html">context usage bar</a> just below the message box shows how full the model&rsquo;s window is. You can:</p>
+    <p>The &ldquo;context&rdquo; is what Loach sends to the model on each turn: the system prompt, the message history and any sources the chat uses. A <a href="features/context-compaction.html">context usage bar</a> just below the message box shows how full the model&rsquo;s window is. You can:</p>
     <ul>
+      <li>Attach <a href="#library">Library</a> sources, which reach the model in full or as the excerpts most relevant to each message (see <a href="features/library.html#source-modes">source modes</a>).</li>
       <li><strong>Compact</strong> it - summarise older turns into the system prompt to free space, without losing your scrollback.</li>
       <li>Export it as Markdown to copy elsewhere, and <a href="features/import-export.html">import</a> exported context - or any text - into another chat to seed it.</li>
       <li>Paste URLs whose pages get fetched and inlined (see <a href="features/web-fetch.html">Web fetch</a>).</li>
@@ -348,14 +357,14 @@
     <h2 id="tools">Tools and MCP</h2>
     <p>Models that support tool calls can use <strong>tools</strong> mid-answer; each call shows up in the reply. Tools come from three places:</p>
     <ul>
-      <li><strong><a href="features/built-in-tools.html">Built-in tools</a></strong> - calculator, date/time, hashing, JSON, unit conversion, text diff, PDF generation and more. They run locally with no network access, and each is off until you switch it on in <strong>Settings → Tools</strong>.</li>
-      <li><strong><a href="features/work-in-folders.html">Work in folders</a></strong> - add a folder to a chat from the <strong>+</strong> menu next to the message box (<strong>Add directory</strong>) and the model can list, find, read, search and edit the files in it. It stays sandboxed to that folder and has no shell, and before anything is written, edited, moved or deleted, Loach shows you the change and asks.</li>
+      <li><strong><a href="features/built-in-tools.html">Built-in tools</a></strong> - calculator, date/time, hashing, JSON, unit conversion, text diff, PDF generation and more. They run locally with no network access, and each is off until you switch it on in <strong>Settings → Tools</strong> or accept the setup wizard&rsquo;s recommended set.</li>
+      <li><strong><a href="features/work-in-folders.html">Work in folders</a></strong> - add a folder to a chat from the <strong>+</strong> menu next to the message box (<strong>Add directory</strong>) and the model can list, find, read, search and edit the files in it. It stays sandboxed to that folder and has no shell, and before anything is written, edited, moved or deleted, Loach shows you the change and asks, unless you&rsquo;ve allowed that tool for the chat.</li>
       <li><strong><a href="features/mcp.html">MCP servers</a></strong> - Loach speaks the <strong>Model Context Protocol</strong>, over HTTP or by running a local program (<code>npx</code>, <code>uvx</code>, <code>node</code> or a full path) that you approve in a native dialog first. Register a server in <strong>Settings → MCP</strong>, test it and inspect its tools, and the model can use them. Each MCP tool call pauses for your answer - <strong>Allow once</strong>, <strong>Always allow</strong> or <strong>Deny</strong> - unless you switch that off for a server you trust.</li>
     </ul>
     <p>Separately, <a href="features/web-fetch.html">Web fetch</a> downloads the URLs you paste into a prompt and adds their text to it.</p>
 
     <h2 id="private-chat">Private Chat</h2>
-    <p><strong>Private Chat</strong> is an off-the-record overlay for conversations that should leave no trace. Open it from the ghost icon in the title bar or with <code>/private</code>. Nothing is saved: the transcript lives in memory and is wiped when you close the overlay with the <strong>&times;</strong> in its header. It talks to Ollama only, and gets no MCP tools, no working folder, no memory and none of your Custom instructions; built-in tools still work, since they never leave your machine. See <a href="features/private-chat.html">Private Chat</a>.</p>
+    <p><strong>Private Chat</strong> is an off-the-record overlay for conversations that should leave no trace. Open it from the ghost icon in the title bar or with <code>/private</code>. Nothing is saved: the transcript lives in memory and is wiped when you close the overlay with the <strong>&times;</strong> in its header, or when Loach locks. It talks to Ollama only, and gets no tools at all - built-in or MCP - no working folder, no Library sources, no memory and none of your Custom instructions. See <a href="features/private-chat.html">Private Chat</a>.</p>
 
     <div class="page-nav">
       <a href="getting-started.html">

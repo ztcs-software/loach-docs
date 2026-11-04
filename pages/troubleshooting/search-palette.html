@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Search palette - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found." />
+  <meta name="description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote or a Library item cannot be found." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/search-palette.html" />
   <meta property="og:title" content="Search palette - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found." />
+  <meta property="og:description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote or a Library item cannot be found." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Search palette - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found." />
+  <meta name="twitter:description" content="Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote or a Library item cannot be found." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Search palette - Troubleshooting",
-      "description": "Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote cannot be found.",
+      "description": "Troubleshoot Loach search when Ctrl+K or Ctrl+F does nothing, or a phrase you know you wrote or a Library item cannot be found.",
       "url": "https://docs.loach.dev/pages/troubleshooting/search-palette.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -268,7 +270,8 @@
 
     <h2 id="shortcut-dead">Ctrl+K does nothing</h2>
     <p class="problem-statement">The shortcut doesn&rsquo;t open the global search.</p>
-    <p>The palette is suppressed while the <strong>onboarding wizard</strong>, the <strong>lock screen</strong> or <strong>Private Chat</strong> owns the window - the title-bar search pill is disabled or hidden then too. Finish onboarding, unlock the app or close Private Chat first.</p>
+    <p>The palette is suppressed while the <strong>onboarding wizard</strong>, the <strong>lock screen</strong> or <strong>Private Chat</strong> owns the window - the title-bar search pill is disabled or hidden then too - and while another dialog (Settings, a confirmation) is open. Finish onboarding, unlock the app, or close Private Chat or the dialog first.</p>
+    <p>On macOS, press <kbd>&#8984;</kbd> + <kbd>K</kbd>: <kbd>Ctrl</kbd> + <kbd>K</kbd> belongs to the text field there, where it deletes to the end of the line. The shortcut works on any keyboard layout. On layouts without Latin letters, such as Cyrillic and Greek, it follows the key&rsquo;s position - press the key where K sits on an English keyboard.</p>
 
     <h2 id="phrase-not-found">Search doesn&rsquo;t find a phrase I know I wrote</h2>
     <p class="problem-statement">You remember the wording, but the palette returns nothing - or only chat titles.</p>
@@ -280,13 +283,14 @@
   <li><strong>A reply&rsquo;s thinking trace.</strong> Only the reply itself is searched.</li>
   <li><strong>Imported turns you hid from the transcript.</strong> Expanding the collapsed card shows them, but there&rsquo;s no un-hide - they stay out of both this search and the in-chat finder. Re-import without <em>Hide from transcript</em> if you need them findable.</li>
   <li><strong>System notices</strong>, which aren&rsquo;t conversation.</li>
+  <li><strong>Words deep inside a <a href="../features/library.html">Library</a> item.</strong> Items match by title, the opening of their text (about 280 characters) and a link&rsquo;s address only - see <a href="library.html#find-item">I can&rsquo;t find a Library item</a>.</li>
 </ul>
 <p>Two more things to check: the query needs at least <strong>two characters</strong>, and case-insensitivity in message search is ASCII-only - a query with accented or non-Latin characters matches transcript text at its own case but not across cases. Try the exact casing you used.</p>
 <p>If titles crowd out what you want, narrow with the scope dropdown or type <code>in:messages</code> in the query - scoped to messages, transcript hits get the whole list instead of a reserved block at the bottom. See <a href="../features/search.html">Search</a>.</p>
 
     <h2 id="find-dead">Ctrl+F does nothing</h2>
     <p class="problem-statement">The in-chat finder doesn&rsquo;t open.</p>
-    <p>The finder searches the open chat&rsquo;s transcript, so it needs a chat with at least one message on screen - nothing happens on a new, empty chat or while the Spaces, Snippets or Models view is showing. Like the palette, it&rsquo;s unavailable in Private Chat, during onboarding and behind the lock screen. You can also open it with <strong>Search in chat</strong> in the chat header&rsquo;s <code>&hellip;</code> menu.</p>
+    <p>The finder searches the open chat&rsquo;s transcript, so it needs a chat with at least one message on screen - nothing happens on a new, empty chat or while the Spaces, Library, Snippets or Models view is showing. Like the palette, it&rsquo;s unavailable in Private Chat, during onboarding, behind the lock screen and while a dialog is open. You can also open it with <strong>Search in chat</strong> in the chat header&rsquo;s <code>&hellip;</code> menu, or by typing <code>/find</code>.</p>
 
     <div class="page-nav">
       <a href="appearance.html">

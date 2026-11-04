@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -269,28 +271,31 @@
     <p>Loach is offline-first. Web fetch is the only switch in <strong>Settings &rarr; Tools</strong> that reaches out to the network on your behalf, so it ships <em>off</em>. Turn it on there when you want it - or type <code>/web-fetch on</code> (and <code>/web-fetch off</code>) in the composer - or leave it off if you would rather everything stay strictly local. The <a href="onboarding.html">onboarding wizard</a>&rsquo;s Tools step offers it too, but never switches it on for you. <a href="private-chat.html">Private Chat</a> never fetches URLs, whatever the setting says.</p>
 
     <h2 id="how-it-works">How it works</h2>
-    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. For each URL it finds, Loach:</p>
+    <p>When you send a message, Loach scans the text you typed for URLs. Only those are fetched: the model can&rsquo;t ask Loach to fetch a page on its own. Punctuation right after a link, such as a full stop or the bracket closing an aside, is left off the URL, but a bracket that is part of it stays - <code>(see https://en.wikipedia.org/wiki/Rust_(programming_language))</code> fetches the right article. For each URL it finds, Loach:</p>
     <ul class="feature-list">
       <li><strong class="feat-name">Downloads</strong> the page, deduping repeated links and fetching several URLs in parallel.</li>
+      <li><strong class="feat-name">Decodes</strong> the page in the character set it declares - in its <code>Content-Type</code> header, or else a <code>&lt;meta charset&gt;</code> near the top of the page - and as UTF-8 when it declares none.</li>
       <li><strong class="feat-name">Sanitises</strong> the HTML into readable plain text, keeping the page title and dropping scripts, styles and markup. Plain-text responses are used as they are. No JavaScript runs, so a page that builds its content in the browser can come back nearly empty.</li>
       <li><strong class="feat-name">Inlines</strong> the extracted text into your message as a fenced block headed with the final URL and the page title, so the model knows where the content came from.</li>
     </ul>
     <p>The page text is saved with your message - hidden from the bubble - so the model still has it on later turns of the chat. If a single page is huge, only the leading portion of its text is sent and the model is told it was cut. If a fetch fails, a short <code>Failed to fetch &lt;url&gt;: &hellip;</code> stub takes its place so the model knows you meant to share it; the rest of the message still goes out.</p>
-    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text.</p>
+    <p>To check what Loach would extract from a page without sending anything to the model, type <code>/fetch &lt;url&gt;</code>: it shows the page title, its size and the first 200 characters of text. It works whether or not the switch is on, since you asked for that one page yourself.</p>
 
     <h2 id="limits">Limits</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Up to 5 URLs per message</strong> - duplicates are collapsed, anything beyond the cap is skipped.</li>
-      <li><strong class="feat-name">30 s per URL</strong> in total, redirects included, with a 10 s connect timeout.</li>
+      <li><strong class="feat-name">30 s per URL</strong> in total, DNS lookups and redirects included, with a 10 s connect timeout.</li>
       <li><strong class="feat-name">5 MB download cap per URL</strong> - a larger page is cut at the cap and marked truncated.</li>
       <li><strong class="feat-name">~12,000 characters of extracted text per URL</strong> - the leading portion of long pages.</li>
-      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that no longer fits is fetched but only listed by URL.</li>
+      <li><strong class="feat-name">Shared message budget</strong> - fetched pages and <a href="attachments.html">attachments</a> share the 500,000-character limit on what one message can inline. A page that only partly fits is clipped, never in the middle of an emoji, with a note to the model; a page with no room left is fetched but only listed by URL.</li>
     </ul>
+    <p>Links you add to the <a href="library.html#what-it-holds">Library</a> are fetched the same way, with the same time, size, redirect and safety rules, but keep much more of the page&rsquo;s text.</p>
 
     <h2 id="safety">Safety guards</h2>
     <ul class="feature-list">
       <li><strong class="feat-name">Schemes</strong> - only <code>http</code> and <code>https</code>.</li>
-      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
+      <li><strong class="feat-name">Private-IP guard</strong> - <code>localhost</code> and any URL whose resolved address (IPv4 or IPv6) is on loopback, a private network range, link-local, carrier-grade NAT (<code>100.64.0.0/10</code>, which Tailscale uses), IPv6 unique-local (<code>fc00::/7</code>) or site-local, a 6to4 or Teredo tunnel address, an IPv6 address that wraps a private IPv4 one (as IPv4-mapped and NAT64 addresses can), or another reserved block is refused - even when a public-looking hostname resolves there through DNS. A malicious URL therefore cannot pivot into your local network (this defends against <abbr title="Server-Side Request Forgery">SSRF</abbr> - a class of attack where a crafted URL tricks an app into reaching into networks the attacker can&rsquo;t). The addresses that pass the check are the ones Loach connects to, so DNS can&rsquo;t switch them in between.</li>
+      <li><strong class="feat-name">No proxy</strong> - fetches connect straight to the screened address and never go through a proxy, whether one is set in <code>HTTP_PROXY</code> / <code>HTTPS_PROXY</code> or in your system settings. A proxy would look the hostname up again itself, out of reach of the check above.</li>
       <li><strong class="feat-name">Redirects</strong> - walked manually, up to 10, and re-screened at every hop with the same rules.</li>
       <li><strong class="feat-name">Failures stay per URL</strong> - a dead link does not block your message; you get a short stub for that one URL, and the reason shows on the reply.</li>
       <li><strong class="feat-name">Rate-limited</strong> - at most 60 URLs per 60 seconds, shared across all chats, so a prompt full of links can&rsquo;t hammer the network.</li>

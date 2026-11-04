@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Providers & connections - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists." />
+  <meta name="description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, OpenAI 400 errors, keys that fail to save, empty or missing model lists." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/providers-connections.html" />
   <meta property="og:title" content="Providers &amp; connections - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists." />
+  <meta property="og:description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, OpenAI 400 errors, keys that fail to save, empty or missing model lists." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Providers &amp; connections - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists." />
+  <meta name="twitter:description" content="Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, OpenAI 400 errors, keys that fail to save, empty or missing model lists." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Providers & connections - Troubleshooting",
-      "description": "Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, Linux Secret Service, empty or missing model lists.",
+      "description": "Troubleshoot Loach provider connections: Ollama unreachable, Start Ollama errors, OpenAI 401 and withheld keys, OpenAI 400 errors, keys that fail to save, empty or missing model lists.",
       "url": "https://docs.loach.dev/pages/troubleshooting/providers-connections.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -270,7 +272,7 @@
     <p class="problem-statement"><strong>Test connection</strong> in <strong>Settings &rarr; Providers</strong> says <strong>Connection failed</strong>, the model picker lists Ollama as <strong>Not running</strong>, or the model dropdown is empty even though <code>ollama list</code> works in a terminal.</p>
     <ol>
   <li>Make sure Ollama is running. If it&rsquo;s installed on this computer, click <strong>Start Ollama</strong> in the model picker, or turn on <strong>Auto-launch Ollama</strong> in <strong>Settings &rarr; Providers</strong> so Loach starts it each time it opens. Otherwise: on Windows, the Ollama tray icon needs to be active; on Linux, the <code>ollama</code> service must be started; on macOS, launch the Ollama menu-bar app or run <code>ollama serve</code> from a terminal.</li>
-  <li>Open <strong>Settings &rarr; Providers</strong> and check the <strong>Ollama base URL</strong>. The default is <code>http://localhost:11434</code>. If you run Ollama on another machine or a custom port, change it here, then click <strong>Test connection</strong>.</li>
+  <li>Open <strong>Settings &rarr; Providers</strong> and check the <strong>Ollama base URL</strong>. The default is <code>http://localhost:11434</code>. If you run Ollama on another machine or a custom port, change it here, then click <strong>Test connection</strong>. A 404 there means the URL has a path on it: use the server&rsquo;s address alone (<code>http://localhost:11434</code>, not <code>&hellip;/v1</code> or <code>&hellip;/api</code>). A 401 or 403 comes from a proxy in front of Ollama asking for a login - Loach sends Ollama no credentials, so point it at Ollama directly.</li>
   <li>Click <strong>Refresh</strong> in the Models tab (or the refresh button at the top of the model picker). The list re-queries Ollama&rsquo;s <code>/api/tags</code> endpoint.</li>
   <li>If Ollama runs on another host, make sure its firewall allows inbound connections on the chosen port and that <code>OLLAMA_HOST=0.0.0.0</code> is set on the server side (Ollama binds to localhost by default).</li>
 </ol>
@@ -293,14 +295,19 @@
   <li>A server on another machine reached over plain <code>http://</code> never gets the key: Loach only sends it over <code>https://</code>, or over <code>http://</code> to this computer, so it can&rsquo;t be read off the network. Put the server behind HTTPS, or turn off its key requirement if it&rsquo;s on a network you trust. In a chat, the error then says &ldquo;API key withheld because the base URL is http:// to another machine&rdquo; rather than &ldquo;API key invalid or expired&rdquo;; <strong>Test connection</strong> reports it as a plain 401.</li>
 </ol>
 
+    <h2 id="openai-400">An OpenAI chat fails with &ldquo;HTTP 400 Bad Request&rdquo;</h2>
+    <p class="problem-statement">A chat on an OpenAI-compatible provider fails with <em>OpenAI HTTP 400 Bad Request</em> followed by the server&rsquo;s own error.</p>
+    <p>Some models refuse request fields Loach sets on its own - OpenAI&rsquo;s reasoning models (the o-series, GPT-5) reject <code>max_tokens</code> and any temperature but their default. When the server&rsquo;s 400 names such a field (<code>max_tokens</code>, <code>temperature</code>, <code>top_p</code>, the frequency or presence penalty, <code>seed</code> or <code>stream_options</code>), Loach adjusts it and retries by itself - <code>max_tokens</code> becomes <code>max_completion_tokens</code>, the others are left out - so those never reach you as an error. A 400 that still shows is about something else: the server&rsquo;s message after the status says what it refused.</p>
+
     <h2 id="linux-secret-service">Key won&rsquo;t save on Linux</h2>
     <p class="problem-statement">Saving the key shows a <em>Couldn&rsquo;t save API key</em> error, or when you reopen Settings the key field shows the <code>sk-&hellip;</code> placeholder instead of <code>•••••••• (stored)</code>. (The field itself is always blank - a saved key is never shown back.)</p>
     <p>Loach uses the system Secret Service to store secrets. On minimal Linux installs (server-style, some tiling window managers) there is no Secret Service running.</p>
 <ol>
   <li>Install and start <strong>gnome-keyring</strong> or <strong>KWallet</strong> - whichever fits your desktop environment.</li>
   <li>Make sure a login session is unlocked so the keyring is available to user processes.</li>
-  <li>Restart Loach and re-enter the key.</li>
+  <li>Re-enter the key. Loach connects to the Secret Service again on each try, so a keyring that started after Loach is picked up without a restart; restart Loach if saving still fails.</li>
 </ol>
+    <p>On Windows, a key longer than 1,280 characters is refused with <em>OpenAI API key is unusually long (N chars) - refusing to store</em>, because Credential Manager can&rsquo;t hold it. Check that you copied the key and nothing else.</p>
     <p>On a managed Windows machine, see <a href="platform.html#windows-credman">Windows - saving a key or the app lock fails</a>.</p>
 
     <h2 id="empty-model-list">Models list shows no models</h2>
@@ -312,7 +319,7 @@
     <ul>
   <li>With the default OpenAI base URL, nothing is listed until a key is saved, and clearing the key empties the list on purpose - those models could only fail at send time. A base URL pointing at your own server is listed with or without a key.</li>
   <li>Run <strong>Test connection</strong> under the key field to see the endpoint&rsquo;s own error.</li>
-  <li>The picker shows the first 30 models the endpoint returns. For one further down a long catalog (OpenRouter, say), type <code>/model &lt;name&gt;</code> in the composer, or pick it under <strong>Settings &rarr; General &rarr; Default model</strong>. Both use the full catalog the Models tab lists - press <strong>Refresh</strong> there if a model you just added is missing.</li>
+  <li>The picker lists every model the endpoint returns. In a long catalog (OpenRouter, say), scroll the menu or type a model&rsquo;s first letters to jump to it - or type <code>/model &lt;name&gt;</code> in the composer. If a model you just added is missing, click the refresh button at the top of the picker&rsquo;s menu.</li>
 </ul>
 
     <div class="page-nav">

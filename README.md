@@ -21,12 +21,12 @@ loach-docs/
 │   ├── tech-stack.html
 │   ├── faq.html
 │   ├── troubleshooting.html            # Overview that links to troubleshooting/*.html
-│   ├── features/                       # 38 per-feature subpages
+│   ├── features/                       # 39 per-feature subpages
 │   │   ├── app-lock.html
 │   │   ├── attachments.html
 │   │   ├── … (36 more)
 │   │   └── web-fetch.html
-│   └── troubleshooting/                # 13 per-topic troubleshooting subpages
+│   └── troubleshooting/                # 14 per-topic troubleshooting subpages
 │       ├── app-lock.html
 │       ├── appearance.html
 │       ├── … (10 more)

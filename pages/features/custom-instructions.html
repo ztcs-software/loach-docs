@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="../troubleshooting/attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="../troubleshooting/library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="../troubleshooting/updates.html">Updates</a></li>
@@ -280,6 +282,7 @@
       <li>Otherwise <strong>your global custom instructions</strong>.</li>
     </ol>
     <p>Because a new chat starts with a copy of your global instructions in its own field, editing the global ones later changes the chats you start from then on, not the ones you already have. To make an existing chat follow the current global instructions, empty its field (or run <code>/instructions clear</code>).</p>
+    <p>The <a href="context-compaction.html#usage-bar">context bar</a> counts whichever set wins, so in a Space with instructions it measures the Space&rsquo;s.</p>
     <div class="callout note">
       <div class="callout-body">
         <div class="callout-title">Space instructions win</div>
@@ -292,10 +295,10 @@
     <ul class="feature-list">
       <li><strong class="feat-name">Persona and tone</strong> - the persona goes first (after the folder note and project instructions, when the chat has a <a href="work-in-folders.html">working folder</a>) and the tone last. See <a href="personas.html">Personas and tones</a>.</li>
       <li><strong class="feat-name">Date preamble</strong> - a one-line date, weekday and timezone note, when <a href="temporal-awareness.html">temporal awareness</a> is on.</li>
-      <li><strong class="feat-name">Memory and Space sources</strong> - your <a href="memory.html">global and Space memory</a> and the Space&rsquo;s <a href="spaces.html#sources">reference sources</a>, after the instructions.</li>
+      <li><strong class="feat-name">Sources and memory</strong> - after the instructions come the full-text <a href="library.html#using-sources">sources</a> (the Space&rsquo;s <a href="spaces.html#sources">uploads</a> and the Library sources linked to the chat or its Space), then your <a href="memory.html">global and Space memory</a>. Sources sent as <a href="library.html#source-modes">excerpts</a> ride along with your message instead.</li>
       <li><strong class="feat-name">Compaction summary</strong> and <strong>project instructions</strong> - described below.</li>
     </ul>
-    <p><a href="private-chat.html">Private Chat</a> skips most of this: it ignores your custom instructions, memory, Spaces, template variables and the date preamble, and sends only the persona and instructions set in its own panel, plus its tone (or your default tone).</p>
+    <p><a href="private-chat.html">Private Chat</a> skips most of this: it ignores your custom instructions, memory, Spaces, the Library, template variables and the date preamble, and sends only the persona and instructions set in its own panel, plus its tone (or your default tone).</p>
 
     <h3 id="compaction-summaries">Compaction summaries</h3>
     <p>When you <a href="context-compaction.html">compact a chat</a>, Loach stores the summary at the top of the chat&rsquo;s own instructions field, between <code>[Loach: earlier conversation summary]</code> and <code>[End of Loach summary]</code> markers. It doesn&rsquo;t count as your instructions: it goes in front of whichever instructions win, so a compacted chat with no instructions of its own still follows your global ones, and a compacted chat in a Space keeps both the summary and the Space&rsquo;s instructions. <code>/instructions</code> shows and replaces only your own text and keeps the summary. If you edit the field in the Parameters panel, leave the marked block in place - deleting it deletes the summary.</p>
@@ -304,7 +307,7 @@
     <p>When a chat works in a folder (with <strong>Settings &rarr; Tools &rarr; Workspace files</strong> on), a <code>LOACHFILE.md</code> at the folder&rsquo;s root is added to every message: how to run the tests, what not to touch, house style. It&rsquo;s read fresh each time, so an edit applies to your next message, and only its first 32 KB is used. It&rsquo;s added at the very start of the system prompt - ahead of the persona and your instructions - rather than replacing them, in Spaces too, and the model is told it comes from the project, not from you: when it conflicts with your instructions, yours win, and it can&rsquo;t give the model extra permissions.</p>
 
     <h2 id="template-variables">Template variables</h2>
-    <p>Global instructions, Space instructions and per-chat instructions can use these placeholders; Loach substitutes them each time it sends a message. <a href="snippets.html#variables">Snippet</a> bodies can use them too - there they&rsquo;re filled in when the snippet runs. Placeholders typed into an ordinary message are sent as written.</p>
+    <p>Global instructions, Space instructions and per-chat instructions can use these placeholders; Loach substitutes them each time it sends a message. <a href="snippets.html#variables">Snippet</a> bodies can use them too - there they&rsquo;re filled in when the snippet runs. Placeholders typed into an ordinary message, or inside a source, are sent as written. The <strong>Variables</strong> panel on the <a href="snippets.html#variables">Snippets</a> page lists these under <strong>Built in - filled in automatically</strong>, each with the value it would have right now.</p>
     <ul class="feature-list">
       <li><strong class="feat-name">{{USER_NAME}}</strong> - <strong>Your name</strong> from <strong>Settings &rarr; General</strong>. Replaced with nothing if you haven&rsquo;t set one.</li>
       <li><strong class="feat-name">{{CURRENT_DATE}}</strong> - <code>YYYY-MM-DD</code>.</li>

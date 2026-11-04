@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sending & receiving messages - Troubleshooting - Loach Docs</title>
-  <meta name="description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach." />
+  <meta name="description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, poor output quality, HTML previews that don't run and messages starting with a slash in Loach." />
   <link rel="icon" type="image/png" href="../../assets/img/loach-favicon.png" />
   <script>(function(){try{var t=localStorage.getItem('loach-docs-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(_){}})();</script>
   <link rel="stylesheet" href="../../assets/css/styles.css" />
@@ -15,11 +15,11 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://docs.loach.dev/pages/troubleshooting/messages.html" />
   <meta property="og:title" content="Sending &amp; receiving messages - Troubleshooting - Loach Docs" />
-  <meta property="og:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach." />
+  <meta property="og:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, poor output quality, HTML previews that don't run and messages starting with a slash in Loach." />
   <meta property="og:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sending &amp; receiving messages - Troubleshooting - Loach Docs" />
-  <meta name="twitter:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach." />
+  <meta name="twitter:description" content="Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, poor output quality, HTML previews that don't run and messages starting with a slash in Loach." />
   <meta name="twitter:image" content="https://docs.loach.dev/assets/img/loach-logo.png" />
   <script type="application/ld+json">
 {
@@ -51,7 +51,7 @@
     {
       "@type": "TechArticle",
       "headline": "Sending & receiving messages - Troubleshooting",
-      "description": "Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, and poor output quality in Loach.",
+      "description": "Troubleshoot stuck chats, half-streamed replies, missing thinking traces, metrics that don't match your provider, formulas shown as raw TeX, compaction that won't run, poor output quality, HTML previews that don't run and messages starting with a slash in Loach.",
       "url": "https://docs.loach.dev/pages/troubleshooting/messages.html",
       "image": "https://docs.loach.dev/assets/img/loach-logo.png",
       "inLanguage": "en",
@@ -167,6 +167,7 @@
             <ul class="sidebar-submenu" id="sb-features-organization">
               <li><a class="sidebar-sublink" href="../features/spaces.html">Spaces</a></li>
               <li><a class="sidebar-sublink" href="../features/memory.html">Memory</a></li>
+              <li><a class="sidebar-sublink" href="../features/library.html">Library</a></li>
               <li><a class="sidebar-sublink" href="../features/snippets.html">Snippets</a></li>
               <li><a class="sidebar-sublink" href="../features/folders-labels.html">Chat folders &amp; labels</a></li>
               <li><a class="sidebar-sublink" href="../features/chat-archive.html">Chat archive</a></li>
@@ -249,6 +250,7 @@
           <li><a class="sidebar-sublink" href="attachments.html">Attachments</a></li>
           <li><a class="sidebar-sublink" href="web-fetch-mcp.html">Tools, MCP &amp; folders</a></li>
           <li><a class="sidebar-sublink" href="spaces-memory.html">Spaces &amp; memory</a></li>
+          <li><a class="sidebar-sublink" href="library.html">Library</a></li>
           <li><a class="sidebar-sublink" href="app-lock.html">App lock</a></li>
           <li><a class="sidebar-sublink" href="models-editor.html">Models editor</a></li>
           <li><a class="sidebar-sublink" href="updates.html">Updates</a></li>
@@ -280,14 +282,15 @@
     <h2 id="reply-half-error">The reply stopped halfway and shows an error</h2>
     <p class="problem-statement">A streaming reply errored, and the bubble ends with an italic error line starting with &#9888;.</p>
     <p>Whatever streamed before the failure is kept - open the message&rsquo;s <code>&hellip;</code> menu and use <strong>Copy message</strong> if you want to preserve it. To get a full answer, send the same prompt again, or click <strong>Regenerate</strong> in the same menu if it&rsquo;s there (it&rsquo;s offered on the last reply only). If errors repeat, see <a href="providers-connections.html">Providers &amp; connections</a> or <a href="performance.html">Performance &amp; VRAM</a>.</p>
+    <p>An error line saying the reply <em>stopped mid-reply</em> means the server itself broke off partway: Ollama&rsquo;s model runner crashed or ran out of memory, or an OpenAI-compatible server sent an error in the middle of the stream. The text after the colon is the reason, when the server gave one.</p>
     <p>A reply you stopped yourself, or one cut short by <strong>Respond now</strong>, also keeps its partial text but gets no error line.</p>
 
     <h2 id="no-thinking-trace">I see no &ldquo;thinking&rdquo; trace even though the model supports reasoning</h2>
     <p class="problem-statement">A reasoning model is selected but no thinking block appears above the answer.</p>
     <ol>
-      <li>Open the <strong>Parameters</strong> panel (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and confirm the <strong>Thinking</strong> toggle is on for this chat.</li>
+      <li>Open the <strong>Parameters</strong> panel (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) and confirm the <strong>Thinking</strong> toggle is on for this chat. If it starts off in every new chat, check <strong>Settings &rarr; Features &rarr; Thinking</strong> and the model&rsquo;s <strong>Allow thinking step</strong> switch on its page under <strong>Models</strong>.</li>
       <li>Make sure the model actually advertises the <code>thinking</code> capability - when it doesn&rsquo;t, the Thinking row in the panel is disabled with <em>This model doesn&rsquo;t support a thinking step</em>. Many tags of the same base model differ on this.</li>
-      <li>The Thinking toggle is <strong>Ollama-only</strong>. In a chat on an OpenAI-compatible provider it&rsquo;s disabled and reads off; a thinking block still appears there only if the server streams its reasoning as a separate <code>reasoning_content</code> field (some DeepSeek, vLLM and llama.cpp setups do).</li>
+      <li>The Thinking toggle is <strong>Ollama-only</strong>. In a chat on an OpenAI-compatible provider it&rsquo;s disabled and reads off; a thinking block still appears there only if the server streams its reasoning as a separate <code>reasoning_content</code> or <code>reasoning</code> field (some DeepSeek, vLLM, llama.cpp and OpenRouter setups do, and so does Ollama&rsquo;s own <code>/v1</code> endpoint).</li>
     </ol>
 
     <h2 id="raw-tex">A formula shows as raw TeX instead of rendering</h2>
@@ -314,7 +317,7 @@
     <ul>
       <li><strong>Greyed out.</strong> The button needs at least six messages that haven&rsquo;t been compacted yet <em>and</em> a quarter of the context window in use. <code>/compact</code> only needs the six messages.</li>
       <li><strong>&ldquo;Chat is busy&rdquo;.</strong> Wait for the chat&rsquo;s reply to finish (or for its queued prompt to run) first. Only one chat compacts at a time.</li>
-      <li><strong>&ldquo;Compaction failed&rdquo;.</strong> The summary is written by the chat&rsquo;s own model, so provider errors apply; a summary that takes more than three minutes is abandoned. Nothing in the chat changes, so you can try again - or <strong>Expand context window</strong> in the same popover instead.</li>
+      <li><strong>&ldquo;Compaction failed&rdquo;.</strong> The summary is written by the chat&rsquo;s own model, so provider errors apply; a summary that takes more than three minutes is abandoned. Nothing in the chat changes, so you can try again - or, on an Ollama chat, <strong>Expand context window</strong> in the same popover instead.</li>
     </ul>
     <p>See <a href="../features/context-compaction.html">Context &amp; compaction</a>.</p>
 
@@ -325,10 +328,24 @@
       <li>Lower <strong>Temperature</strong> for more focused answers, raise it for more variety.</li>
       <li>Raise <strong>Max Tokens</strong> if the answer keeps cutting off.</li>
       <li>Raise <strong>Context Length</strong> if the model is forgetting earlier turns. A longer context uses more VRAM.</li>
-      <li>Increase <strong>Repeat Penalty</strong> (default 1.1; try up to 1.3) if the model loops. On an OpenAI-compatible chat, Context Length and Repeat Penalty are ignored - use <strong>Frequency Penalty</strong> for loops instead.</li>
+      <li>Increase <strong>Repeat Penalty</strong> (default 1.1; try up to 1.3) if the model loops. On an OpenAI-compatible chat, Repeat Penalty is ignored and Context Length isn&rsquo;t sent - the server decides, and Loach only sizes the context bar and Library sources by it, assuming 32k until you set the model&rsquo;s real window - so use <strong>Frequency Penalty</strong> for loops instead.</li>
       <li>Click <strong>Reset to defaults</strong> (or <strong>Reset to model defaults</strong>) below the sliders to discard per-chat overrides and fall back to the model&rsquo;s and app defaults.</li>
     </ul>
     <p>Check the chat&rsquo;s instructions too: in a Space with its own instructions, the chat&rsquo;s <strong>Additional instructions</strong> are ignored. See <a href="../features/parameters.html#system-prompt">Per-chat instructions</a>.</p>
+
+    <h2 id="html-preview">An HTML preview shows the page but nothing on it works</h2>
+    <p class="problem-statement">In the code canvas, buttons, games or animations on a previewed page do nothing.</p>
+    <p>Previews open with the page&rsquo;s scripts off - markup and styles only - and the bar above the page reads <em>Offline sandbox &middot; scripts off</em>. Click <strong>Run scripts</strong> to turn them on for that page; another code block, or an edit to this one, starts with them off again. On macOS and Linux the preview runs on Loach&rsquo;s own thread, so a script that never ends freezes the whole app until you quit it - only run pages you&rsquo;re willing to restart for. While the reply is still streaming, the preview reads <em>The preview appears when the code finishes generating.</em> and <strong>Run scripts</strong> stays disabled until it&rsquo;s done.</p>
+    <p>If the page still misbehaves with scripts on:</p>
+    <ul>
+      <li>It may load a library or stylesheet from the web (a CDN <code>&lt;script src&gt;</code>, Tailwind, Chart.js). Previews are offline, so nothing from the web arrives - ask the model for a self-contained page.</li>
+      <li>Pop-ups and dialogs such as <code>alert()</code> do nothing, and forms don&rsquo;t submit.</li>
+    </ul>
+    <p>See <a href="../features/code-canvas.html#html-preview">HTML preview</a>.</p>
+
+    <h2 id="slash-text">A message starting with <code>/</code> ran a command instead of sending</h2>
+    <p class="problem-statement">You typed a message that begins with <code>/</code>, and a command ran - or a <strong>Command failed</strong> notice appeared - instead of the message going to the model.</p>
+    <p>When the first word after the <code>/</code> is a <a href="../features/slash-commands.html">slash command</a>, Enter runs the command rather than sending. A command that fails - <code>/new idea</code> answers <em>/new doesn&rsquo;t take arguments.</em> - leaves your text in the message box to fix. Anything else that starts with <code>/</code>, such as a path like <code>/etc/hosts</code>, is sent as a normal message, and so is text that starts with <code>//</code> or with <code>/</code> and a space (a <code>// comment</code>): those never open the command palette. To send text that begins with a command name, put a word before the slash.</p>
     <div class="page-nav">
       <a href="providers-connections.html">
         <span class="label">Previous</span>
